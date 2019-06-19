@@ -2,10 +2,11 @@
   <div>
     <h1>Editeur d'article</h1>
 
-    <select v-model="selected">
+    <select v-model="selected" @change="selectArticle(selected)">
       <option value>Choississez un article</option>
-      <option v-for="select in articles" v-bind:key="select._id">{{ select.title }}</option>
+      <option v-for="article in articles" :value="article._id" :key="article._id">{{ article.title }}</option>
     </select>
+    
 
     {{ selected }}
     
@@ -22,7 +23,7 @@ export default {
     }
   },
 
-  middleware: "auth",
+  /* middleware: "auth", */
 
   methods: {
     async loadArticles() {
@@ -33,6 +34,10 @@ export default {
       } catch (e) {
         this.formError = e.message;
       }
+    },
+
+    selectArticle(select) {
+      console.log(select)
     }
   },
 
