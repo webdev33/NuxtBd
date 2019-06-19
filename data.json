@@ -1,0 +1,15 @@
+{
+  "users": [
+    {
+      "pseudo": "admin", "password": "admin"
+    }
+  ],
+  "article": [
+    {
+      "_id": "1",
+      "title": "Article_1",
+      "content": "Content_1",
+      "categorie": "categorie_1"
+    }
+  ]
+}
