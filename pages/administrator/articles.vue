@@ -25,7 +25,7 @@ export default {
   /* middleware: "auth", */
 
   methods: {
-    async test() {
+    async loadArticles() {
       try {
         let articles = await this.$store.dispatch("article");
         this.articles = articles.data.data;
@@ -37,7 +37,7 @@ export default {
   },
 
   mounted: function mounted() {
-    this.test();
+    this.loadArticles();
   }
 };
 </script>

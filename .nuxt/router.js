@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _a81bf53a = () => interopDefault(import('..\\pages\\secret.vue' /* webpackChunkName: "pages_secret" */))
+const _6cac2aec = () => interopDefault(import('..\\pages\\admin.vue' /* webpackChunkName: "pages_admin" */))
+const _9b6681b2 = () => interopDefault(import('..\\pages\\administrator\\articles.vue' /* webpackChunkName: "pages_administrator_articles" */))
 const _3b3cd6ef = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
@@ -80,9 +81,13 @@ export function createRouter() {
     scrollBehavior,
 
     routes: [{
-      path: "/secret",
-      component: _a81bf53a,
-      name: "secret"
+      path: "/admin",
+      component: _6cac2aec,
+      name: "admin"
+    }, {
+      path: "/administrator/articles",
+      component: _9b6681b2,
+      name: "administrator-articles"
     }, {
       path: "/",
       component: _3b3cd6ef,
