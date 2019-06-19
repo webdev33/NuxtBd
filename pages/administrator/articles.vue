@@ -7,7 +7,7 @@
     <br>
 
     <!-- SELECT ARTICLE -->
-    <select v-model="selected" @change="selectArticle(selected)">
+    <select :key="componentKey" v-model="selected" @change="selectArticle(selected)">
       <option value>Choississez un article</option>
       <option
         v-for="article in articles"
@@ -44,6 +44,9 @@ export default {
       selected: null,
       currentId: null,
 
+      /* Render */
+      componentKey: 0,
+
       /* Article select informations */
       articleSelected: {
         _id: null,
@@ -64,6 +67,9 @@ export default {
         let articles = await this.$store.dispatch("articles");
         this.articles = articles.data.data;
         console.log(this.articles);
+
+        this.componentKey += 1;
+        console.log(this.componentKey)
       } catch (e) {
         this.formError = e.message;
       }
@@ -82,6 +88,7 @@ export default {
         this.articleSelected._id = article.data.data[0]._id;
         this.articleSelected.title = article.data.data[0].title;
         this.articleSelected.content = article.data.data[0].content;
+        this.loadArticles();
       } catch (e) {
         this.formError = e.message;
       }
@@ -92,7 +99,6 @@ export default {
     * Edit
     */
     async edit() {
-      console.log(this.articleSelected)
       try {
         await this.$store.dispatch("editArticle", {
           _id: this.articleSelected._id,
@@ -102,6 +108,7 @@ export default {
         this.articleSelected._id = null;
         this.articleSelected.title = null;
         this.articleSelected.content = null;
+        this.loadArticles();
       } catch (e) {
         this.formError = e.message;
       }
@@ -113,6 +120,16 @@ export default {
     */
     async remove(articleSelected) {
       console.log('remove');
+      try {
+        await this.$store.dispatch("removeArticle", {
+          _id: this.currentId
+        });
+        this.articleSelected._id = null;
+        this.articleSelected.title = null;
+        this.articleSelected.content = null;
+      } catch (e) {
+        this.formError = e.message;
+      }
     },
     //
   },

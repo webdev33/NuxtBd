@@ -89,7 +89,7 @@ router.post("/article", (req, res) => {
 //
 
 /*
- * Select one article
+ * Edit article
  */
 router.post("/editArticle", (req, res) => {
   connexion.query(
@@ -99,6 +99,23 @@ router.post("/editArticle", (req, res) => {
         res.json({ msg: "Error", err: error });
       } else {
         res.json({ msg: "Article was edit", data: results });
+      }
+    }
+  );
+});
+//
+
+/*
+ * Remove article
+ */
+router.post("/removeArticle", (req, res) => {
+  connexion.query(
+    `DELETE FROM post WHERE post._id = ${ req.body._id }`,
+    (error, results, fields) => {
+      if (error) {
+        res.json({ msg: "Error", err: error });
+      } else {
+        res.json({ msg: "Article was remove", data: results });
       }
     }
   );

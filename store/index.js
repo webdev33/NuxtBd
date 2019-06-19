@@ -70,6 +70,15 @@ export const actions = {
    */
   async editArticle({ commit }, { _id, title, content }) {
     await axios.post("/api/editArticle", { _id, title, content });
+  },
+  //
+
+  /*
+   * Remove article
+   */
+  async removeArticle({ commit }, selectId) {
+    await axios.post("/api/removeArticle", selectId);
   }
   //
 };
+
