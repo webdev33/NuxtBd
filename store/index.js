@@ -25,8 +25,7 @@ export const actions = {
   async login({ commit }, { username, password }) {
     try {
       const { data } = await axios.post("/api/login", { username, password });
-
-      /* commit("SET_USER", data); */
+      commit("SET_USER", data);
     } catch (error) {
       if (error.response && error.response.status === 401) {
         throw new Error("Bad credentials");

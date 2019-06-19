@@ -1,5 +1,4 @@
 import express from "express";
-import { cpus } from "os";
 
 const mysql = require("mysql");
 const connexion = mysql.createConnection({
@@ -28,22 +27,23 @@ router.use((req, res, next) => {
 
 // Add POST - /api/login
 router.post("/login", (req, res) => {
-  console.log('efffffff')
+  /* 
   connexion.query(`SELECT * FROM users WHERE username='${req.body.username}'  and password='${req.body.password}'`, (error, results, fields) => {
     if (error) {
       res.json({ msg: "Error get all", err: error });
     } else {
-      let { test } = res.json({ msg: "User connection", user: results });
-      console.log(test)
+      const { test } = res.json({ msg: "User connection", user: results });
+
+
+      console.log(req.body.password)
     }
   });
-
-
-/*   if (req.body.username === "demo" && req.body.password === "demo") {
-    req.session.authUser = { username: "demo" };
-    return res.json({ username: "demo" });
+ */
+  if (req.body.username === "admin" && req.body.password === "admin") {
+    req.session.authUser = { username: req.body.username };
+    return res.json({ username: req.body.username });
   }
-  res.status(401).json({ message: "Bad credentials" });  */
+  res.status(401).json({ message: "Bad credentials" }); 
 });
 
 // Add POST - /api/logout
