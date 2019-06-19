@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const state = () => ({
   authUser: null,
+  articles: null,
   article: null
 });
 
@@ -26,6 +27,8 @@ export const actions = {
     try {
       const { data } = await axios.post("/api/login", { username, password });
       commit("SET_USER", data);
+
+      return username;
     } catch (error) {
       if (error.response && error.response.status === 401) {
         throw new Error("Bad credentials");
@@ -45,10 +48,19 @@ export const actions = {
   //
 
   /*
+   * Articles
+   */
+  async articles({ commit }) {
+    const { data } = await axios.post("/api/articles");
+    return { data };
+  },
+  //
+
+  /*
    * Article
    */
-  async article({ commit }) {
-    const { data } = await axios.post("/api/article");
+  async article({ commit }, selectId) {
+    const { data } = await axios.post("/api/article", selectId );
     return { data };
   }
   //

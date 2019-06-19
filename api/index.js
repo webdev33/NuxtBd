@@ -46,13 +46,16 @@ router.post("/login", (req, res) => {
   res.status(401).json({ message: "Bad credentials" }); 
 });
 
-// Add POST - /api/logout
+/* 
+* Logout
+*/
 router.post("/logout", (req, res) => {
   delete req.session.authUser;
   res.json({ ok: true });
 });
+//
 
-router.post("/article", (req, res) => {
+router.post("/articles", (req, res) => {
   connexion.query("SELECT * FROM post", (error, results, fields) => {
     if (error) {
       res.json({ msg: "Error get all", err: error });
@@ -62,6 +65,16 @@ router.post("/article", (req, res) => {
   });
 });
 
+
+router.post("/article", (req, res) => {
+  connexion.query(`SELECT * FROM post WHERE _id='${ req.body._id }'`, (error, results, fields) => {
+    if (error) {
+      res.json({ msg: "Error get all", err: error });
+    } else {
+      res.json({ msg: "Article selected", data: results });
+    }
+  });
+});
 
 // Export the server middleware
 export default {
