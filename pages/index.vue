@@ -48,8 +48,6 @@ export default {
     async test() {
       try {
         let articles = await this.$store.dispatch('article')
-        /* console.log(articles.data.data) */
-        console.log(this.formError)
         this.articles = articles.data.data
       } catch (e) {
         this.formError = e.message
