@@ -44,6 +44,7 @@ export default {
       selected: null,
       currentId: null,
 
+      /* Article select informations */
       articleSelected: {
         _id: null,
         title: null,
@@ -74,12 +75,11 @@ export default {
      */
     async selectArticle(select) {
       this.currentId = select;
-      console.log(this.currentId);
       try {
         let article = await this.$store.dispatch("article", {
           _id: this.currentId
         });
-        console.log(article.data.data[0]);
+        this.articleSelected._id = article.data.data[0]._id;
         this.articleSelected.title = article.data.data[0].title;
         this.articleSelected.content = article.data.data[0].content;
       } catch (e) {
@@ -92,14 +92,26 @@ export default {
     * Edit
     */
     async edit() {
-      console.log('edit');
+      console.log(this.articleSelected)
+      try {
+        await this.$store.dispatch("editArticle", {
+          _id: this.articleSelected._id,
+          title: this.articleSelected.title,
+          content: this.articleSelected.content,
+        });
+        this.articleSelected._id = null;
+        this.articleSelected.title = null;
+        this.articleSelected.content = null;
+      } catch (e) {
+        this.formError = e.message;
+      }
     },
     //
 
     /* 
     * Edit
     */
-    async remove() {
+    async remove(articleSelected) {
       console.log('remove');
     },
     //

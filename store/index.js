@@ -39,7 +39,7 @@ export const actions = {
   //
 
   /*
-   * Login
+   * Logout
    */
   async logout({ commit }) {
     await axios.post("/api/logout");
@@ -60,8 +60,16 @@ export const actions = {
    * Article
    */
   async article({ commit }, selectId) {
-    const { data } = await axios.post("/api/article", selectId );
+    const { data } = await axios.post("/api/article", selectId);
     return { data };
+  },
+  //
+
+  /*
+   * Edit article
+   */
+  async editArticle({ commit }, { _id, title, content }) {
+    await axios.post("/api/editArticle", { _id, title, content });
   }
   //
 };
