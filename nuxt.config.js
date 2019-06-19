@@ -28,5 +28,14 @@ export default {
     // Api middleware
     // We add /api/login & /api/logout routes
     '~/api'
+  ],
+
+  /* 
+  * Css compilator
+  */
+  css: [
+    
+    '@/assets/scss/style.scss'
   ]
+  //
 }

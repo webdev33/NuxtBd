@@ -14,5 +14,9 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "post-update": "yarn upgrade --latest"
+  },
+  "devDependencies": {
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0"
   }
 }
