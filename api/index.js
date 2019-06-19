@@ -76,7 +76,7 @@ router.post("/articles", (req, res) => {
  */
 router.post("/article", (req, res) => {
   connexion.query(
-    `SELECT * FROM post WHERE _id='${ req.body._id }'`,
+    `SELECT * FROM post WHERE _id='${req.body._id}'`,
     (error, results, fields) => {
       if (error) {
         res.json({ msg: "Error get all", err: error });
@@ -93,7 +93,9 @@ router.post("/article", (req, res) => {
  */
 router.post("/editArticle", (req, res) => {
   connexion.query(
-    `UPDATE post SET title = '${ req.body.title }', content = '${ req.body.content }' WHERE post._id = ${ req.body._id }`,
+    `UPDATE post SET title = '${req.body.title}', content = '${
+      req.body.content
+    }' WHERE post._id = ${req.body._id}`,
     (error, results, fields) => {
       if (error) {
         res.json({ msg: "Error", err: error });
@@ -110,12 +112,31 @@ router.post("/editArticle", (req, res) => {
  */
 router.post("/removeArticle", (req, res) => {
   connexion.query(
-    `DELETE FROM post WHERE post._id = ${ req.body._id }`,
+    `DELETE FROM post WHERE post._id = ${req.body._id}`,
     (error, results, fields) => {
       if (error) {
         res.json({ msg: "Error", err: error });
       } else {
         res.json({ msg: "Article was remove", data: results });
+      }
+    }
+  );
+});
+//
+
+/*
+ * Create article
+ */
+router.post("/createArticle", (req, res) => {
+  connexion.query(
+    `INSERT INTO post (_id, title, content) VALUES (NULL, '${
+      req.body.title
+    }', '${req.body.content}');`,
+    (error, results, fields) => {
+      if (error) {
+        res.json({ msg: "Error", err: error });
+      } else {
+        res.json({ msg: "Article was create !" });
       }
     }
   );

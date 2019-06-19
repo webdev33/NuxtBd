@@ -78,7 +78,15 @@ export const actions = {
    */
   async removeArticle({ commit }, selectId) {
     await axios.post("/api/removeArticle", selectId);
+  },
+  //
+
+  /*
+   * Create article
+   */
+  async createArticle({ commit }, { title, content }) {
+    const { msg } = await axios.post("/api/createArticle", { title, content });
+    return { msg };
   }
   //
 };
-

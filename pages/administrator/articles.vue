@@ -1,7 +1,7 @@
 <template>
   <section>
     <h1>Editeur d'article</h1>
-    <NuxtLink to="/">Back to the admin page</NuxtLink>
+    <NuxtLink to="/admin">Back to the admin page</NuxtLink>
     <p v-if="formError" class="error">{{ formError }}</p>
     <br>
     <br>
@@ -21,15 +21,31 @@
       <form v-on:submit.prevent>
         <p>
           Title:
-          <input v-model="articleSelected.title" type="text" name="username">
+          <input v-model="articleSelected.title" type="text">
         </p>
 
         <p>
           Content:
-          <input v-model="articleSelected.content" type="text" name="username">
+          <input v-model="articleSelected.content" type="text">
         </p>
         <button v-on:click.capture="edit" type="edit">Modifier</button>
         <button v-on:click.capture="remove" type="remove">Supprimer</button>
+      </form>
+    </section>
+    <!-- ELSE -->
+    <section v-else>
+      <h2>Créer un article :</h2>
+      <form v-on:submit.prevent>
+        <p>
+          Title:
+          <input v-model="articleSelected.title" type="text">
+        </p>
+
+        <p>
+          Content:
+          <input v-model="articleSelected.content" type="text">
+        </p>
+        <button v-on:click.capture="create" type="create">Créer</button>
       </form>
     </section>
   </section>
@@ -66,10 +82,8 @@ export default {
       try {
         let articles = await this.$store.dispatch("articles");
         this.articles = articles.data.data;
-        console.log(this.articles);
-
+        /* Render */
         this.componentKey += 1;
-        console.log(this.componentKey)
       } catch (e) {
         this.formError = e.message;
       }
@@ -88,54 +102,79 @@ export default {
         this.articleSelected._id = article.data.data[0]._id;
         this.articleSelected.title = article.data.data[0].title;
         this.articleSelected.content = article.data.data[0].content;
-        this.loadArticles();
       } catch (e) {
         this.formError = e.message;
       }
     },
     //
 
-    /* 
-    * Edit
-    */
+    /*
+     * Edit
+     */
     async edit() {
       try {
         await this.$store.dispatch("editArticle", {
           _id: this.articleSelected._id,
           title: this.articleSelected.title,
-          content: this.articleSelected.content,
+          content: this.articleSelected.content
         });
-        this.articleSelected._id = null;
-        this.articleSelected.title = null;
-        this.articleSelected.content = null;
-        this.loadArticles();
+        this.cleaner();
       } catch (e) {
         this.formError = e.message;
       }
     },
     //
 
-    /* 
-    * Edit
-    */
-    async remove(articleSelected) {
-      console.log('remove');
+    /*
+     * Edit
+     */
+    async remove() {
       try {
         await this.$store.dispatch("removeArticle", {
           _id: this.currentId
         });
-        this.articleSelected._id = null;
-        this.articleSelected.title = null;
-        this.articleSelected.content = null;
+        this.cleaner();
       } catch (e) {
         this.formError = e.message;
       }
     },
     //
+
+    /*
+     * Create article
+     */
+    async create(articleSelected) {
+      try {
+        let message = await this.$store.dispatch("createArticle", {
+          title: this.articleSelected.title,
+          content: this.articleSelected.content
+        });
+        this.cleaner();
+      } catch (e) {
+        this.formError = e.message;
+      }
+    },
+    //
+
+    /*
+     * Cleaner
+     */
+    cleaner() {
+      this.articleSelected._id = null;
+      this.articleSelected.title = null;
+      this.articleSelected.content = null;
+      this.currentId = null;
+      this.loadArticles();
+    }
+    //
   },
 
   mounted: function mounted() {
+    /*
+     * Load articles
+     */
     this.loadArticles();
+    //
   }
 };
 </script>
