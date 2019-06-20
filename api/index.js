@@ -92,7 +92,7 @@ router.post("/article", (req, res) => {
  * Edit article
  */
 router.post("/editArticle", (req, res) => {
-  console.log(
+/*   console.log(
     `UPDATE post SET station = '${req.body.station}', status = '${req.body.status}', linesStation = '${req.body.linesStation}', linkBienvenue = '${req.body.linkBienvenue}', explicationNom = '${req.body.explicationNom}', events = '${req.body.events}', pictures = '${req.body.pictures}', audios = '${req.body.audios}', nextStep = '${req.body.nextStep}' WHERE post._id = ${req.body._id};`,);
 
   console.log("///////////////");
@@ -116,15 +116,26 @@ router.post("/editArticle", (req, res) => {
   console.log(req.body.pictures);
   console.log("///////////////");
   console.log(req.body.nextStep);
-  console.log("///////////////");
+  console.log("///////////////"); */
 
   // Error : explicationNom = '${req.body.explicationNom}'
   // , events = '${req.body.events}',
     // , pictures = '${req.body.pictures}'
+//`UPDATE post SET station = '${req.body.station}', status = '${req.body.status}', linesStation = '${req.body.linesStation}', linkBienvenue = '${req.body.linkBienvenue}', audios = '${req.body.audios}', nextStep = '${req.body.nextStep}' WHERE post._id = ${req.body._id};`
 
 
-  connexion.query(
-    `UPDATE post SET station = '${req.body.station}', status = '${req.body.status}', linesStation = '${req.body.linesStation}', linkBienvenue = '${req.body.linkBienvenue}', audios = '${req.body.audios}', nextStep = '${req.body.nextStep}' WHERE post._id = ${req.body._id};`,
+
+/* [{ "name":"Portes de Vincennes", "text": "Bibi"}, { "name":"Porte Maillot", "text": "La station porte comme sous-titre Palais des Congrès, nom du centre d\'affaires situé à proximité et construit à partir de 1970."}] */
+/* [{"ligne":"Portes de Vincennes","date":"fefefe"},{"ligne":"5","date":"33/37/3300"}] */
+
+
+let test = `[{"name":"Portes de Vincennes","text":"fefefe"},{"name":"Porte Maillot","text":"La station porte comme sous-titre Palais des Congrès, nom du centre d'affaires situé à proximité et construit à partir de 1970."}]`
+
+    console.log(test);
+    console.log(test.replace(/'/g, `''`));
+
+  connexion.query(    
+    `UPDATE post SET explicationNom = '${test.replace(/'/g, `''`)}' WHERE post._id = 2;`,
     (error, results, fields) => {
       if (error) {
         res.json({ msg: "Error", err: error });
