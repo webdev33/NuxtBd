@@ -19,8 +19,6 @@
     <!-- MODIFIER -->
     <section v-if="currentId !== null">
       <form v-on:submit.prevent>
-        
-
         <!--         this.articleSelected.linesStation = JSON.parse(article.data.data[0].linesStation);
         this.articleSelected.linkBienvenue = article.data.data[0].linkBienvenue;
         this.articleSelected.explicationsStations = JSON.parse(article.data.data[0].explicationsStations);
@@ -33,7 +31,6 @@
           Nom de la station / page :
           <input v-model="articleSelected.station" type="text">
         </p>
-        
 
         <!-- COLUMN linesStation -->
         <p>
@@ -50,11 +47,12 @@
         </p>
 
         <!-- <button  @click="add" type="text"> -->
-        <button  @click="add">Ajouter une ligne</button>
+        <button @click="add('ligneStation')">Ajouter une ligne à la station</button>
 
-        <br><br>
-        <br><br>
-
+        <br>
+        <br>
+        <br>
+        <br>
 
         <button v-on:click.capture="edit" type="edit">Modifier</button>
         <button v-on:click.capture="remove" type="remove">Supprimer</button>
@@ -110,10 +108,6 @@ export default {
   /* middleware: "auth", */
 
   methods: {
-    add() {
-      console.log(this.articleSelected)
-    },
-
     /*
      * Load articles
      */
@@ -169,7 +163,7 @@ export default {
      * Edit
      */
     async edit() {
-      console.log(this.articleSelected)
+      console.log(this.articleSelected);
       /* try {
         await this.$store.dispatch("editArticle", {
           _id: this.articleSelected._id,
@@ -223,6 +217,22 @@ export default {
       this.articleSelected.content = null;
       this.currentId = null;
       this.loadArticles();
+    },
+    //
+
+    /*
+     * Add a new component
+     */
+    add(select) {
+      switch (select) {
+        case `ligneStation`:
+          this.articleSelected.linesStation.push({ ligne: null, date: null });
+          break;
+
+        default:
+          alert("Indisponible");
+          break;
+      }
     }
     //
   },
