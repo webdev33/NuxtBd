@@ -97,6 +97,17 @@
         </p>
         <button @click="add('pictures')">Ajouter un autre lien</button>
 
+        <!-- COLUMN audios -->
+        <hr>
+        <p v-for="select in articleSelected.audios" :key="select._id">
+          Lien de la musique
+          <input v-model="select.link" type="text">
+          Titre de la musique
+          <textarea v-model="select.title" type="text"></textarea>
+          <button @click="removeLine('nextStep', select.title)">Supprimer la ligne</button>
+        </p>
+        <button @click="add('audios')">Ajouter un autre lien</button>
+
         <!-- Button -->
         <hr>
         <br>
@@ -131,6 +142,7 @@ export default {
         linkBienvenue: null,
         explicationNom: null,
         events: null,
+        audios: null,
         pictures: null,
         nextStep: null
       }
@@ -178,6 +190,7 @@ export default {
         );
 
         this.articleSelected.events = JSON.parse(article.data.data[0].events);
+        this.articleSelected.audios = JSON.parse(article.data.data[0].audios);
 
         this.articleSelected.pictures = JSON.parse(
           article.data.data[0].pictures
@@ -256,7 +269,6 @@ export default {
      * Add a new component
      */
     add(select) {
-      console.log(select);
       switch (select) {
         case `linesStation`:
           this.articleSelected.linesStation.push({ ligne: null, date: null });
@@ -274,8 +286,16 @@ export default {
           this.articleSelected.nextStep.push({ title: null, link: null });
           break;
 
+        case `audios`:
+          this.articleSelected.audios.push({ title: null, link: null });
+          break;
+
         case `pictures`:
-          this.articleSelected.pictures.push({ link: null, title: null, date : null});
+          this.articleSelected.pictures.push({
+            link: null,
+            title: null,
+            date: null
+          });
           break;
 
         default:
