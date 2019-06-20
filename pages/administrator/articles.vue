@@ -20,19 +20,19 @@
     <section v-if="currentId !== null">
       <form v-on:submit.prevent>
         <!-- COLUMN station -->
-        <hr>
+<!--         <hr>
         <p>
           Nom de la station / page :
           <input v-model="articleSelected.station" type="text">
-        </p>
+        </p> -->
 
         <!-- COLUMN linesStation -->
-        <hr>
+<!--         <hr>
         <p>
           Nom de la page :
           <input v-model="articleSelected.status" type="text">
         </p>
-
+ -->
         <!-- COLUMN linesStation -->
         <hr>
         <p v-for="select in articleSelected.linesStation" :key="select.date">
@@ -45,11 +45,11 @@
         <button @click="add('linesStation')">Ajouter une ligne à la station</button>
 
         <!-- COLUMN linkBienvenue -->
-        <hr>
+<!--         <hr>
         <p>
           Lien avec Bienvenüe :
           <textarea v-model="articleSelected.linkBienvenue" type="text"></textarea>
-        </p>
+        </p> -->
 
         <!-- COLUMN explicationNom -->
         <hr>
@@ -63,7 +63,7 @@
         <button @click="add('explicationNom')">Ajouter une explication</button>
 
         <!-- COLUMN events -->
-        <hr>
+<!--         <hr>
         <p v-for="select in articleSelected.events" :key="select.name">
           Nom de l'évenement :
           <input v-model="select.name" type="text">
@@ -71,10 +71,10 @@
           <textarea v-model="select.text" type="text"></textarea>
           <button @click="removeLine('events', select.name)">Supprimer la ligne</button>
         </p>
-        <button @click="add('events')">Ajouter un evement</button>
+        <button @click="add('events')">Ajouter un evement</button> -->
 
         <!-- COLUMN station -->
-        <hr>
+<!--         <hr>
         <p v-for="select in articleSelected.nextStep" :key="select.title">
           Lien vers une autre page :
           <input v-model="select.link" type="text">
@@ -82,7 +82,7 @@
           <textarea v-model="select.title" type="text"></textarea>
           <button @click="removeLine('nextStep', select.title)">Supprimer la ligne</button>
         </p>
-        <button @click="add('nextStep')">Ajouter un autre lien</button>
+        <button @click="add('nextStep')">Ajouter un autre lien</button> -->
 
         <!-- Button -->
         <hr>
@@ -162,6 +162,7 @@ export default {
           article.data.data[0].linesStation
         );
         this.articleSelected.linkBienvenue = article.data.data[0].linkBienvenue;
+
         this.articleSelected.explicationNom = JSON.parse(
           article.data.data[0].explicationNom
         );
@@ -174,11 +175,12 @@ export default {
         this.articleSelected.nextStep = JSON.parse(
           article.data.data[0].nextStep
         );
+
+
+        console.log(this.articleSelected.explicationNom)
       } catch (e) {
         this.formError = e.message;
       }
-
-      console.log(this.articleSelected.nextStep);
     },
     //
 
@@ -255,7 +257,7 @@ export default {
 
         case `explicationNom`:
           this.articleSelected.explicationNom.push({ name: null, text: null });
-          alert("Don't work");
+          /* alert("Don't work"); */
 
           break;
 
@@ -278,7 +280,6 @@ export default {
      * Remove select line
      */
     removeLine(selectRemove, data) {
-      console.log(selectRemove, data)
       this.articleSelected[selectRemove].forEach((select, i) => {
         data === select.date || data === select.name || data === select.title
           ? this.articleSelected[selectRemove].splice(i, 1)
