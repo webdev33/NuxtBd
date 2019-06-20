@@ -92,50 +92,8 @@ router.post("/article", (req, res) => {
  * Edit article
  */
 router.post("/editArticle", (req, res) => {
-/*   console.log(
-    `UPDATE post SET station = '${req.body.station}', status = '${req.body.status}', linesStation = '${req.body.linesStation}', linkBienvenue = '${req.body.linkBienvenue}', explicationNom = '${req.body.explicationNom}', events = '${req.body.events}', pictures = '${req.body.pictures}', audios = '${req.body.audios}', nextStep = '${req.body.nextStep}' WHERE post._id = ${req.body._id};`,);
-
-  console.log("///////////////");
-  console.log(req.body._id);
-  console.log("///////////////");
-  console.log(req.body.station);
-  console.log("///////////////");
-  console.log(req.body.status);
-  console.log("///////////////");
-  console.log(req.body.linesStation);
-  console.log("///////////////");
-  console.log(req.body.linkBienvenue);
-  console.log("///////////////");
-  console.log("explication");
-  console.log(req.body.explicationNom);
-  console.log("///////////////");
-  console.log(req.body.events);
-  console.log("///////////////");
-  console.log(req.body.audios);
-  console.log("///////////////");
-  console.log(req.body.pictures);
-  console.log("///////////////");
-  console.log(req.body.nextStep);
-  console.log("///////////////"); */
-
-  // Error : explicationNom = '${req.body.explicationNom}'
-  // , events = '${req.body.events}',
-    // , pictures = '${req.body.pictures}'
-//`UPDATE post SET station = '${req.body.station}', status = '${req.body.status}', linesStation = '${req.body.linesStation}', linkBienvenue = '${req.body.linkBienvenue}', audios = '${req.body.audios}', nextStep = '${req.body.nextStep}' WHERE post._id = ${req.body._id};`
-
-
-
-/* [{ "name":"Portes de Vincennes", "text": "Bibi"}, { "name":"Porte Maillot", "text": "La station porte comme sous-titre Palais des Congrès, nom du centre d\'affaires situé à proximité et construit à partir de 1970."}] */
-/* [{"ligne":"Portes de Vincennes","date":"fefefe"},{"ligne":"5","date":"33/37/3300"}] */
-
-
-let test = `[{"name":"Portes de Vincennes","text":"fefefe"},{"name":"Porte Maillot","text":"La station porte comme sous-titre Palais des Congrès, nom du centre d'affaires situé à proximité et construit à partir de 1970."}]`
-
-    console.log(test);
-    console.log(test.replace(/'/g, `''`));
-
   connexion.query(    
-    `UPDATE post SET explicationNom = '${test.replace(/'/g, `''`)}' WHERE post._id = 2;`,
+    `UPDATE post SET  explicationNom = '${req.body.explicationNom.replace(/'/g, `''`)}', events = '${req.body.events.replace(/'/g, `''`)}',  pictures = '${req.body.pictures.replace(/'/g, `''`)}' , station = '${req.body.station.replace(/'/g, `''`)}', status = '${req.body.status.replace(/'/g, `''`)}', linesStation = '${req.body.linesStation.replace(/'/g, `''`)}', linkBienvenue = '${req.body.linkBienvenue.replace(/'/g, `''`)}', audios = '${req.body.audios.replace(/'/g, `''`)}', nextStep = '${req.body.nextStep.replace(/'/g, `''`)}' WHERE post._id = ${req.body._id};`,
     (error, results, fields) => {
       if (error) {
         res.json({ msg: "Error", err: error });
