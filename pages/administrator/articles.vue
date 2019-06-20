@@ -20,7 +20,6 @@
     <section v-if="currentId !== null">
       <form v-on:submit.prevent>
         <!--       
-        this.articleSelected.events = JSON.parse(article.data.data[0].events);
         this.articleSelected.pictures = JSON.parse(article.data.data[0].pictures);
         this.articleSelected.nextStep = article.data.data[0].nextStep;-->
 
@@ -74,6 +73,18 @@
           <textarea v-model="select.text" type="text"></textarea>
         </p>
         <button @click="add('events')">Ajouter un evement</button>
+
+        <!-- COLUMN station -->
+        <hr>
+        <p v-for="select in articleSelected.nextStep" :key="select.title">
+          Lien vers une autre page :
+          <input v-model="select.link" type="text">
+          Texte pour le lien :
+          <textarea v-model="select.title" type="text"></textarea>
+        </p>
+        <button @click="add('nextStep')">Ajouter un autre lien</button>
+
+
 
         <!-- Button -->
         <hr>
@@ -179,12 +190,12 @@ export default {
         this.articleSelected.pictures = JSON.parse(
           article.data.data[0].pictures
         );
-        this.articleSelected.nextStep = article.data.data[0].nextStep;
+        this.articleSelected.nextStep = JSON.parse(article.data.data[0].nextStep);
       } catch (e) {
         this.formError = e.message;
       }
-      
-      /* console.log("effeeeeeee"); */
+
+      console.log(this.articleSelected.nextStep);
     },
     //
 
@@ -253,7 +264,7 @@ export default {
      * Add a new component
      */
     add(select) {
-      console.log(select)
+      console.log(select);
       switch (select) {
         case `ligneStation`:
           this.articleSelected.linesStation.push({ ligne: null, date: null });
@@ -267,6 +278,9 @@ export default {
           this.articleSelected.events.push({ name: null, text: null });
           break;
 
+        case `nextStep`:
+          this.articleSelected.nextStep.push({ title: null, link: null });
+          break;
 
         default:
           alert("Indisponible");
