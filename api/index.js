@@ -92,10 +92,39 @@ router.post("/article", (req, res) => {
  * Edit article
  */
 router.post("/editArticle", (req, res) => {
+  console.log(
+    `UPDATE post SET station = '${req.body.station}', status = '${req.body.status}', linesStation = '${req.body.linesStation}', linkBienvenue = '${req.body.linkBienvenue}', explicationNom = '${req.body.explicationNom}', events = '${req.body.events}', pictures = '${req.body.pictures}', audios = '${req.body.audios}', nextStep = '${req.body.nextStep}' WHERE post._id = ${req.body._id};`,);
+
+  console.log("///////////////");
+  console.log(req.body._id);
+  console.log("///////////////");
+  console.log(req.body.station);
+  console.log("///////////////");
+  console.log(req.body.status);
+  console.log("///////////////");
+  console.log(req.body.linesStation);
+  console.log("///////////////");
+  console.log(req.body.linkBienvenue);
+  console.log("///////////////");
+  console.log("explication");
+  console.log(req.body.explicationNom);
+  console.log("///////////////");
+  console.log(req.body.events);
+  console.log("///////////////");
+  console.log(req.body.audios);
+  console.log("///////////////");
+  console.log(req.body.pictures);
+  console.log("///////////////");
+  console.log(req.body.nextStep);
+  console.log("///////////////");
+
+  // Error : explicationNom = '${req.body.explicationNom}'
+  // , events = '${req.body.events}',
+    // , pictures = '${req.body.pictures}'
+
+
   connexion.query(
-    `UPDATE post SET title = '${req.body.title}', content = '${
-      req.body.content
-    }' WHERE post._id = ${req.body._id}`,
+    `UPDATE post SET station = '${req.body.station}', status = '${req.body.status}', linesStation = '${req.body.linesStation}', linkBienvenue = '${req.body.linkBienvenue}', audios = '${req.body.audios}', nextStep = '${req.body.nextStep}' WHERE post._id = ${req.body._id};`,
     (error, results, fields) => {
       if (error) {
         res.json({ msg: "Error", err: error });

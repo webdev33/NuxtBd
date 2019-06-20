@@ -208,17 +208,26 @@ export default {
      * Edit
      */
     async edit() {
-      console.log(this.articleSelected);
-      /* try {
+      console.log(this.articleSelected.audios);
+      console.log(JSON.stringify(this.articleSelected.audios));
+
+      try {
         await this.$store.dispatch("editArticle", {
           _id: this.articleSelected._id,
-          title: this.articleSelected.title,
-          content: this.articleSelected.content
+          station: this.articleSelected.station,
+          status: this.articleSelected.status,
+          linesStation: JSON.stringify(this.articleSelected.linesStation),
+          linkBienvenue: this.articleSelected.linkBienvenue,
+          explicationNom: JSON.stringify(this.articleSelected.explicationNom),
+          events: JSON.stringify(this.articleSelected.events),
+          audios: JSON.stringify(this.articleSelected.audios),
+          pictures: JSON.stringify(this.articleSelected.pictures),
+          nextStep: JSON.stringify(this.articleSelected.nextStep)
         });
         this.cleaner();
       } catch (e) {
         this.formError = e.message;
-      } */
+      }
     },
     //
 
@@ -261,6 +270,7 @@ export default {
       this.articleSelected.title = null;
       this.articleSelected.content = null;
       this.currentId = null;
+      this.selected = null;
       this.loadArticles();
     },
     //

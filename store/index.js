@@ -68,8 +68,34 @@ export const actions = {
   /*
    * Edit article
    */
-  async editArticle({ commit }, { _id, title, content }) {
-    await axios.post("/api/editArticle", { _id, title, content });
+  async editArticle(
+    { commit },
+    {
+      _id,
+      station,
+      status,
+      content,
+      linesStation,
+      linkBienvenue,
+      explicationNom,
+      events,
+      audios,
+      pictures,
+      nextStep
+    }
+  ) {
+    await axios.post("/api/editArticle", {
+      _id,
+      station,
+      status,
+      linesStation,
+      linkBienvenue,
+      explicationNom,
+      events,
+      audios,
+      pictures,
+      nextStep
+    });
   },
   //
 
