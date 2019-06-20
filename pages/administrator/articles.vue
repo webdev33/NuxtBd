@@ -84,6 +84,19 @@
         </p>
         <button @click="add('nextStep')">Ajouter un autre lien</button>
 
+        <!-- COLUMN pictures -->
+        <hr>
+        <p v-for="select in articleSelected.pictures" :key="select._id">
+          Lien de l'image :
+          <input v-model="select.link" type="text">
+          Titre de l'image :
+          <textarea v-model="select.title" type="text"></textarea>
+          Date de l'image :
+          <textarea v-model="select.date" type="text"></textarea>
+          <button @click="removeLine('pictures', select.title)">Supprimer la ligne</button>
+        </p>
+        <button @click="add('pictures')">Ajouter un autre lien</button>
+
         <!-- Button -->
         <hr>
         <br>
@@ -172,8 +185,6 @@ export default {
         this.articleSelected.nextStep = JSON.parse(
           article.data.data[0].nextStep
         );
-
-        console.log(this.articleSelected)
       } catch (e) {
         this.formError = e.message;
       }
@@ -261,6 +272,10 @@ export default {
 
         case `nextStep`:
           this.articleSelected.nextStep.push({ title: null, link: null });
+          break;
+
+        case `pictures`:
+          this.articleSelected.pictures.push({ link: null, title: null, date : null});
           break;
 
         default:
