@@ -58,6 +58,7 @@
           <input v-model="select.name" type="text">
           Texte explicatif:
           <textarea v-model="select.text" type="text"></textarea>
+          <button @click="removeLine('explicationNom', select.name)">Supprimer la ligne</button>
         </p>
         <button @click="add('explicationNom')">Ajouter une explication</button>
 
@@ -68,6 +69,7 @@
           <input v-model="select.name" type="text">
           Explication de l'évement :
           <textarea v-model="select.text" type="text"></textarea>
+          <button @click="removeLine('events', select.name)">Supprimer la ligne</button>
         </p>
         <button @click="add('events')">Ajouter un evement</button>
 
@@ -78,6 +80,7 @@
           <input v-model="select.link" type="text">
           Texte pour le lien :
           <textarea v-model="select.title" type="text"></textarea>
+          <button @click="removeLine('nextStep', select.title)">Supprimer la ligne</button>
         </p>
         <button @click="add('nextStep')">Ajouter un autre lien</button>
 
@@ -275,9 +278,10 @@ export default {
      * Remove select line
      */
     removeLine(selectRemove, data) {
+      console.log(selectRemove, data)
       this.articleSelected[selectRemove].forEach((select, i) => {
-        data === select.date
-          ? this.articleSelected.linesStation.splice(i, 1)
+        data === select.date || data === select.name || data === select.title
+          ? this.articleSelected[selectRemove].splice(i, 1)
           : 0;
       });
     }
