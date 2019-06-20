@@ -73,7 +73,7 @@
           Explication de l'évement :
           <textarea v-model="select.text" type="text"></textarea>
         </p>
-        <button @click="add('explicationNomfff')">Ajouter un evement</button>
+        <button @click="add('events')">Ajouter un evement</button>
 
         <!-- Button -->
         <hr>
@@ -173,20 +173,18 @@ export default {
         this.articleSelected.explicationNom = JSON.parse(
           article.data.data[0].explicationNom
         );
+
         this.articleSelected.events = JSON.parse(article.data.data[0].events);
+
         this.articleSelected.pictures = JSON.parse(
           article.data.data[0].pictures
         );
         this.articleSelected.nextStep = article.data.data[0].nextStep;
-
-
-        console.log(this.articleSelected.events);
-        console.log('effeeeeeee');
-
-
       } catch (e) {
         this.formError = e.message;
       }
+      
+      /* console.log("effeeeeeee"); */
     },
     //
 
@@ -255,7 +253,7 @@ export default {
      * Add a new component
      */
     add(select) {
-      console.log(this.articleSelected.events);
+      console.log(select)
       switch (select) {
         case `ligneStation`:
           this.articleSelected.linesStation.push({ ligne: null, date: null });
@@ -264,6 +262,11 @@ export default {
         case `explicationNom`:
           this.articleSelected.explicationNom.push({ name: null, text: null });
           break;
+
+        case `events`:
+          this.articleSelected.events.push({ name: null, text: null });
+          break;
+
 
         default:
           alert("Indisponible");
