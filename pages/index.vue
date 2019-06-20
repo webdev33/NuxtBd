@@ -4,8 +4,13 @@
 
     <h3>Articles :</h3>
     <article v-for="article in articles" :value="article._id" :key="article._id">
-      <p>Id : {{ article._id }} || Title : {{ article.title }} || Content : {{ article.content }}</p>
+      <p>{{ articles.pictures }}</p>
     </article>
+
+    <!-- PROVISOIRE -->
+    <img v-bind:src="test">
+    <!-- PROVISOIRE -->
+    
   </section>
 </template>
 
@@ -14,6 +19,7 @@ export default {
   data() {
     return {
       articles: null,
+      test: null
     };
   },
 
@@ -25,6 +31,15 @@ export default {
       try {
         let articles = await this.$store.dispatch("articles");
         this.articles = articles.data.data;
+
+        /* console.log(this.articles); */
+
+        /* PROVISOIRE */
+        this.test = JSON.parse(this.articles[0].pictures)[0].link;
+        
+
+
+        /* PROVISOIRE */
       } catch (e) {
         this.formError = e.message;
       }

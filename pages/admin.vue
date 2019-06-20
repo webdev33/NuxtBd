@@ -23,6 +23,8 @@
         <NuxtLink to="./administrator/articles">Modifier des articles</NuxtLink>
       </p>
     </section>
+    <br>
+    <NuxtLink to="./">Revenir à la page principale</NuxtLink>
   </section>
 </template>
 
