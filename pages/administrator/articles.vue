@@ -13,7 +13,7 @@
         v-for="article in articles"
         :value="article._id"
         :key="article._id"
-      >{{ article.title }}</option>
+      >{{ article.linkBienvenue }}</option>
     </select>
 
     <!-- MODIFIER -->
@@ -66,8 +66,13 @@ export default {
       /* Article select informations */
       articleSelected: {
         _id: null,
-        title: null,
-        content: null
+        station: null,
+        linesStation: null,
+        linkBienvenue: null,
+        explicationsStations: null,
+        events: null,
+        pictures: null,
+        nextStep: null
       }
     };
   },
@@ -82,6 +87,8 @@ export default {
       try {
         let articles = await this.$store.dispatch("articles");
         this.articles = articles.data.data;
+        console.log(this.articles);
+
         /* Render */
         this.componentKey += 1;
       } catch (e) {
@@ -99,9 +106,19 @@ export default {
         let article = await this.$store.dispatch("article", {
           _id: this.currentId
         });
+
         this.articleSelected._id = article.data.data[0]._id;
-        this.articleSelected.title = article.data.data[0].title;
-        this.articleSelected.content = article.data.data[0].content;
+
+        /* console.log(article.data.data[0].station) */
+        this.articleSelected.station = JSON.parse(article.data.data[0].station);
+        this.articleSelected.linesStation = JSON.parse(article.data.data[0].linesStation);
+        /* this.articleSelected.linkBienvenue = JSON.parse(article.data.data[0].linkBienvenue); */
+        /* this.articleSelected.explicationsStations = JSON.parse(article.data.data[0].explicationsStations); */
+        /* this.articleSelected.events = JSON.parse(article.data.data[0].events); */
+        /* this.articleSelected.pictures = JSON.parse(article.data.data[0].pictures);
+        this.articleSelected.nextStep = JSON.parse(article.data.data[0].nextStep); */
+
+        console.log(this.articleSelected)
       } catch (e) {
         this.formError = e.message;
       }
