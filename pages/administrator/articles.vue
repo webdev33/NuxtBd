@@ -13,27 +13,55 @@
         v-for="article in articles"
         :value="article._id"
         :key="article._id"
-      >{{ article.linkBienvenue }}</option>
+      >{{ article.station }}</option>
     </select>
 
     <!-- MODIFIER -->
     <section v-if="currentId !== null">
       <form v-on:submit.prevent>
+        
+
+        <!--         this.articleSelected.linesStation = JSON.parse(article.data.data[0].linesStation);
+        this.articleSelected.linkBienvenue = article.data.data[0].linkBienvenue;
+        this.articleSelected.explicationsStations = JSON.parse(article.data.data[0].explicationsStations);
+        this.articleSelected.events = JSON.parse(article.data.data[0].events);
+        this.articleSelected.pictures = JSON.parse(article.data.data[0].pictures);
+        this.articleSelected.nextStep = article.data.data[0].nextStep;-->
+
+        <!-- COLUMN station -->
         <p>
-          Title:
-          <input v-model="articleSelected.title" type="text">
+          Nom de la station / page :
+          <input v-model="articleSelected.station" type="text">
+        </p>
+        
+
+        <!-- COLUMN linesStation -->
+        <p>
+          Nom de la page :
+          <input v-model="articleSelected.status" type="text">
         </p>
 
-        <p>
-          Content:
-          <input v-model="articleSelected.content" type="text">
+        <!-- COLUMN linesStation -->
+        <p v-for="select in articleSelected.linesStation" :key="select.date">
+          Lignes sur la station :
+          <input v-model="select.ligne" type="text">
+          Date de creation:
+          <input v-model="select.date" type="text">
         </p>
+
+        <!-- <button  @click="add" type="text"> -->
+        <button  @click="add">Ajouter une ligne</button>
+
+        <br><br>
+        <br><br>
+
+
         <button v-on:click.capture="edit" type="edit">Modifier</button>
         <button v-on:click.capture="remove" type="remove">Supprimer</button>
       </form>
     </section>
     <!-- ELSE -->
-    <section v-else>
+    <!--     <section v-else>
       <h2>Créer un article :</h2>
       <form v-on:submit.prevent>
         <p>
@@ -47,7 +75,7 @@
         </p>
         <button v-on:click.capture="create" type="create">Créer</button>
       </form>
-    </section>
+    </section>-->
   </section>
 </template>
 
@@ -59,6 +87,7 @@ export default {
       articles: null,
       selected: null,
       currentId: null,
+      parseName: null,
 
       /* Render */
       componentKey: 0,
@@ -67,6 +96,7 @@ export default {
       articleSelected: {
         _id: null,
         station: null,
+        status: null,
         linesStation: null,
         linkBienvenue: null,
         explicationsStations: null,
@@ -80,6 +110,10 @@ export default {
   /* middleware: "auth", */
 
   methods: {
+    add() {
+      console.log(this.articleSelected)
+    },
+
     /*
      * Load articles
      */
@@ -107,18 +141,24 @@ export default {
           _id: this.currentId
         });
 
+        /* Give data to articleSelected */
         this.articleSelected._id = article.data.data[0]._id;
+        this.articleSelected.station = article.data.data[0].station;
+        this.articleSelected.status = article.data.data[0].status;
+        this.articleSelected.linesStation = JSON.parse(
+          article.data.data[0].linesStation
+        );
+        this.articleSelected.linkBienvenue = article.data.data[0].linkBienvenue;
+        this.articleSelected.explicationNom = JSON.parse(
+          article.data.data[0].explicationNom
+        );
+        this.articleSelected.events = JSON.parse(article.data.data[0].events);
+        this.articleSelected.pictures = JSON.parse(
+          article.data.data[0].pictures
+        );
+        this.articleSelected.nextStep = article.data.data[0].nextStep;
 
-        /* console.log(article.data.data[0].station) */
-        this.articleSelected.station = JSON.parse(article.data.data[0].station);
-        this.articleSelected.linesStation = JSON.parse(article.data.data[0].linesStation);
-        /* this.articleSelected.linkBienvenue = JSON.parse(article.data.data[0].linkBienvenue); */
-        /* this.articleSelected.explicationsStations = JSON.parse(article.data.data[0].explicationsStations); */
-        /* this.articleSelected.events = JSON.parse(article.data.data[0].events); */
-        /* this.articleSelected.pictures = JSON.parse(article.data.data[0].pictures);
-        this.articleSelected.nextStep = JSON.parse(article.data.data[0].nextStep); */
-
-        console.log(this.articleSelected)
+        console.log(this.articleSelected);
       } catch (e) {
         this.formError = e.message;
       }
@@ -129,7 +169,8 @@ export default {
      * Edit
      */
     async edit() {
-      try {
+      console.log(this.articleSelected)
+      /* try {
         await this.$store.dispatch("editArticle", {
           _id: this.articleSelected._id,
           title: this.articleSelected.title,
@@ -138,7 +179,7 @@ export default {
         this.cleaner();
       } catch (e) {
         this.formError = e.message;
-      }
+      } */
     },
     //
 
@@ -146,14 +187,14 @@ export default {
      * Edit
      */
     async remove() {
-      try {
+      /* try {
         await this.$store.dispatch("removeArticle", {
           _id: this.currentId
         });
         this.cleaner();
       } catch (e) {
         this.formError = e.message;
-      }
+      } */
     },
     //
 
