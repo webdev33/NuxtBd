@@ -19,10 +19,6 @@
     <!-- MODIFIER -->
     <section v-if="currentId !== null">
       <form v-on:submit.prevent>
-        <!--       
-        this.articleSelected.pictures = JSON.parse(article.data.data[0].pictures);
-        this.articleSelected.nextStep = article.data.data[0].nextStep;-->
-
         <!-- COLUMN station -->
         <hr>
         <p>
@@ -44,8 +40,9 @@
           <input v-model="select.ligne" type="text">
           Date de creation:
           <input v-model="select.date" type="text">
+          <button @click="removeLine('linesStation', select.date)">Supprimer la ligne</button>
         </p>
-        <button @click="add('ligneStation')">Ajouter une ligne à la station</button>
+        <button @click="add('linesStation')">Ajouter une ligne à la station</button>
 
         <!-- COLUMN linkBienvenue -->
         <hr>
@@ -54,7 +51,7 @@
           <textarea v-model="articleSelected.linkBienvenue" type="text"></textarea>
         </p>
 
-        <!-- COLUMN linesStation -->
+        <!-- COLUMN explicationNom -->
         <hr>
         <p v-for="select in articleSelected.explicationNom" :key="select.name">
           Explication pour :
@@ -84,8 +81,6 @@
         </p>
         <button @click="add('nextStep')">Ajouter un autre lien</button>
 
-
-
         <!-- Button -->
         <hr>
         <br>
@@ -97,23 +92,6 @@
         <button v-on:click.capture="remove" type="remove">Supprimer</button>
       </form>
     </section>
-
-    <!-- ELSE -->
-    <!--     <section v-else>
-      <h2>Créer un article :</h2>
-      <form v-on:submit.prevent>
-        <p>
-          Title:
-          <input v-model="articleSelected.title" type="text">
-        </p>
-
-        <p>
-          Content:
-          <input v-model="articleSelected.content" type="text">
-        </p>
-        <button v-on:click.capture="create" type="create">Créer</button>
-      </form>
-    </section>-->
   </section>
 </template>
 
@@ -190,7 +168,9 @@ export default {
         this.articleSelected.pictures = JSON.parse(
           article.data.data[0].pictures
         );
-        this.articleSelected.nextStep = JSON.parse(article.data.data[0].nextStep);
+        this.articleSelected.nextStep = JSON.parse(
+          article.data.data[0].nextStep
+        );
       } catch (e) {
         this.formError = e.message;
       }
@@ -266,12 +246,14 @@ export default {
     add(select) {
       console.log(select);
       switch (select) {
-        case `ligneStation`:
+        case `linesStation`:
           this.articleSelected.linesStation.push({ ligne: null, date: null });
           break;
 
         case `explicationNom`:
           this.articleSelected.explicationNom.push({ name: null, text: null });
+          alert("Don't work");
+
           break;
 
         case `events`:
@@ -286,6 +268,18 @@ export default {
           alert("Indisponible");
           break;
       }
+    },
+    //
+
+    /*
+     * Remove select line
+     */
+    removeLine(selectRemove, data) {
+      this.articleSelected[selectRemove].forEach((select, i) => {
+        data === select.date
+          ? this.articleSelected.linesStation.splice(i, 1)
+          : 0;
+      });
     }
     //
   },
