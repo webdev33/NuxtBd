@@ -35,7 +35,7 @@
 
         <!-- COLUMN linesStation -->
         <hr>
-        <p v-for="select in articleSelected.linesStation" :key="select.date">
+        <p v-for="select in articleSelected.linesStation" :key="select._id">
           Lignes sur la station :
           <input v-model="select.ligne" type="text">
           Date de creation:
@@ -53,7 +53,7 @@
 
         <!-- COLUMN explicationNom -->
         <hr>
-        <p v-for="select in articleSelected.explicationNom" :key="select.name">
+        <p v-for="select in articleSelected.explicationNom" :key="select._id">
           Explication pour :
           <input v-model="select.name" type="text">
           Texte explicatif:
@@ -64,7 +64,7 @@
 
         <!-- COLUMN events -->
         <hr>
-        <p v-for="select in articleSelected.events" :key="select.name">
+        <p v-for="select in articleSelected.events" :key="select._id">
           Nom de l'évenement :
           <input v-model="select.name" type="text">
           Explication de l'évement :
@@ -75,7 +75,7 @@
 
         <!-- COLUMN station -->
         <hr>
-        <p v-for="select in articleSelected.nextStep" :key="select.title">
+        <p v-for="select in articleSelected.nextStep" :key="select._id">
           Lien vers une autre page :
           <input v-model="select.link" type="text">
           Texte pour le lien :
@@ -86,8 +86,6 @@
 
         <!-- Button -->
         <hr>
-        <br>
-        <br>
         <br>
         <br>
 
@@ -174,6 +172,8 @@ export default {
         this.articleSelected.nextStep = JSON.parse(
           article.data.data[0].nextStep
         );
+
+        console.log(this.articleSelected)
       } catch (e) {
         this.formError = e.message;
       }
