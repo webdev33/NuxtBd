@@ -19,36 +19,64 @@
     <!-- MODIFIER -->
     <section v-if="currentId !== null">
       <form v-on:submit.prevent>
-        <!--         this.articleSelected.linesStation = JSON.parse(article.data.data[0].linesStation);
-        this.articleSelected.linkBienvenue = article.data.data[0].linkBienvenue;
-        this.articleSelected.explicationsStations = JSON.parse(article.data.data[0].explicationsStations);
+        <!--       
         this.articleSelected.events = JSON.parse(article.data.data[0].events);
         this.articleSelected.pictures = JSON.parse(article.data.data[0].pictures);
         this.articleSelected.nextStep = article.data.data[0].nextStep;-->
 
         <!-- COLUMN station -->
+        <hr>
         <p>
           Nom de la station / page :
           <input v-model="articleSelected.station" type="text">
         </p>
 
         <!-- COLUMN linesStation -->
+        <hr>
         <p>
           Nom de la page :
           <input v-model="articleSelected.status" type="text">
         </p>
 
         <!-- COLUMN linesStation -->
+        <hr>
         <p v-for="select in articleSelected.linesStation" :key="select.date">
           Lignes sur la station :
           <input v-model="select.ligne" type="text">
           Date de creation:
           <input v-model="select.date" type="text">
         </p>
-
-        <!-- <button  @click="add" type="text"> -->
         <button @click="add('ligneStation')">Ajouter une ligne à la station</button>
 
+        <!-- COLUMN linkBienvenue -->
+        <hr>
+        <p>
+          Lien avec Bienvenüe :
+          <textarea v-model="articleSelected.linkBienvenue" type="text"></textarea>
+        </p>
+
+        <!-- COLUMN linesStation -->
+        <hr>
+        <p v-for="select in articleSelected.explicationNom" :key="select.name">
+          Explication pour :
+          <input v-model="select.name" type="text">
+          Texte explicatif:
+          <textarea v-model="select.text" type="text"></textarea>
+        </p>
+        <button @click="add('explicationNom')">Ajouter une explication</button>
+
+        <!-- COLUMN events -->
+        <hr>
+        <p v-for="select in articleSelected.events" :key="select.name">
+          Nom de l'évenement :
+          <input v-model="select.name" type="text">
+          Explication de l'évement :
+          <textarea v-model="select.text" type="text"></textarea>
+        </p>
+        <button @click="add('explicationNomfff')">Ajouter un evement</button>
+
+        <!-- Button -->
+        <hr>
         <br>
         <br>
         <br>
@@ -58,6 +86,7 @@
         <button v-on:click.capture="remove" type="remove">Supprimer</button>
       </form>
     </section>
+
     <!-- ELSE -->
     <!--     <section v-else>
       <h2>Créer un article :</h2>
@@ -115,8 +144,6 @@ export default {
       try {
         let articles = await this.$store.dispatch("articles");
         this.articles = articles.data.data;
-        console.log(this.articles);
-
         /* Render */
         this.componentKey += 1;
       } catch (e) {
@@ -152,7 +179,11 @@ export default {
         );
         this.articleSelected.nextStep = article.data.data[0].nextStep;
 
-        console.log(this.articleSelected);
+
+        console.log(this.articleSelected.events);
+        console.log('effeeeeeee');
+
+
       } catch (e) {
         this.formError = e.message;
       }
@@ -224,9 +255,14 @@ export default {
      * Add a new component
      */
     add(select) {
+      console.log(this.articleSelected.events);
       switch (select) {
         case `ligneStation`:
           this.articleSelected.linesStation.push({ ligne: null, date: null });
+          break;
+
+        case `explicationNom`:
+          this.articleSelected.explicationNom.push({ name: null, text: null });
           break;
 
         default:
