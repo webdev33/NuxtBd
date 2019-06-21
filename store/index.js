@@ -149,6 +149,13 @@ export const actions = {
     return { data };
   },
   //
+
+  /*
+   * Select one article in the gallery
+   */
+  async galleryArticle({ commit }, selectId) {
+    const { data } = await axios.post("/api/galleryArticle", selectId);
+    return { data };
+  }
+  //
 };
-
-

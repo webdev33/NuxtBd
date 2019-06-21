@@ -153,6 +153,24 @@ router.post("/gallery", (req, res) => {
 });
 //
 
+/*
+ * Select one article in the gallery
+ */
+router.post("/galleryArticle", (req, res) => {
+  console.log('///////////////')
+  connexion.query(
+    `SELECT * FROM gallery WHERE _id='1'`,
+    (error, results, fields) => {
+      if (error) {
+        res.json({ msg: "Error get all", err: error });
+      } else {
+        res.json({ msg: "Article selected", data: results });
+      }
+    }
+  );
+});
+//
+
 // Export the server middleware
 export default {
   path: "/api",

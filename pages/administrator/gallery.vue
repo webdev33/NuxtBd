@@ -21,7 +21,15 @@
       </form>
 
       <ul class="list-group">
-        <li class="list-group-item">Agathe</li>
+        <li
+          class="list-group-item"
+          v-for="article in gallery"
+          :value="article._id"
+          :key="article._id"
+          @click="chooseArticle(article._id)"
+        >{{ article.legend }}</li>
+
+        <!--  <li class="list-group-item">Agathe</li>
         <li class="list-group-item">Alice</li>
         <li class="list-group-item">Ambre</li>
         <li class="list-group-item">Arthur</li>
@@ -40,7 +48,7 @@
         <li class="list-group-item">Mila</li>
         <li class="list-group-item">Paul</li>
         <li class="list-group-item">Théo</li>
-        <li class="list-group-item">Valentin</li>
+        <li class="list-group-item">Valentin</li>-->
       </ul>
     </section>
   </section>
@@ -50,32 +58,24 @@
 export default {
   data() {
     return {
+      /* Search bar */
       gallery: null,
-      article: [
-        "Agathe",
-        "Alice",
-        "Ambre",
-        "Arthur",
-        "Camille",
-        "Chloé",
-        "Gabin",
-        "Gabriel",
-        "Hugo",
-        "Jade",
-        "Julia",
-        "Léa",
-        "Léo",
-        "Louis",
-        "Louise",
-        "Maël",
-        "Mila",
-        "Paul",
-        "Théo",
-        "Valentin"
-      ],
+      article: [],
       ul: null,
       search: null,
-      articlesSelected: []
+      articlesSelected: [],
+
+      /* Article select */
+      currentId: null,
+
+      /* Select */
+      articleSelected: {
+        _id: null,
+        link: null,
+        legend: null,
+        categorie: null,
+        date: null,
+      },
     };
   },
 
@@ -90,33 +90,52 @@ export default {
         let gallery = await this.$store.dispatch("gallery");
         this.gallery = gallery.data.data;
 
-        console.log(this.gallery);
-
+        this.gallery.forEach(select => {
+          this.article.push(select.legend);
+        });
         /* Render */
         /* this.componentKey += 1; */
       } catch (e) {
+        this.formError = e.message;
+      }
+    },
+    //
+
+    /*
+     *
+     */
+    async chooseArticle(select) {
+      this.currentId = select;
+      try {
+        let article = await this.$store.dispatch("galleryArticle", {
+          _id: this.currentId,
+        });
+        this.articleSelected._id = article.data.data[0]._id;
+        this.articleSelected.link = article.data.data[0].link;
+        this.articleSelected.legend = article.data.data[0].legend;
+        this.articleSelected.categorie = article.data.data[0].categorie;
+        this.articleSelected.date = article.data.data[0].date;
+
+        /* Give data to articleSelected */
+      } catch (e) {
+        console.log(e.message);
         this.formError = e.message;
       }
     }
     //
   },
   //
-  created() {},
 
   mounted: function mounted() {
     /*
      * Load articles
      */
     this.loadGallery();
-
     this.search = document.querySelector("input");
     this.ul = document.querySelector("ul");
-
     this.search.addEventListener("keyup", event => {
-      console.log(console.log(this.article));
       this.ul.innerHTML = "";
       this.articlesSelected = [];
-
       this.article.forEach(select => {
         if (
           select.toLowerCase().indexOf(this.search.value.toLowerCase()) != -1
@@ -137,7 +156,7 @@ export default {
 .article__select {
   margin: 0 auto;
   max-width: 50vw;
-  
+
   .form-control {
     background-color: #ebebeb;
   }
