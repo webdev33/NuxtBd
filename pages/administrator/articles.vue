@@ -290,7 +290,12 @@ export default {
         pictures: null,
         audios: null,
         nextStep: null
-      }
+      },
+
+      /* Confirmation */
+      selectorInputs: null,
+      booleanLife: false,
+      confirmation: null
     };
   },
 
@@ -396,22 +401,23 @@ export default {
      * Create article
      */
     async createArticle() {
-      console.log(this.articleSelected);
-      try {
-        await this.$store.dispatch("createArticle", {
-          station: this.articleSelected.station,
-          status: this.articleSelected.status,
-          linesStation: JSON.stringify(this.articleSelected.linesStation),
-          linkBienvenue: this.articleSelected.linkBienvenue,
-          explicationNom: JSON.stringify(this.articleSelected.explicationNom),
-          events: JSON.stringify(this.articleSelected.events),
-          audios: JSON.stringify(this.articleSelected.audios),
-          pictures: JSON.stringify(this.articleSelected.pictures),
-          nextStep: JSON.stringify(this.articleSelected.nextStep)
-        });
-        this.cleaner();
-      } catch (e) {
-        this.formError = e.message;
+      if (this.inputVerification(`créer`) === true) {
+        try {
+          await this.$store.dispatch("createArticle", {
+            station: this.articleSelected.station,
+            status: this.articleSelected.status,
+            linesStation: JSON.stringify(this.articleSelected.linesStation),
+            linkBienvenue: this.articleSelected.linkBienvenue,
+            explicationNom: JSON.stringify(this.articleSelected.explicationNom),
+            events: JSON.stringify(this.articleSelected.events),
+            audios: JSON.stringify(this.articleSelected.audios),
+            pictures: JSON.stringify(this.articleSelected.pictures),
+            nextStep: JSON.stringify(this.articleSelected.nextStep)
+          });
+          this.cleaner();
+        } catch (e) {
+          this.formError = e.message;
+        }
       }
     },
     //
@@ -500,32 +506,31 @@ export default {
     //
 
     /*
-     *
+     * Verification for the empty input
      */
     inputVerification(message) {
-      let selectorInputs = document.querySelectorAll(".input");
-      let booleanLife = false;
+      this.selectorInputs = document.querySelectorAll(".input");
 
-      for (const select of selectorInputs) {
-        booleanLife = select.value.length > 0 ? false : true;
+      for (const select of this.selectorInputs) {
+        this.booleanLife = select.value.length > 0 ? false : true;
         if (select.value.length) {
-          booleanLife = false;
+          this.booleanLife = false;
         } else {
           alert("Remplissez tous les champs");
-          booleanLife = true;
+          this.booleanLife = true;
           break;
         }
       }
-      let confirmation =
-        booleanLife === true
+      this.confirmation =
+        this.booleanLife === true
           ? false
           : confirm(`Voulez vous vraiment ${message} cet article ?`);
-      return confirmation;
+      return this.confirmation;
     },
     //
 
     /*
-     *
+     * Confirmation fonction
      */
     confirmationValidation(message) {
       return confirm(`Voulez vous vraiment ${message} cet article ?`)
