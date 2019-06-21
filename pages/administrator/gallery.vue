@@ -7,49 +7,65 @@
     <h1>Editeur de la galerie</h1>
     <NuxtLink to="/admin">Back to the admin page</NuxtLink>
 
-    <section class="article__select gallery__article">
-      <br>
-      <form>
-        <input
-          class="form-control"
-          name="filter"
-          placeholder="Filtrer"
-          type="text"
-          autocomplete="off"
-        >
+    <br>
+    <br>
+    <button class="btn btn-success" @click="appearSection()">{{ actionTodo.text }}</button>
+
+    <section v-if="actionTodo.boolean === false">
+      <section v-if="currentId === null" class="article__select gallery__article">
         <br>
-      </form>
+        <form>
+          <input
+            class="form-control"
+            name="filter"
+            placeholder="Filtrer"
+            type="text"
+            autocomplete="off"
+          >
+          <br>
+        </form>
 
-      <ul class="list-group">
-        <li
-          class="list-group-item"
-          v-for="article in gallery"
-          :value="article._id"
-          :key="article._id"
-          @click="chooseArticle(article._id)"
-        >{{ article.legend }}</li>
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            v-for="article in gallery"
+            :value="article._id"
+            :key="article._id"
+            @click="chooseArticle(article._id)"
+          >{{ article.legend }}</li>
+        </ul>
+      </section>
 
-        <!--  <li class="list-group-item">Agathe</li>
-        <li class="list-group-item">Alice</li>
-        <li class="list-group-item">Ambre</li>
-        <li class="list-group-item">Arthur</li>
-        <li class="list-group-item">Camille</li>
-        <li class="list-group-item">Chloé</li>
-        <li class="list-group-item">Gabin</li>
-        <li class="list-group-item">Gabriel</li>
-        <li class="list-group-item">Hugo</li>
-        <li class="list-group-item">Jade</li>
-        <li class="list-group-item">Julia</li>
-        <li class="list-group-item">Léa</li>
-        <li class="list-group-item">Léo</li>
-        <li class="list-group-item">Louis</li>
-        <li class="list-group-item">Louise</li>
-        <li class="list-group-item">Maël</li>
-        <li class="list-group-item">Mila</li>
-        <li class="list-group-item">Paul</li>
-        <li class="list-group-item">Théo</li>
-        <li class="list-group-item">Valentin</li>-->
-      </ul>
+      <section v-else>
+        <br>
+        <!-- <br> -->
+        <form v-on:submit.prevent>
+          <!-- Link -->
+          <hr>
+          <p>Lien de l'image :</p>
+          <input class="form-control input" v-model="articleSelected.link" type="text">
+
+          <!-- Legend -->
+          <hr>
+          <p>Lien de l'image :</p>
+          <input class="form-control input" v-model="articleSelected.legend" type="text">
+
+          <!-- categorie -->
+          <hr>
+          <p>La categorie :</p>
+          <input class="form-control input" v-model="articleSelected.categorie" type="text">
+
+          <!-- date -->
+          <hr>
+          <p>Date de l'image :</p>
+          <input class="form-control input" v-model="articleSelected.date" type="text">
+
+          <hr>
+          <button class="btn btn-success" v-on:click.capture="edit" type="edit">Modifier</button>
+          <button class="btn btn-danger" v-on:click.capture="remove" type="remove">Supprimer</button>
+          <button class="btn btn-light changeButton" @click="currentId = null">Selectionner un autre article</button>
+        </form>
+      </section>
     </section>
   </section>
 </template>
@@ -66,6 +82,7 @@ export default {
       articlesSelected: [],
 
       /* Article select */
+      actionTodo: { boolean: false, text: `Créer un article` },
       currentId: null,
 
       /* Select */
@@ -74,8 +91,8 @@ export default {
         link: null,
         legend: null,
         categorie: null,
-        date: null,
-      },
+        date: null
+      }
     };
   },
 
@@ -108,7 +125,7 @@ export default {
       this.currentId = select;
       try {
         let article = await this.$store.dispatch("galleryArticle", {
-          _id: this.currentId,
+          _id: this.currentId
         });
         this.articleSelected._id = article.data.data[0]._id;
         this.articleSelected.link = article.data.data[0].link;
@@ -121,6 +138,18 @@ export default {
         console.log(e.message);
         this.formError = e.message;
       }
+    },
+    //
+
+    /*
+     * Appear the desired section
+     */
+    appearSection() {
+      this.actionTodo.boolean = !this.actionTodo.boolean;
+      this.actionTodo.text = this.actionTodo.boolean
+        ? `Modifier un article`
+        : `Créer un article`;
+      /* this.cleaner(); */
     }
     //
   },
@@ -153,6 +182,12 @@ export default {
 
 
 <style lang="scss">
+.gallery {
+  max-width: 95vw;
+  margin: 0 auto;
+  position: relative;
+}
+
 .article__select {
   margin: 0 auto;
   max-width: 50vw;
@@ -164,5 +199,14 @@ export default {
   .list-group-item:hover {
     background-color: #ebebeb;
   }
+}
+
+p {
+  padding: 15px;
+}
+
+.changeButton {
+  position: absolute;
+  right: 0;
 }
 </style>

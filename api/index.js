@@ -157,9 +157,8 @@ router.post("/gallery", (req, res) => {
  * Select one article in the gallery
  */
 router.post("/galleryArticle", (req, res) => {
-  console.log('///////////////')
   connexion.query(
-    `SELECT * FROM gallery WHERE _id='1'`,
+    `SELECT * FROM gallery WHERE _id='${req.body._id}'`,
     (error, results, fields) => {
       if (error) {
         res.json({ msg: "Error get all", err: error });
