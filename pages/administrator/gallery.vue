@@ -184,7 +184,7 @@ export default {
         this.gallery = gallery.data.data;
 
         this.gallery.forEach(select => {
-          this.article.push(select.legend);
+          this.article.push({ legend: select.legend, link: select.link });
         });
 
         console.log(this.gallery);
@@ -381,10 +381,15 @@ export default {
       this.articlesSelected = [];
       this.article.forEach(select => {
         if (
-          select.toLowerCase().indexOf(this.search.value.toLowerCase()) != -1
+          select.legend
+            .toLowerCase()
+            .indexOf(this.search.value.toLowerCase()) != -1
         ) {
           this.articlesSelected.push(select);
-          this.ul.innerHTML += `<li class="list-group-item">${select}</li>`;
+          this.ul.innerHTML += `<li class="li__head">
+          <p class="li__text">${select.legend}</p>
+          <img class="li__img" src="${select.link}">
+          </li>`;
         }
       });
     });
