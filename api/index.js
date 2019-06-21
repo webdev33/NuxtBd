@@ -126,13 +126,8 @@ router.post("/removeArticle", (req, res) => {
  * Create article
  */
 router.post("/createArticle", (req, res) => {
-
-  /* `INSERT INTO post (_id, title, content) VALUES (NULL, '${
-    req.body.title
-  }', '${req.body.content}');`, */
-  
   connexion.query(
-    `INSERT INTO post (_id, station, status, linesStation, linkBienvenue, explicationNom, events, pictures, audios, nextStep) VALUES (NULL, 'qqqq', 'q', 'q', 'q', 'q', 'q', 'q', 'q', 'q');`,
+    `INSERT INTO post (_id, station, status, linesStation, linkBienvenue, explicationNom, events, pictures, audios, nextStep) VALUES (NULL, '${req.body.station.replace(/'/g, `''`)}', '${req.body.status.replace(/'/g, `''`)}', '${req.body.linesStation.replace(/'/g, `''`)}', '${req.body.linkBienvenue.replace(/'/g, `''`)}', '${req.body.explicationNom.replace(/'/g, `''`)}', '${req.body.events.replace(/'/g, `''`)}', '${req.body.pictures.replace(/'/g, `''`)}', '${req.body.audios.replace(/'/g, `''`)}', '${req.body.nextStep.replace(/'/g, `''`)}');`,
     (error, results, fields) => {
       if (error) {
         res.json({ msg: "Error", err: error });

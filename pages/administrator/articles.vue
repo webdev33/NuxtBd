@@ -362,7 +362,7 @@ export default {
     async createArticle() {
       console.log(this.articleSelected);
       try {
-        let message = await this.$store.dispatch("createArticle", {
+        await this.$store.dispatch("createArticle", {
           station: this.articleSelected.station,
           status: this.articleSelected.status,
           linesStation: JSON.stringify(this.articleSelected.linesStation),
@@ -384,10 +384,10 @@ export default {
      * Cleaner
      */
     cleaner() {
-      this.articleSelected.station = null;
-      this.articleSelected.status = null;
+      this.articleSelected.station = '';
+      this.articleSelected.status = '';
       this.articleSelected.linesStation = [];
-      this.articleSelected.linkBienvenue = null;
+      this.articleSelected.linkBienvenue = '';
       this.articleSelected.explicationNom = [];
       this.articleSelected.events = [];
       this.articleSelected.audios = [];
