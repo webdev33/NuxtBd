@@ -11,6 +11,19 @@
     <br>
     <button class="btn btn-success" @click="appearSection()">{{ actionTodo.text }}</button>
 
+    <br>
+    <br>
+    <p
+      class="alert alert-primary alert-success"
+      v-show="formSuccess != null"
+      role="alert"
+    >{{ formSuccess }}</p>
+    <p
+      class="alert alert-primary alert-danger"
+      v-show="formError != null"
+      role="alert"
+    >{{ formError }}</p>
+
     <section v-if="actionTodo.boolean === false">
       <section v-if="currentId === null" class="article__select gallery__article">
         <br>
@@ -135,7 +148,6 @@
           v-on:click.capture="createArticle"
           type="createArticle"
         >Créer une nouvelle photo !</button>
-        <button class="btn btn-light changeButton" @click="currentId = null">Selectionner un article</button>
       </form>
     </section>
   </section>
@@ -160,6 +172,10 @@ export default {
       selectorInputs: null,
       booleanLife: false,
       confirmation: null,
+
+      /* Message */
+      formError: null,
+      formSuccess: null,
 
       /* Select */
       articleSelected: {
@@ -186,10 +202,6 @@ export default {
         this.gallery.forEach(select => {
           this.article.push({ legend: select.legend, link: select.link });
         });
-
-        console.log(this.gallery);
-        /* Render */
-        /* this.componentKey += 1; */
       } catch (e) {
         this.formError = e.message;
       }
@@ -212,10 +224,7 @@ export default {
           article.data.data[0].categorie
         );
         this.articleSelected.date = article.data.data[0].date;
-
-        /* Give data to articleSelected */
       } catch (e) {
-        console.log(e.message);
         this.formError = e.message;
       }
     },
@@ -238,7 +247,6 @@ export default {
      */
     async edit() {
       if (this.inputVerification(`modifier`) === true) {
-        console.log(this.articleSelected);
         try {
           await this.$store.dispatch("editArticleGallery", {
             _id: this.articleSelected._id,
@@ -247,7 +255,10 @@ export default {
             categorie: JSON.stringify(this.articleSelected.categorie),
             date: this.articleSelected.date
           });
+
+          this.formSuccess = `L'article a bien été modifié`;
           this.cleaner();
+          this.removeAlert();
         } catch (e) {
           this.formError = e.message;
         }
@@ -264,7 +275,10 @@ export default {
           await this.$store.dispatch("removeArticleGallery", {
             _id: this.currentId
           });
+
+          this.formSuccess = `L'article a bien été supprimé`;
           this.cleaner();
+          this.removeAlert();
         } catch (e) {
           this.formError = e.message;
         }
@@ -287,7 +301,9 @@ export default {
             date: this.articleSelected.date
           });
           this.actionTodo.boolean = false;
+          this.formSuccess = `L'article a bien été créé`;
           this.cleaner();
+          this.removeAlert();
         } catch (e) {
           this.formError = e.message;
         }
@@ -365,9 +381,19 @@ export default {
       this.currentId = null;
       this.selected = null;
       this.loadGallery();
+    },
+    //
+
+    /*
+     * Remove alert
+     */
+    removeAlert() {
+      setTimeout(() => {
+        this.formSuccess = null;
+      }, 3000);
     }
+    //
   },
-  //
 
   mounted: function mounted() {
     /*
