@@ -21,6 +21,9 @@
       <button @click="logout">Logout</button>
       <p>
         <NuxtLink to="./administrator/articles">Modifier des articles</NuxtLink>
+        <br>
+        <br>
+        <NuxtLink to="./administrator/gallery">Modifier la galerie</NuxtLink>
       </p>
     </section>
     <br>

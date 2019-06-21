@@ -4,6 +4,7 @@ import { interopDefault } from './utils'
 
 const _6cac2aec = () => interopDefault(import('..\\pages\\admin.vue' /* webpackChunkName: "pages_admin" */))
 const _9b6681b2 = () => interopDefault(import('..\\pages\\administrator\\articles.vue' /* webpackChunkName: "pages_administrator_articles" */))
+const _5ebfa450 = () => interopDefault(import('..\\pages\\administrator\\gallery.vue' /* webpackChunkName: "pages_administrator_gallery" */))
 const _3b3cd6ef = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
 Vue.use(Router)
@@ -88,6 +89,10 @@ export function createRouter() {
       path: "/administrator/articles",
       component: _9b6681b2,
       name: "administrator-articles"
+    }, {
+      path: "/administrator/gallery",
+      component: _5ebfa450,
+      name: "administrator-gallery"
     }, {
       path: "/",
       component: _3b3cd6ef,

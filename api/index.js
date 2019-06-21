@@ -139,6 +139,20 @@ router.post("/createArticle", (req, res) => {
 });
 //
 
+/*
+ * Select the gallery
+ */
+router.post("/gallery", (req, res) => {
+  connexion.query("SELECT * FROM gallery", (error, results, fields) => {
+    if (error) {
+      res.json({ msg: "Error get all", err: error });
+    } else {
+      res.json({ msg: "Get ALL", data: results });
+    }
+  });
+});
+//
+
 // Export the server middleware
 export default {
   path: "/api",

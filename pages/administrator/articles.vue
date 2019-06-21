@@ -1,7 +1,7 @@
 <template>
   <section>
     <h1>Editeur d'article</h1>
-    <NuxtLink to="/admin">Back to the admin page</NuxtLink>
+    <NuxtLink to="/admin">Retourner à la page de connection</NuxtLink>
     <p v-if="formError" class="error">{{ formError }}</p>
 
     <button @click="appearSection()">{{ actionTodo.text }}</button>

@@ -138,6 +138,17 @@ export const actions = {
       nextStep
     });
     return { msg };
-  }
+  },
+  //
+
+  /*
+   * Gallery
+   */
+  async gallery({ commit }) {
+    const { data } = await axios.post("/api/gallery");
+    return { data };
+  },
   //
 };
+
+
