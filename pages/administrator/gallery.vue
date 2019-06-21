@@ -25,14 +25,17 @@
           <br>
         </form>
 
-        <ul class="list-group">
+        <ul class="list-group li">
           <li
-            class="list-group-item"
+            class="li__head"
             v-for="article in gallery"
             :value="article._id"
             :key="article._id"
             @click="chooseArticle(article._id)"
-          >{{ article.legend }}</li>
+          >
+            <p class="li__text">{{ article.legend }}</p>
+            <img class="li__img" v-bind:src="article.link">
+          </li>
         </ul>
       </section>
 
@@ -98,7 +101,7 @@
 
         <!-- Legend -->
         <hr>
-        <p>Lien de l'image :</p>
+        <p>Légende de l'image :</p>
         <input class="form-control input" v-model="articleSelected.legend" type="text">
 
         <!-- categorie -->
@@ -127,7 +130,11 @@
         <input class="form-control input" v-model="articleSelected.date" type="text">
 
         <hr>
-        <button class="btn btn-success" v-on:click.capture="createArticle" type="createArticle">Créer une nouvelle photo !</button>
+        <button
+          class="btn btn-success"
+          v-on:click.capture="createArticle"
+          type="createArticle"
+        >Créer une nouvelle photo !</button>
         <button class="btn btn-light changeButton" @click="currentId = null">Selectionner un article</button>
       </form>
     </section>
@@ -270,7 +277,7 @@ export default {
      */
     async createArticle() {
       if (this.inputVerification(`créer`) === true) {
-        console.log(this.articleSelected)
+        console.log(this.articleSelected);
         try {
           await this.$store.dispatch("createArticleGallery", {
             _id: this.articleSelected._id,
@@ -279,6 +286,7 @@ export default {
             categorie: JSON.stringify(this.articleSelected.categorie),
             date: this.articleSelected.date
           });
+          this.actionTodo.boolean = false;
           this.cleaner();
         } catch (e) {
           this.formError = e.message;
@@ -423,5 +431,28 @@ export default {
     justify-content: space-evenly;
     margin-bottom: 30px;
   }
+}
+
+.li__head {
+  width: 100%;
+  margin-bottom: 0;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.li__text {
+  width: 75%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.li__img {
+  width: 50px;
+  height: 50px;
 }
 </style>
