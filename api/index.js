@@ -170,6 +170,24 @@ router.post("/galleryArticle", (req, res) => {
 });
 //
 
+/*
+ * Edit article
+ */
+router.post("/editArticleGallery", (req, res) => {
+  connexion.query(
+    `UPDATE gallery SET link = '${req.body.link.replace(/'/g, `''`)}', legend = '${req.body.legend.replace(/'/g, `''`)}', categorie = '${req.body.categorie.replace(/'/g, `''`)}', date = '${req.body.date.replace(/'/g, `''`)}' WHERE gallery._id = ${req.body._id};`,
+    (error, results, fields) => {
+      if (error) {
+        res.json({ msg: "Error", err: error });
+      } else {
+        res.json({ msg: "Article was edit", data: results });
+      }
+    }
+  );
+});
+//
+
+
 // Export the server middleware
 export default {
   path: "/api",

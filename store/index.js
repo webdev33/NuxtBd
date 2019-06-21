@@ -156,6 +156,29 @@ export const actions = {
   async galleryArticle({ commit }, selectId) {
     const { data } = await axios.post("/api/galleryArticle", selectId);
     return { data };
-  }
+  },
+  //
+
+  /*
+   * Edit article for the gallery
+   */
+  async editArticleGallery(
+    { commit },
+    {
+      _id,
+      link,
+      legend,
+      categorie,
+      date
+    }
+  ) {
+    await axios.post("/api/editArticleGallery", {
+      _id,
+      link,
+      legend,
+      categorie,
+      date
+    });
+  },
   //
 };

@@ -52,8 +52,23 @@
 
           <!-- categorie -->
           <hr>
-          <p>La categorie :</p>
-          <input class="form-control input" v-model="articleSelected.categorie" type="text">
+          <p>Choississez les catégories de l'image :</p>
+          <!-- <input class="form-control input" v-model="articleSelected.categorie" type="text"> -->
+          <article
+            class="items__parent"
+            v-for="select in articleSelected.categorie"
+            :key="select._id"
+          >
+            <div class="items__child">
+              <p>Catégorie :</p>
+              <input class="form-control input input__status" v-model="select.name" type="text">
+              <button
+                class="btn btn-danger btn__status"
+                @click="removeLine('categorie', select.name)"
+              >Supprimer la ligne</button>
+            </div>
+          </article>
+          <button class="btn btn-light" @click="add('categorie')">Ajouter un autre lien</button>
 
           <!-- date -->
           <hr>
@@ -63,7 +78,10 @@
           <hr>
           <button class="btn btn-success" v-on:click.capture="edit" type="edit">Modifier</button>
           <button class="btn btn-danger" v-on:click.capture="remove" type="remove">Supprimer</button>
-          <button class="btn btn-light changeButton" @click="currentId = null">Selectionner un autre article</button>
+          <button
+            class="btn btn-light changeButton"
+            @click="currentId = null"
+          >Selectionner un autre article</button>
         </form>
       </section>
     </section>
@@ -84,6 +102,11 @@ export default {
       /* Article select */
       actionTodo: { boolean: false, text: `Créer un article` },
       currentId: null,
+
+      /* Confirmation */
+      selectorInputs: null,
+      booleanLife: false,
+      confirmation: null,
 
       /* Select */
       articleSelected: {
@@ -119,7 +142,7 @@ export default {
     //
 
     /*
-     *
+     * Call the select article
      */
     async chooseArticle(select) {
       this.currentId = select;
@@ -130,7 +153,9 @@ export default {
         this.articleSelected._id = article.data.data[0]._id;
         this.articleSelected.link = article.data.data[0].link;
         this.articleSelected.legend = article.data.data[0].legend;
-        this.articleSelected.categorie = article.data.data[0].categorie;
+        this.articleSelected.categorie = JSON.parse(
+          article.data.data[0].categorie
+        );
         this.articleSelected.date = article.data.data[0].date;
 
         /* Give data to articleSelected */
@@ -150,6 +175,90 @@ export default {
         ? `Modifier un article`
         : `Créer un article`;
       /* this.cleaner(); */
+    },
+    //
+
+    /*
+     * Edit
+     */
+    async edit() {
+      if (this.inputVerification(`modifier`) === true) {
+        console.log(this.articleSelected);
+        try {
+          await this.$store.dispatch("editArticleGallery", {
+            _id: this.articleSelected._id,
+            link: this.articleSelected.link,
+            legend: this.articleSelected.legend,
+            categorie: JSON.stringify(this.articleSelected.categorie),
+            date: this.articleSelected.date
+          });
+          this.cleaner();
+        } catch (e) {
+          this.formError = e.message;
+        }
+      }
+    },
+    //
+
+    /*
+     * Remove select line
+     */
+    removeLine(selectRemove, data) {
+      this.articleSelected[selectRemove].forEach((select, i) => {
+        data === select.name
+          ? this.articleSelected[selectRemove].splice(i, 1)
+          : 0;
+      });
+    },
+    //
+
+    /*
+     * Add a new component
+     */
+    add(select) {
+      switch (select) {
+        case `categorie`:
+          this.articleSelected.categorie.push({ name: null });
+          break;
+
+        default:
+          alert("Indisponible");
+          break;
+      }
+    },
+
+    //
+    /*
+     * Verification for the empty input
+     */
+    inputVerification(message) {
+      this.selectorInputs = document.querySelectorAll(".input");
+
+      for (const select of this.selectorInputs) {
+        this.booleanLife = select.value.length > 0 ? false : true;
+        if (select.value.length) {
+          this.booleanLife = false;
+        } else {
+          alert("Remplissez tous les champs");
+          this.booleanLife = true;
+          break;
+        }
+      }
+      this.confirmation =
+        this.booleanLife === true
+          ? false
+          : confirm(`Voulez vous vraiment ${message} cet article ?`);
+      return this.confirmation;
+    },
+    //
+
+    /*
+     * Confirmation fonction
+     */
+    confirmationValidation(message) {
+      return confirm(`Voulez vous vraiment ${message} cet article ?`)
+        ? true
+        : false;
     }
     //
   },
@@ -179,8 +288,6 @@ export default {
 };
 </script>
 
-
-
 <style lang="scss">
 .gallery {
   max-width: 95vw;
@@ -199,14 +306,25 @@ export default {
   .list-group-item:hover {
     background-color: #ebebeb;
   }
-}
 
-p {
-  padding: 15px;
+  p {
+    padding: 15px;
+  }
 }
-
 .changeButton {
   position: absolute;
   right: 0;
+}
+.input__status {
+  max-width: 60vw;
+}
+
+.items__parent {
+  .items__child {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-bottom: 30px;
+  }
 }
 </style>

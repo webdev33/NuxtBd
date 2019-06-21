@@ -274,7 +274,6 @@ export default {
       selected: null,
       currentId: null,
       parseName: null,
-
       actionTodo: { boolean: false, text: `Créer un article` },
 
       /* Render */
