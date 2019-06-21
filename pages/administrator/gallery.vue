@@ -133,6 +133,8 @@ export default {
         this.gallery.forEach(select => {
           this.article.push(select.legend);
         });
+
+        console.log(this.gallery);
         /* Render */
         /* this.componentKey += 1; */
       } catch (e) {
@@ -174,7 +176,7 @@ export default {
       this.actionTodo.text = this.actionTodo.boolean
         ? `Modifier un article`
         : `Créer un article`;
-      /* this.cleaner(); */
+      this.cleaner();
     },
     //
 
@@ -191,6 +193,23 @@ export default {
             legend: this.articleSelected.legend,
             categorie: JSON.stringify(this.articleSelected.categorie),
             date: this.articleSelected.date
+          });
+          this.cleaner();
+        } catch (e) {
+          this.formError = e.message;
+        }
+      }
+    },
+    //
+
+    /*
+     * Remove
+     */
+    async remove() {
+      if (this.confirmationValidation(`supprimer`) === true) {
+        try {
+          await this.$store.dispatch("removeArticleGallery", {
+            _id: this.currentId
           });
           this.cleaner();
         } catch (e) {
@@ -259,8 +278,18 @@ export default {
       return confirm(`Voulez vous vraiment ${message} cet article ?`)
         ? true
         : false;
-    }
+    },
     //
+
+    cleaner() {
+      this.articleSelected.link = "";
+      this.articleSelected.legend = "";
+      this.articleSelected.categorie = [];
+      this.articleSelected.date = "";
+      this.currentId = null;
+      this.selected = null;
+      this.loadGallery();
+    }
   },
   //
 

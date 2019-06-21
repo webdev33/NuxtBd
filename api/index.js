@@ -171,7 +171,7 @@ router.post("/galleryArticle", (req, res) => {
 //
 
 /*
- * Edit article
+ * Edit article in the gallery
  */
 router.post("/editArticleGallery", (req, res) => {
   connexion.query(
@@ -181,6 +181,23 @@ router.post("/editArticleGallery", (req, res) => {
         res.json({ msg: "Error", err: error });
       } else {
         res.json({ msg: "Article was edit", data: results });
+      }
+    }
+  );
+});
+//
+
+/*
+ * Remove article in the gallery
+ */
+router.post("/removeArticleGallery", (req, res) => {
+  connexion.query(
+    `DELETE FROM gallery WHERE gallery._id = ${req.body._id}`,
+    (error, results, fields) => {
+      if (error) {
+        res.json({ msg: "Error", err: error });
+      } else {
+        res.json({ msg: "Article was remove", data: results });
       }
     }
   );

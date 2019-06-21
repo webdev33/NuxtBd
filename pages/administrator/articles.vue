@@ -386,14 +386,14 @@ export default {
      */
     async remove() {
       if (this.confirmationValidation(`supprimer`) === true) {
-        /* try {
+        try {
           await this.$store.dispatch("removeArticle", {
             _id: this.currentId
           });
           this.cleaner();
         } catch (e) {
           this.formError = e.message;
-        } */
+        }
       }
     },
     //

@@ -181,4 +181,13 @@ export const actions = {
     });
   },
   //
+
+  
+  /*
+   * Remove article in the gallery
+   */
+  async removeArticleGallery({ commit }, selectId) {
+    await axios.post("/api/removeArticleGallery", selectId);
+  },
+  //
 };
