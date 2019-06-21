@@ -38,7 +38,7 @@
 
       <section v-else>
         <br>
-        <!-- <br> -->
+        <h4>Vous modifier : {{ articleSelected.legend }}</h4>
         <form v-on:submit.prevent>
           <!-- Link -->
           <hr>
@@ -47,7 +47,7 @@
 
           <!-- Legend -->
           <hr>
-          <p>Lien de l'image :</p>
+          <p>Légende de l'image :</p>
           <input class="form-control input" v-model="articleSelected.legend" type="text">
 
           <!-- categorie -->
@@ -84,6 +84,52 @@
           >Selectionner un autre article</button>
         </form>
       </section>
+    </section>
+
+    <!-- /////////////////////////////// CREATE /////////////////////////////// -->
+    <section v-else>
+      <br>
+      <h4>Vous allez créer une nouvelle photo !</h4>
+      <form v-on:submit.prevent>
+        <!-- Link -->
+        <hr>
+        <p>Lien de l'image :</p>
+        <input class="form-control input" v-model="articleSelected.link" type="text">
+
+        <!-- Legend -->
+        <hr>
+        <p>Lien de l'image :</p>
+        <input class="form-control input" v-model="articleSelected.legend" type="text">
+
+        <!-- categorie -->
+        <hr>
+        <p>Choississez les catégories de l'image :</p>
+        <!-- <input class="form-control input" v-model="articleSelected.categorie" type="text"> -->
+        <article
+          class="items__parent"
+          v-for="select in articleSelected.categorie"
+          :key="select._id"
+        >
+          <div class="items__child">
+            <p>Catégorie :</p>
+            <input class="form-control input input__status" v-model="select.name" type="text">
+            <button
+              class="btn btn-danger btn__status"
+              @click="removeLine('categorie', select.name)"
+            >Supprimer la ligne</button>
+          </div>
+        </article>
+        <button class="btn btn-light" @click="add('categorie')">Ajouter un autre lien</button>
+
+        <!-- date -->
+        <hr>
+        <p>Date de l'image :</p>
+        <input class="form-control input" v-model="articleSelected.date" type="text">
+
+        <hr>
+        <button class="btn btn-success" v-on:click.capture="createArticle" type="createArticle">Créer une nouvelle photo !</button>
+        <button class="btn btn-light changeButton" @click="currentId = null">Selectionner un article</button>
+      </form>
     </section>
   </section>
 </template>
@@ -210,6 +256,28 @@ export default {
         try {
           await this.$store.dispatch("removeArticleGallery", {
             _id: this.currentId
+          });
+          this.cleaner();
+        } catch (e) {
+          this.formError = e.message;
+        }
+      }
+    },
+    //
+
+    /*
+     * Create article
+     */
+    async createArticle() {
+      if (this.inputVerification(`créer`) === true) {
+        console.log(this.articleSelected)
+        try {
+          await this.$store.dispatch("createArticleGallery", {
+            _id: this.articleSelected._id,
+            link: this.articleSelected.link,
+            legend: this.articleSelected.legend,
+            categorie: JSON.stringify(this.articleSelected.categorie),
+            date: this.articleSelected.date
           });
           this.cleaner();
         } catch (e) {

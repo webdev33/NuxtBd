@@ -204,6 +204,22 @@ router.post("/removeArticleGallery", (req, res) => {
 });
 //
 
+/*
+ * Create article in the gallery
+ */
+router.post("/createArticleGallery", (req, res) => {
+  connexion.query(
+    `INSERT INTO gallery (_id, link, legend, categorie, date) VALUES (NULL, '${req.body.link.replace(/'/g, `''`)}', '${req.body.legend.replace(/'/g, `''`)}', '${req.body.categorie.replace(/'/g, `''`)}', '${req.body.date.replace(/'/g, `''`)}');`,
+    (error, results, fields) => {
+      if (error) {
+        res.json({ msg: "Error", err: error });
+      } else {
+        res.json({ msg: "Article was create !" });
+      }
+    }
+  );
+});
+//
 
 // Export the server middleware
 export default {

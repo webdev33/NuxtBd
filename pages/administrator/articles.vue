@@ -149,7 +149,7 @@
       </section>
     </section>
 
-    <!-- Create -->
+    <!-- /////////////////////////////// CREATE /////////////////////////////// -->
     <section v-else>
       <h3>Créer un nouvel article</h3>
       <form v-on:submit.prevent>

@@ -162,16 +162,7 @@ export const actions = {
   /*
    * Edit article for the gallery
    */
-  async editArticleGallery(
-    { commit },
-    {
-      _id,
-      link,
-      legend,
-      categorie,
-      date
-    }
-  ) {
+  async editArticleGallery({ commit }, { _id, link, legend, categorie, date }) {
     await axios.post("/api/editArticleGallery", {
       _id,
       link,
@@ -182,12 +173,25 @@ export const actions = {
   },
   //
 
-  
   /*
    * Remove article in the gallery
    */
   async removeArticleGallery({ commit }, selectId) {
     await axios.post("/api/removeArticleGallery", selectId);
   },
+  //
+
+  /*
+   * Create article in the gallery
+   */
+  async createArticleGallery({ commit }, { link, legend, categorie, date }) {
+    const { msg } = await axios.post("/api/createArticleGallery", {
+      link,
+      legend,
+      categorie,
+      date
+    });
+    return { msg };
+  }
   //
 };
