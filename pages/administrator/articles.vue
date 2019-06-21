@@ -126,6 +126,97 @@
     <!-- Create -->
     <section v-else>
       <h3>Créer un nouvel article</h3>
+      <form v-on:submit.prevent>
+        <!-- COLUMN station -->
+        <hr>
+        <p>
+          Nom de la station / page :
+          <input v-model="articleSelected.station" type="text">
+        </p>
+
+        <!-- COLUMN linesStation -->
+          <hr>
+          <p>
+            Nom de la page :
+            <input v-model="articleSelected.status" type="text">
+          </p>
+
+          <!-- COLUMN linesStation -->
+          <hr>
+          <p v-for="select in articleSelected.linesStation" :key="select._id">
+            Lignes sur la station :
+            <input v-model="select.ligne" type="text">
+            Date de creation:
+            <input v-model="select.date" type="text">
+            <button @click="removeLine('linesStation', select.date)">Supprimer la ligne</button>
+          </p>
+          <button @click="add('linesStation')">Ajouter une ligne à la station</button>
+
+          <!-- COLUMN linkBienvenue -->
+          <hr>
+          <p>
+            Lien avec Bienvenüe :
+            <textarea v-model="articleSelected.linkBienvenue" type="text"></textarea>
+          </p>
+
+          <!-- COLUMN explicationNom -->
+          <hr>
+          <p v-for="select in articleSelected.explicationNom" :key="select._id">
+            Explication pour :
+            <input v-model="select.name" type="text">
+            Texte explicatif:
+            <textarea v-model="select.text" type="text"></textarea>
+            <button @click="removeLine('explicationNom', select.name)">Supprimer la ligne</button>
+          </p>
+          <button @click="add('explicationNom')">Ajouter une explication</button>
+
+          <!-- COLUMN events -->
+          <hr>
+          <p v-for="select in articleSelected.events" :key="select._id">
+            Nom de l'évenement :
+            <input v-model="select.name" type="text">
+            Explication de l'évement :
+            <textarea v-model="select.text" type="text"></textarea>
+            <button @click="removeLine('events', select.name)">Supprimer la ligne</button>
+          </p>
+          <button @click="add('events')">Ajouter un evement</button>
+
+          <!-- COLUMN station -->
+          <hr>
+          <p v-for="select in articleSelected.nextStep" :key="select._id">
+            Lien vers une autre page :
+            <input v-model="select.link" type="text">
+            Texte pour le lien :
+            <textarea v-model="select.title" type="text"></textarea>
+            <button @click="removeLine('nextStep', select.title)">Supprimer la ligne</button>
+          </p>
+          <button @click="add('nextStep')">Ajouter un autre lien</button>
+
+          <!-- COLUMN pictures -->
+          <hr>
+          <p v-for="select in articleSelected.pictures" :key="select._id">
+            Lien de l'image :
+            <input v-model="select.link" type="text">
+            Titre de l'image :
+            <textarea v-model="select.title" type="text"></textarea>
+            Date de l'image :
+            <textarea v-model="select.date" type="text"></textarea>
+            <button @click="removeLine('pictures', select.title)">Supprimer la ligne</button>
+          </p>
+          <button @click="add('pictures')">Ajouter un autre lien</button>
+
+          <!-- COLUMN audios -->
+          <hr>
+          <p v-for="select in articleSelected.audios" :key="select._id">
+            Lien de la musique
+            <input v-model="select.link" type="text">
+            Titre de la musique
+            <textarea v-model="select.title" type="text"></textarea>
+            <button @click="removeLine('audios', select.title)">Supprimer la ligne</button>
+          </p>
+          <button @click="add('audios')">Ajouter un autre lien</button>
+
+      </form>
     </section>
   </section>
 </template>
@@ -154,8 +245,8 @@ export default {
         linkBienvenue: null,
         explicationNom: null,
         events: null,
-        audios: null,
         pictures: null,
+        audios: null,
         nextStep: null
       }
     };
@@ -298,6 +389,7 @@ export default {
      * Add a new component
      */
     add(select) {
+      console.log(this.articleSelected)
       switch (select) {
         case `linesStation`:
           this.articleSelected.linesStation.push({ ligne: null, date: null });
