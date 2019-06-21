@@ -92,8 +92,18 @@
           <input class="form-control input" v-model="articleSelected.date" type="text">
 
           <hr>
-          <button class="btn btn-success" v-on:click.capture="edit" type="edit">Modifier</button>
-          <button class="btn btn-danger" v-on:click.capture="remove" type="remove">Supprimer</button>
+          <button
+            class="btn btn-success"
+            style="margin-bottom: 25px;"
+            v-on:click.capture="edit"
+            type="edit"
+          >Modifier</button>
+          <button
+            class="btn btn-danger"
+            style="margin-bottom: 25px;"
+            v-on:click.capture="remove"
+            type="remove"
+          >Supprimer</button>
           <button
             class="btn btn-light changeButton"
             @click="currentId = null"
@@ -144,7 +154,8 @@
 
         <hr>
         <button
-          class="btn btn-success"
+          class="btn btn-success btn-end"
+          style="margin-bottom: 25px;"
           v-on:click.capture="createArticle"
           type="createArticle"
         >Créer une nouvelle photo !</button>
