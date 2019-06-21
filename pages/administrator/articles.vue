@@ -353,24 +353,24 @@ export default {
      * Edit
      */
     async edit() {
-      /* this.inputLength(); */
-
-      try {
-        await this.$store.dispatch("editArticle", {
-          _id: this.articleSelected._id,
-          station: this.articleSelected.station,
-          status: this.articleSelected.status,
-          linesStation: JSON.stringify(this.articleSelected.linesStation),
-          linkBienvenue: this.articleSelected.linkBienvenue,
-          explicationNom: JSON.stringify(this.articleSelected.explicationNom),
-          events: JSON.stringify(this.articleSelected.events),
-          audios: JSON.stringify(this.articleSelected.audios),
-          pictures: JSON.stringify(this.articleSelected.pictures),
-          nextStep: JSON.stringify(this.articleSelected.nextStep)
-        });
-        this.cleaner();
-      } catch (e) {
-        this.formError = e.message;
+      if (this.inputVerification(`modifier`) === true) {
+        try {
+          await this.$store.dispatch("editArticle", {
+            _id: this.articleSelected._id,
+            station: this.articleSelected.station,
+            status: this.articleSelected.status,
+            linesStation: JSON.stringify(this.articleSelected.linesStation),
+            linkBienvenue: this.articleSelected.linkBienvenue,
+            explicationNom: JSON.stringify(this.articleSelected.explicationNom),
+            events: JSON.stringify(this.articleSelected.events),
+            audios: JSON.stringify(this.articleSelected.audios),
+            pictures: JSON.stringify(this.articleSelected.pictures),
+            nextStep: JSON.stringify(this.articleSelected.nextStep)
+          });
+          this.cleaner();
+        } catch (e) {
+          this.formError = e.message;
+        }
       }
     },
     //
@@ -379,14 +379,16 @@ export default {
      * Edit
      */
     async remove() {
-      /* try {
-        await this.$store.dispatch("removeArticle", {
-          _id: this.currentId
-        });
-        this.cleaner();
-      } catch (e) {
-        this.formError = e.message;
-      } */
+      if (this.confirmationValidation(`supprimer`) === true) {
+        /* try {
+          await this.$store.dispatch("removeArticle", {
+            _id: this.currentId
+          });
+          this.cleaner();
+        } catch (e) {
+          this.formError = e.message;
+        } */
+      }
     },
     //
 
@@ -500,12 +502,11 @@ export default {
     /*
      *
      */
-    inputLength() {
+    inputVerification(message) {
       let selectorInputs = document.querySelectorAll(".input");
       let booleanLife = false;
 
       for (const select of selectorInputs) {
-        console.log(select.value);
         booleanLife = select.value.length > 0 ? false : true;
         if (select.value.length) {
           booleanLife = false;
@@ -515,7 +516,21 @@ export default {
           break;
         }
       }
-      console.log(booleanLife);
+      let confirmation =
+        booleanLife === true
+          ? false
+          : confirm(`Voulez vous vraiment ${message} cet article ?`);
+      return confirmation;
+    },
+    //
+
+    /*
+     *
+     */
+    confirmationValidation(message) {
+      return confirm(`Voulez vous vraiment ${message} cet article ?`)
+        ? true
+        : false;
     }
     //
   },
