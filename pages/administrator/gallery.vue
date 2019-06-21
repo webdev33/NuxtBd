@@ -1,35 +1,46 @@
 <template>
-  <section>
+  <section class="gallery">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    >
     <h1>Editeur de la galerie</h1>
     <NuxtLink to="/admin">Back to the admin page</NuxtLink>
 
-    <section class="gallery">
+    <section class="article__select gallery__article">
       <br>
       <form>
-        <input name="filter" placeholder="Filtrer" type="text" autocomplete="off">
+        <input
+          class="form-control"
+          name="filter"
+          placeholder="Filtrer"
+          type="text"
+          autocomplete="off"
+        >
+        <br>
       </form>
 
-      <ul>
-        <li>Agathe</li>
-        <li>Alice</li>
-        <li>Ambre</li>
-        <li>Arthur</li>
-        <li>Camille</li>
-        <li>Chloé</li>
-        <li>Gabin</li>
-        <li>Gabriel</li>
-        <li>Hugo</li>
-        <li>Jade</li>
-        <li>Julia</li>
-        <li>Léa</li>
-        <li>Léo</li>
-        <li>Louis</li>
-        <li>Louise</li>
-        <li>Maël</li>
-        <li>Mila</li>
-        <li>Paul</li>
-        <li>Théo</li>
-        <li>Valentin</li>
+      <ul class="list-group">
+        <li class="list-group-item">Agathe</li>
+        <li class="list-group-item">Alice</li>
+        <li class="list-group-item">Ambre</li>
+        <li class="list-group-item">Arthur</li>
+        <li class="list-group-item">Camille</li>
+        <li class="list-group-item">Chloé</li>
+        <li class="list-group-item">Gabin</li>
+        <li class="list-group-item">Gabriel</li>
+        <li class="list-group-item">Hugo</li>
+        <li class="list-group-item">Jade</li>
+        <li class="list-group-item">Julia</li>
+        <li class="list-group-item">Léa</li>
+        <li class="list-group-item">Léo</li>
+        <li class="list-group-item">Louis</li>
+        <li class="list-group-item">Louise</li>
+        <li class="list-group-item">Maël</li>
+        <li class="list-group-item">Mila</li>
+        <li class="list-group-item">Paul</li>
+        <li class="list-group-item">Théo</li>
+        <li class="list-group-item">Valentin</li>
       </ul>
     </section>
   </section>
@@ -63,7 +74,8 @@ export default {
         "Valentin"
       ],
       ul: null,
-      search: null
+      search: null,
+      articlesSelected: []
     };
   },
 
@@ -96,14 +108,42 @@ export default {
      * Load articles
      */
     this.loadGallery();
+
     this.search = document.querySelector("input");
     this.ul = document.querySelector("ul");
 
     this.search.addEventListener("keyup", event => {
-      console.log(event);
+      console.log(console.log(this.article));
+      this.ul.innerHTML = "";
+      this.articlesSelected = [];
+
+      this.article.forEach(select => {
+        if (
+          select.toLowerCase().indexOf(this.search.value.toLowerCase()) != -1
+        ) {
+          this.articlesSelected.push(select);
+          this.ul.innerHTML += `<li class="list-group-item">${select}</li>`;
+        }
+      });
     });
     //
   }
 };
 </script>
 
+
+
+<style lang="scss">
+.article__select {
+  margin: 0 auto;
+  max-width: 50vw;
+  
+  .form-control {
+    background-color: #ebebeb;
+  }
+
+  .list-group-item:hover {
+    background-color: #ebebeb;
+  }
+}
+</style>
