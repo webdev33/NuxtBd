@@ -56,9 +56,19 @@
           >
             <div class="items__child">
               <p>Lignes sur la station :</p>
-              <input class="form-control input input__status articlesPage" style="width: 25vw;" v-model="select.ligne" type="text">
+              <input
+                class="form-control input input__status articlesPage"
+                style="width: 25vw;"
+                v-model="select.ligne"
+                type="text"
+              >
               <p>Date de creation:</p>
-              <input class="form-control input input__status articlesPage" style="width: 25vw;" v-model="select.date" type="text">
+              <input
+                class="form-control input input__status articlesPage"
+                style="width: 25vw;"
+                v-model="select.date"
+                type="text"
+              >
               <button
                 class="btn btn-danger btn__status"
                 @click="removeLine('linesStation', select.date)"
@@ -69,40 +79,64 @@
 
           <!-- COLUMN linkBienvenue -->
           <hr>
-          <p>
-            Lien avec Bienvenüe :
-            <textarea
-              class="input"
-              v-model="articleSelected.linkBienvenue"
-              type="text"
-            ></textarea>
-          </p>
+          <p>Lien avec Bienvenüe :</p>
+          <textarea class="form-control input" v-model="articleSelected.linkBienvenue" type="text"></textarea>
 
           <!-- COLUMN explicationNom -->
           <hr>
-          <p v-for="select in articleSelected.explicationNom" :key="select._id">
-            Explication pour :
-            <input class="input" v-model="select.name" type="text">
-            Texte explicatif:
-            <textarea class="input" v-model="select.text" type="text"></textarea>
-            <button @click="removeLine('explicationNom', select.name)">Supprimer la ligne</button>
-          </p>
-          <button @click="add('explicationNom')">Ajouter une explication</button>
+          <article
+            class="items__parent"
+            v-for="select in articleSelected.explicationNom"
+            :key="select._id"
+          >
+            <div class="items__child">
+              <p>Explication pour :</p>
+              <input
+                class="form-control input input__status articlesPage"
+                style="width: 25vw;"
+                v-model="select.name"
+                type="text"
+              >
+              <p>Texte explicatif:</p>
+              <textarea
+                class="form-control input"
+                style="width: 25vw;"
+                v-model="select.text"
+                type="text"
+              ></textarea>
+              <button
+                class="btn btn-danger btn__status"
+                @click="removeLine('explicationNom', select.name)"
+              >Supprimer la ligne</button>
+            </div>
+          </article>
+          <button class="btn btn-light" @click="add('explicationNom')">Ajouter une explication</button>
 
           <!-- COLUMN events -->
           <hr>
-          <p v-for="select in articleSelected.events" :key="select._id">
-            Nom de l'évenement :
-            <input class="input" v-model="select.name" type="text">
-            Explication de l'évement :
-            <textarea
-              class="input"
-              v-model="select.text"
-              type="text"
-            ></textarea>
-            <button @click="removeLine('events', select.name)">Supprimer la ligne</button>
-          </p>
-          <button @click="add('events')">Ajouter un evement</button>
+          <article class="items__parent" v-for="select in articleSelected.events" :key="select._id">
+            <div class="items__child">
+              <p>Nom de l'évenement :</p>
+              <input
+                class="form-control input input__status articlesPage"
+                style="width: 25vw;"
+                v-model="select.name"
+                type="text"
+              >
+              <p>Explication de l'évement :</p>
+              <textarea
+                class="form-control input input__status articlesPage"
+                style="width: 25vw;"
+                v-model="select.text"
+                type="text"
+              ></textarea>
+              <button
+                class="btn btn-danger btn__status"
+                @click="removeLine('events', select.name)"
+              >Supprimer la ligne</button>
+            </div>
+          </article>
+          <button class="btn btn-light" @click="add('events')">Ajouter un evement</button>
 
           <!-- COLUMN station -->
           <hr>
@@ -115,9 +149,12 @@
               v-model="select.title"
               type="text"
             ></textarea>
-            <button @click="removeLine('nextStep', select.title)">Supprimer la ligne</button>
+            <button
+              class="btn btn-danger btn__status"
+              @click="removeLine('nextStep', select.title)"
+            >Supprimer la ligne</button>
           </p>
-          <button @click="add('nextStep')">Ajouter un autre lien</button>
+          <button class="btn btn-light" @click="add('nextStep')">Ajouter un autre lien</button>
 
           <!-- COLUMN pictures -->
           <hr>
@@ -132,9 +169,12 @@
             ></textarea>
             Date de l'image :
             <textarea class="input" v-model="select.date" type="text"></textarea>
-            <button @click="removeLine('pictures', select.title)">Supprimer la ligne</button>
+            <button
+              class="btn btn-danger btn__status"
+              @click="removeLine('pictures', select.title)"
+            >Supprimer la ligne</button>
           </p>
-          <button @click="add('pictures')">Ajouter un autre lien</button>
+          <button class="btn btn-light" @click="add('pictures')">Ajouter un autre lien</button>
 
           <!-- COLUMN audios -->
           <hr>
@@ -147,9 +187,12 @@
               v-model="select.title"
               type="text"
             ></textarea>
-            <button @click="removeLine('audios', select.title)">Supprimer la ligne</button>
+            <button
+              class="btn btn-danger btn__status"
+              @click="removeLine('audios', select.title)"
+            >Supprimer la ligne</button>
           </p>
-          <button @click="add('audios')">Ajouter un autre lien</button>
+          <button class="btn btn-light" @click="add('audios')">Ajouter un autre lien</button>
 
           <!-- Button -->
           <hr>
