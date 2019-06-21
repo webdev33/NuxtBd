@@ -5,7 +5,7 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
     >
     <h1>Editeur de la galerie</h1>
-    <NuxtLink to="/admin">Back to the admin page</NuxtLink>
+    <NuxtLink to="/admin">Retourner à la page de connection</NuxtLink>
 
     <br>
     <br>
