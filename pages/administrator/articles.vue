@@ -353,9 +353,9 @@ export default {
      * Edit
      */
     async edit() {
-      this.inputLength();
+      /* this.inputLength(); */
 
-      /*       try {
+      try {
         await this.$store.dispatch("editArticle", {
           _id: this.articleSelected._id,
           station: this.articleSelected.station,
@@ -371,7 +371,7 @@ export default {
         this.cleaner();
       } catch (e) {
         this.formError = e.message;
-      } */
+      }
     },
     //
 
