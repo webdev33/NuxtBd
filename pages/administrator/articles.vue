@@ -27,23 +27,27 @@
           <hr>
           <p>
             Nom de la station / page :
-            <input v-model="articleSelected.station" type="text">
+            <input
+              class="input"
+              v-model="articleSelected.station"
+              type="text"
+            >
           </p>
 
           <!-- COLUMN linesStation -->
           <hr>
           <p>
             Nom de la page :
-            <input v-model="articleSelected.status" type="text">
+            <input class="input" v-model="articleSelected.status" type="text">
           </p>
 
           <!-- COLUMN linesStation -->
           <hr>
           <p v-for="select in articleSelected.linesStation" :key="select._id">
             Lignes sur la station :
-            <input v-model="select.ligne" type="text">
+            <input class="input" v-model="select.ligne" type="text">
             Date de creation:
-            <input v-model="select.date" type="text">
+            <input class="input" v-model="select.date" type="text">
             <button @click="removeLine('linesStation', select.date)">Supprimer la ligne</button>
           </p>
           <button @click="add('linesStation')">Ajouter une ligne à la station</button>
@@ -52,16 +56,20 @@
           <hr>
           <p>
             Lien avec Bienvenüe :
-            <textarea v-model="articleSelected.linkBienvenue" type="text"></textarea>
+            <textarea
+              class="input"
+              v-model="articleSelected.linkBienvenue"
+              type="text"
+            ></textarea>
           </p>
 
           <!-- COLUMN explicationNom -->
           <hr>
           <p v-for="select in articleSelected.explicationNom" :key="select._id">
             Explication pour :
-            <input v-model="select.name" type="text">
+            <input class="input" v-model="select.name" type="text">
             Texte explicatif:
-            <textarea v-model="select.text" type="text"></textarea>
+            <textarea class="input" v-model="select.text" type="text"></textarea>
             <button @click="removeLine('explicationNom', select.name)">Supprimer la ligne</button>
           </p>
           <button @click="add('explicationNom')">Ajouter une explication</button>
@@ -70,9 +78,13 @@
           <hr>
           <p v-for="select in articleSelected.events" :key="select._id">
             Nom de l'évenement :
-            <input v-model="select.name" type="text">
+            <input class="input" v-model="select.name" type="text">
             Explication de l'évement :
-            <textarea v-model="select.text" type="text"></textarea>
+            <textarea
+              class="input"
+              v-model="select.text"
+              type="text"
+            ></textarea>
             <button @click="removeLine('events', select.name)">Supprimer la ligne</button>
           </p>
           <button @click="add('events')">Ajouter un evement</button>
@@ -81,9 +93,13 @@
           <hr>
           <p v-for="select in articleSelected.nextStep" :key="select._id">
             Lien vers une autre page :
-            <input v-model="select.link" type="text">
+            <input class="input" v-model="select.link" type="text">
             Texte pour le lien :
-            <textarea v-model="select.title" type="text"></textarea>
+            <textarea
+              class="input"
+              v-model="select.title"
+              type="text"
+            ></textarea>
             <button @click="removeLine('nextStep', select.title)">Supprimer la ligne</button>
           </p>
           <button @click="add('nextStep')">Ajouter un autre lien</button>
@@ -92,11 +108,15 @@
           <hr>
           <p v-for="select in articleSelected.pictures" :key="select._id">
             Lien de l'image :
-            <input v-model="select.link" type="text">
+            <input class="input" v-model="select.link" type="text">
             Titre de l'image :
-            <textarea v-model="select.title" type="text"></textarea>
+            <textarea
+              class="input"
+              v-model="select.title"
+              type="text"
+            ></textarea>
             Date de l'image :
-            <textarea v-model="select.date" type="text"></textarea>
+            <textarea class="input" v-model="select.date" type="text"></textarea>
             <button @click="removeLine('pictures', select.title)">Supprimer la ligne</button>
           </p>
           <button @click="add('pictures')">Ajouter un autre lien</button>
@@ -105,9 +125,13 @@
           <hr>
           <p v-for="select in articleSelected.audios" :key="select._id">
             Lien de la musique
-            <input v-model="select.link" type="text">
+            <input class="input" v-model="select.link" type="text">
             Titre de la musique
-            <textarea v-model="select.title" type="text"></textarea>
+            <textarea
+              class="input"
+              v-model="select.title"
+              type="text"
+            ></textarea>
             <button @click="removeLine('audios', select.title)">Supprimer la ligne</button>
           </p>
           <button @click="add('audios')">Ajouter un autre lien</button>
@@ -131,23 +155,27 @@
         <hr>
         <p>
           Nom de la station / page :
-          <input v-model="articleSelected.station" type="text">
+          <input
+            class="input"
+            v-model="articleSelected.station"
+            type="text"
+          >
         </p>
 
         <!-- COLUMN linesStation -->
         <hr>
         <p>
           Nom de la page :
-          <input v-model="articleSelected.status" type="text">
+          <input class="input" v-model="articleSelected.status" type="text">
         </p>
 
         <!-- COLUMN linesStation -->
         <hr>
         <p v-for="select in articleSelected.linesStation" :key="select._id">
           Lignes sur la station :
-          <input v-model="select.ligne" type="text">
+          <input class="input" v-model="select.ligne" type="text">
           Date de creation:
-          <input v-model="select.date" type="text">
+          <input class="input" v-model="select.date" type="text">
           <button @click="removeLine('linesStation', select.date)">Supprimer la ligne</button>
         </p>
         <button @click="add('linesStation')">Ajouter une ligne à la station</button>
@@ -156,16 +184,20 @@
         <hr>
         <p>
           Lien avec Bienvenüe :
-          <textarea v-model="articleSelected.linkBienvenue" type="text"></textarea>
+          <textarea
+            class="input"
+            v-model="articleSelected.linkBienvenue"
+            type="text"
+          ></textarea>
         </p>
 
         <!-- COLUMN explicationNom -->
         <hr>
         <p v-for="select in articleSelected.explicationNom" :key="select._id">
           Explication pour :
-          <input v-model="select.name" type="text">
+          <input class="input" v-model="select.name" type="text">
           Texte explicatif:
-          <textarea v-model="select.text" type="text"></textarea>
+          <textarea class="input" v-model="select.text" type="text"></textarea>
           <button @click="removeLine('explicationNom', select.name)">Supprimer la ligne</button>
         </p>
         <button @click="add('explicationNom')">Ajouter une explication</button>
@@ -174,9 +206,13 @@
         <hr>
         <p v-for="select in articleSelected.events" :key="select._id">
           Nom de l'évenement :
-          <input v-model="select.name" type="text">
+          <input class="input" v-model="select.name" type="text">
           Explication de l'évement :
-          <textarea v-model="select.text" type="text"></textarea>
+          <textarea
+            class="input"
+            v-model="select.text"
+            type="text"
+          ></textarea>
           <button @click="removeLine('events', select.name)">Supprimer la ligne</button>
         </p>
         <button @click="add('events')">Ajouter un evement</button>
@@ -185,9 +221,9 @@
         <hr>
         <p v-for="select in articleSelected.nextStep" :key="select._id">
           Lien vers une autre page :
-          <input v-model="select.link" type="text">
+          <input class="input" v-model="select.link" type="text">
           Texte pour le lien :
-          <textarea v-model="select.title" type="text"></textarea>
+          <textarea class="input" v-model="select.title" type="text"></textarea>
           <button @click="removeLine('nextStep', select.title)">Supprimer la ligne</button>
         </p>
         <button @click="add('nextStep')">Ajouter un autre lien</button>
@@ -196,11 +232,11 @@
         <hr>
         <p v-for="select in articleSelected.pictures" :key="select._id">
           Lien de l'image :
-          <input v-model="select.link" type="text">
+          <input class="input" v-model="select.link" type="text">
           Titre de l'image :
-          <textarea v-model="select.title" type="text"></textarea>
+          <textarea class="input" v-model="select.title" type="text"></textarea>
           Date de l'image :
-          <textarea v-model="select.date" type="text"></textarea>
+          <textarea class="input" v-model="select.date" type="text"></textarea>
           <button @click="removeLine('pictures', select.title)">Supprimer la ligne</button>
         </p>
         <button @click="add('pictures')">Ajouter un autre lien</button>
@@ -209,20 +245,19 @@
         <hr>
         <p v-for="select in articleSelected.audios" :key="select._id">
           Lien de la musique
-          <input v-model="select.link" type="text">
+          <input class="input" v-model="select.link" type="text">
           Titre de la musique
-          <textarea v-model="select.title" type="text"></textarea>
+          <textarea class="input" v-model="select.title" type="text"></textarea>
           <button @click="removeLine('audios', select.title)">Supprimer la ligne</button>
         </p>
         <button @click="add('audios')">Ajouter un autre lien</button>
 
         <!-- Button -->
-          <hr>
-          <br>
-          <br>
+        <hr>
+        <br>
+        <br>
 
-          <button v-on:click.capture="createArticle" type="createArticle">Créer un nouvel article</button>
-
+        <button v-on:click.capture="createArticle" type="createArticle">Créer un nouvel article</button>
       </form>
     </section>
   </section>
@@ -318,10 +353,9 @@ export default {
      * Edit
      */
     async edit() {
-      console.log(this.articleSelected.audios);
-      console.log(JSON.stringify(this.articleSelected.audios));
+      this.inputLength();
 
-      try {
+      /*       try {
         await this.$store.dispatch("editArticle", {
           _id: this.articleSelected._id,
           station: this.articleSelected.station,
@@ -337,7 +371,7 @@ export default {
         this.cleaner();
       } catch (e) {
         this.formError = e.message;
-      }
+      } */
     },
     //
 
@@ -384,10 +418,10 @@ export default {
      * Cleaner
      */
     cleaner() {
-      this.articleSelected.station = '';
-      this.articleSelected.status = '';
+      this.articleSelected.station = "";
+      this.articleSelected.status = "";
       this.articleSelected.linesStation = [];
-      this.articleSelected.linkBienvenue = '';
+      this.articleSelected.linkBienvenue = "";
       this.articleSelected.explicationNom = [];
       this.articleSelected.events = [];
       this.articleSelected.audios = [];
@@ -460,6 +494,28 @@ export default {
         ? `Modifier un article`
         : `Créer un article`;
       this.cleaner();
+    },
+    //
+
+    /*
+     *
+     */
+    inputLength() {
+      let selectorInputs = document.querySelectorAll(".input");
+      let booleanLife = false;
+
+      for (const select of selectorInputs) {
+        console.log(select.value);
+        booleanLife = select.value.length > 0 ? false : true;
+        if (select.value.length) {
+          booleanLife = false;
+        } else {
+          alert("Remplissez tous les champs");
+          booleanLife = true;
+          break;
+        }
+      }
+      console.log(booleanLife);
     }
     //
   },
