@@ -1,5 +1,5 @@
 <template>
-  <section class="gallery">
+  <section class="admin">
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
@@ -423,67 +423,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.gallery {
-  max-width: 95vw;
-  margin: 0 auto;
-  position: relative;
-}
-
-.article__select {
-  margin: 0 auto;
-  max-width: 50vw;
-
-  .form-control {
-    background-color: #ebebeb;
-  }
-
-  .list-group-item:hover {
-    background-color: #ebebeb;
-  }
-
-  p {
-    padding: 15px;
-  }
-}
-.changeButton {
-  position: absolute;
-  right: 0;
-}
-.input__status {
-  max-width: 60vw;
-}
-
-.items__parent {
-  .items__child {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    margin-bottom: 30px;
-  }
-}
-
-.li__head {
-  width: 100%;
-  margin-bottom: 0;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
-  border: 1px solid #ddd;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.li__text {
-  width: 75%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.li__img {
-  width: 50px;
-  height: 50px;
-}
-</style>

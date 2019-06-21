@@ -1,20 +1,31 @@
 <template>
-  <section>
+  <section class="admin">
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"
+    >
     <h1>Editeur d'article</h1>
     <NuxtLink to="/admin">Retourner à la page de connection</NuxtLink>
     <br>
     <br>
     <p v-if="formError" class="error">{{ formError }}</p>
 
-    <button @click="appearSection()">{{ actionTodo.text }}</button>
+    <button class="btn btn-success" @click="appearSection()">{{ actionTodo.text }}</button>
     <br>
     <br>
 
     <section v-if="actionTodo.boolean === false">
-      <h3>Modifier un article existant</h3>
+      <h4>Sélectionnez un article existant :</h4>
+      <br>
       <!-- SELECT ARTICLE -->
-      <select :key="componentKey" v-model="selected" @change="selectArticle(selected)">
-        <option value>Choississez un article</option>
+
+      <select
+        class="form-control"
+        :key="componentKey"
+        v-model="selected"
+        @change="selectArticle(selected)"
+      >
+        <option>Choississez un article</option>
         <option
           v-for="article in articles"
           :value="article._id"
@@ -27,32 +38,34 @@
         <form v-on:submit.prevent>
           <!-- COLUMN station -->
           <hr>
-          <p>
-            Nom de la station / page :
-            <input
-              class="input"
-              v-model="articleSelected.station"
-              type="text"
-            >
-          </p>
+          <p>Nom de la station / page :</p>
+          <input class="form-control input" v-model="articleSelected.station" type="text">
 
           <!-- COLUMN linesStation -->
           <hr>
-          <p>
-            Nom de la page :
-            <input class="input" v-model="articleSelected.status" type="text">
-          </p>
+          <p>Nom de la page :</p>
+          <input class="form-control input" v-model="articleSelected.status" type="text">
 
           <!-- COLUMN linesStation -->
           <hr>
-          <p v-for="select in articleSelected.linesStation" :key="select._id">
-            Lignes sur la station :
-            <input class="input" v-model="select.ligne" type="text">
-            Date de creation:
-            <input class="input" v-model="select.date" type="text">
-            <button @click="removeLine('linesStation', select.date)">Supprimer la ligne</button>
-          </p>
-          <button @click="add('linesStation')">Ajouter une ligne à la station</button>
+
+          <article
+            class="items__parent"
+            v-for="select in articleSelected.linesStation"
+            :key="select._id"
+          >
+            <div class="items__child">
+              <p>Lignes sur la station :</p>
+              <input class="form-control input input__status articlesPage" style="width: 25vw;" v-model="select.ligne" type="text">
+              <p>Date de creation:</p>
+              <input class="form-control input input__status articlesPage" style="width: 25vw;" v-model="select.date" type="text">
+              <button
+                class="btn btn-danger btn__status"
+                @click="removeLine('linesStation', select.date)"
+              >Supprimer la ligne</button>
+            </div>
+          </article>
+          <button class="btn btn-light" @click="add('linesStation')">Ajouter une ligne à la station</button>
 
           <!-- COLUMN linkBienvenue -->
           <hr>
