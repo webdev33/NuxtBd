@@ -246,7 +246,6 @@
           <!-- Button -->
           <hr>
           <br>
-          <br>
 
           <button
             class="btn btn-success"

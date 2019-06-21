@@ -60,7 +60,9 @@
           <hr>
           <p>Lien de l'image :</p>
           <input class="form-control input" v-model="articleSelected.link" type="text">
-
+          <article class="input__imgParent">
+          <img class="input__img" v-bind:src="articleSelected.link">
+          </article>
           <!-- Legend -->
           <hr>
           <p>Légende de l'image :</p>
@@ -121,7 +123,9 @@
         <hr>
         <p>Lien de l'image :</p>
         <input class="form-control input" v-model="articleSelected.link" type="text">
-
+        <article class="input__imgParent">
+          <img class="input__img" v-bind:src="articleSelected.link">
+        </article>
         <!-- Legend -->
         <hr>
         <p>Légende de l'image :</p>
