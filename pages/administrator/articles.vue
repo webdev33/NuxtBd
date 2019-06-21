@@ -632,6 +632,10 @@ export default {
             nextStep: JSON.stringify(this.articleSelected.nextStep)
           });
           this.formSuccess = `L'article a bien été créé !`;
+
+          /* Change if page */
+          this.actionTodo.boolean = false;
+
           this.cleaner();
           this.removeAlert();
         } catch (e) {
