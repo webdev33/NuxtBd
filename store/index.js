@@ -110,8 +110,33 @@ export const actions = {
   /*
    * Create article
    */
-  async createArticle({ commit }, { title, content }) {
-    const { msg } = await axios.post("/api/createArticle", { title, content });
+  async createArticle(
+    { commit },
+    {
+      station,
+      status,
+      content,
+      linesStation,
+      linkBienvenue,
+      explicationNom,
+      events,
+      audios,
+      pictures,
+      nextStep
+    }
+  ) {
+    const { msg } = await axios.post("/api/createArticle", {
+      station,
+      status,
+      content,
+      linesStation,
+      linkBienvenue,
+      explicationNom,
+      events,
+      audios,
+      pictures,
+      nextStep
+    });
     return { msg };
   }
   //
