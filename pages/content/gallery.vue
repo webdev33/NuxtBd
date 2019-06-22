@@ -9,6 +9,7 @@
 
     <section class="gallery__form">
       <form>
+        <!-- Search bar -->
         <input
           class="gallery__input"
           name="filter"
@@ -16,6 +17,8 @@
           type="text"
           autocomplete="off"
         >
+
+        <!-- Checkbox -->
         <input
           type="checkbox"
           id="Entrance"
@@ -123,30 +126,34 @@ export default {
      * Check
      */
     check() {
+
+      /* TODOOOOOOOOOOOOO */
       this.ul.innerHTML = "";
       /* console.log(this.article); */
 
       this.article.forEach(selectArticle => {
         selectArticle.categorie.forEach(selectArticleCategorie => {
           this.checkedNames.forEach(selectCategorie => {
-          /* console.log(selectCategorie, selectArticleCategorie.name); */
-          if(selectCategorie === selectArticleCategorie.name) {
-            console.log(selectArticle)
-          this.ul.innerHTML += "gergeg";
-          }
-
+            /* console.log(selectCategorie, selectArticleCategorie.name); */
+            if (selectCategorie === selectArticleCategorie.name) {
+              console.log(selectArticle);
+              this.ul.innerHTML += `<li class="li__head"><p class="li__text">${
+                selectArticle.legend
+              }</p><img class="li__img" src="${selectArticle.link}"></li>`;
+            }
+          });
         });
-          
-
-          /* console.log(selectCategorie)
-            if(selectArticleCategorie === selectCategorie){
-              console.log('OUI')
-            } */
-        });
-        /* console.log(selectArticle) */
       });
 
-      console.log('/////////////')
+      console.log("/////////////");
+      console.log(this.checkedNames.length);
+      if (this.checkedNames.length === 0) {
+        this.article.forEach(select => {
+          this.ul.innerHTML += `<li class="li__head"><p class="li__text">${
+            select.legend
+          }</p><img class="li__img" src="${select.link}"></li>`;
+        });
+      }
     }
     //
   },
@@ -174,6 +181,7 @@ export default {
           </li>`;
         }
       });
+      console.log(this.articlesSelected);
     });
   }
 };
