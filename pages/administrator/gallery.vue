@@ -38,10 +38,10 @@
           <br>
         </form>
 
-        <ul class="list-group li">
+        <ul class="list-group li" :key="componentKey">
           <li
             class="li__head"
-            v-for="article in gallery"
+            v-for="article in articlesSelected"
             :value="article._id"
             :key="article._id"
             @click="chooseArticle(article._id)"
@@ -61,7 +61,7 @@
           <p>Lien de l'image :</p>
           <input class="form-control input" v-model="articleSelected.link" type="text">
           <article class="input__imgParent">
-          <img class="input__img" v-bind:src="articleSelected.link">
+            <img class="input__img" v-bind:src="articleSelected.link">
           </article>
           <!-- Legend -->
           <hr>
@@ -183,6 +183,7 @@ export default {
       actionTodo: { boolean: false, text: `Créer un article` },
       currentId: null,
 
+      componentKey: 0,
       /* Confirmation */
       selectorInputs: null,
       booleanLife: false,
@@ -215,7 +216,17 @@ export default {
         this.gallery = gallery.data.data;
 
         this.gallery.forEach(select => {
-          this.article.push({ legend: select.legend, link: select.link });
+          console.log(select);
+          this.articlesSelected.push({
+            legend: select.legend,
+            link: select.link,
+            _id: select._id
+          });
+          this.article.push({
+            legend: select.legend,
+            link: select.link,
+            _id: select._id
+          });
         });
       } catch (e) {
         this.formError = e.message;
@@ -306,7 +317,6 @@ export default {
      */
     async createArticle() {
       if (this.inputVerification(`créer`) === true) {
-        console.log(this.articleSelected);
         try {
           await this.$store.dispatch("createArticleGallery", {
             _id: this.articleSelected._id,
@@ -427,10 +437,7 @@ export default {
             .indexOf(this.search.value.toLowerCase()) != -1
         ) {
           this.articlesSelected.push(select);
-          this.ul.innerHTML += `<li class="li__head">
-          <p class="li__text">${select.legend}</p>
-          <img class="li__img" src="${select.link}">
-          </li>`;
+          this.componentKey += 1;
         }
       });
     });

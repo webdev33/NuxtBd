@@ -16,7 +16,13 @@
           type="text"
           autocomplete="off"
         >
-        <input type="checkbox" id="Entrance" value="Entrance" v-model="checkedNames" @change="check">
+        <input
+          type="checkbox"
+          id="Entrance"
+          value="Entrance"
+          v-model="checkedNames"
+          @change="check"
+        >
         <label for="Entrance">Entrée de station</label>
 
         <input type="checkbox" id="Station" value="Station" v-model="checkedNames" @change="check">
@@ -25,16 +31,34 @@
         <input type="checkbox" id="Train" value="Train" v-model="checkedNames" @change="check">
         <label for="Train">Train</label>
 
-        <input type="checkbox" id="PostCard" value="PostCard" v-model="checkedNames" @change="check">
+        <input
+          type="checkbox"
+          id="PostCard"
+          value="PostCard"
+          v-model="checkedNames"
+          @change="check"
+        >
         <label for="PostCard">Cartes postales</label>
 
         <input type="checkbox" id="Event" value="Event" v-model="checkedNames" @change="check">
         <label for="Event">Evenement</label>
 
-        <input type="checkbox" id="Document" value="Document" v-model="checkedNames" @change="check">
+        <input
+          type="checkbox"
+          id="Document"
+          value="Document"
+          v-model="checkedNames"
+          @change="check"
+        >
         <label for="Train">Train</label>
 
-        <input type="checkbox" id="Building" value="Building" v-model="checkedNames" @change="check">
+        <input
+          type="checkbox"
+          id="Building"
+          value="Building"
+          v-model="checkedNames"
+          @change="check"
+        >
         <label for="Building">En construction</label>
       </form>
     </section>
@@ -59,9 +83,8 @@
 export default {
   data() {
     return {
-      checkedNames: [],
-
       /* Search bar */
+      checkedNames: [],
       gallery: null,
       article: [],
       ul: null,
@@ -84,32 +107,48 @@ export default {
         this.gallery = gallery.data.data;
 
         this.gallery.forEach(select => {
-          this.article.push({ legend: select.legend, link: select.link, categorie: JSON.parse(select.categorie) });
+          this.article.push({
+            legend: select.legend,
+            link: select.link,
+            categorie: JSON.parse(select.categorie)
+          });
         });
-
-        /* console.log(JSON.parse(this.gallery[0].categorie)) */
-        /* this.gallery.forEach(select => { */
-        /* console.log(JSON.parse(select.categorie)) */
-        /* JSON.parse(select.categorie).forEach(select => {
-            console.log(select);
-          }); */
-        /* this.article.push({ legend: select.legend, link: select.link }); */
-        /* }); */
       } catch (e) {
         this.formError = e.message;
       }
     },
     //
 
-
+    /*
+     * Check
+     */
     check() {
-      console.log(this.article)
+      this.ul.innerHTML = "";
+      /* console.log(this.article); */
 
-      this.article.forEach((select) => {
-        console.log(select)
+      this.article.forEach(selectArticle => {
+        selectArticle.categorie.forEach(selectArticleCategorie => {
+          this.checkedNames.forEach(selectCategorie => {
+          /* console.log(selectCategorie, selectArticleCategorie.name); */
+          if(selectCategorie === selectArticleCategorie.name) {
+            console.log(selectArticle)
+          this.ul.innerHTML += "gergeg";
+          }
+
+        });
+          
+
+          /* console.log(selectCategorie)
+            if(selectArticleCategorie === selectCategorie){
+              console.log('OUI')
+            } */
+        });
+        /* console.log(selectArticle) */
       });
-      
+
+      console.log('/////////////')
     }
+    //
   },
 
   mounted: function mounted() {
