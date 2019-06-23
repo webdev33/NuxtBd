@@ -99,6 +99,7 @@ export default {
       categories: null,
       selectFinal: [],
       finalHave: [],
+      
       /* Message */
       formError: null
     };
@@ -152,13 +153,10 @@ export default {
       this.selectFinal.forEach((selectArticle, i) => {
         for (const selectCategorie of selectArticle.categorie) {
           this.checkedNames.forEach(selectChecked => {
-            /* If article is not defined */
-            if (
-              selectCategorie.name === selectChecked &&
-              this.finalHave.indexOf(selectChecked) === -1
-            ) {
-              this.finalHave.push(selectChecked);
-            }
+            selectCategorie.name === selectChecked &&
+            this.finalHave.indexOf(selectChecked) === -1
+              ? this.finalHave.push(selectChecked)
+              : 0;
           });
         }
         this.finalHave.length === this.checkedNames.length
