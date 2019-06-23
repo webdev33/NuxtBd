@@ -29,6 +29,7 @@
         <br>
         <form>
           <input
+            v-on:keyup="keypress"
             class="form-control"
             name="filter"
             placeholder="Filtrer"
@@ -216,7 +217,6 @@ export default {
         this.gallery = gallery.data.data;
 
         this.gallery.forEach(select => {
-          console.log(select);
           this.articlesSelected.push({
             legend: select.legend,
             link: select.link,
@@ -354,7 +354,7 @@ export default {
     add(select) {
       switch (select) {
         case `categorie`:
-          this.articleSelected.categorie.push({ name: null });
+          this.articleSelected.categorie.push({ name: null, select: false });
           break;
 
         default:
@@ -405,6 +405,7 @@ export default {
       this.articleSelected.date = "";
       this.currentId = null;
       this.selected = null;
+      this.articlesSelected = [];
       this.loadGallery();
     },
     //
@@ -416,18 +417,10 @@ export default {
       setTimeout(() => {
         this.formSuccess = null;
       }, 3000);
-    }
+    },
     //
-  },
 
-  mounted: function mounted() {
-    /*
-     * Load articles
-     */
-    this.loadGallery();
-    this.search = document.querySelector("input");
-    this.ul = document.querySelector("ul");
-    this.search.addEventListener("keyup", event => {
+    keypress(event) {
       this.ul.innerHTML = "";
       this.articlesSelected = [];
       this.article.forEach(select => {
@@ -440,8 +433,16 @@ export default {
           this.componentKey += 1;
         }
       });
-    });
-    //
+    }
+  },
+  mounted: function mounted() {
+    /*
+     * Load articles
+     */
+    this.loadGallery();
+    this.search = document.querySelector("input");
+    this.ul = document.querySelector("ul");
   }
+  //
 };
 </script>

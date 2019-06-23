@@ -36,7 +36,6 @@
         v-model="selected"
         @change="selectArticle(selected)"
       >
-        <option>Choississez un article</option>
         <option
           v-for="article in articles"
           :value="article._id"
@@ -508,7 +507,7 @@ export default {
     };
   },
 
-  /* middleware: "auth", */
+  middleware: "auth",
 
   methods: {
     /*
