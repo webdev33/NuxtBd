@@ -76,6 +76,7 @@
         <li class="li__head" v-for="article in gallery" :value="article._id" :key="article._id">
           <p class="li__text">{{ article.legend }}</p>
           <img class="li__img" v-bind:src="article.link">
+          <p class="li__text">{{ article.date }}</p>
         </li>
       </ul>
     </section>
@@ -96,6 +97,7 @@ export default {
       articlesSelectedCategorie: [],
       selectedCategorie: [],
       categories: null,
+      selectFinal: [],
 
       /* Message */
       formError: null
@@ -112,11 +114,11 @@ export default {
         this.gallery = gallery.data.data;
 
         this.gallery.forEach(select => {
-          /* console.log(select) */
           this.article.push({
             legend: select.legend,
             link: select.link,
-            categorie: JSON.parse(select.categorie)
+            categorie: JSON.parse(select.categorie),
+            date: select.date
           });
         });
       } catch (e) {
@@ -131,25 +133,61 @@ export default {
     check() {
       this.ul.innerHTML = "";
 
-
-
-      let selectFinal = []
-
-
       /* If categorie is selected => true */
       this.article.forEach(selectArticle => {
         this.checkedNames.forEach(selectChecked => {
           selectArticle.categorie.forEach(selectCategorie => {
-            if (this.checkedNames.indexOf(selectCategorie.name) != -1) {
+            if (
+              this.checkedNames.indexOf(selectCategorie.name) != -1 &&
+              this.selectFinal.indexOf(selectArticle) === -1
+            ) {
               selectCategorie.select = true;
+              this.selectFinal.push(selectArticle);
             }
           });
         });
       });
 
-      console.log(this.article)
+      console.log(this.selectFinal);
 
+      this.checkedNames.forEach(selectChecked => {
+        this.selectFinal.forEach((selectArticle, i) => {
+          selectArticle.categorie.forEach(selectCategorie => {
+            if (
+              selectChecked === selectCategorie.name &&
+              selectCategorie.select === true
+            ) {
+              this.appearContent(
+                selectArticle.legend,
+                selectArticle.link,
+                selectArticle.date
+              );
+            } else {
+              this.selectFinal.splice(i, 1);
+            }
+          });
+        });
+      });
 
+      /* Show all articles */
+      if (this.checkedNames.length === 0) {
+        this.article.forEach(select => {
+          this.appearContent(select.legend, select.link, select.date);
+        });
+      }
+    },
+    //
+
+    /*
+     * Appear the content in the ul
+     */
+    appearContent(legend, link, date) {
+      this.ul.innerHTML += `
+      <li class="li__head">
+        <p class="li__text">${legend}</p>
+        <img class="li__img" src="${link}">
+        <p class="li__text">${date}</p>
+      </li>`;
     }
     //
   },
@@ -171,13 +209,9 @@ export default {
             .indexOf(this.search.value.toLowerCase()) != -1
         ) {
           this.articlesSelected.push(select);
-          this.ul.innerHTML += `<li class="li__head">
-          <p class="li__text">${select.legend}</p>
-          <img class="li__img" src="${select.link}">
-          </li>`;
+          this.appearContent(select.legend, select.link, select.date);
         }
       });
-      console.log(this.articlesSelected);
     });
   }
 };
