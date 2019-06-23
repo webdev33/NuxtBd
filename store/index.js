@@ -79,6 +79,7 @@ export const actions = {
       linkBienvenue,
       explicationNom,
       events,
+      videos,
       audios,
       pictures,
       nextStep
@@ -92,6 +93,7 @@ export const actions = {
       linkBienvenue,
       explicationNom,
       events,
+      videos,
       audios,
       pictures,
       nextStep
@@ -120,6 +122,7 @@ export const actions = {
       linkBienvenue,
       explicationNom,
       events,
+      videos,
       audios,
       pictures,
       nextStep
@@ -133,6 +136,7 @@ export const actions = {
       linkBienvenue,
       explicationNom,
       events,
+      videos,
       audios,
       pictures,
       nextStep

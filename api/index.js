@@ -93,7 +93,7 @@ router.post("/article", (req, res) => {
  */
 router.post("/editArticle", (req, res) => {
   connexion.query(    
-    `UPDATE post SET  explicationNom = '${req.body.explicationNom.replace(/'/g, `''`)}', events = '${req.body.events.replace(/'/g, `''`)}',  pictures = '${req.body.pictures.replace(/'/g, `''`)}' , station = '${req.body.station.replace(/'/g, `''`)}', status = '${req.body.status.replace(/'/g, `''`)}', linesStation = '${req.body.linesStation.replace(/'/g, `''`)}', linkBienvenue = '${req.body.linkBienvenue.replace(/'/g, `''`)}', audios = '${req.body.audios.replace(/'/g, `''`)}', nextStep = '${req.body.nextStep.replace(/'/g, `''`)}' WHERE post._id = ${req.body._id};`,
+    `UPDATE post SET  videos = '${req.body.videos.replace(/'/g, `''`)}',  explicationNom = '${req.body.explicationNom.replace(/'/g, `''`)}', events = '${req.body.events.replace(/'/g, `''`)}',  pictures = '${req.body.pictures.replace(/'/g, `''`)}' , station = '${req.body.station.replace(/'/g, `''`)}', status = '${req.body.status.replace(/'/g, `''`)}', linesStation = '${req.body.linesStation.replace(/'/g, `''`)}', linkBienvenue = '${req.body.linkBienvenue.replace(/'/g, `''`)}', audios = '${req.body.audios.replace(/'/g, `''`)}', nextStep = '${req.body.nextStep.replace(/'/g, `''`)}' WHERE post._id = ${req.body._id};`,
     (error, results, fields) => {
       if (error) {
         res.json({ msg: "Error", err: error });
@@ -127,7 +127,7 @@ router.post("/removeArticle", (req, res) => {
  */
 router.post("/createArticle", (req, res) => {
   connexion.query(
-    `INSERT INTO post (_id, station, status, linesStation, linkBienvenue, explicationNom, events, pictures, audios, nextStep) VALUES (NULL, '${req.body.station.replace(/'/g, `''`)}', '${req.body.status.replace(/'/g, `''`)}', '${req.body.linesStation.replace(/'/g, `''`)}', '${req.body.linkBienvenue.replace(/'/g, `''`)}', '${req.body.explicationNom.replace(/'/g, `''`)}', '${req.body.events.replace(/'/g, `''`)}', '${req.body.pictures.replace(/'/g, `''`)}', '${req.body.audios.replace(/'/g, `''`)}', '${req.body.nextStep.replace(/'/g, `''`)}');`,
+    `INSERT INTO post (_id, station, status, linesStation, linkBienvenue, explicationNom, events, pictures, videos, audios, nextStep) VALUES (NULL, '${req.body.station.replace(/'/g, `''`)}', '${req.body.status.replace(/'/g, `''`)}', '${req.body.linesStation.replace(/'/g, `''`)}', '${req.body.linkBienvenue.replace(/'/g, `''`)}', '${req.body.explicationNom.replace(/'/g, `''`)}', '${req.body.events.replace(/'/g, `''`)}', '${req.body.pictures.replace(/'/g, `''`)}', '${req.body.videos.replace(/'/g, `''`)}', '${req.body.audios.replace(/'/g, `''`)}', '${req.body.nextStep.replace(/'/g, `''`)}');`,
     (error, results, fields) => {
       if (error) {
         res.json({ msg: "Error", err: error });

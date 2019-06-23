@@ -5,6 +5,7 @@ import { interopDefault } from './utils'
 const _6cac2aec = () => interopDefault(import('..\\pages\\admin.vue' /* webpackChunkName: "pages_admin" */))
 const _9b6681b2 = () => interopDefault(import('..\\pages\\administrator\\articles.vue' /* webpackChunkName: "pages_administrator_articles" */))
 const _5ebfa450 = () => interopDefault(import('..\\pages\\administrator\\gallery.vue' /* webpackChunkName: "pages_administrator_gallery" */))
+const _9853b0e0 = () => interopDefault(import('..\\pages\\content\\article.vue' /* webpackChunkName: "pages_content_article" */))
 const _02f543ec = () => interopDefault(import('..\\pages\\content\\gallery.vue' /* webpackChunkName: "pages_content_gallery" */))
 const _3b3cd6ef = () => interopDefault(import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */))
 
@@ -94,6 +95,10 @@ export function createRouter() {
       path: "/administrator/gallery",
       component: _5ebfa450,
       name: "administrator-gallery"
+    }, {
+      path: "/content/article",
+      component: _9853b0e0,
+      name: "content-article"
     }, {
       path: "/content/gallery",
       component: _02f543ec,

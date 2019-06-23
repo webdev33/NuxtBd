@@ -2,13 +2,8 @@
   <section class="index">
     <h1>Welcome guys !</h1>
 
-    <h3>Articles :</h3>
-
-    <p
-      class="alert alert-primary alert-danger"
-      v-show="formError != null"
-      role="alert"
-    >{{ formError }}</p>
+    <!-- Alert -->
+    <p class="alert alert-primary alert-danger" v-show="formError != null">{{ formError }}</p>
 
     <article v-for="article in articles" :value="article._id" :key="article._id">
       <p>{{ articles.pictures }}</p>

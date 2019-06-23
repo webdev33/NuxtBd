@@ -13,16 +13,10 @@
 
     <br>
     <br>
-    <p
-      class="alert alert-primary alert-success"
-      v-show="formSuccess != null"
-      role="alert"
-    >{{ formSuccess }}</p>
-    <p
-      class="alert alert-primary alert-danger"
-      v-show="formError != null"
-      role="alert"
-    >{{ formError }}</p>
+
+    <!-- Alerts -->
+    <p class="alert alert-primary alert-success" v-show="formSuccess != null">{{ formSuccess }}</p>
+    <p class="alert alert-primary alert-danger" v-show="formError != null">{{ formError }}</p>
 
     <section v-if="actionTodo.boolean === false">
       <section v-if="currentId === null" class="article__select gallery__article">

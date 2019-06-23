@@ -14,16 +14,9 @@
     <br>
     <br>
 
-    <p
-      class="alert alert-primary alert-success"
-      v-show="formSuccess != null"
-      role="alert"
-    >{{ formSuccess }}</p>
-    <p
-      class="alert alert-primary alert-danger"
-      v-show="formError != null"
-      role="alert"
-    >{{ formError }}</p>
+    <!-- Alerts -->
+    <p class="alert alert-primary alert-success" v-show="formSuccess != null">{{ formSuccess }}</p>
+    <p class="alert alert-primary alert-danger" v-show="formError != null">{{ formError }}</p>
 
     <section v-if="actionTodo.boolean === false">
       <h4>Sélectionnez un article existant :</h4>
@@ -214,7 +207,33 @@
               >Supprimer la ligne</button>
             </div>
           </article>
-          <button class="btn btn-light" @click="add('pictures')">Ajouter un autre lien</button>
+          <button class="btn btn-light" @click="add('pictures')">Ajouter une autre image</button>
+
+          <!-- COLUMN video -->
+          <hr>
+          <article class="items__parent" v-for="select in articleSelected.videos" :key="select._id">
+            <div class="items__child">
+              <p>Lien de la vidéo</p>
+              <input
+                class="form-control input input__status articlesPage"
+                style="width: 25vw;"
+                v-model="select.link"
+                type="text"
+              >
+              <p>Titre de la vidéo</p>
+              <textarea
+                class="form-control input input__status articlesPage"
+                style="width: 25vw;"
+                v-model="select.title"
+                type="text"
+              ></textarea>
+              <button
+                class="btn btn-danger btn__status"
+                @click="removeLine('videos', select.title)"
+              >Supprimer la ligne</button>
+            </div>
+          </article>
+          <button class="btn btn-light" @click="add('videos')">Ajouter une autre video</button>
 
           <!-- COLUMN audios -->
           <hr>
@@ -240,7 +259,7 @@
               >Supprimer la ligne</button>
             </div>
           </article>
-          <button class="btn btn-light" @click="add('audios')">Ajouter un autre lien</button>
+          <button class="btn btn-light" @click="add('audios')">Ajouter un autre audio</button>
 
           <!-- Button -->
           <hr>
@@ -428,6 +447,32 @@
         </article>
         <button class="btn btn-light" @click="add('pictures')">Ajouter un autre lien</button>
 
+        <!-- COLUMN video -->
+        <hr>
+        <article class="items__parent" v-for="select in articleSelected.videos" :key="select._id">
+          <div class="items__child">
+            <p>Lien de la vidéo</p>
+            <input
+              class="form-control input input__status articlesPage"
+              style="width: 25vw;"
+              v-model="select.link"
+              type="text"
+            >
+            <p>Titre de la vidéo</p>
+            <textarea
+              class="form-control input input__status articlesPage"
+              style="width: 25vw;"
+              v-model="select.title"
+              type="text"
+            ></textarea>
+            <button
+              class="btn btn-danger btn__status"
+              @click="removeLine('videos', select.title)"
+            >Supprimer la ligne</button>
+          </div>
+        </article>
+        <button class="btn btn-light" @click="add('videos')">Ajouter une autre video</button>
+
         <!-- COLUMN audios -->
         <hr>
         <article class="items__parent" v-for="select in articleSelected.audios" :key="select._id">
@@ -496,6 +541,7 @@ export default {
         explicationNom: null,
         events: null,
         pictures: null,
+        videos: null,
         audios: null,
         nextStep: null
       },
@@ -507,7 +553,7 @@ export default {
     };
   },
 
-  middleware: "auth",
+  /* middleware: "auth", */
 
   methods: {
     /*
@@ -548,15 +594,14 @@ export default {
         );
 
         this.articleSelected.events = JSON.parse(article.data.data[0].events);
+        this.articleSelected.videos = JSON.parse(article.data.data[0].videos);
         this.articleSelected.audios = JSON.parse(article.data.data[0].audios);
-
         this.articleSelected.pictures = JSON.parse(
           article.data.data[0].pictures
         );
         this.articleSelected.nextStep = JSON.parse(
           article.data.data[0].nextStep
         );
-
         this.formSuccess = `L'article a bien été chargé`;
         this.removeAlert();
       } catch (e) {
@@ -579,6 +624,7 @@ export default {
             linkBienvenue: this.articleSelected.linkBienvenue,
             explicationNom: JSON.stringify(this.articleSelected.explicationNom),
             events: JSON.stringify(this.articleSelected.events),
+            videos: JSON.stringify(this.articleSelected.videos),
             audios: JSON.stringify(this.articleSelected.audios),
             pictures: JSON.stringify(this.articleSelected.pictures),
             nextStep: JSON.stringify(this.articleSelected.nextStep)
@@ -625,6 +671,7 @@ export default {
             linkBienvenue: this.articleSelected.linkBienvenue,
             explicationNom: JSON.stringify(this.articleSelected.explicationNom),
             events: JSON.stringify(this.articleSelected.events),
+            videos: JSON.stringify(this.articleSelected.videos),
             audios: JSON.stringify(this.articleSelected.audios),
             pictures: JSON.stringify(this.articleSelected.pictures),
             nextStep: JSON.stringify(this.articleSelected.nextStep)
@@ -655,6 +702,7 @@ export default {
       this.articleSelected.events = [];
       this.articleSelected.audios = [];
       this.articleSelected.pictures = [];
+      this.articleSelected.videos = [];
       this.articleSelected.nextStep = [];
       this.currentId = null;
       this.selected = null;
@@ -681,6 +729,11 @@ export default {
 
         case `nextStep`:
           this.articleSelected.nextStep.push({ title: null, link: null });
+          break;
+
+        case `videos`:
+          console.log(this.articleSelected);
+          this.articleSelected.videos.push({ title: null, link: null });
           break;
 
         case `audios`:
