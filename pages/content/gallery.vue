@@ -98,7 +98,7 @@ export default {
       selectedCategorie: [],
       categories: null,
       selectFinal: [],
-
+      finalHave: [],
       /* Message */
       formError: null
     };
@@ -132,6 +132,7 @@ export default {
      */
     check() {
       this.ul.innerHTML = "";
+      this.finalHave = [];
 
       /* If categorie is selected => true */
       this.article.forEach(selectArticle => {
@@ -148,63 +149,26 @@ export default {
         });
       });
 
-      console.log(this.selectFinal);
-      console.log(
-        "////////////////////////////////////////////////////////////"
-      );
-
-      /* 
-      this.checkedNames.forEach(selectChecked => {
-        this.selectFinal.forEach((selectArticle, i) => {
-          selectArticle.categorie.forEach(selectCategorie => {
-            if (
-              selectChecked === selectCategorie.name &&
-              selectCategorie.select === true
-            ) {
-              this.appearContent(
-                selectArticle.legend,
-                selectArticle.link,
-                selectArticle.date
-              );
-            } else {
-              this.selectFinal.splice(i, 1);
-            }
-          });
-        });
-      }); 
-      */ 
-      let have = []
-
       this.selectFinal.forEach((selectArticle, i) => {
         for (const selectCategorie of selectArticle.categorie) {
-          
-          
           this.checkedNames.forEach(selectChecked => {
-            
-            /* Si l'article n'a pas la categorie */
-            if (selectCategorie.name === selectChecked) {
-              if(have.indexOf(selectChecked) === -1) {
-                have.push(selectChecked)
-              }
+            /* If article is not defined */
+            if (
+              selectCategorie.name === selectChecked &&
+              this.finalHave.indexOf(selectChecked) === -1
+            ) {
+              this.finalHave.push(selectChecked);
             }
           });
         }
-
-        /* Supprimer article */
-        console.log(have);
-
-        if(have.length === this.checkedNames.length) {
-          console.log('on garde')
-          /* console.log(selectArticle) */
-          this.appearContent(selectArticle.legend, selectArticle.link, selectArticle.date);
-        }
-
-        console.log("...............");
+        this.finalHave.length === this.checkedNames.length
+          ? this.appearContent(
+              selectArticle.legend,
+              selectArticle.link,
+              selectArticle.date
+            )
+          : 0;
       });
-
-      /* this.checkedNames.forEach(selectChecked => {
-        console.log(selectChecked); console.log(beasts.indexOf('bison'));
-      }); */
 
       /* Show all articles */
       if (this.checkedNames.length === 0) {
