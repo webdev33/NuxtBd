@@ -131,6 +131,12 @@ export default {
     check() {
       this.ul.innerHTML = "";
 
+
+
+      let selectFinal = []
+
+
+      /* If categorie is selected => true */
       this.article.forEach(selectArticle => {
         this.checkedNames.forEach(selectChecked => {
           selectArticle.categorie.forEach(selectCategorie => {
@@ -141,31 +147,9 @@ export default {
         });
       });
 
-      this.article.forEach(selectArticle => {
-        selectArticle.categorie.forEach(selectCategorie => {
+      console.log(this.article)
 
-          console.log(this.checkedNames.indexOf(selectCategorie.name))
-          this.checkedNames.forEach(selectChecked => {
-            if(this.checkedNames.indexOf(selectCategorie.name) === 0) {
-              console.log('On sélectionne cet article')
 
-            } else {
-              console.log('On ne sélectionne pas cet article')
-              selectArticle.categorie.forEach(selectCategorie => {
-                selectCategorie.select = false;
-              });
-            }
-
-          });
-
-        });
-
-        console.log("////// end this.article /////");
-      });
-
-      console.log("///////////");
-      console.log(this.article);
-      console.log("///////////");
     }
     //
   },
