@@ -93,6 +93,7 @@ export default {
       ul: null,
       search: null,
       articlesSelected: [],
+      /* articlesSelectedCategorie: [], */
       categories: null,
 
       /* Message */
@@ -126,17 +127,13 @@ export default {
      * Check
      */
     check() {
-
-      /* TODOOOOOOOOOOOOO */
       this.ul.innerHTML = "";
-      /* console.log(this.article); */
-
       this.article.forEach(selectArticle => {
         selectArticle.categorie.forEach(selectArticleCategorie => {
           this.checkedNames.forEach(selectCategorie => {
             /* console.log(selectCategorie, selectArticleCategorie.name); */
             if (selectCategorie === selectArticleCategorie.name) {
-              console.log(selectArticle);
+              /* console.log(selectArticle); */
               this.ul.innerHTML += `<li class="li__head"><p class="li__text">${
                 selectArticle.legend
               }</p><img class="li__img" src="${selectArticle.link}"></li>`;
