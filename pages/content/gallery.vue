@@ -112,6 +112,7 @@ export default {
         this.gallery = gallery.data.data;
 
         this.gallery.forEach(select => {
+          /* console.log(select) */
           this.article.push({
             legend: select.legend,
             link: select.link,
@@ -129,68 +130,42 @@ export default {
      */
     check() {
       this.ul.innerHTML = "";
-      /* console.log(this.checkedNames) */
 
-      /* Checked */
-      this.checkedNames.forEach(selectChecked => {
-        /* console.log(selectChecked) */
-
-        /* for each Article */
-        this.article.forEach(selectArticle => {
-          /* console.log(selectArticle.categorie); */
-
-          /* For each categorie of article */
+      this.article.forEach(selectArticle => {
+        this.checkedNames.forEach(selectChecked => {
           selectArticle.categorie.forEach(selectCategorie => {
-
-            /* console.log(selectCategorie.name); */
-            if (selectChecked === selectCategorie.name) {
-              /* console.log('oui') */
-
-              /* this.checkedNames.forEach(selectCheckedVerification => { */
-              /* }) */
-
-console.log(this.checkedNames)
-console.log(selectCategorie.name)
-
-              if (this.checkedNames.indexOf(selectCategorie.name) != -1) {
-                console.log('fefef')
-              }
+            if (this.checkedNames.indexOf(selectCategorie.name) != -1) {
+              selectCategorie.select = true;
             }
           });
         });
       });
 
-      console.log("////////////////////////////////////////////////////");
+      this.article.forEach(selectArticle => {
+        selectArticle.categorie.forEach(selectCategorie => {
 
-      // this.article.forEach(selectArticle => {
-      //   selectArticle.categorie.forEach(selectArticleCategorie => {
-      //     this.checkedNames.forEach(selectCategorie => {
-      //       if (selectCategorie === selectArticleCategorie.name) {
-      //         console.log(selectArticleCategorie.name)
-      //         /* console.log(this.selectedCategorie.indexOf(selectCategorie)); */
-      //         /* if (this.selectedCategorie.indexOf(selectCategorie) === -1) {
-      //           this.selectedCategorie.push(selectCategorie);
-      //         } else if (this.selectedCategorie.length === 0) {
-      //           this.selectedCategorie.push(selectCategorie);
-      //         }
-      //         console.log(this.selectedCategorie);
-      //         console.log(this.checkedNames) */
-      //         /* console.log(selectArticle); */
-      //         /* this.ul.innerHTML += `<li class="li__head"><p class="li__text">${
-      //           selectArticle.legend
-      //         }</p><img class="li__img" src="${selectArticle.link}"></li>`; */
-      //       }
-      //     });
-      //   });
-      // });
+          console.log(this.checkedNames.indexOf(selectCategorie.name))
+          this.checkedNames.forEach(selectChecked => {
+            if(this.checkedNames.indexOf(selectCategorie.name) === 0) {
+              console.log('On sélectionne cet article')
 
-      if (this.checkedNames.length === 0) {
-        this.article.forEach(select => {
-          this.ul.innerHTML += `<li class="li__head"><p class="li__text">${
-            select.legend
-          }</p><img class="li__img" src="${select.link}"></li>`;
+            } else {
+              console.log('On ne sélectionne pas cet article')
+              selectArticle.categorie.forEach(selectCategorie => {
+                selectCategorie.select = false;
+              });
+            }
+
+          });
+
         });
-      }
+
+        console.log("////// end this.article /////");
+      });
+
+      console.log("///////////");
+      console.log(this.article);
+      console.log("///////////");
     }
     //
   },
