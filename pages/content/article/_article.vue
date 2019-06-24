@@ -760,8 +760,7 @@
         </div>
       </div>
 
-      <div class="article--nom" v-if="ifStation === true">
-        <!-- <div class="article--nom" v-if="ifStation === false"> -->
+      <div class="article--nom" v-if="ifStation === false">
         <h2 class="article--nom__headline">{{ articleSelected.station }}</h2>
 
         <section v-for="select in articleSelected.explicationNom" :key="select._id">

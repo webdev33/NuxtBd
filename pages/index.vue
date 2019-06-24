@@ -12,7 +12,7 @@
 
     <!-- PROVISOIRE -->
     <hr>
-    <p v-on:click="router()">Aller à sur la page article</p>
+    <p style="color: red" v-on:click="router()">Aller à sur la page article</p>
     <hr>
     <!-- PROVISOIRE -->
 
