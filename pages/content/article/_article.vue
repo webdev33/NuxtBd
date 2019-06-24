@@ -38,7 +38,8 @@
               v-bind:year="select.date"
             >
             <p class="intro__imag__image__text">
-            <span>{{ select.date }}</span>{{ select.title }}
+              <span>{{ select.date }}</span>
+              {{ select.title }}
             </p>
           </section>
         </div>
@@ -760,10 +761,13 @@
       </div>
 
       <div class="article--nom" v-if="ifStation === true">
-        <h2 class="article--nom__headline">Nom du Station</h2>
-        <p
-          class="article--nom__paragraph"
-        >Le nom de François d'Aix de La Chaise dit le Père Lachaise qui était le prêtre confesseur de Louis XIV et qui exerça une influence modératrice sur celui-ci dans la lutte contre le jansénisme.</p>
+        <!-- <div class="article--nom" v-if="ifStation === false"> -->
+        <h2 class="article--nom__headline">{{ articleSelected.station }}</h2>
+
+        <section v-for="select in articleSelected.explicationNom" :key="select._id">
+          <p class="article--nom__paragraph">{{ select.text }}</p>
+          <br>
+        </section>
       </div>
 
       <div class="button button--article">Prochaine station</div>
@@ -803,7 +807,6 @@ export default {
         nextStep: null,
         map: null
       },
-
 
       /* Article */
       ifStation: false,
@@ -952,10 +955,9 @@ export default {
     let images = document.querySelectorAll(".imageStaition__image__image");
     let imageActive;
     for (let i = 0; i < images.length; i++) {
-      
-      if(i === 0){
-        images[0].classList.add('imageVisible')
-        imageActive = document.querySelector(".imageVisible")
+      if (i === 0) {
+        images[0].classList.add("imageVisible");
+        imageActive = document.querySelector(".imageVisible");
       }
 
       images[i].style.display = "none";
