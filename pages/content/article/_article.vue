@@ -5,11 +5,11 @@
     <!-- Alert -->
     <p class="alert alert-primary alert-danger" v-show="formError != null">{{ formError }}</p>
     <header>
-      <h1>Titre Station</h1>
+      <h1>{{ articleSelected.station }}</h1>
       <div class="headlineIntro"></div>
     </header>
     <div class="sidebar">
-      <h2>Triumph</h2>
+      <h2>{{ articleSelected.status }}</h2>
     </div>
 
     <article>
@@ -17,14 +17,20 @@
         <div class="intro__petit">
           <div class="petitInfo petitInfo--ouverture">
             <h2>Ouverture</h2>
-            <p>25.02.1935</p>
+            <p>{{ openingStation }}</p>
           </div>
           <div class="petitInfo petitInfo--ligne">
             <h2>Ligne</h2>
+
+
+
             <div class="petitInfo--ligneFex">
               <div class="ligne--icon">1</div>
               <div class="ligne--icon">1</div>
             </div>
+
+
+            
           </div>
         </div>
         <div class="intro__imageBox">
@@ -823,7 +829,10 @@ export default {
         videos: null,
         audios: null,
         nextStep: null
-      }
+      },
+
+      /* Article */
+      openingStation: null
     };
   },
 
@@ -858,6 +867,8 @@ export default {
         this.articleSelected.nextStep = JSON.parse(
           article.data.data[0].nextStep
         );
+
+        this.openingStation = this.articleSelected.linesStation[0].date;
 
         console.log(this.articleSelected);
       } catch (e) {

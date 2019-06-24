@@ -249,13 +249,14 @@
 .button--article{
   margin-bottom: 30px;
   display: inline-block;
-  position: absolute;
-  right: 20px;
+  //position: absolute;
+  //right: 20px;
   @include min-sm {
-    position: absolute;
+    //position: absolute;
     padding:15px;
     font-size: 1.3em;
     border-radius: 40px;
+    float:right;
   }
   
   cursor: pointer;
