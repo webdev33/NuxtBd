@@ -30,6 +30,7 @@ export default {
         explicationNom: null,
         events: null,
         pictures: null,
+        videos: null,
         audios: null,
         nextStep: null
       }
@@ -60,6 +61,7 @@ export default {
           article.data.data[0].explicationNom
         );
         this.articleSelected.events = JSON.parse(article.data.data[0].events);
+        this.articleSelected.videos = JSON.parse(article.data.data[0].videos);
         this.articleSelected.audios = JSON.parse(article.data.data[0].audios);
         this.articleSelected.pictures = JSON.parse(
           article.data.data[0].pictures
@@ -68,7 +70,7 @@ export default {
           article.data.data[0].nextStep
         );
 
-        console.log(this.articleSelected)
+        console.log(this.articleSelected);
       } catch (e) {
         this.formError = e.message;
       }
