@@ -1,0 +1,56 @@
+footer{
+  position: absolute;
+  bottom: 0;
+  background-color: red;
+  z-index: 101;
+  .mec{
+    width: 200px; 
+    margin-left: -50px;
+    position: absolute;
+    bottom: 0;
+    @include min-sm {
+      width: 400px; 
+      margin-left: -100px;
+    }
+  }
+  button{
+    width: 70px;
+    position: absolute;
+    bottom: 0;
+    background-color: #fff;
+    img{
+      width: 50px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.footer--comic{
+  .mec{
+    display: none;
+    @include min-sm {
+      display: block;
+    }
+  }
+}
+
+.footer--article{
+  position: fixed;
+  width: 70px;
+  background-color: #fff;
+  img{
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+
+.footer--article{
+  position: fixed;
+  width: 70px;
+  background-color: #fff;
+  img{
+    width: 80%;
+    margin-left: 10%;
+  }
+}

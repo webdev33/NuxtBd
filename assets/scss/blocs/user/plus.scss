@@ -1,0 +1,128 @@
+/// TEST ///
+
+.articlePlus{
+  display: none;
+}
+.full{
+  height:auto;
+  width: 100vw;
+  //overflow-y: visible;
+  .sidebar{
+    position: fixed;
+  }
+  footer{
+    position: fixed;
+  }
+  .comicBox{
+    @include max-xs {
+      display: none;
+    }
+    @include min-sm {
+      position: fixed;
+      z-index: 100;
+    }
+  }
+  .buttonNext--end{
+    @include max-xs {
+      bottom:-50px;
+    }
+    position: absolute;
+    right:0;
+    bottom: 0;
+    
+  }
+  .articlePlus{
+    margin-left: 82px;
+    margin-right: 20px;
+    width:auto;
+    position: relative;
+    @include min-sm {
+      padding-right: 50px;
+      margin-left: 200px;
+      padding-top: 175px;
+    }
+    .introArticle__textBox{
+      width: 100%;
+      max-width: 500px;
+      h1{
+        color: #fff;
+        margin-top: 25px;
+        letter-spacing: 1px;
+        font-size: 2em;
+        margin-bottom: 50px;
+        @include min-sm {
+          font-size: 3em;
+        }
+      }
+      p{
+        color: #fff;
+        @include max-xs {
+          font-size: 1.2em;
+          line-height: 1.2em;
+        }
+        @include min-sm {
+          font-size: 1.3em;
+          line-height: 1.3em;
+        }
+      }
+    }
+    .articlePuls__imageBox{
+      margin-top: 100px;
+      img{
+        width: 100%;
+      }
+      .videoBox{
+        @include min-sm {
+          display: flex;
+          justify-content: flex-end;
+          align-items: flex-start;
+        }
+        .video{
+          width:100%;
+          @include min-sm {
+            width: 80%;
+          }
+        }
+      }
+      .imageBox{
+        margin-top: 100px;
+        width: 100%;
+        .imageBox__box{
+          @include min-sm {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+          }
+          margin-bottom: 50px;
+          &:first-of-type{
+            margin-top: 100px;
+          }
+          &:last-of-type{
+            margin-bottom: 30px;
+            @include max-xs {
+              margin-bottom: 100px;
+            }
+          }
+          
+          .imgageBox__box__image{
+            max-width: 600px;
+          }
+          .imgageBox__box__text{
+            color: #fff;
+            @include max-xs {
+              margin-top: 5px;
+              font-size: 1em;
+              line-height: 1.2em;
+            }
+            @include min-sm {
+              font-size: 1.2em;
+              line-height: 1.2em;
+              padding-left: 10px;
+              max-width: 300px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

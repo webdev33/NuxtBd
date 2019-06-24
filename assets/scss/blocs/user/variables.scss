@@ -1,0 +1,9 @@
+$color--main: #2623B7;
+
+@mixin max-xs {
+  @media (max-width: 599px) { @content; }
+}
+
+@mixin min-sm {
+  @media (min-width: 600px) { @content; }
+}

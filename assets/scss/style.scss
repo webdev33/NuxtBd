@@ -2,7 +2,7 @@
  * Vendors
  */
 
-//@import "./vendors/reset.scss";
+@import "./vendors/reset.scss";
 //
 
 /* 
@@ -12,3 +12,53 @@
 @import "./blocs/administrator/articles.scss";
 @import "./blocs/administrator/connect.scss";
 //
+
+
+@import 'blocs/user/variables.scss';
+@import 'blocs/user/button';
+@import 'blocs/user/footer';
+@import 'blocs/user/map';
+@import 'blocs/user/comic';
+@import 'blocs/user/article';
+@import 'blocs/user/archive';
+@import 'blocs/user/plus';
+
+body{
+  padding:0;
+  margin: 0;
+  background-color: $color--main;
+  font-family: sans-serif;
+}
+.wrapper{
+  position: absolute;
+  width:100vw;
+  height:100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  @include min-sm {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+*{
+  font-family: sans-serif;
+}
+h1,h2,h3{
+  font-weight: bold;
+}
+
+.übersicht{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  a{
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom:solid 3px #fff;
+  }
+}

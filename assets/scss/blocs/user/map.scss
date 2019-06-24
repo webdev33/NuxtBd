@@ -1,0 +1,282 @@
+.map{
+  background-color: $color--main;
+  height:100vh;
+  margin-top: 0;
+  overflow-y: hidden;
+}
+
+.mapSVG{
+  width:80vw;
+  margin-left:17vw;
+  margin-right: 3vw;
+  position: absolute;
+  top:100px; 
+  @include min-sm {
+    width: auto;
+    height:40vw;
+    margin-top: 10vh;
+    margin-left: auto;
+    top: auto;
+    position: relative;
+    margin-right: 8vw;
+  }
+}
+
+rect,circle{
+  fill: #fff;
+  stroke: #fff;
+  stroke-width: 4px;
+  transition: all 0.3s;
+  &:hover{
+    fill: #000;
+    stroke: #000;
+    stroke-width: 15px;
+  }
+  opacity: 0;
+  animation: scalePoint 0.5s 20s linear forwards;
+  @keyframes scalePoint {
+    from {opacity:0}
+    to {opacity:1}
+  }
+}
+
+.station{
+  stroke: #fff;
+  fill:#000;
+  stroke-width: 7px;
+}
+
+.ligne {
+  fill: none;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  stroke-width: 7px;
+  transition:all 0.5s;
+  cursor: pointer;
+}
+
+@keyframes dash {
+  to { 
+    stroke-dashoffset: 0;
+  }
+}
+
+.ligne{
+  stroke-dasharray: 1550;
+  stroke-dashoffset: 1550;
+  animation: dash 4s linear forwards;
+  &.ligne--1 {animation-delay: 0;}
+
+  &[year="1903"]{animation-delay: 0.5s;}
+  &[year="1904"]{animation-delay: 2s;}
+  &[year="1906"]{animation-delay: 3s;}
+  &[year="1907"]{animation-delay: 3.5s;}
+  &[year="1908"]{animation-delay: 4s;}
+  &[year="1909"]{animation-delay: 4.5s;}
+  &[year="1910"]{animation-delay: 5s;}
+  &[year="1911"]{animation-delay: 5.5s;}
+  &[year="1912"]{animation-delay: 6s;}
+  &[year="1913"]{animation-delay: 6.5s;}
+  &[year="1916"]{animation-delay: 8s;}
+  &[year="1921"]{animation-delay: 10.5s;}
+  &[year="1922"]{animation-delay: 11s;}
+  &[year="1923"]{animation-delay: 11.5s;}
+  &[year="1926"]{animation-delay: 13s;}
+  &[year="1930"]{animation-delay: 15s;}
+  &[year="1931"]{animation-delay: 15.5s;}
+  &[year="1934"]{animation-delay: 17s;}
+  &[year="1935"]{animation-delay: 17.5s;}
+}
+
+.timeBar{
+  transform: translateY(-100vh);
+  margin-top: 30px;
+  margin-left: -10px;
+  transition: all 0.5s;
+  @include min-sm {
+    margin-left: 20px;
+  }
+  //animation: moveIn 0.5s 20s forwards;
+  @keyframes moveIn{
+    to{transform: translateY(0%);}
+  }
+  &.moveIn{
+    transform: translateY(0%);
+  }
+  &:before{
+    content:"";
+    position: absolute;
+    top:0;
+    left:8px;
+    background-color: #fff;
+    display: block;
+    width:5px;
+    height:300px;
+  }
+  .timeBar__year{
+    font-family: sans-serif;
+    color:#fff;
+    cursor: pointer;
+    margin-bottom: 15px;
+    display: block;
+    padding-left: 25px;
+    @include min-sm {
+      padding-left: 35px;
+      margin-bottom: 20px;
+    }
+    position: relative;
+    &:hover{
+      font-weight: bold;
+      font-size: 1.3em;
+    }
+    &:before{
+      content:"";
+      position: absolute;
+      background-color: $color--main;;
+      left: 0;
+      top:-1px;
+      display: block;
+      width:20px;
+      height:20px;
+      border-radius: 50%;
+      box-sizing: border-box;
+      border: solid 3px #fff;
+    }
+  }
+}
+
+.stationLink{
+  background-color:$color--main;
+  color: #fff;
+  padding:10px;
+  display: block;
+  font-size: 0.9em;
+  text-decoration: none;
+  margin-top: 10px;
+
+}
+
+.stationBox{
+  background-color:#000;
+  position: absolute;
+  font-weight: bold;
+  color: #fff;
+  display: inline-block;
+  font-size: 1.5em;
+  letter-spacing: 0.5px;
+  border: solid 5px #fff;
+  padding:10px 20px;
+  margin-top: -90px;
+  text-align: center;
+  &:after{
+    content:"";
+    position: absolute;
+    bottom:-20px;
+    width: 0; 
+    height: 0; 
+    left:calc(50% - 10px);
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #fff;
+  }
+}
+
+.legende--year{
+  color: #ffffff;
+  font-size: 2em;
+  border: solid 5px #fff;
+  position: absolute;
+  right: 3vh;
+  bottom: 3vh;
+  padding: 5px 10px;
+}
+
+.countdown{
+  width: 0vw;
+  position: absolute;
+  height:1vh;
+  bottom: 0;
+  left:0;
+  background-color: #fff;
+  @keyframes countdown {
+    0%{width:0vw}
+    100%{width: 100vw;}
+  }
+    &.countdown--map{
+      animation: countdown 20s linear forwards;
+  }
+}
+
+.button--map{
+  position: absolute;
+  right: 3vh;
+  top:3vh;
+}
+
+.skip--stroke{
+  animation: dash 1ms 0s linear forwards !important;
+}
+
+.skip--opacity{
+  animation: scalePoint 1ms 0s linear forwards !important;
+}
+
+.speechbubble{
+  background-color: #fff;
+  padding:15px;
+  border-radius:15px;
+  position: absolute;
+  bottom: 125px;
+  left:110px;
+  line-height: 1.1em;
+  width:180px;
+  z-index: 3;
+  @include min-sm {
+    padding:25px 15px ;
+    bottom: 250px;
+    left:220px;
+    width:220px;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  &:after{
+    content:"";
+    position: absolute;
+    bottom:-20px;
+    left:20%;
+    width: 0; 
+    height: 0; 
+    border-right: 20px solid transparent;
+    border-top: 20px solid #fff;
+  }
+}
+
+
+.map--navigation{
+  .ligne{
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+  .speechbubble{
+    transform: translateY(-100vh);
+    animation: moveInTime 1s 0.5s forwards;
+    @keyframes moveInTime{
+      to{transform: translateY(0%);}
+    }
+  }
+  .timeBar{
+    transform: translateY(-100vh);
+    animation: moveInTime 1s forwards;
+    @keyframes moveInTime{
+      to{transform: translateY(0%);}
+    }
+  }
+  rect,circle{
+    animation: scalePoint 0.3s 0.5s linear forwards;
+    @keyframes scalePoint {
+      from {opacity:0}
+      to {opacity:1}
+    }
+  }
+}
