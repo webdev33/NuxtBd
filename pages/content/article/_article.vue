@@ -30,10 +30,17 @@
           </div>
         </div>
         <div class="intro__imageBox">
-          <img src="../../../assets/ressources/img/img.png" class="intro__imag__image__image" alt>
-          <p class="intro__imag__image__text">
-            <span>Date</span>Description
-          </p>
+          <section v-for="select in articleSelected.firstPicture" :key="select._id">
+            <img
+              v-bind:src="select.link"
+              class="imageStaition__image__image imageVisible"
+              v-bind:alt="select.title"
+              v-bind:year="select.date"
+            >
+            <p class="intro__imag__image__text">
+            <span>{{ select.date }}</span>{{ select.title }}
+            </p>
+          </section>
         </div>
       </div>
       <div class="map--navigation article__map">
@@ -736,44 +743,19 @@
       </div>
       <div class="article__imageStaition">
         <div class="imageStaition__image">
-          <!--Plusiere image-->
-          <img
-            src="../../../assets/ressources/img/img.png"
-            class="imageStaition__image__image imageVisible"
-            alt
-            year="1940"
-          >
-          <img
-            src="../../../assets/ressources/img/img_1.png"
-            class="imageStaition__image__image"
-            alt
-            year="1944"
-          >
-          <img
-            src="../../../assets/ressources/img/img_2.png"
-            class="imageStaition__image__image"
-            alt
-            year="1959"
-          >
-          <img
-            src="../../../assets/ressources/img/img_3.png"
-            class="imageStaition__image__image"
-            alt
-            year="1960"
-          >
-          <img
-            src="../../../assets/ressources/img/img_1.png"
-            class="imageStaition__image__image"
-            alt
-            year="1961"
-          >
+          <section v-for="select in articleSelected.pictures" :key="select._id">
+            <img
+              v-bind:src="select.link"
+              class="imageStaition__image__image imageVisible"
+              v-bind:alt="select.title"
+              v-bind:year="select.date"
+            >
+          </section>
         </div>
         <div class="imageStaition__timeline">
-          <span class="imageStaition__timelineYear active">1940</span>
-          <span class="imageStaition__timelineYear">1944</span>
-          <span class="imageStaition__timelineYear">1959</span>
-          <span class="imageStaition__timelineYear">1960</span>
-          <span class="imageStaition__timelineYear">1961</span>
+          <section v-for="select in articleSelected.pictures" :key="select._id">
+            <span class="imageStaition__timelineYear">{{ select.date }}</span>
+          </section>
         </div>
       </div>
 
@@ -817,6 +799,7 @@ export default {
         pictures: null,
         videos: null,
         audios: null,
+        firstPicture: null,
         nextStep: null,
         map: null
       },
@@ -851,18 +834,21 @@ export default {
         this.articleSelected.events = JSON.parse(article.data.data[0].events);
         this.articleSelected.videos = JSON.parse(article.data.data[0].videos);
         this.articleSelected.audios = JSON.parse(article.data.data[0].audios);
+        this.articleSelected.firstPicture = JSON.parse(
+          article.data.data[0].firstPicture
+        );
+
+        console.log(this.articleSelected.firstPicture);
+
         this.articleSelected.pictures = JSON.parse(
           article.data.data[0].pictures
         );
-
         this.articleSelected.map = JSON.parse(article.data.data[0].map);
-
         this.articleSelected.nextStep = JSON.parse(
           article.data.data[0].nextStep
         );
 
         this.openingStation = this.articleSelected.linesStation[0].date;
-        /* console.log(this.articleSelected); */
 
         this.mapShow();
       } catch (e) {
@@ -878,17 +864,17 @@ export default {
       /* console.log(this.articleSelected.map); */
 
       this.articleSelected.map.forEach(select => {
-        
-        let selectMap
+        let selectMap;
         if (select.select === `Ligne`) {
           selectMap = document.querySelectorAll(`.${select.name}`);
         } else if (select.select === `Station`) {
-          let stationSelect = document.querySelector(`[station = "${select.name}"]`);
-          stationSelect.classList.add(`active`)
+          let stationSelect = document.querySelector(
+            `[station = "${select.name}"]`
+          );
+          stationSelect.classList.add(`active`);
         }
 
         selectMap.forEach(selectAll => {
-
           if (select.select === `Ligne`) {
             let ligneSelect = select.name.split("ligne--");
             switch (ligneSelect[1]) {
@@ -955,15 +941,13 @@ export default {
     this.currentId = this.$route.params.article;
     this.selectArticle();
     //
+  },
+  //
 
-    /*
-     * Christina code
-     */
-
+  updated: function updated(params) {
     let imageBox = document.querySelector(".imageStaition__image");
     let images = document.querySelectorAll(".imageStaition__image__image");
     let imageActive = document.querySelector(".imageVisible");
-
     for (let i = 0; i < images.length; i++) {
       images[i].style.display = "none";
     }
@@ -1009,6 +993,5 @@ export default {
       }
     });
   }
-  //
 };
 </script>
