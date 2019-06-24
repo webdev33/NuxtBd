@@ -746,7 +746,7 @@
           <section v-for="select in articleSelected.pictures" :key="select._id">
             <img
               v-bind:src="select.link"
-              class="imageStaition__image__image imageVisible"
+              class="imageStaition__image__image"
               v-bind:alt="select.title"
               v-bind:year="select.date"
             >
@@ -804,7 +804,9 @@ export default {
         map: null
       },
 
+
       /* Article */
+      ifStation: false,
       openingStation: null
     };
   },
@@ -872,6 +874,7 @@ export default {
             `[station = "${select.name}"]`
           );
           stationSelect.classList.add(`active`);
+          /* this.ifStation = false; */
         }
 
         selectMap.forEach(selectAll => {
@@ -947,11 +950,12 @@ export default {
   updated: function updated(params) {
     let imageBox = document.querySelector(".imageStaition__image");
     let images = document.querySelectorAll(".imageStaition__image__image");
-    let imageActive = document.querySelector(".imageVisible");
+    let imageActive;
     for (let i = 0; i < images.length; i++) {
-
-      if(i === 1){
-        images[1].style.height = images[1].offsetHeight + "px";
+      
+      if(i === 0){
+        images[0].classList.add('imageVisible')
+        imageActive = document.querySelector(".imageVisible")
       }
 
       images[i].style.display = "none";
