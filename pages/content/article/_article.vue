@@ -759,7 +759,7 @@
         </div>
       </div>
 
-      <div class="article--nom">
+      <div class="article--nom" v-if="ifStation === true">
         <h2 class="article--nom__headline">Nom du Station</h2>
         <p
           class="article--nom__paragraph"
@@ -869,12 +869,12 @@ export default {
         let selectMap;
         if (select.select === `Ligne`) {
           selectMap = document.querySelectorAll(`.${select.name}`);
+          this.ifStation = true;
         } else if (select.select === `Station`) {
           let stationSelect = document.querySelector(
             `[station = "${select.name}"]`
           );
           stationSelect.classList.add(`active`);
-          /* this.ifStation = false; */
         }
 
         selectMap.forEach(selectAll => {
