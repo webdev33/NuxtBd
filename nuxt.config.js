@@ -36,6 +36,12 @@ export default {
   css: [
     
     '@/assets/scss/style.scss'
-  ]
+  ],
   //
+
+  generate: {
+    routes: [
+      '/content/1',
+    ]
+  }
 }
