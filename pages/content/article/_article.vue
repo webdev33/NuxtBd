@@ -1,6 +1,6 @@
 <template>
   <section class="article">
-    <h1>Article {{this.$route.params.article}}</h1>
+    <!-- <h1>Article {{this.$route.params.article}}</h1> -->
 
     <!-- Alert -->
     <p class="alert alert-primary alert-danger" v-show="formError != null">{{ formError }}</p>
@@ -12,7 +12,7 @@
       <h2>Triumph</h2>
     </div>
 
-    <img src="../../../assets/ressources//img/stairs.svg" class="stair" alt>
+    <!-- <img src="../../../assets/ressources//img/stairs.svg" class="stair" alt> -->
 
     <article>
       <div class="article__intro">
@@ -878,7 +878,7 @@ export default {
     this.currentId = this.$route.params.article;
     this.selectArticle();
     //
-    
+
     /*
      * Christina code
      */
