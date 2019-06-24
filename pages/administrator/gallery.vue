@@ -81,7 +81,7 @@
               >Supprimer la ligne</button>
             </div>
           </article>
-          <button class="btn btn-light" @click="add('categorie')">Ajouter un autre lien</button>
+          <button class="btn btn-light" @click="add('categorie')">Ajouter une autre catégorie</button>
 
           <!-- date -->
           <hr>
@@ -144,7 +144,7 @@
             >Supprimer la ligne</button>
           </div>
         </article>
-        <button class="btn btn-light" @click="add('categorie')">Ajouter un autre lien</button>
+        <button class="btn btn-light" @click="add('categorie')">Ajouter une autre catégorie</button>
 
         <!-- date -->
         <hr>
