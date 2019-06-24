@@ -883,13 +883,8 @@ export default {
         if (select.select === `Ligne`) {
           selectMap = document.querySelectorAll(`.${select.name}`);
         } else if (select.select === `Station`) {
-          
-          
           let stationSelect = document.querySelector(`[station = "${select.name}"]`);
-          console.log(stationSelect)
           stationSelect.classList.add(`active`)
-
-          console.log(document.querySelector(`[station = "${select.name}"]`));
         }
 
         selectMap.forEach(selectAll => {
