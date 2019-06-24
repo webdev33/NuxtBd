@@ -22,15 +22,11 @@
           <div class="petitInfo petitInfo--ligne">
             <h2>Ligne</h2>
 
-
-
             <div class="petitInfo--ligneFex">
-              <div class="ligne--icon">1</div>
-              <div class="ligne--icon">1</div>
+              <div v-for="select in articleSelected.linesStation" :key="select._id">
+                <div class="ligne--icon">{{ select.ligne }}</div>
+              </div>
             </div>
-
-
-            
           </div>
         </div>
         <div class="intro__imageBox">
@@ -516,14 +512,7 @@
 
             <circle class="station" station="cite" bubble="Genie" cx="507.3" cy="414.96" r="1"></circle>
 
-            <circle
-              class="station active"
-              station="hotle"
-              bubble="Triumph"
-              cx="571.11"
-              cy="378.76"
-              r="1"
-            ></circle>
+            <circle class="station" station="hotle " bubble="Triumph" cx="571.11" cy="378.76" r="1"></circle>
 
             <circle class="cls-2" cx="610.6" cy="418.8" r="0"></circle>
             <circle class="cls-2" cx="604.18" cy="211.72" r="0"></circle>
@@ -828,7 +817,8 @@ export default {
         pictures: null,
         videos: null,
         audios: null,
-        nextStep: null
+        nextStep: null,
+        map: null
       },
 
       /* Article */
@@ -864,18 +854,102 @@ export default {
         this.articleSelected.pictures = JSON.parse(
           article.data.data[0].pictures
         );
+
+        this.articleSelected.map = JSON.parse(article.data.data[0].map);
+
         this.articleSelected.nextStep = JSON.parse(
           article.data.data[0].nextStep
         );
 
         this.openingStation = this.articleSelected.linesStation[0].date;
+        /* console.log(this.articleSelected); */
 
-        console.log(this.articleSelected);
+        this.mapShow();
       } catch (e) {
         this.formError = e.message;
       }
-    }
+    },
     //
+
+    /*
+     *
+     */
+    mapShow() {
+      /* console.log(this.articleSelected.map); */
+
+      this.articleSelected.map.forEach(select => {
+        
+        let selectMap
+        if (select.select === `Ligne`) {
+          selectMap = document.querySelectorAll(`.${select.name}`);
+        } else if (select.select === `Station`) {
+          
+          
+          let stationSelect = document.querySelector(`[station = "${select.name}"]`);
+          console.log(stationSelect)
+          stationSelect.classList.add(`active`)
+
+          console.log(document.querySelector(`[station = "${select.name}"]`));
+        }
+
+        selectMap.forEach(selectAll => {
+
+          if (select.select === `Ligne`) {
+            let ligneSelect = select.name.split("ligne--");
+            switch (ligneSelect[1]) {
+              case "1":
+                selectAll.style.stroke = "#FFCD00";
+                break;
+              case "2":
+                selectAll.style.stroke = "#003CA6";
+                break;
+              case "3":
+                selectAll.style.stroke = "#837902";
+                break;
+              case "4":
+                selectAll.style.stroke = "#CF009E";
+                break;
+              case "5":
+                selectAll.style.stroke = "#FF7E2E";
+                break;
+              case "6":
+                selectAll.style.stroke = "#6ECA97";
+                break;
+              case "7":
+                selectAll.style.stroke = "#FA9ABA";
+                break;
+              case "8":
+                selectAll.style.stroke = "#E19BDF";
+                break;
+              case "9":
+                selectAll.style.stroke = "#B6BD00";
+                break;
+              case "10":
+                selectAll.style.stroke = "#C9910D";
+                break;
+              case "11":
+                selectAll.style.stroke = "#704B1C";
+                break;
+              case "12":
+                selectAll.style.stroke = "#007852";
+                break;
+              case "13":
+                selectAll.style.stroke = "#6EC4E8";
+                break;
+              case "14":
+                selectAll.style.stroke = "#62259D";
+                break;
+
+              default:
+                colorSelect.style.stroke = "green";
+                break;
+            }
+          }
+        });
+
+        /* console.log(selectMap) */
+      });
+    }
   },
 
   mounted: function mounted() {
