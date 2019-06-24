@@ -33,7 +33,7 @@
           <section v-for="select in articleSelected.firstPicture" :key="select._id">
             <img
               v-bind:src="select.link"
-              class="imageStaition__image__image imageVisible"
+              class="intro__imag__image__image"
               v-bind:alt="select.title"
               v-bind:year="select.date"
             >
@@ -949,6 +949,11 @@ export default {
     let images = document.querySelectorAll(".imageStaition__image__image");
     let imageActive = document.querySelector(".imageVisible");
     for (let i = 0; i < images.length; i++) {
+
+      if(i === 1){
+        images[1].style.height = images[1].offsetHeight + "px";
+      }
+
       images[i].style.display = "none";
     }
     imageActive.style.display = "block";
