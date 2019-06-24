@@ -175,7 +175,7 @@ export default {
       articlesSelected: [],
 
       /* Article select */
-      actionTodo: { boolean: false, text: `Créer un article` },
+      actionTodo: { boolean: false, text: `Créer une nouvelle image` },
       currentId: null,
 
       componentKey: 0,
@@ -256,8 +256,8 @@ export default {
     appearSection() {
       this.actionTodo.boolean = !this.actionTodo.boolean;
       this.actionTodo.text = this.actionTodo.boolean
-        ? `Modifier un article`
-        : `Créer un article`;
+        ? `Modifier une image`
+        : `Créer une nouvelle image`;
       this.cleaner();
     },
     //
