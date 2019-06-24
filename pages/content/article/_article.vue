@@ -12,8 +12,6 @@
       <h2>Triumph</h2>
     </div>
 
-    <!-- <img src="../../../assets/ressources//img/stairs.svg" class="stair" alt> -->
-
     <article>
       <div class="article__intro">
         <div class="intro__petit">
@@ -836,7 +834,6 @@ export default {
     async selectArticle(select) {
       /* this.currentId = select; */
       try {
-        console.log(this.currentId);
         let article = await this.$store.dispatch("article", {
           _id: this.currentId
         });
@@ -893,20 +890,18 @@ export default {
     imageActive.style.display = "block";
 
     let imageActiveHeight = imageActive.offsetHeight;
-    console.log(imageActiveHeight);
     imageBox.style.height = imageActiveHeight + "px";
 
     let years = document.querySelectorAll(".imageStaition__timelineYear");
     let selectYear = "";
 
     for (let i = 0; i < years.length; i++) {
-      years[i].addEventListener("mouseover", function() {
+      years[i].addEventListener("click", function() {
         for (let i = 0; i < years.length; i++) {
           years[i].classList.remove("active");
         }
         selectYear = years[i].innerHTML;
         years[i].classList.add("active");
-        console.log(selectYear);
         for (let i = 0; i < images.length; i++) {
           images[i].style.display = "none";
           images[i].classList.remove("imageVisible");
