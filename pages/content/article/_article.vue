@@ -1,14 +1,10 @@
 <template>
   <section class="index">
-    <h1>Article</h1>
+    <h1>Article {{this.$route.params.article}}</h1>
 
     <!-- Alert -->
-
     <p class="alert alert-primary alert-danger" v-show="formError != null">{{ formError }}</p>
 
-    <p @click="selectArticle()">AA</p>
-
-    <p>prop : {{ title }}</p>
   </section>
 </template>
 
@@ -39,22 +35,11 @@ export default {
     };
   },
 
-  /* PROVISOIRE */
-  props: [`title`],
-  /* PROVISOIRE */
-
   methods: {
     /*
      * Load the select article
      */
     async selectArticle(select) {
-
-      /* PROVISOIRE */
-      console.log('//////////////')
-      console.log(this.title)
-      console.log('//////////////')
-      /* PROVISOIRE */
-
       /* this.currentId = select; */
       try {
         console.log(this.currentId);
@@ -95,7 +80,9 @@ export default {
     /*
      * Load articles
      */
-    /* this.selectArticle(); */
+
+    this.currentId = this.$route.params.article;
+    this.selectArticle();
     //
   }
 };

@@ -44,14 +44,10 @@ export default {
     },
     //
 
-    /* PROVISOIRE */
     router() {
-      
-      /* this.$router.push({ path: "content/article", props: { title: false }}) */
-      /* this.$router.push({ path: "content/article", params: { p: 1 }, props: true}); */
-      /* this.$router.push({path: "/foo", name:"foo", component: FooComponent,  props: true} */
+      let article = 2
+      this.$router.push({ path: `content/article/${article}`})
     }
-    /* PROVISOIRE */
   },
 
   mounted: function mounted() {
