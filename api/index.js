@@ -14,15 +14,15 @@ const connexion = mysql.createConnection({
 
 
 /* Mac */
-/* 
-const connexion = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "root",
-  port: 8889,
-  database: "node-boiler-plate"
-});
- */
+
+// const connexion = mysql.createConnection({
+//   host: "localhost",
+//   user: "root",
+//   password: "root",
+//   port: 8889,
+//   database: "node-boiler-plate"
+// });
+
 
 connexion.connect();
 
