@@ -82,7 +82,9 @@ export const actions = {
       videos,
       audios,
       pictures,
-      nextStep
+      nextStep,
+      firstPicture,
+      map
     }
   ) {
     await axios.post("/api/editArticle", {
@@ -96,7 +98,9 @@ export const actions = {
       videos,
       audios,
       pictures,
-      nextStep
+      nextStep,
+      firstPicture,
+      map
     });
   },
   //
@@ -125,7 +129,9 @@ export const actions = {
       videos,
       audios,
       pictures,
-      nextStep
+      nextStep,
+      firstPicture,
+      map
     }
   ) {
     const { msg } = await axios.post("/api/createArticle", {
@@ -139,7 +145,9 @@ export const actions = {
       videos,
       audios,
       pictures,
-      nextStep
+      nextStep,
+      firstPicture,
+      map
     });
     return { msg };
   },

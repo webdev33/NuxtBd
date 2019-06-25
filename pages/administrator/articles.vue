@@ -209,6 +209,71 @@
           </article>
           <button class="btn btn-light" @click="add('pictures')">Ajouter une autre image</button>
 
+          <!-- COLUMN firstPicture -->
+          <hr>
+          <h4>Première image de l'article :</h4>
+          <article
+            class="items__parent"
+            v-for="select in articleSelected.firstPicture"
+            :key="select._id"
+          >
+            <div class="items__child">
+              <p>Lien de l'image :</p>
+              <input
+                class="form-control input input__status articlesPage"
+                style="width: 15vw;"
+                v-model="select.link"
+                type="text"
+              >
+              <p>Titre de l'image :</p>
+              <textarea
+                class="form-control input input__status articlesPage"
+                style="width: 15vw;"
+                v-model="select.title"
+                type="text"
+              ></textarea>
+              <p>Date de l'image :</p>
+              <textarea
+                class="form-control input input__status articlesPage"
+                style="width: 15vw;"
+                v-model="select.date"
+                type="text"
+              ></textarea>
+              <!-- <button
+                class="btn btn-danger btn__status"
+                @click="removeLine('firstPicture', select.title)"
+              >Supprimer la ligne</button>-->
+            </div>
+          </article>
+          <!-- <button class="btn btn-light" @click="add('firstPicture')">Ajouter une autre image</button> -->
+
+          <!-- COLUMN map -->
+          <hr>
+          <h4>Affichage sur la map :</h4>
+          <article class="items__parent" v-for="select in articleSelected.map" :key="select._id">
+            <div class="items__child">
+              <p>Type du select (mettre "Ligne" ou "Station")</p>
+              <input
+                class="form-control input input__status articlesPage"
+                style="width: 25vw;"
+                v-model="select.select"
+                type="text"
+              >
+              <p>Nom de la station ou de la ligne (pour ligne "ligne--numéro")</p>
+              <textarea
+                class="form-control input input__status articlesPage"
+                style="width: 25vw;"
+                v-model="select.name"
+                type="text"
+              ></textarea>
+              <button
+                class="btn btn-danger btn__status"
+                @click="removeLine('map', select.name)"
+              >Supprimer la ligne</button>
+            </div>
+          </article>
+          <button class="btn btn-light" @click="add('map')">Ajouter un autre effet sur la carte</button>
+
           <!-- COLUMN video -->
           <hr>
           <article class="items__parent" v-for="select in articleSelected.videos" :key="select._id">
@@ -447,6 +512,71 @@
         </article>
         <button class="btn btn-light" @click="add('pictures')">Ajouter un autre lien</button>
 
+        <!-- COLUMN firstPicture -->
+        <hr>
+        <h4>Première image de l'article :</h4>
+        <article
+          class="items__parent"
+          v-for="select in articleSelected.firstPicture"
+          :key="select._id"
+        >
+          <div class="items__child">
+            <p>Lien de l'image :</p>
+            <input
+              class="form-control input input__status articlesPage"
+              style="width: 15vw;"
+              v-model="select.link"
+              type="text"
+            >
+            <p>Titre de l'image :</p>
+            <textarea
+              class="form-control input input__status articlesPage"
+              style="width: 15vw;"
+              v-model="select.title"
+              type="text"
+            ></textarea>
+            <p>Date de l'image :</p>
+            <textarea
+              class="form-control input input__status articlesPage"
+              style="width: 15vw;"
+              v-model="select.date"
+              type="text"
+            ></textarea>
+            <!-- <button
+                class="btn btn-danger btn__status"
+                @click="removeLine('firstPicture', select.title)"
+            >Supprimer la ligne</button>-->
+          </div>
+        </article>
+        <!-- <button class="btn btn-light" @click="add('firstPicture')">Ajouter une autre image</button> -->
+
+        <!-- COLUMN map -->
+        <hr>
+        <h4>Affichage sur la map :</h4>
+        <article class="items__parent" v-for="select in articleSelected.map" :key="select._id">
+          <div class="items__child">
+            <p>Type du select (mettre "Ligne" ou "Station")</p>
+            <input
+              class="form-control input input__status articlesPage"
+              style="width: 25vw;"
+              v-model="select.select"
+              type="text"
+            >
+            <p>Nom de la station ou de la ligne (pour ligne "ligne--numéro")</p>
+            <textarea
+              class="form-control input input__status articlesPage"
+              style="width: 25vw;"
+              v-model="select.name"
+              type="text"
+            ></textarea>
+            <button
+              class="btn btn-danger btn__status"
+              @click="removeLine('map', select.name)"
+            >Supprimer la ligne</button>
+          </div>
+        </article>
+        <button class="btn btn-light" @click="add('map')">Ajouter un autre effet sur la carte</button>
+
         <!-- COLUMN video -->
         <hr>
         <article class="items__parent" v-for="select in articleSelected.videos" :key="select._id">
@@ -543,7 +673,9 @@ export default {
         pictures: null,
         videos: null,
         audios: null,
-        nextStep: null
+        firstPicture: null,
+        nextStep: null,
+        map: null
       },
 
       /* Confirmation */
@@ -593,6 +725,12 @@ export default {
           article.data.data[0].explicationNom
         );
 
+        this.articleSelected.firstPicture = JSON.parse(
+          article.data.data[0].firstPicture
+        );
+
+        this.articleSelected.map = JSON.parse(article.data.data[0].map);
+
         this.articleSelected.events = JSON.parse(article.data.data[0].events);
         this.articleSelected.videos = JSON.parse(article.data.data[0].videos);
         this.articleSelected.audios = JSON.parse(article.data.data[0].audios);
@@ -614,6 +752,7 @@ export default {
      * Edit
      */
     async edit() {
+      console.log(this.articleSelected);
       if (this.inputVerification(`modifier`) === true) {
         try {
           await this.$store.dispatch("editArticle", {
@@ -627,7 +766,9 @@ export default {
             videos: JSON.stringify(this.articleSelected.videos),
             audios: JSON.stringify(this.articleSelected.audios),
             pictures: JSON.stringify(this.articleSelected.pictures),
-            nextStep: JSON.stringify(this.articleSelected.nextStep)
+            nextStep: JSON.stringify(this.articleSelected.nextStep),
+            firstPicture: JSON.stringify(this.articleSelected.firstPicture),
+            map: JSON.stringify(this.articleSelected.map)
           });
           this.formSuccess = `L'article a bien été modifié`;
           this.cleaner();
@@ -674,7 +815,9 @@ export default {
             videos: JSON.stringify(this.articleSelected.videos),
             audios: JSON.stringify(this.articleSelected.audios),
             pictures: JSON.stringify(this.articleSelected.pictures),
-            nextStep: JSON.stringify(this.articleSelected.nextStep)
+            nextStep: JSON.stringify(this.articleSelected.nextStep),
+            firstPicture: JSON.stringify(this.articleSelected.firstPicture),
+            map: JSON.stringify(this.articleSelected.map)
           });
           this.formSuccess = `L'article a bien été créé !`;
 
@@ -704,6 +847,11 @@ export default {
       this.articleSelected.pictures = [];
       this.articleSelected.videos = [];
       this.articleSelected.nextStep = [];
+      this.articleSelected.firstPicture = [
+        { link: null, title: null, date: null }
+      ];
+      this.articleSelected.map = [];
+
       this.currentId = null;
       this.selected = null;
       this.loadArticles();
@@ -732,12 +880,23 @@ export default {
           break;
 
         case `videos`:
-          console.log(this.articleSelected);
           this.articleSelected.videos.push({ title: null, link: null });
           break;
 
         case `audios`:
           this.articleSelected.audios.push({ title: null, link: null });
+          break;
+
+        case `firstPicture`:
+          this.articleSelected.firstPicture.push({
+            link: null,
+            title: null,
+            date: null
+          });
+          break;
+
+        case `map`:
+          this.articleSelected.map.push({ select: null, name: null });
           break;
 
         case `pictures`:
@@ -759,8 +918,13 @@ export default {
      * Remove select line
      */
     removeLine(selectRemove, data) {
+      console.log(selectRemove);
+      console.log(data);
       this.articleSelected[selectRemove].forEach((select, i) => {
-        data === select.date || data === select.name || data === select.title
+        data === select.date ||
+        data === select.name ||
+        data === select.title ||
+        data === select.select
           ? this.articleSelected[selectRemove].splice(i, 1)
           : 0;
       });

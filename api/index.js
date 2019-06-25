@@ -12,7 +12,6 @@ const connexion = mysql.createConnection({
   database: "node-boiler-plate"
 });
 
-
 /* Mac */
 
 // const connexion = mysql.createConnection({
@@ -22,7 +21,6 @@ const connexion = mysql.createConnection({
 //   port: 8889,
 //   database: "node-boiler-plate"
 // });
-
 
 connexion.connect();
 
@@ -139,7 +137,12 @@ router.post("/editArticle", (req, res) => {
     )}', nextStep = '${req.body.nextStep.replace(
       /'/g,
       `''`
-    )}' WHERE post._id = ${req.body._id};`,
+    )}', firstPicture = '${req.body.firstPicture.replace(
+      /'/g,
+      `''`
+    )}', map = '${req.body.map.replace(/'/g, `''`)}' WHERE post._id = ${
+      req.body._id
+    };`,
     (error, results, fields) => {
       if (error) {
         res.json({ msg: "Error", err: error });
@@ -173,7 +176,7 @@ router.post("/removeArticle", (req, res) => {
  */
 router.post("/createArticle", (req, res) => {
   connexion.query(
-    `INSERT INTO post (_id, station, status, linesStation, linkBienvenue, explicationNom, events, pictures, videos, audios, nextStep) VALUES (NULL, '${req.body.station.replace(
+    `INSERT INTO post (_id, station, status, linesStation, linkBienvenue, explicationNom, events, firstPicture, pictures, videos, audios, map, nextStep) VALUES (NULL, '${req.body.station.replace(
       /'/g,
       `''`
     )}', '${req.body.status.replace(
@@ -188,10 +191,16 @@ router.post("/createArticle", (req, res) => {
     )}', '${req.body.explicationNom.replace(
       /'/g,
       `''`
-    )}', '${req.body.events.replace(/'/g, `''`)}', '${req.body.pictures.replace(
+    )}', '${req.body.events.replace(
       /'/g,
       `''`
-    )}', '${req.body.videos.replace(/'/g, `''`)}', '${req.body.audios.replace(
+    )}', '${req.body.firstPicture.replace(
+      /'/g,
+      `''`
+    )}', '${req.body.pictures.replace(/'/g, `''`)}', '${req.body.videos.replace(
+      /'/g,
+      `''`
+    )}', '${req.body.audios.replace(/'/g, `''`)}', '${req.body.map.replace(
       /'/g,
       `''`
     )}', '${req.body.nextStep.replace(/'/g, `''`)}');`,
