@@ -10,7 +10,7 @@
 
     <div class="discoverBox">
       <img src="../../../assets/ressources/img/stairs.svg" class="stair" alt>
-      <a href="article.html" class="button button--discover">Decouvrir la station</a>
+      <a v-on:click="linkArticle()" class="button button--discover">Decouvrir la station</a>
     </div>
 
     <div class="comicBox comicBox--pere">
@@ -38,12 +38,11 @@
 
     <footer class="footer--comic">
       <img src="../../../assets/ressources/img/mec.png" class="mec" alt>
-      <a href="navigation.html">
+      <nuxt-link to="/content/navigation">
         <button>
           <img src="../../../assets/ressources/img/icon.png" alt>
         </button>
-      </a>
-      <script src="js/comic.js"></script>
+      </nuxt-link>
     </footer>
   </section>
 </template>
@@ -574,6 +573,11 @@ export default {
     });
   },
   //
-  methods: {}
+  methods: {
+    linkArticle() {
+      let IDarticle = 2;
+      this.$router.push({ path: `../../content/article/${IDarticle}` });
+    }
+  }
 };
 </script>
