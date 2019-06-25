@@ -41,18 +41,19 @@
         <form v-on:submit.prevent>
           <!-- COLUMN station -->
           <hr>
-
+          <h4>Nom de la page</h4>
           <p>Nom de la station / page :</p>
           <input class="form-control input" v-model="articleSelected.station" type="text">
 
-          <!-- COLUMN linesStation -->
+          <!-- COLUMN status -->
           <hr>
-          <p>Nom de la page :</p>
+          <h4>Statut de la page</h4>
+          <p>Statut :</p>
           <input class="form-control input" v-model="articleSelected.status" type="text">
 
           <!-- COLUMN linesStation -->
           <hr>
-
+          <h4>Lignes qui passent dans la station</h4>
           <article
             class="items__parent"
             v-for="select in articleSelected.linesStation"
@@ -83,11 +84,13 @@
 
           <!-- COLUMN linkBienvenue -->
           <hr>
+          <h4>Text en rapport avec Bienvenüe</h4>
           <p>Lien avec Bienvenüe :</p>
           <textarea class="form-control input" v-model="articleSelected.linkBienvenue" type="text"></textarea>
 
           <!-- COLUMN explicationNom -->
           <hr>
+          <h4>Explication sur la station</h4>
           <article
             class="items__parent"
             v-for="select in articleSelected.explicationNom"
@@ -118,6 +121,7 @@
 
           <!-- COLUMN events -->
           <hr>
+          <h4>Les évenements qui se sont passés dans la station</h4>
           <article class="items__parent" v-for="select in articleSelected.events" :key="select._id">
             <div class="items__child">
               <p>Nom de l'évenement :</p>
@@ -142,8 +146,9 @@
           </article>
           <button class="btn btn-light" @click="add('events')">Ajouter un évenement</button>
 
-          <!-- COLUMN station -->
+          <!-- COLUMN nextStep -->
           <hr>
+          <h4>Lien vers la station suivante</h4>
           <article
             class="items__parent"
             v-for="select in articleSelected.nextStep"
@@ -174,6 +179,7 @@
 
           <!-- COLUMN pictures -->
           <hr>
+          <h4>Illustrations de la page</h4>
           <article
             class="items__parent"
             v-for="select in articleSelected.pictures"
@@ -187,6 +193,7 @@
                 v-model="select.link"
                 type="text"
               >
+              <img class="li__img" v-bind:src="select.link">
               <p>Titre de l'image :</p>
               <textarea
                 class="form-control input input__status articlesPage"
@@ -225,6 +232,7 @@
                 v-model="select.link"
                 type="text"
               >
+              <img class="li__img" v-bind:src="select.link">
               <p>Titre de l'image :</p>
               <textarea
                 class="form-control input input__status articlesPage"
@@ -276,6 +284,7 @@
 
           <!-- COLUMN video -->
           <hr>
+          <h4>Video sur la page</h4>
           <article class="items__parent" v-for="select in articleSelected.videos" :key="select._id">
             <div class="items__child">
               <p>Lien de la vidéo</p>
@@ -302,6 +311,7 @@
 
           <!-- COLUMN audios -->
           <hr>
+          <h4>Audios sur la page</h4>
           <article class="items__parent" v-for="select in articleSelected.audios" :key="select._id">
             <div class="items__child">
               <p>Lien de la musique</p>
@@ -352,18 +362,19 @@
       <form v-on:submit.prevent>
         <!-- COLUMN station -->
         <hr>
-
+        <h4>Statut de la page</h4>
         <p>Nom de la station / page :</p>
         <input class="form-control input" v-model="articleSelected.station" type="text">
 
-        <!-- COLUMN linesStation -->
+        <!-- COLUMN status -->
         <hr>
+        <h4>Statut de la station</h4>
         <p>Nom de la page :</p>
         <input class="form-control input" v-model="articleSelected.status" type="text">
 
         <!-- COLUMN linesStation -->
         <hr>
-
+        <h4>Lignes qui passent dans la station</h4>
         <article
           class="items__parent"
           v-for="select in articleSelected.linesStation"
@@ -394,11 +405,13 @@
 
         <!-- COLUMN linkBienvenue -->
         <hr>
-        <p>Lien avec Bienvenüe :</p>
+        <h4>Lien avec Bienvenüe</h4>
+        <p>Text explicatif :</p>
         <textarea class="form-control input" v-model="articleSelected.linkBienvenue" type="text"></textarea>
 
         <!-- COLUMN explicationNom -->
         <hr>
+        <h4>Explication sur la station</h4>
         <article
           class="items__parent"
           v-for="select in articleSelected.explicationNom"
@@ -429,6 +442,7 @@
 
         <!-- COLUMN events -->
         <hr>
+        <h4>Evénements qui se sont passés</h4>
         <article class="items__parent" v-for="select in articleSelected.events" :key="select._id">
           <div class="items__child">
             <p>Nom de l'évenement :</p>
@@ -453,8 +467,9 @@
         </article>
         <button class="btn btn-light" @click="add('events')">Ajouter un évenement</button>
 
-        <!-- COLUMN station -->
+        <!-- COLUMN nextStep -->
         <hr>
+        <h4>Page suivante</h4>
         <article class="items__parent" v-for="select in articleSelected.nextStep" :key="select._id">
           <div class="items__child">
             <p>Lien vers une autre page :</p>
@@ -481,6 +496,7 @@
 
         <!-- COLUMN pictures -->
         <hr>
+        <h4>Images pour l'article</h4>
         <article class="items__parent" v-for="select in articleSelected.pictures" :key="select._id">
           <div class="items__child">
             <p>Lien de l'image :</p>
@@ -490,6 +506,8 @@
               v-model="select.link"
               type="text"
             >
+            <img class="li__img" v-bind:src="select.link">
+
             <p>Titre de l'image :</p>
             <textarea
               class="form-control input input__status articlesPage"
@@ -528,6 +546,7 @@
               v-model="select.link"
               type="text"
             >
+            <img class="li__img" v-bind:src="select.link">
             <p>Titre de l'image :</p>
             <textarea
               class="form-control input input__status articlesPage"
@@ -579,6 +598,7 @@
 
         <!-- COLUMN video -->
         <hr>
+        <h4>Vidéo pour l'article</h4>
         <article class="items__parent" v-for="select in articleSelected.videos" :key="select._id">
           <div class="items__child">
             <p>Lien de la vidéo</p>
@@ -605,6 +625,7 @@
 
         <!-- COLUMN audios -->
         <hr>
+        <h4>Audios pour l'article</h4>
         <article class="items__parent" v-for="select in articleSelected.audios" :key="select._id">
           <div class="items__child">
             <p>Lien de la musique</p>
