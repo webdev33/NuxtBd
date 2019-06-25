@@ -841,7 +841,7 @@ export default {
     let yearTimeline = document.querySelectorAll(".timeBar__year");
     yearTimeline.forEach(select => {
       select.addEventListener("mouseover", function() {
-        selectyearTimeline = select.innerHTML;
+        let selectyearTimeline = select.innerHTML;
         console.log(selectyearTimeline);
         ligne = document.querySelectorAll(".ligne");
 

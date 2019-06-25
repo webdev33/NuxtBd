@@ -150,7 +150,7 @@ export default {
         });
       });
 
-      this.selectFinal.forEach((selectArticle, i) => {
+            this.selectFinal.forEach((selectArticle, i) => {
         for (const selectCategorie of selectArticle.categorie) {
           this.checkedNames.forEach(selectChecked => {
             selectCategorie.name === selectChecked &&
@@ -159,6 +159,7 @@ export default {
               : 0;
           });
         }
+        if (this.checkedNames.length != 0){
         this.finalHave.length === this.checkedNames.length
           ? this.appearContent(
               selectArticle.legend,
@@ -166,6 +167,9 @@ export default {
               selectArticle.date
             )
           : 0;
+        } else if (this.checkedNames.length === 0) {   
+          this.finalHave = [];
+        }
       });
 
       /* Show all articles */

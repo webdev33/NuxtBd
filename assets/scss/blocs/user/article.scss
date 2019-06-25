@@ -171,14 +171,34 @@
     }
     .imageStaition__image{
       width: 100%;
+      cursor: pointer;
       @include min-sm {
         width: 50vw;
+      }
+      &:hover{
+        .active{
+          opacity: 1;
+        }
       }
       transition: all ease-in-out .5s;
       position: relative;
       img{
         max-width: 100%;
         position: absolute;
+        right: 0;
+      }
+      .imageStaition__image__textBox{
+        position: absolute;
+        box-sizing: border-box;
+        width:100%;
+        height:100%;
+        opacity: 0;
+        transition: opacity .3s;
+        overflow: hidden;
+        background-color: #fff;
+        color: $color--main;
+        font-weight: bold;
+        padding:20px;
       }
     }
     .imageStaition__timeline{

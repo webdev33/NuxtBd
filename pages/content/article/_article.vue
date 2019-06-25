@@ -753,7 +753,7 @@
             >
 
             <!-- Text hover -->
-            <div class>
+            <div class ="imageStaition__image__textBox" v-bind:year="select.date">
               <p>{{ select.title }}</p>
             </div>
 
@@ -959,19 +959,25 @@ export default {
   updated: function updated(params) {
     let imageBox = document.querySelector(".imageStaition__image");
     let images = document.querySelectorAll(".imageStaition__image__image");
+    let imagesDescription = document.querySelectorAll(".imageStaition__image__textBox");
     let imageActive;
+
     for (let i = 0; i < images.length; i++) {
       if (i === 0) {
         images[0].classList.add("imageVisible");
         imageActive = document.querySelector(".imageVisible");
       }
-
       images[i].style.display = "none";
     }
     imageActive.style.display = "block";
 
+
+    //hauter
     let imageActiveHeight = imageActive.offsetHeight;
     imageBox.style.height = imageActiveHeight + "px";
+    
+    console.log("Height : " + imageActiveHeight + "px");
+
 
     let years = document.querySelectorAll(".imageStaition__timelineYear");
     let selectYear = "";
@@ -987,6 +993,7 @@ export default {
         }
         selectYear = years[i].innerHTML;
         years[i].classList.add("active");
+
         for (let i = 0; i < images.length; i++) {
           images[i].style.display = "none";
           images[i].classList.remove("imageVisible");
@@ -995,8 +1002,22 @@ export default {
             images[i].classList.add("imageVisible");
 
             //height
-            let imageActiveHeight = images[i].offsetHeight;
+            imageActiveHeight = images[i].offsetHeight;
             imageBox.style.height = imageActiveHeight + "px";
+  
+            console.log("Height : " + imageActiveHeight + "px");
+          }
+        }
+
+        for (let i = 0; i < imagesDescription.length; i++) {
+          //sconsole.log(imagesDescription)
+          imagesDescription[i].classList.remove("active");
+
+          if (selectYear === images[i].getAttribute("year")) {
+            
+            //console.log(document.querySelector(".imageStaition__image"))
+            imagesDescription[i].classList.add("active");
+
           }
         }
       });
