@@ -163,10 +163,11 @@ header{
       height:auto;
       width: auto;
       bottom:3vh;
-      right:3vh;
+      right:0vh;
       left:200px;
       top:30px;
       overflow: visible;
+      overflow-x: hidden;
     }
     .comic__text{
       color: #fff;
