@@ -166,7 +166,7 @@ header{
       right:0vh;
       left:200px;
       top:30px;
-      overflow: visible;
+      overflow-y: hidden;
       overflow-x: hidden;
     }
     .comic__text{
@@ -194,7 +194,6 @@ header{
         @include max-xs {
           margin-left: 78px;
         }
-        
       }
       @include max-xs {
         margin-top: 100px;
@@ -211,6 +210,10 @@ header{
         left:10vw;
         padding-left:0px;
       }
+      @include min-lg{
+        bottom:40vh;
+        width: 500px;
+      }
       &.animation--text{
         animation: fadeIn 1s forwards;
         @keyframes fadeIn{
@@ -226,7 +229,7 @@ header{
     button{
       position: absolute;
       cursor: pointer;
-      right: 0;
+      right: 3vw;
       @include max-xs {
        right: 10px;
       }
@@ -776,11 +779,16 @@ header{
     margin-right: 0;
     margin-left: 200px;
     padding-top: 175px;
+    height: calc(100vh - 175px);
   }
   .videoBox{
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
+    @include min-sm {
+      position: absolute;
+      bottom: 50px;
+    }
     p{
       color: #fff;
       max-width:400px;
@@ -811,8 +819,8 @@ header{
       margin-left: 20px;
       .icon--untertitel{
         cursor: pointer;
-        width:40px;
-        height:40px;
+        width:100px;
+        height:100px;
         margin-bottom: 10px;
       }
     }

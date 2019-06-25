@@ -751,6 +751,13 @@
               v-bind:alt="select.title"
               v-bind:year="select.date"
             >
+
+            <!-- Text hover -->
+            <div class>
+              <p>{{ select.title }}</p>
+            </div>
+
+            <!--  -->
           </section>
         </div>
         <div class="imageStaition__timeline">
@@ -970,6 +977,10 @@ export default {
     let selectYear = "";
 
     for (let i = 0; i < years.length; i++) {
+      if (i === 0) {
+        years[0].classList.add("active");
+      }
+
       years[i].addEventListener("click", function() {
         for (let i = 0; i < years.length; i++) {
           years[i].classList.remove("active");

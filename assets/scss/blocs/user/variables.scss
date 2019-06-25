@@ -7,3 +7,7 @@ $color--main: #2623B7;
 @mixin min-sm {
   @media (min-width: 600px) { @content; }
 }
+
+@mixin min-lg {
+  @media (min-width: 1300px) { @content; }
+}
