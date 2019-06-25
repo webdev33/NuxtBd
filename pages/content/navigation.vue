@@ -15,11 +15,9 @@
         Decouvrir maintenant des Station et apprendre pourqui ils sont important pour moi.
         <br>
         <br>je te propose de commence avec :
-        <a href="nee.html" class="stationLink">Bienvenu Montparnasse</a>
+        <nuxt-link to="/content/bienvenue/born" class="stationLink">Bienvenu Montparnasse</nuxt-link>
       </div>
-      <!--
-      
-      -->
+
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 970 790" class="mapSVG">
         <title>paris_map</title>
         <g id="Line">
@@ -356,7 +354,7 @@
           <circle class="cls-2" cx="733.68" cy="217.3" r="0"></circle>
           <circle class="cls-2" cx="771.28" cy="199.94" r="0"></circle>
 
-          <a href="trauma.html">
+          <nuxt-link to="/content/bienvenue/trauma">
             <circle
               class="station"
               station="couronnes"
@@ -365,8 +363,9 @@
               cy="251.05"
               r="15"
             ></circle>
-          </a>
-          <a href="trauma.html">
+          </nuxt-link>
+
+          <nuxt-link to="/content/bienvenue/trauma">
             <circle
               class="station"
               station="menilmontant"
@@ -375,12 +374,11 @@
               cy="281.58"
               r="15"
             ></circle>
-          </a>
+          </nuxt-link>
 
-          <a href="pere.html">
+          <nuxt-link to="/content/bienvenue/morte">
             <circle class="station" station="pere" bubble="Morte" cx="816.71" cy="318.28" r="15"></circle>
-          </a>
-
+          </nuxt-link>
           <circle class="cls-2" cx="816.71" cy="349.96" r="0"></circle>
           <circle class="cls-2" cx="817.14" cy="389.45" r="0"></circle>
           <circle class="cls-2" cx="822.01" cy="426.62" r="0"></circle>
@@ -388,9 +386,11 @@
           <circle class="cls-2" cx="958.57" cy="536.18" r="0"></circle>
           <circle class="cls-2" cx="935.08" cy="512.54" r="0"></circle>
           <circle class="cls-2" cx="916.53" cy="494.12" r="0"></circle>
-          <a href="carrier.html">
+
+          <nuxt-link to="/content/bienvenue/carrier">
             <circle class="station" station="ligne1" bubble="Carrier" cx="882.02" cy="475" r="15"></circle>
-          </a>
+          </nuxt-link>
+
           <circle class="cls-2" cx="865.49" cy="510.91" r="0"></circle>
           <circle class="cls-2" cx="844.18" cy="533.27" r="0"></circle>
           <circle class="cls-2" cx="823.39" cy="553.27" r="0"></circle>
@@ -501,13 +501,13 @@
           <circle class="cls-2" cx="524.87" cy="357.7" r="0"></circle>
           <circle class="cls-2" cx="600.31" cy="349.96" r="0"></circle>
 
-          <a href="plonge.html">
+          <nuxt-link to="/content/bienvenue/plonge">
             <circle class="station" station="cite" bubble="Genie" cx="507.3" cy="414.96" r="15"></circle>
-          </a>
+          </nuxt-link>
 
-          <a href="hotel.html">
+          <nuxt-link to="/content/bienvenue/hotel">
             <circle class="station" station="hotle" bubble="Triumph" cx="571.11" cy="378.76" r="15"></circle>
-          </a>
+          </nuxt-link>
 
           <circle class="cls-2" cx="610.6" cy="418.8" r="0"></circle>
           <circle class="cls-2" cx="604.18" cy="211.72" r="0"></circle>
@@ -526,7 +526,7 @@
           <circle class="cls-2" cx="134.34" cy="294.68" r="0"></circle>
           <circle class="cls-2" cx="223.31" cy="222.37" r="0"></circle>
 
-          <a href="prive.html">
+          <nuxt-link to="/content/bienvenue/prive">
             <circle
               class="station"
               station="courcelles"
@@ -535,7 +535,7 @@
               cy="196.56"
               r="15"
             ></circle>
-          </a>
+          </nuxt-link>
 
           <circle class="cls-2" cx="273.52" cy="171.69" r="0"></circle>
           <circle class="cls-2" cx="299.66" cy="145.95" r="0"></circle>
@@ -699,9 +699,9 @@
             transform="translate(568.17 -164.61) rotate(45)"
           ></rect>
 
-          <a href="nee.html">
+          <nuxt-link to="/content/bienvenue/born" class="station station--montparnasse">
             <rect
-              class="station station--montparnasse"
+              class="station"
               station="montparnasse"
               bubble="Naissance"
               x="410.7"
@@ -711,7 +711,7 @@
               rx="3.66"
               transform="translate(536.78 -121.1) rotate(45)"
             ></rect>
-          </a>
+          </nuxt-link>
 
           <rect
             class="cls-2"
@@ -737,14 +737,14 @@
     </div>
     <div class="legende--year">1936</div>
     <footer>
-      <a href="archive.html">
+      <nuxt-link to="/content/gallery">
         <img src="../../assets/ressources/img/mec.png" class="mec" alt>
-      </a>
-      <a href="navigation.html">
-        <button>
-          <img src="../../assets/ressources/img/icon.png" alt>
-        </button>
-      </a>
+      </nuxt-link>
+      <!-- <nuxt-link to="/content/navigation"> -->
+      <button>
+        <img src="../../assets/ressources/img/icon.png" alt>
+      </button>
+      <!-- </nuxt-link> -->
     </footer>
   </section>
 </template>
