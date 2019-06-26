@@ -5,17 +5,6 @@
     <!-- Alert -->
     <p class="alert alert-primary alert-danger" v-show="formError != null">{{ formError }}</p>
 
-    <article v-for="article in articles" :value="article._id" :key="article._id">
-      <p>{{ articles.pictures }}</p>
-    </article>
-
-
-    <!-- PROVISOIRE -->
-    <hr>
-    <p style="color: red" v-on:click="router()">Aller à sur la page article</p>
-    <hr>
-    <!-- PROVISOIRE -->
-
   </section>
 </template>
 
