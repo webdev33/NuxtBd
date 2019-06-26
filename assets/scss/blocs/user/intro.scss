@@ -1,0 +1,50 @@
+.index{
+  width:100vw;
+  position: relative;
+  
+  .intro__box{
+    position: relative;
+    z-index: 200;
+    margin-top: 55vh;
+    //max-width: 620px;
+    left: calc(50vw - 360px);
+    h1{
+      display: inline-block;
+      color:#fff;
+      font-size: 5em;
+      border: solid 15px #fff;
+      padding:30px;
+      margin-bottom: 30px;
+      background-color: $color--main;
+    }
+    p{
+      display: none;
+      color:#fff;
+      font-size: 1.3em;
+      line-height: 1.3em;
+      max-width: 500px;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+  .footer--index{
+    position: fixed;
+    bottom: auto;
+    top:calc(100vh);
+    .mec{
+      transition:all 0.3s;
+      &--big{
+        height:105vh;
+        width: auto;
+        transition:all 0.3s;
+      }
+    }
+  }
+  .intro__video{
+    margin-top: 100vh;
+    width: 100vw;
+    video{
+      width: 100vw;
+    }
+  }
+}

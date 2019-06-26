@@ -15,13 +15,13 @@
       ></audio>
 
       <!-- Mute -->
-      <section v-if="selectSpeaker() === false" v-on:click="clickSpeaker()" class="speaker--on">
-        <img src="../../../assets/ressources/audios/icon/speakker--off.png" class="mec" alt>
+      <section v-if="selectSpeaker() === false" v-on:click="clickSpeaker()" class="speaker speaker--on">
+        <img src="../../../assets/ressources/audios/icon/speakker--off.png" alt>
       </section>
 
       <!-- Unmute -->
-      <section v-if="selectSpeaker() === true" v-on:click="clickSpeaker()" class="speaker--off">
-        <img src="../../../assets/ressources/audios/icon/speakker--on.png" class="mec" alt>
+      <section v-if="selectSpeaker() === true" v-on:click="clickSpeaker()" class="speaker speaker--off">
+        <img src="../../../assets/ressources/audios/icon/speakker--on.png" alt>
       </section>
     </section>
 
