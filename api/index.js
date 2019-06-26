@@ -4,23 +4,23 @@ const mysql = require("mysql");
 
 /* Windows */
 
-const connexion = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "",
-  port: 3306,
-  database: "node-boiler-plate"
-});
-
-/* Mac */
-
 // const connexion = mysql.createConnection({
 //   host: "localhost",
 //   user: "root",
-//   password: "root",
-//   port: 8889,
+//   password: "",
+//   port: 3306,
 //   database: "node-boiler-plate"
 // });
+
+/* Mac */
+
+const connexion = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "root",
+  port: 8889,
+  database: "node-boiler-plate"
+});
 
 connexion.connect();
 

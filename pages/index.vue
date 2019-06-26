@@ -3,16 +3,26 @@
     <!-- Alert -->
     <p class="alert alert-primary alert-danger" v-show="formError != null">{{ formError }}</p>
 
-    <div class="intro__box">
-      <h1>Le Pere du Metro</h1>
-      <p>Un hommage du Fulgence Bienvenüe, qui a relasie des premieres lignes des metro a Paris du 19 centery.</p>
+    <div class="wrapper--intro">
+      <header>
+        <h1>
+          Le pere du
+          <br>metro
+        </h1>
+        <div class="headlineIntro"></div>
+      </header>
+
+      <h1 class="headline--intro--first">Le Pere du Metro</h1>
+
+      <div class="intro__video">
+        <video src="../assets/ressources/img/metro.mp4" autoplay></video>
+      </div>
+
+      <h1 class="headline--intro--second">Bienvenüe</h1>
+
+      <a href="" class="button button--intro">Let's go</a>
+
     </div>
-
-     <div class="intro__video">
-      <video src="../assets/ressources/img/metro.mp4" autoplay></video>
-    </div>
-
-
     <footer class="footer--comic footer--index">
       <img src="../assets/ressources/img/mec.png" class="mec mec--big" alt>
 
@@ -65,10 +75,11 @@ export default {
      
       if (window.matchMedia("(min-width: 640px)").matches) {
     
-        if (document.documentElement.scrollTop >window.innerHeight * 0.3) {
-          mec.classList.remove("mec--big");
+        if (document.documentElement.scrollTop >window.innerHeight * 0.5) {
+          document.querySelector(".intro__video").style.position ="relative";
+          //document.querySelector(".headline--intro--second").style.position ="-30vh";
         } else {
-          mec.classList.add("mec--big");
+          //mec.classList.add("mec--big");
         }
       }
     });
