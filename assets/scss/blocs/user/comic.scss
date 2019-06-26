@@ -788,67 +788,67 @@ header{
     padding-top: 175px;
     //height: calc(100vh - 175px);
   }
-  .videoBox{
-    @include min-sm {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      margin-bottom: 40px;
-    }
+  // .videoBox{
+  //   @include min-sm {
+  //     display: flex;
+  //     justify-content: flex-start;
+  //     align-items: flex-start;
+  //     margin-bottom: 40px;
+  //   }
     
-    @include min-sm {
-      //position: absolute;
-      //bottom: 50px;
-    }
-    iframe{
-      @include max-xs {
-        width: calc(100vw - 102px);
-        height: auto;
-      }
-    }
-    p{
-      color: #fff;
-      max-width:400px;
-      @include max-xs {
-        font-size: 1em;
-        line-height: 1.2em;
-      }
-      @include min-sm {
-        font-size: 1.2em;
-        line-height: 1.2em;
-      }
-      &.videoHeadline{
-        font-weight: bold;
-        font-size: 1.4em;
-        line-height: 1.2em;
-        margin-top: 5px;
-      }
-    }
-    .videoBox__videoWrapper{
-      position: relative;
-      .button--closeVideo{
-        cursor: pointer;
-        position: absolute !important;
-        right: 0 !important;
-      }
-      .button--closeVideo{
-        margin-top: 10px;
-      }
-    }
-    .videoBox__audiodescriptionBox{
-      margin-left: 20px;
-      @include max-xs {
-        margin-top: 20px;
-        margin-left: 0px;
-      }
-      .icon--untertitel{
-        cursor: pointer;
-        width:40px;
-        height:40px;
-        margin-bottom: 10px;
-      }
-    }
-  }
+  //   @include min-sm {
+  //     //position: absolute;
+  //     //bottom: 50px;
+  //   }
+  //   iframe{
+  //     @include max-xs {
+  //       width: calc(100vw - 102px);
+  //       height: auto;
+  //     }
+  //   }
+  //   p{
+  //     color: #fff;
+  //     max-width:400px;
+  //     @include max-xs {
+  //       font-size: 1em;
+  //       line-height: 1.2em;
+  //     }
+  //     @include min-sm {
+  //       font-size: 1.2em;
+  //       line-height: 1.2em;
+  //     }
+  //     &.videoHeadline{
+  //       font-weight: bold;
+  //       font-size: 1.4em;
+  //       line-height: 1.2em;
+  //       margin-top: 5px;
+  //     }
+  //   }
+  //   .videoBox__videoWrapper{
+  //     position: relative;
+  //     .button--closeVideo{
+  //       cursor: pointer;
+  //       position: absolute !important;
+  //       right: 0 !important;
+  //     }
+  //     .button--closeVideo{
+  //       margin-top: 10px;
+  //     }
+  //   }
+  //   .videoBox__audiodescriptionBox{
+  //     margin-left: 20px;
+  //     @include max-xs {
+  //       margin-top: 20px;
+  //       margin-left: 0px;
+  //     }
+  //     .icon--untertitel{
+  //       cursor: pointer;
+  //       width:40px;
+  //       height:40px;
+  //       margin-bottom: 10px;
+  //     }
+  //   }
+  // }
 }
 .button--closeVideo{
   cursor: pointer;
