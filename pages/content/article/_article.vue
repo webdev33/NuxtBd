@@ -44,6 +44,9 @@
           </section>
         </div>
       </div>
+      <!--- 
+      Add Text Box 
+      -->
       <div class="map--navigation article__map">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 970 790">
           <title>paris_map</title>

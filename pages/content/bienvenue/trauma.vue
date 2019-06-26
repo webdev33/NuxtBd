@@ -22,7 +22,7 @@
       <button class="button buttonNext">Next</button>
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
-        <p class="comic__text__p">Apres des annes du grand <span class='link--video' videoLinkId='0'>sucess</span> .... En 1903, Fulgence Bienvenüe doit gérer le premier drame du métro.</p>
+        <p class="comic__text__p">Le réseau <span class='link--video' videoLinkId='0'>superconnecté</span> de Fulgence connaît un <span class='link--video' videoLinkId='0'>succès</span> monstre.<br><br>Mais ...</p>
       </div>
       <img
         src="../../../assets/ressources/img/comic/trauma/feuer.png"
@@ -56,7 +56,10 @@
         <div class="introArticle__textBox">
           <h1>Catastrophe dans le métropolitain 10.08.1903</h1>
           <p>
-            Est ce que vous pouves ecrit ici just un petit text sur le catasrophe. c est pas grave si c est double avec le video. je besoin contenu just au momnet on voir pas encore le image dans le view port
+            Le 10 août 1903, suite à un court-circuit, un incendie se déclare sur une rame à la station Barbès.
+            <br><br>
+            Afin de ne pas bloquer le réseau, la rame est poussée vide vers Nation par la rame qui arrivait derrière (préalablement évacuée). Mais à la station Ménilmontant, le feu reprend sans qu'on puisse l'éteindre. Au même instant, la rame suivante, qui avait ramassé les quelque 300 voyageurs des deux rames évacuées arrive à la station précédant Ménilmontant : la station Couronnes. Mais averti de la reprise de l'incendie, le chauffeur ne redémarre pas et prie les gens de descendre afin d'évacuer la station par l'escalier.<br>
+            Cependant, la fumée de l'incendie (la fumée uniquement, le feu étant resté circonscrit à la rame de métro), qui a envahi la station Ménilmontant évacuée, se propage dans le tunnel pour jaillir soudainement dans la station Couronnes, côté tête du train où se trouvent les protestataires. Aveuglé, par réflexe, le groupe fuit la fumée vers l'autre extrémité du quai, malheureusement sans issue. Quelques heures plus tard, les pompiers compteront 84 corps, entassés les uns sur les autres
           </p>
         </div>
       </div>
@@ -302,7 +305,7 @@ export default {
         switch (buttonNextCounter) {
           case 1:
             textBoxContent.innerHTML =
-              "La catastrophe du métropolitain, le 10 août 1903 dans les stations Couronnes et Ménilmontant. En cause, <span class='link--video' videoLinkId='1'>les matériaux</span> utilisés lors de la construction";
+              "Or, il ne faudra pas patienter longtemps avant qu’un aléa ne provoque une catastrophe dans le métropolitain...<br><br>En cause, <span class='link--video' videoLinkId='1'>les matériaux</span> utilisés lors de la construction";
               videoPlus();
 
             fire.classList.add("slideIn--now");
@@ -310,7 +313,7 @@ export default {
             break;
           case 2:
             textBoxContent.innerHTML =
-              "L’incendie fait 84 victimes. <br><br><button class='button buttonPlus'>Ensavoir Plus</button>";
+              "Le drame est à l'origine d'amélioration des techniques et de sécurité, encore en vigueur de nos jours <br><br><button class='button buttonPlus'>Ensavoir Plus</button>";
 
             metroSign.classList.add("slideIn--now");
             bebeTete.classList.add("fadeOut");

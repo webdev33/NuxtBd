@@ -18,8 +18,7 @@
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
         <p
-          class="comic__text__p"
-        >La Seine est beau mais aussi un tres grand problem pour la construction du Metro.</p>
+          class="comic__text__p">Après avoir assisté à l’éventrement des rues de la capitale, la Seine tremble.<br><br>Divisant Paris en son centre, son <span class='link--video' videoLinkId='0'>franchissement</span> est un obstacle.</p>
       </div>
 
       <img
@@ -48,6 +47,60 @@
         alt
       >
     </div>
+
+    <!-- Slide 0 Start -->
+    <div class="videoBox__wrapper videoBox__wrapper--0 slideIn--later">
+      <button class="button button--closeVideo button--closeVideo--0">Go Back</button>
+      <div class="videoBox">
+        <div class="videoBox__videoWrapper">
+          <!-- 1 frame -->
+          <p class="videoHeadline">Paris d'antant</p>
+        </div>
+        <div class="videoBox__audiodescriptionBox">
+          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--0">
+          <p
+            class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later"
+          >....</p>
+        </div>
+      </div>
+    </div> 
+    <!-- End -->
+
+    <!-- Slide 0 Start -->
+    <div class="videoBox__wrapper videoBox__wrapper--1 slideIn--later">
+      <button class="button button--closeVideo button--closeVideo--1">Go Back</button>
+
+      <div class="videoBox">
+        <div class="videoBox__videoWrapper">
+          <iframe width="560" height="315" class="videoBox__video"  src="https://www.youtube.com/embed/n16hJxbdKf4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <p class="videoHeadline">Les problématiques liées à la Seine</p>
+        </div>
+        <div class="videoBox__audiodescriptionBox">
+          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--1">
+          <p
+            class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later"
+          >La ligne 4, longue d’environ 11 kilomètres, elle part de la porte de Clignancourt et va jusqu’à la Porte d’Orléans. Première ligne à traverser Paris dans un axe Nord-Sud, elle est aussi la première à devoir traverser la Seine.
+          “On ne devait pas passer sur l'île de la Cité. On devrait finalement rejoindre Châtelet/Saint Michel en passant par la pointe amont de l’île de la Cité. Mais pour des raisons très simples, finalement ce métro devait passer juste sous l’Académie Française et les académiciens n’étaient pas d’accord. Pour leur calme, ils décident de faire une pétition qui a été suivie par un certain nombre à l’époque, de savants. C’est là qu’on a décidé de passer par l’île de la Cité.”</p>
+        </div>
+      </div>
+
+      <div class="videoBox">
+        <div class="videoBox__videoWrapper">
+          <iframe width="560" height="315"  class="videoBox__video"   src="https://www.youtube.com/embed/Pb6n8ZbyBx4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <p class="videoHeadline">Coûts des investissements et mécènes</p>
+        </div>
+        <div class="videoBox__audiodescriptionBox">
+          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--1">
+          <p
+            class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later"
+          >
+          Pour l’électrification du réseau, on fait appel aux technologies les plus en pointe. Deux usines à charbon sont construites afin de fournir l’énergie nécessaire à ce nouveau moyen de transport. Des investissements colossaux qui associent déjà publique et privé. C’est la CMP qui appartient au Baron Empain, un des géants de la finance du XIXe siècle qui se lance dans ce formidable pari.
+          “Le coût des investissements est le suivant : l’infrastructure faite par la ville de Paris vaut 600 million d’euros d’aujourd’hui. La superstructure faite par le Baron Empain représente un peu plus d’1 milliard, car il y a le coût des usines, des rames et la décoration de toutes les stations de métro et l’équipement du chemin de fer.”</p>
+        </div>
+      </div>
+
+    </div> 
+    <!-- End -->
 
     <article class="articlePlus slideIn--later">
       <div class="introArticle">
@@ -230,6 +283,7 @@ export default {
         });
       }
     };
+    videoPlus();
 
     buttonNext.addEventListener("click", function() {
       buttonNextCounter = buttonNextCounter + 1;
@@ -248,7 +302,8 @@ export default {
         switch (buttonNextCounter) {
           case 1:
             textBoxContent.innerHTML =
-              "L’aboutissement de quatre années de travail sous la direction de l’ingénieur Fulgence Bienvenüe. ";
+              "Le passage du métro sous la Seine marque l’aboutissement de <span class='link--video' videoLinkId='1'>quatre années de travail</span> sous la direction de l’ingénieur Fulgence Bienvenüe.<br><br>La ville de Paris cicatrise grâce à l’aide financière apportée par le Baron Empain";
+              videoPlus();
 
             point.classList.add("fadeOut");
 
@@ -258,7 +313,7 @@ export default {
             break;
           case 2:
             textBoxContent.innerHTML =
-              "Il est nommé à la suite de l’exploit, inspecteur général des Ponts et Chaussées de 2e classe.<br><br><button class='button buttonPlus'>Ensavoir Plus</button>";
+              "Fulgence Bienvenüe devient alors l’auteur d’une des plus jolies opérations césariennes que Paris ait subies<br><br><button class='button buttonPlus'>Ensavoir Plus</button>";
 
             bras.classList.add("fadeOut");
             mapSeine.classList.add("fadeOut");
@@ -269,7 +324,7 @@ export default {
             break;
           case 3:
             textBoxContent.innerHTML =
-              "Découvrez Cité, une station de la ligne 4 !.";
+              "Le nom de la station est dû à son emplacement, sur l'île de la Cité, qu'elle est d'ailleurs la seule à desservir.";
 
             metroSign.classList.add("slideIn--now");
             imgConstruction.classList.add("fadeOut");

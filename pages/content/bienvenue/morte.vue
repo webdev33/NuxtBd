@@ -17,7 +17,7 @@
       <button class="button buttonNext">Next</button>
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
-        <p class="comic__text__p">Le 3 août 1936, un super beau journe a Paris.....<span class='link--video' videoLinkId='0'>En attentre</span></p>
+        <p class="comic__text__p">Lors d’une belle journée <span class='link--video' videoLinkId='0'>ensolleillée</span> d’Août 1936...</p>
       </div>
       <img
         src="../../../assets/ressources/img/comic/pere/signMetro.png"
@@ -43,7 +43,7 @@
         <div class="videoBox__videoWrapper">
 
           <iframe width="560" height="315" src="https://www.youtube.com/embed/METtgfYQjZU" class="videoBox__video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <p class="videoHeadline">Le métro en 1950</p>
+          <p class="videoHeadline">La figure de l'année</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
           <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--0">
@@ -60,15 +60,14 @@
       <button class="button button--closeVideo button--closeVideo--1">Go Back</button>
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
-
-          <!-- 1frame --->
-          <p class="videoHeadline">Fulgence Bienvenüe</p>
+          <iframe width="560" height="315" class="videoBox__video" src="https://www.youtube.com/embed/t7lTrocLuQs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <p class="videoHeadline">L'hommage à Fulgence Bienvenüe</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
           <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--1">
           <p
             class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later"
-          >.....</p>
+          >Il décède le 3 Août 1936 et et est inhumé au Père Lachaise dans une petite tombe discrète à son image. Bienvenüe, comme il le disait lui même, était un ingénieur, pas un artiste. Il ne cherchait ni la lumière, ni la gloire. Et pourtant, quelle postérité !</p>
         </div>
       </div>
     </div> 
@@ -252,14 +251,14 @@ export default {
 
         switch (buttonNextCounter) {
           case 1:
-            textBoxContent.innerHTML = "Fulgence Bienvenüe décède au sein de sa capitale bien aimée.<span class='link--video' videoLinkId='1'>En attentre</span>";
+            textBoxContent.innerHTML = "Fulgence Bienvenüe <span class='link--video' videoLinkId='1'>décède</span> au sein de sa capitale bien aimée.";
             videoPlus();
 
             person.classList.add("morte");
             break;
           case 2:
             textBoxContent.innerHTML =
-              "Il est inhumé le 7 août dans l’indifférence générale. Sa sépulture se trouve au cimetière (division 82) du Père Lachaise.<span class='link--video' videoLinkId='2'>En attentre</span>";
+              "Il est <span class='link--video' videoLinkId='2'>inhumé</span> le 7 août dans l’indifférence générale. Sa sépulture se trouve au cimetière (division 82) du Père Lachaise.";
               videoPlus();
 
             grab.classList.add("slideIn--now");
@@ -267,7 +266,7 @@ export default {
             break;
           case 3:
             textBoxContent.innerHTML =
-              "Heureusement il a installe avant un metro proche, comme ca tous ses fans pouvent visiter lui.";
+              "Heureusement qu’il a eu la présence d’esprit d’installer une bouche de métro à proximité, permettant à ses fans de venir se reccueillir sur sa tombe";
 
             metroSign.classList.remove("cross");
             person.style.opacity = "0";

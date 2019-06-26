@@ -17,7 +17,7 @@
       <button class="button buttonNext">Next</button>
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
-        <p class="comic__text__p">Après avoir consacré une grande partie de sa vie au travail....<span class='link--video' videoLinkId='0'>En attentre</span></p>
+        <p class="comic__text__p">Après avoir consacré une majeure partie de sa vie à la construction du métropolitain et au développement de <span class='link--video' videoLinkId='0'>ses technologies....</span></p>
       </div>
 
       <img
@@ -48,7 +48,7 @@
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/RhzDUyZKCLs" class="videoBox__video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <p class="videoHeadline">Les lignes aériennes</p>
+          <p class="videoHeadline">Le développement des technologies : les lignes aériennes</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
           <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--0">
@@ -241,7 +241,7 @@ export default {
 
             break;
           case 3:
-            textBoxContent.innerHTML = "Biene sure proche de un staon metro";
+            textBoxContent.innerHTML = "Il a eu l’occasion de voyager au sein de sa propre création, il prenait régulièrement le métropolitain";
 
             appart.classList.add("fadeOut");
             metroSign.classList.remove("fadeOut");

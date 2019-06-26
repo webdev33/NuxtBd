@@ -1,7 +1,7 @@
 <template>
   <section class="comic">
     <header>
-      <h1>Linge 1</h1>
+      <h1>Ligne 1</h1>
       <div class="headlineIntro"></div>
     </header>
     <div class="sidebar">
@@ -19,7 +19,7 @@
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
         <p
           class="comic__text__p"
-        >Le 20 avril 1896, le Conseil municipal de Paris adopte le projet de réseau de Fulgence Bienvenüe.<span class='link--video' videoLinkId='0'>En attentre</span></p>
+        >Le 20 avril 1896, <span class='link--video' videoLinkId='0'>le projet</span> de desserte urbain de Fulgence Bienvenüe est adopté par le Conseil municipal.</p>
       </div>
       <img
         src="../../../assets/ressources/img/comic/pere/signMetro.png"
@@ -99,28 +99,28 @@
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
 
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/kPUCeXf7Qgg" class="videoBox__video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <p class="videoHeadline">La ligne 1 (min)</p>
+          <iframe width="560" height="315" class="videoBox__video" src="https://www.youtube.com/embed/gMpP0exnqzU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <p class="videoHeadline">Le projet de Fulgence Bienvenüe</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
           <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--0">
           <p
             class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later"
-          >La première ligne construite comportera 18 stations, pour seulement 11 kilomètres de long. C’est une ligne transversale, Est-Ouest qui part de la porte de Vincennes pour rejoindre la porte Maillot. Elle longe la Seine sur près de la moitié de sa longueur. Les travaux de la ligne 1 commencent en Février 1999.</p>
+          >En seulement 2 ans la première ligne doit être construite. Deux ans pour construire ce qui est encore aujourd’hui la ligne 1 du métro de la porte de Vincennes à la porte Maillot. Le travail est titanesque. Il faut percer les tunnels, équiper les voies, creuser les accès, déplacer les égouts… Et pourtant, croyez le ou non, la ligne est ouverte dans les temps.</p>
         </div>
       </div>
 
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
 
-          <!-- iframe -->
-          <p class="videoHeadline">Fulgence Bienvenüe</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/kPUCeXf7Qgg" class="videoBox__video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <p class="videoHeadline">Le trajet de la ligne 1</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
           <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--0">
           <p
             class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later"
-          >.....</p>
+          >La première ligne construite comportera 18 stations, pour seulement 11 kilomètres de long. C’est une ligne transversale, Est-Ouest qui part de la porte de Vincennes pour rejoindre la porte Maillot. Elle longe la Seine sur près de la moitié de sa longueur. Les travaux de la ligne 1 commencent en Février 1999.</p>
         </div>
       </div>
 
@@ -312,7 +312,7 @@ export default {
         switch (buttonNextCounter) {
           case 1:
             textBoxContent.innerHTML =
-              "C’est lors de l’Exposition Universelle de 1900 que fut mis en service la première ligne du Métropolitain : Porte de Vincennes - Porte Maillot. <span class='link--video' videoLinkId='1'>En attentre</span>";
+              "L’exposition universelle et les jeux olympiques de 1900 sont un <span class='link--video' videoLinkId='1'>enjeu majeur</span> au nom de la ville de Paris";
               videoPlus();
 
             metroSign.classList.add("slideIn--now");
