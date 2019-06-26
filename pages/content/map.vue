@@ -730,6 +730,9 @@
       </svg>
     </div>
     <button class="button button--skip button--map">Skip Animation</button>
+    <nuxt-link to="/content/gallery">
+      <button class="button button--map button--imagegallery">Image Gallery</button>
+    </nuxt-link>
     <div class="legende--year">1900</div>
     <footer>
       <img src="../../assets/ressources/img/mec.png" class="mec" alt>

@@ -19,8 +19,9 @@
       </div>
 
       <h1 class="headline--intro--second">Bienvenüe</h1>
-
-      <a href="" class="button button--intro">Let's go</a>
+      <nuxt-link to="/content/map">
+        <button class="button button--intro">Let's go</button>
+      </nuxt-link>
 
     </div>
     <footer class="footer--comic footer--index">
@@ -76,7 +77,7 @@ export default {
       if (window.matchMedia("(min-width: 640px)").matches) {
     
         if (document.documentElement.scrollTop >window.innerHeight * 0.5) {
-          document.querySelector(".intro__video").style.position ="relative";
+          //document.querySelector(".intro__video").style.position ="relative";
           //document.querySelector(".headline--intro--second").style.position ="-30vh";
         } else {
           //mec.classList.add("mec--big");

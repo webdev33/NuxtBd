@@ -147,6 +147,15 @@
         </div>
       </div>
     </div>
+    <footer class="footer--comic">
+      <!-- <img src="../../assets/ressources/img/mec.png" class="mec" alt> -->
+      <nuxt-link to="/content/navigation">
+        <button>
+          <img src="../../assets/ressources/img/icon.png" alt>
+        </button>
+      </nuxt-link>
+      <!-- <script src="js/comic.js"></script> -->
+    </footer>
   </section>
 </template>
 

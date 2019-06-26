@@ -24,10 +24,11 @@
       border: solid 15px #fff;
       padding:20px;
       background-color: $color--main;
-      margin-left:calc(50vw - 270px);
+      margin-left:calc(50vw - 200px);
       margin-top: 100vh;
       position: relative;
       z-index: 20;
+      margin-bottom: 50vh;
     }
     .intro__video{
       position: fixed;

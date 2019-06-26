@@ -734,12 +734,15 @@
           <rect class="cls-2" x="521" y="368.35" width="7.74" height="24.86" rx="3.48"></rect>
         </g>
       </svg>
+      <nuxt-link to="/content/gallery">
+        <button class="button button--map">Image Gallery</button>
+      </nuxt-link>
     </div>
     <div class="legende--year">1936</div>
     <footer>
-      <nuxt-link to="/content/gallery">
-        <img src="../../assets/ressources/img/mec.png" class="mec" alt>
-      </nuxt-link>
+      
+      <img src="../../assets/ressources/img/mec.png" class="mec" alt>
+      
       <!-- <nuxt-link to="/content/navigation"> -->
       <button>
         <img src="../../assets/ressources/img/icon.png" alt>
