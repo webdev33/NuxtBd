@@ -202,8 +202,8 @@ rect,circle{
     0%{width:0vw}
     100%{width: 100vw;}
   }
-    &.countdown--map{
-      animation: countdown 20s linear forwards;
+  &.countdown--map{
+    animation: countdown 20s linear forwards;
   }
 }
 

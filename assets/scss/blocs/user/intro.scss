@@ -5,7 +5,6 @@
     position: relative;
 
     .headline--intro--first{
-      position: absolute;
       display: inline-block;
       color:#fff;
       font-size: 4em;
@@ -13,54 +12,77 @@
       padding:20px;
       margin-bottom: 30px;
       background-color: $color--main;
-      top:calc(80vh - 70px);
-      left:calc(50vw - 270px);
+      // top:calc(80vh - 70px);
+      // left:calc(50vw - 270px);
       display: none;
     }
     
     .intro__video{
-      top: 0;
       position: fixed;
-      width: 100vw;
-      height:100vh;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+
       video{
-        width: 100vw;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+        min-height: 50%;
+        min-width: 50%;
+        
       }
     }
+    // header{
+    //   top:0;
+    //   position: fixed;
+    //   width: 60vw;
+    //   max-width:900px;
+    //   // .headlineIntro{
+    //   //   background-color: $color--main;
+    //   //   &:after{
+    //   //     color: $color--main;;
+    //   //     border-color: $color--main;
+    //   //     background-color: #fff;
+    //   //   }
+    //   //   &:before{
+    //   //     color: $color--main;;
+    //   //     border-color: $color--main;
+    //   //     background-color: #fff;
+    //   //   }
+    //   // }
+    //   // h1{
+    //   //   color: $color--main;
+    //   // }
+    // }
+
     header{
-      top:0;
       position: fixed;
-      width: 60vw;
-      max-width:900px;
-      // .headlineIntro{
-      //   background-color: $color--main;
-      //   &:after{
-      //     color: $color--main;;
-      //     border-color: $color--main;
-      //     background-color: #fff;
-      //   }
-      //   &:before{
-      //     color: $color--main;;
-      //     border-color: $color--main;
-      //     background-color: #fff;
-      //   }
-      // }
-      // h1{
-      //   color: $color--main;
-      // }
+      h1{
+        width: 300px;
+        margin-top: 17px !important;
+        margin-left:-7px !important;
+        padding-left:100px !important;
+        display: block;
+        color:#fff;
+        font-size: 2em;
+        border: solid 7px #fff;
+        padding:10px 20px;
+        background-color: $color--main;
+      }
     }
   }  
 
   .button--intro{
-    // position: absolute;
-    // top: 0;
-    // right:0;
-    // position: fixed;
-    //margin-top: -50px;
     margin-bottom: 200px;
-    font-size: 2em;
+    font-size: 1.5em;
     border-radius: 100px;
-    padding: 30px;
+    padding: 10px 20px;
+    margin-top: 150px;
+    cursor: pointer;
   }
 
   .footer--index{
@@ -68,7 +90,6 @@
     bottom: auto;
     top:calc(100vh);
     .mec{
-      opacity: 0;
       //display: none;
       transition:all 0.3s;
       &--big{
@@ -83,10 +104,11 @@
 
 .dialog{
   color:#fff;
-  font-size: 2em;
+  font-size: 1.5em;
   padding:20px;
   background-color: $color--main;
   position: relative;
+  display: inline-block;
   &:after{
     content:"";
     position: absolute;
@@ -99,30 +121,109 @@
   }
 }
 
-.contentBox{
-  margin-top: 100vh;
-  position: relative;
+// .contentBox{
+//   margin-top: 100vh;
+//   position: relative;
+//   z-index: 20;
+//   text-align: center;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+  
+// }
+
+
+.headline--intro--second,.dialog,.button--intro{
+  position: fixed;
+  top:100vh;
+  left: 50%;
+  }
+
+
+.headline--intro--second{
+  display: inline-block;
+  color:#fff;
+  font-size: 4em;
+  border: solid 10px #fff;
+  padding:20px;
+  background-color: $color--main;
+  //margin-left:calc(50vw - 200px);
+  //margin-bottom: 50vh;
+  margin-bottom: 200px;
+  top: 100vh;
+  bottom: auto;
+}
+  
+.fakescroll{
+  height:500vh;
+}
+
+.slideInButton{
+  animation: slideInButton 0.3s forwards;
+}
+
+@keyframes slideInButton{
+  0%{transform: translateY(0) translateX(-50%);opacity:0}
+  100%{transform: translateY(-40vh) translateX(-50%);opacity:1}
+}
+
+
+.slideIOutTop{
+
+  animation: slideIOutTop 0.3s forwards;
+}
+
+@keyframes slideIOutTop{
+  0%{transform: translateY(-40vh) translateX(-50%);opacity:1}
+  100%{transform: translateY(-50vh) translateX(-50%);opacity:0}
+}
+
+
+.slideInAndOut{
+  animation: slideInButton 2s forwards;
+}
+
+@keyframes slideInAndOut{
+  0%{transform: translateY(0);opacity:0}
+  15%{transform: translateY(-30vh);opacity:1}
+  85%{transform: translateY(-30vh); opacity:1}
+  100%{transform: translateY(-40vh); opacity:0}
+}
+
+
+.countdown--intro{
+  background-color: $color--main;
+  animation: countdown 92s linear forwards;
+}
+
+.countdown--test{ 
+  position: fixed;
   z-index: 20;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .headline--intro--second{
-    display: inline-block;
-    color:#fff;
-    font-size: 4em;
-    border: solid 15px #fff;
-    padding:20px;
+  top:0;
+  left: 0;
+  height:20px;
+  width:100vw;
+  background-color: #fff;
+  &:before{
+    content:"";
+    height:100%;
+    position: absolute;
+    left: 0;
+    top:0;
     background-color: $color--main;
-    //margin-left:calc(50vw - 200px);
-    //margin-bottom: 50vh;
-    margin-bottom: 200px;
+    animation: countdown 92s linear forwards;
   }
-  .dialog{
-    background-color: $color--main;
-    color: #fff;
-    display: inline-block;
-    margin-bottom: 100px;
-    font-size: 2em;
-  }
+}
+
+.scroll--down{
+  transition: all 0.3s;
+  opacity: 1;
+  position: fixed;
+  top: 90vh;
+  // color: $color--main;
+  // font-weight: bold;
+  font-size: 1.2em;
+  padding: 10px 20px;
+  transform: translateX(-50%);
+  left:50%;
 }
