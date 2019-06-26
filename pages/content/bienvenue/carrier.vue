@@ -270,8 +270,11 @@ export default {
                 window.innerHeight * 0.2
               ) {
                 document.querySelector(".comicBox").classList.add("fadeOut");
+                document.querySelector(".articlePlus").style.zIndex="200";
+
               } else {
                 document.querySelector(".comicBox").classList.remove("fadeOut");
+                document.querySelector(".articlePlus").style.zIndex="0";
               }
             }
           });
@@ -285,6 +288,19 @@ export default {
       document.querySelector(".mec").classList.remove("fadeOut");
       document.querySelector("header").classList.remove("fadeOut");
     };
+
+    let untertitelButtonsPlus = document.querySelectorAll(".articlePlus .icon--untertitel");
+    console.log(untertitelButtonsPlus);
+    for (let i = 0; i < untertitelButtonsPlus.length; i++) {
+      untertitelButtonsPlus[i].addEventListener("click", function() {
+        let audioDescriptionPlus = document.querySelectorAll( ".articlePlus .videoBox__audiodescription");
+        for (let i = 0; i < audioDescriptionPlus.length; i++) {
+          audioDescriptionPlus[i].classList.toggle("slideIn--now");
+          audioDescriptionPlus[i].classList.toggle("description--height");
+          console.log("Slide in description");
+        }
+      });
+    }
 
     let videoPlus = function() {
       //reset

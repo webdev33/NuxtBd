@@ -100,34 +100,34 @@
           </p>
         </div>
       </div>
+
       <div class="articlePuls__imageBox">
+
         <div class="videoBox">
-          <div class="videoBox">
-            <div class="videoBox__videoWrapper">
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/4j___gBxWDU"
-                frameborder="0"
-                class="videoBox__video"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-              <p class="videoHeadline">La tragédie Couronnes</p>
-            </div>
-            <div class="videoBox__audiodescriptionBox">
-              <img
-                src="../../../assets/ressources/img/untertitel.png"
-                alt
-                class="icon--untertitel icon--untertitel--0"
-              >
-              <p class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later">
-                Des incendies, aux causes parfois inattendues, il y en a eu depuis l’inauguration du métro. Le plus tragique d'entre eux remonte aux premières années de son exploitation, nous sommes le 10 Août 1903.
-                “Un incendie se déclare à la station Couronnes et provoque le décès de 84 personnes. En réalité, ce n’est pas la voiture qui contient les voyageurs qui s’enflamme, c’est un incident technique et un court circuit électrique qui arrive dans un train précédent parti dans le tunnel. Et qui, par le dégagement de fumée, va provoquer la mort de 84 personnes dans la station Couronnes.”
-                L’émotion est immense, le jeune métro vient de faire ses premières victimes. Les exploitants vont en tirer de nombreuses leçons.
-                “On a fait évoluer le matériel, on est venus isoler dans une cage métallique toute la logique de motorisation et toute la logique d’électrification. On a créé aussi cette logique de bougie moteur, ce qui permet d’isoler toute la partie en bois qui est plutôt l’espace voyageur. Ainsi on limite les risques d'incendie. Cette évolution était provisoire, puisque on est passés ensuite très rapidement à une évolution d’un nouveau type de matériel : une caisse totalement métallique.”
-              </p>
-            </div>
+          <div class="videoBox__videoWrapper">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/4j___gBxWDU"
+              frameborder="0"
+              class="videoBox__video"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <p class="videoHeadline">La tragédie Couronnes</p>
+          </div>
+          <div class="videoBox__audiodescriptionBox">
+            <img
+              src="../../../assets/ressources/img/untertitel.png"
+              alt
+              class="icon--untertitel icon--untertitel--0"
+            >
+            <p class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later">
+              Des incendies, aux causes parfois inattendues, il y en a eu depuis l’inauguration du métro. Le plus tragique d'entre eux remonte aux premières années de son exploitation, nous sommes le 10 Août 1903.
+              “Un incendie se déclare à la station Couronnes et provoque le décès de 84 personnes. En réalité, ce n’est pas la voiture qui contient les voyageurs qui s’enflamme, c’est un incident technique et un court circuit électrique qui arrive dans un train précédent parti dans le tunnel. Et qui, par le dégagement de fumée, va provoquer la mort de 84 personnes dans la station Couronnes.”
+              L’émotion est immense, le jeune métro vient de faire ses premières victimes. Les exploitants vont en tirer de nombreuses leçons.
+              “On a fait évoluer le matériel, on est venus isoler dans une cage métallique toute la logique de motorisation et toute la logique d’électrification. On a créé aussi cette logique de bougie moteur, ce qui permet d’isoler toute la partie en bois qui est plutôt l’espace voyageur. Ainsi on limite les risques d'incendie. Cette évolution était provisoire, puisque on est passés ensuite très rapidement à une évolution d’un nouveau type de matériel : une caisse totalement métallique.”
+            </p>
           </div>
         </div>
         <div class="imageBox">
@@ -312,8 +312,11 @@ export default {
                 window.innerHeight * 0.2
               ) {
                 document.querySelector(".comicBox").classList.add("fadeOut");
+                document.querySelector(".articlePlus").style.zIndex="200";
+
               } else {
                 document.querySelector(".comicBox").classList.remove("fadeOut");
+                document.querySelector(".articlePlus").style.zIndex="0";
               }
             }
           });
@@ -327,6 +330,23 @@ export default {
       document.querySelector(".mec").classList.remove("fadeOut");
       document.querySelector("header").classList.remove("fadeOut");
     };
+
+    let untertitelButtonsPlus = document.querySelectorAll(".articlePlus .icon--untertitel");
+    console.log(untertitelButtonsPlus);
+    for (let i = 0; i < untertitelButtonsPlus.length; i++) {
+      untertitelButtonsPlus[i].addEventListener("click", function() {
+        let audioDescriptionPlus = document.querySelectorAll( ".articlePlus .videoBox__audiodescription");
+        for (let i = 0; i < audioDescriptionPlus.length; i++) {
+          audioDescriptionPlus[i].classList.toggle("slideIn--now");
+          audioDescriptionPlus[i].classList.toggle("description--height");
+
+          let iframePlus = document.querySelectorAll("iframe");
+          for (let i = 0; i < iframePlus.length; i++) {
+            iframePlus[i].classList.toggle("iframeResize");
+          }
+        }
+      });
+    }
 
     let videoPlus = function() {
       //reset
@@ -372,9 +392,7 @@ export default {
 
           for (let i = 0; i < untertitelButtons.length; i++) {
             untertitelButtons[i].addEventListener("click", function() {
-              let audioDescription = document.querySelectorAll(
-                ".videoBox__audiodescription--" + videoNumber
-              );
+              let audioDescription = document.querySelectorAll( ".videoBox__audiodescription--" + videoNumber);
               for (let i = 0; i < audioDescription.length; i++) {
                 audioDescription[i].classList.toggle("slideIn--now");
               }
