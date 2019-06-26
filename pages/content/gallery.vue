@@ -7,7 +7,7 @@
           <div class="headlineIntro"></div>
         </header>
         <!-- Alert -->
-        <p class="gallery__alert" v-show="formError != null" role="alert">{{ formError }}</p>
+        <!-- <p class="gallery__alert" v-show="formError != null" role="alert">{{ formError }}</p> -->
 
         <!-- Instruction -->
         <div class="filterBox">
@@ -22,79 +22,103 @@
                 autocomplete="off"
               >
 
-              <!-- radio -->
+              <!-- Option -->
               <div class="inputGroup">
                 <div class="categoryBox">
-
-                  <label class="container" for="Entrance">Entrée de station
+                  <label class="container" for="Entrance">
+                    Entrée de station
                     <input
                       type="radio"
                       id="Entrance"
                       value="Entrance"
-                      v-model="checkedNames"
-                      @change="check"
+                      v-model="picked"
+                      @change="option"
                     >
                     <span class="checkmark"></span>
                   </label>
-
                 </div>
 
                 <div class="inputGroup">
-                  <label class="container" for="Station">Station
-                    <input type="radio" id="Station" value="Station" v-model="checkedNames" @change="check">
-                    <span class="checkmark"></span>
-                  </label>
-                </div>
-
-                <div class="inputGroup">
-                  <label class="container" for="Train">Train
-                    <input type="radio" id="Train" value="Train" v-model="checkedNames" @change="check">
-                    <span class="checkmark"></span>
-                  </label>
-                </div>
-
-                <div class="inputGroup">
-                  <label class="container" for="PostCard">Cartes postales
-                    <input
-                    type="radio"
-                    id="PostCard"
-                    value="PostCard"
-                    v-model="checkedNames"
-                    @change="check"
-                  >
-                  <span class="checkmark"></span>
-                  </label>
-                </div>
-
-                <div class="inputGroup">
-                  <label class="container" for="Event">Evenement
-                    <input type="radio" id="Event" value="Event" v-model="checkedNames" @change="check">
-                    <span class="checkmark"></span>
-                  </label>
-                </div>
-
-                <div class="inputGroup">
-                  <label class="container" for="Train">Train
+                  <label class="container" for="Station">
+                    Station
                     <input
                       type="radio"
-                      id="Document"
-                      value="Document"
-                      v-model="checkedNames"
-                      @change="check"
+                      id="Station"
+                      value="Station"
+                      v-model="picked"
+                      @change="option"
                     >
                     <span class="checkmark"></span>
                   </label>
                 </div>
+
                 <div class="inputGroup">
-                  <label class="container" for="Building">En construction
+                  <label class="container" for="Train">
+                    Train
+                    <input
+                      type="radio"
+                      id="Train"
+                      value="Train"
+                      v-model="picked"
+                      @change="option"
+                    >
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+
+                <div class="inputGroup">
+                  <label class="container" for="PostCard">
+                    Cartes postales
+                    <input
+                      type="radio"
+                      id="PostCard"
+                      value="PostCard"
+                      v-model="picked"
+                      @change="option"
+                    >
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+
+                <div class="inputGroup">
+                  <label class="container" for="Event">
+                    Evenement
+                    <input
+                      type="radio"
+                      id="Event"
+                      value="Event"
+                      v-model="picked"
+                      @change="option"
+                    >
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+
+                <div class="inputGroup">
+                  <label class="container" for="Building">
+                    En construction
                     <input
                       type="radio"
                       id="Building"
                       value="Building"
-                      v-model="checkedNames"
-                      @change="check"
+                      v-model="picked"
+                      @change="option"
                     >
                     <span class="checkmark"></span>
+                  </label>
+                </div>
+
+                <div class="inputGroup">
+                  <label class="container" for="Normal">
+                    Pas de filtre
+                    <input
+                      type="radio"
+                      id="Normal"
+                      value="Normal"
+                      v-model="picked"
+                      @change="option"
+                    >
+                    <span class="checkmark checked"></span>
                   </label>
                 </div>
               </div>
@@ -104,15 +128,23 @@
       </div>
 
       <div class="wrapp--images">
-        <div id="example-3">
+        <!-- <div id="example-3">
           <br>
           <span>Noms cochés : {{ checkedNames }}</span>
+        </div>-->
+
+        <div
+          class="archive__imageBox"
+          v-for="article in gallery"
+          :value="article._id"
+          :key="article._id"
+        >
+          <img class="archive__imageBox__image" v-bind:src="article.link">
+          <p>
+            <span>{{ article.date }}</span>
+            {{ article.legend }}
+          </p>
         </div>
-        
-          <div class="archive__imageBox" v-for="article in gallery" :value="article._id" :key="article._id">
-            <img class="archive__imageBox__image" v-bind:src="article.link"> 
-            <p><span>{{ article.date }}</span>{{ article.legend }}</p>
-          </div>
       </div>
     </div>
   </section>
@@ -122,6 +154,8 @@
 export default {
   data() {
     return {
+      picked: null,
+
       /* Search bar */
       checkedNames: [],
       gallery: null,
@@ -134,7 +168,7 @@ export default {
       categories: null,
       selectFinal: [],
       finalHave: [],
-      
+
       /* Message */
       formError: null
     };
@@ -160,6 +194,44 @@ export default {
       } catch (e) {
         this.formError = e.message;
       }
+    },
+    //
+
+    /*
+     * Option
+     */
+    option() {
+      document.querySelector(".checked")
+        ? document.querySelector(".checked").classList.remove("checked")
+        : 0;
+      this.ul.innerHTML = "";
+
+      if (this.picked != "Normal") {
+        this.selectCategorie(this.picked);
+      } else {
+        this.article.forEach(select => {
+          this.appearContent(select.legend, select.link, select.date);
+        });
+      }
+    },
+    //
+
+    /*
+     *
+     */
+    selectCategorie(selectCategorie) {
+      this.article.forEach(selectArticle => {
+        /* console.log(selectArticle) */
+        selectArticle.categorie.forEach(select => {
+          if (select.name === selectCategorie) {
+            this.appearContent(
+              selectArticle.legend,
+              selectArticle.link,
+              selectArticle.date
+            );
+          }
+        });
+      });
     },
     //
 
@@ -217,11 +289,13 @@ export default {
      */
     appearContent(legend, link, date) {
       this.ul.innerHTML += `
-      <li class="li__head">
-        <p class="li__text">${legend}</p>
-        <img class="li__img" src="${link}">
-        <p class="li__text">${date}</p>
-      </li>`;
+      <div class="archive__imageBox">
+        <img class="archive__imageBox__image" src="${link}">
+        <p>
+          <span>${date}</span>
+          ${legend}
+        </p>
+      </div>`;
     }
     //
   },
@@ -232,7 +306,7 @@ export default {
      */
     this.loadGallery();
     this.search = document.querySelector("input");
-    this.ul = document.querySelector("ul");
+    this.ul = document.querySelector(".wrapp--images");
     this.search.addEventListener("keyup", event => {
       this.ul.innerHTML = "";
       this.articlesSelected = [];
