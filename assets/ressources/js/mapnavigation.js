@@ -133,7 +133,7 @@ let montparnasse = document.querySelector(".station--montparnasse");
 
 montparnasse.addEventListener("mouseover",function(){
   var newDiv = document.createElement("div"); 
-  var newContentText = montparnasse.getAttribute("bubble");
+  var newContentText = 'Montparnasse - Bienvenüe';
   var newContent = document.createTextNode(newContentText); 
   newDiv.className = "stationBox"; 
   newDiv.appendChild(newContent);

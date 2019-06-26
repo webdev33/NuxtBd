@@ -26,7 +26,7 @@
     </section>
 
     <div class="sidebar">
-      <h2>Vie Prive</h2>
+      <h2>Sa vie privée</h2>
     </div>
 
     <div class="discoverBox">
@@ -279,7 +279,7 @@ export default {
       console.log(buttonNextCounter);
 
       //
-      // Vie Prive
+      // Sa vie privée
       //
       if (commicBox.classList.contains("comicBox--prive")) {
         let person = document.querySelector(".person");

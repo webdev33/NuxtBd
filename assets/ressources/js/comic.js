@@ -287,7 +287,7 @@ window.addEventListener('load', function() {
     }
 
     // 
-    // Vie Prive
+    // Sa vie privée
     //
     if (commicBox.classList.contains("comicBox--prive")){
 

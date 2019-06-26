@@ -363,7 +363,7 @@
             <circle
               class="station"
               station="couronnes"
-              bubble="Trauma"
+              bubble="Son traumatisme"
               cx="758.78"
               cy="251.05"
               r="15"
@@ -374,7 +374,7 @@
             <circle
               class="station"
               station="menilmontant"
-              bubble="Trauma"
+              bubble="Son traumatisme"
               cx="789.39"
               cy="281.58"
               r="15"
@@ -382,7 +382,7 @@
           </nuxt-link>
 
           <nuxt-link to="/content/bienvenue/morte">
-            <circle class="station" station="pere" bubble="Morte" cx="816.71" cy="318.28" r="15"></circle>
+            <circle class="station" station="pere" bubble="Sa mort" cx="816.71" cy="318.28" r="15"></circle>
           </nuxt-link>
           <circle class="cls-2" cx="816.71" cy="349.96" r="0"></circle>
           <circle class="cls-2" cx="817.14" cy="389.45" r="0"></circle>
@@ -393,7 +393,7 @@
           <circle class="cls-2" cx="916.53" cy="494.12" r="0"></circle>
 
           <nuxt-link to="/content/bienvenue/carrier">
-            <circle class="station" station="ligne1" bubble="Carrier" cx="882.02" cy="475" r="15"></circle>
+            <circle class="station" station="ligne1" bubble="Sa carrière" cx="882.02" cy="475" r="15"></circle>
           </nuxt-link>
 
           <circle class="cls-2" cx="865.49" cy="510.91" r="0"></circle>
@@ -507,11 +507,11 @@
           <circle class="cls-2" cx="600.31" cy="349.96" r="0"></circle>
 
           <nuxt-link to="/content/bienvenue/plonge">
-            <circle class="station" station="cite" bubble="Genie" cx="507.3" cy="414.96" r="15"></circle>
+            <circle class="station" station="cite" bubble="Son génie" cx="507.3" cy="414.96" r="15"></circle>
           </nuxt-link>
 
           <nuxt-link to="/content/bienvenue/hotel">
-            <circle class="station" station="hotle" bubble="Triumph" cx="571.11" cy="378.76" r="15"></circle>
+            <circle class="station" station="hotle" bubble="Son triomphe" cx="571.11" cy="378.76" r="15"></circle>
           </nuxt-link>
 
           <circle class="cls-2" cx="610.6" cy="418.8" r="0"></circle>
@@ -535,7 +535,7 @@
             <circle
               class="station"
               station="courcelles"
-              bubble="Vie Prive"
+              bubble="Sa vie privée"
               cx="248.91"
               cy="196.56"
               r="15"
@@ -909,7 +909,7 @@ export default {
 
     montparnasse.addEventListener("mouseover", function() {
       var newDiv = document.createElement("div");
-      var newContentText = montparnasse.getAttribute("bubble");
+      var newContentText = 'Montparnasse - Bienvenüe';
       var newContent = document.createTextNode(newContentText);
       newDiv.className = "stationBox";
       newDiv.appendChild(newContent);

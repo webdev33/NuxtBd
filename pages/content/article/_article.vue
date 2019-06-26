@@ -394,7 +394,7 @@
             <circle
               class="station"
               station="couronnes"
-              bubble="Trauma"
+              bubble="Son traumatisme"
               cx="758.78"
               cy="251.05"
               r="1"
@@ -402,13 +402,13 @@
             <circle
               class="station"
               station="menilmontant"
-              bubble="Trauma"
+              bubble="Son traumatisme"
               cx="789.39"
               cy="281.58"
               r="1"
             ></circle>
 
-            <circle class="station" station="pere" bubble="Morte" cx="816.71" cy="318.28" r="1"></circle>
+            <circle class="station" station="pere" bubble="Sa mort" cx="816.71" cy="318.28" r="1"></circle>
 
             <circle class="cls-2" cx="816.71" cy="349.96" r="0"></circle>
             <circle class="cls-2" cx="817.14" cy="389.45" r="0"></circle>
@@ -417,7 +417,7 @@
             <circle class="cls-2" cx="958.57" cy="536.18" r="0"></circle>
             <circle class="cls-2" cx="935.08" cy="512.54" r="0"></circle>
             <circle class="cls-2" cx="916.53" cy="494.12" r="0"></circle>
-            <circle class="station" station="ligne1" bubble="Carrier" cx="882.02" cy="475" r="1"></circle>
+            <circle class="station" station="ligne1" bubble="Sa carrière" cx="882.02" cy="475" r="1"></circle>
             <circle class="cls-2" cx="865.49" cy="510.91" r="0"></circle>
             <circle class="cls-2" cx="844.18" cy="533.27" r="0"></circle>
             <circle class="cls-2" cx="823.39" cy="553.27" r="0"></circle>
@@ -528,9 +528,9 @@
             <circle class="cls-2" cx="524.87" cy="357.7" r="0"></circle>
             <circle class="cls-2" cx="600.31" cy="349.96" r="0"></circle>
 
-            <circle class="station" station="cite" bubble="Genie" cx="507.3" cy="414.96" r="1"></circle>
+            <circle class="station" station="cite" bubble="Son génie" cx="507.3" cy="414.96" r="1"></circle>
 
-            <circle class="station" station="hotle " bubble="Triumph" cx="571.11" cy="378.76" r="1"></circle>
+            <circle class="station" station="hotle " bubble="Son triomphe" cx="571.11" cy="378.76" r="1"></circle>
 
             <circle class="cls-2" cx="610.6" cy="418.8" r="0"></circle>
             <circle class="cls-2" cx="604.18" cy="211.72" r="0"></circle>
@@ -552,7 +552,7 @@
             <circle
               class="station"
               station="courcelles"
-              bubble="Vie Prive"
+              bubble="Sa vie privée"
               cx="248.91"
               cy="196.56"
               r="1"
@@ -722,7 +722,7 @@
             <rect
               class="station"
               station="montparnasse"
-              bubble="morte"
+              bubble="Sa mort"
               x="410.7"
               y="573.06"
               width="10"
