@@ -780,9 +780,11 @@
     </article>
 
     <footer class="footer--article">
-      <a href="navigation.html" class="link--nav">
-        <img src="../../../assets/ressources/img/icon.png" alt>
-      </a>
+     <nuxt-link to="/content/navigation">
+        <p>
+          <img src="../../../assets/ressources/img/icon.png" alt>
+        </p>
+      </nuxt-link>
     </footer>
   </section>
 </template>
@@ -970,6 +972,12 @@ export default {
       images[i].style.display = "none";
     }
     imageActive.style.display = "block";
+
+     for (let i = 0; i < imagesDescription.length; i++) {
+       if (i === 0) {
+         imagesDescription[i].classList.add("active");
+       }
+     }
 
 
     //hauter

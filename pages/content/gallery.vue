@@ -1,85 +1,120 @@
 <template>
-  <section class="gallery">
-    <h1>Gallery</h1>
+  <section class="gallery archive">
+    <div class="wrapper--achive">
+      <div class="filter">
+        <header>
+          <h1>Gallery</h1>
+          <div class="headlineIntro"></div>
+        </header>
+        <!-- Alert -->
+        <p class="gallery__alert" v-show="formError != null" role="alert">{{ formError }}</p>
 
-    <!-- Alert -->
-    <p class="gallery__alert" v-show="formError != null" role="alert">{{ formError }}</p>
+        <!-- Instruction -->
+        <div class="filterBox">
+          <section class="gallery__form">
+            <form>
+              <!-- Search bar -->
+              <input
+                class="searchbar"
+                name="filter"
+                placeholder="Filtrer"
+                type="text"
+                autocomplete="off"
+              >
 
-    <!-- Instruction -->
+              <!-- radio -->
+              <div class="inputGroup">
+                <div class="categoryBox">
 
-    <section class="gallery__form">
-      <form>
-        <!-- Search bar -->
-        <input
-          class="gallery__input"
-          name="filter"
-          placeholder="Filtrer"
-          type="text"
-          autocomplete="off"
-        >
+                  <label class="container" for="Entrance">Entrée de station
+                    <input
+                      type="radio"
+                      id="Entrance"
+                      value="Entrance"
+                      v-model="checkedNames"
+                      @change="check"
+                    >
+                    <span class="checkmark"></span>
+                  </label>
 
-        <!-- Checkbox -->
-        <input
-          type="checkbox"
-          id="Entrance"
-          value="Entrance"
-          v-model="checkedNames"
-          @change="check"
-        >
-        <label for="Entrance">Entrée de station</label>
+                </div>
 
-        <input type="checkbox" id="Station" value="Station" v-model="checkedNames" @change="check">
-        <label for="Station">Station</label>
+                <div class="inputGroup">
+                  <label class="container" for="Station">Station
+                    <input type="radio" id="Station" value="Station" v-model="checkedNames" @change="check">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
 
-        <input type="checkbox" id="Train" value="Train" v-model="checkedNames" @change="check">
-        <label for="Train">Train</label>
+                <div class="inputGroup">
+                  <label class="container" for="Train">Train
+                    <input type="radio" id="Train" value="Train" v-model="checkedNames" @change="check">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
 
-        <input
-          type="checkbox"
-          id="PostCard"
-          value="PostCard"
-          v-model="checkedNames"
-          @change="check"
-        >
-        <label for="PostCard">Cartes postales</label>
+                <div class="inputGroup">
+                  <label class="container" for="PostCard">Cartes postales
+                    <input
+                    type="radio"
+                    id="PostCard"
+                    value="PostCard"
+                    v-model="checkedNames"
+                    @change="check"
+                  >
+                  <span class="checkmark"></span>
+                  </label>
+                </div>
 
-        <input type="checkbox" id="Event" value="Event" v-model="checkedNames" @change="check">
-        <label for="Event">Evenement</label>
+                <div class="inputGroup">
+                  <label class="container" for="Event">Evenement
+                    <input type="radio" id="Event" value="Event" v-model="checkedNames" @change="check">
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
 
-        <input
-          type="checkbox"
-          id="Document"
-          value="Document"
-          v-model="checkedNames"
-          @change="check"
-        >
-        <label for="Train">Train</label>
+                <div class="inputGroup">
+                  <label class="container" for="Train">Train
+                    <input
+                      type="radio"
+                      id="Document"
+                      value="Document"
+                      v-model="checkedNames"
+                      @change="check"
+                    >
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+                <div class="inputGroup">
+                  <label class="container" for="Building">En construction
+                    <input
+                      type="radio"
+                      id="Building"
+                      value="Building"
+                      v-model="checkedNames"
+                      @change="check"
+                    >
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
 
-        <input
-          type="checkbox"
-          id="Building"
-          value="Building"
-          v-model="checkedNames"
-          @change="check"
-        >
-        <label for="Building">En construction</label>
-      </form>
-    </section>
-
-    <div id="example-3">
-      <br>
-      <span>Noms cochés : {{ checkedNames }}</span>
+      <div class="wrapp--images">
+        <div id="example-3">
+          <br>
+          <span>Noms cochés : {{ checkedNames }}</span>
+        </div>
+        
+          <div class="archive__imageBox" v-for="article in gallery" :value="article._id" :key="article._id">
+            <img class="archive__imageBox__image" v-bind:src="article.link"> 
+            <p><span>{{ article.date }}</span>{{ article.legend }}</p>
+          </div>
+      </div>
     </div>
-
-    <section class="gallery__form">
-      <ul class="gallery__input">
-        <li class="li__head" v-for="article in gallery" :value="article._id" :key="article._id">
-          <p class="li__text">{{ article.legend }}</p>
-          <img class="li__img" v-bind:src="article.link">
-          <p class="li__text">{{ article.date }}</p>
-        </li>
-      </ul>
-    </section>
   </section>
 </template>
 
@@ -150,7 +185,7 @@ export default {
         });
       });
 
-            this.selectFinal.forEach((selectArticle, i) => {
+      this.selectFinal.forEach((selectArticle, i) => {
         for (const selectCategorie of selectArticle.categorie) {
           this.checkedNames.forEach(selectChecked => {
             selectCategorie.name === selectChecked &&
@@ -159,7 +194,6 @@ export default {
               : 0;
           });
         }
-        if (this.checkedNames.length != 0){
         this.finalHave.length === this.checkedNames.length
           ? this.appearContent(
               selectArticle.legend,
@@ -167,9 +201,6 @@ export default {
               selectArticle.date
             )
           : 0;
-        } else if (this.checkedNames.length === 0) {   
-          this.finalHave = [];
-        }
       });
 
       /* Show all articles */
