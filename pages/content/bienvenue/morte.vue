@@ -171,6 +171,12 @@ export default {
    * By Christina, queen of the animation and Javascript
    */
   mounted: function mounted() {
+    /* 
+    * Message for map and navigation
+    */
+    localStorage.setItem(`VISITED`, true)
+    //
+
     /*
      * Speaker
      */

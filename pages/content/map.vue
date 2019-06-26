@@ -749,7 +749,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      test: true
+    };
   },
 
   methods: {},
@@ -854,7 +856,13 @@ export default {
       timeBar.classList.add("moveIn");
       countdownBar.style.opacity = "0";
       skipMapButton.style.opacity = "0";
-      speechBubble.innerHTML = `Decouvrir maintenant des Station et apprendre pourqui ils sont important pour moi.</br></br>je te  propose de commence avec <nuxt-link class="stationLink" to="/content/bienvenue/born">Bienvenu Montparnasse</nuxt-link>`;
+
+      let visited = JSON.parse(localStorage.getItem(`VISITED`))
+      if(visited === true) {
+        speechBubble.innerHTML = `Découvrez de vous même maintenant les stations !`;
+      } else {
+        speechBubble.innerHTML = `Découvrez maintenant les station et apprennez pourquoi elles sont importantes pour moi.</br></br>Je te propose de commencer avec <nuxt-link class="stationLink" to="/content/bienvenue/born">Montparnasse - Bienvenüe</nuxt-link>`;
+      }
 
       clearInterval(downloadTimer);
       document.querySelector(".legende--year").innerHTML = 1936;
@@ -933,7 +941,7 @@ export default {
 
     // 2s after Pageload
     setTimeout(function() {
-      speechBubble.innerHTML = `Decouvrir maintenant des Station et apprendre pourqui ils sont important pour moi.</br></br>je te  propose de commence avec <nuxt-link class="stationLink" to="/content/bienvenue/born">Bienvenu Montparnasse</nuxt-link>`;
+      speechBubble.innerHTML = `Découvrez maintenant les station et apprennez pourquoi elles sont importantes pour moi.</br></br>Je te propose de commencer avec <nuxt-link class="stationLink" to="/content/bienvenue/born">Montparnasse - Bienvenüe</nuxt-link>`;
       timeBar.classList.add("moveIn");
     }, 20000);
 

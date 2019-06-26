@@ -11,11 +11,16 @@
         <div class="timeBar__year">1930</div>
         <div class="timeBar__year">1937</div>
       </div>
-      <div class="speechbubble">
-        Decouvrir maintenant des Station et apprendre pourqui ils sont important pour moi.
+
+      <div
+        class="speechbubble"
+        v-if="visited === true"
+      >Découvrez de vous même maintenant les stations !</div>
+      <div class="speechbubble" v-else>
+        Découvrez maintenant les station et apprennez pourquoi elles sont importantes pour moi.
         <br>
-        <br>je te propose de commence avec :
-        <nuxt-link to="/content/bienvenue/born" class="stationLink">Bienvenu Montparnasse</nuxt-link>
+        <br>Je te propose de commencer avec
+        <nuxt-link class="stationLink" to="/content/bienvenue/born">Montparnasse - Bienvenüe</nuxt-link>
       </div>
 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 970 790" class="mapSVG">
@@ -740,9 +745,8 @@
     </div>
     <div class="legende--year">1936</div>
     <footer>
-      
       <img src="../../assets/ressources/img/mec.png" class="mec" alt>
-      
+
       <!-- <nuxt-link to="/content/navigation"> -->
       <button>
         <img src="../../assets/ressources/img/icon.png" alt>
@@ -755,13 +759,21 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      visited: false
+    };
   },
 
   /*
    * By Christina, queen of the animation and Javascript
    */
   mounted: function mounted() {
+    /*
+     * Message bienvenue
+     */
+    this.visited = JSON.parse(localStorage.getItem(`VISITED`));
+    //
+
     /***
      * Map
      */

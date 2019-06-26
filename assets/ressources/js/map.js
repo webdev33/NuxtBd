@@ -98,7 +98,7 @@ skipMapButton.addEventListener("click", function(){
   timeBar.classList.add("moveIn");
   countdownBar.style.opacity="0";
   skipMapButton.style.opacity="0";
-  speechBubble.innerHTML="Decouvrir maintenant des Station et apprendre pourqui ils sont important pour moi.</br></br>je te  propose de commence avec <a href='nee.html' class='stationLink'>Bienvenu Montparnasse</a>";
+  speechBubble.innerHTML="Decouvrir maintenant des Station et apprendre pourqui ils sont important pour moi.</br></br>je te  propose de commence avec <a href='nee.html' class='stationLink'>Montparnasse - Bienvenüe</a>";
 
   
   clearInterval(downloadTimer)
