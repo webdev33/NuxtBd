@@ -7,6 +7,80 @@
       </h1>
       <div class="headlineIntro"></div>
     </header>
+
+    <!-- Speaker -->
+    <section class="speaker">
+      <!-- autoplay -->
+      <audio
+        :src="require('@/assets/ressources/audios/poinconneurDesLilas.mp3')"
+        autoplay
+        class="speaker--songs"
+      ></audio>
+
+      <section v-if="selectSpeaker() === false" v-on:click="clickSpeaker()" class="speaker--on">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="13.85mm"
+          height="12.85mm"
+          viewBox="0 0 39.27 36.43"
+        >
+          <g>
+            <path
+              d="M3.47,20.68,18.11,35.4a3.49,3.49,0,0,0,6-2.47V3.5a3.49,3.49,0,0,0-6-2.46L3.47,15.75A3.49,3.49,0,0,0,3.47,20.68Z"
+              style="fill: #fff"
+            ></path>
+            <path
+              d="M2.88,10.54H8a.66.66,0,0,1,.66.66v14A.66.66,0,0,1,8,25.9H2.88A2.88,2.88,0,0,1,0,23v-9.6a2.88,2.88,0,0,1,2.88-2.88Z"
+              style="fill: #fff"
+            ></path>
+            <rect x="7.32" y="8.09" width="2.71" height="20.25" rx="1.32" style="fill: #79be76"></rect>
+            <path
+              d="M29,10.89a10.36,10.36,0,0,1,0,14.66"
+              style="fill: none;stroke: #79be76;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2px"
+            ></path>
+            <path
+              d="M33.17,5.61a17.82,17.82,0,0,1,0,25.22"
+              style="fill: none;stroke: #79be76;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2px"
+            ></path>
+          </g>
+        </svg>
+      </section>
+
+      <section v-if="selectSpeaker() === true" v-on:click="clickSpeaker()" class="speaker--off">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="13.85mm"
+          height="12.85mm"
+          viewBox="0 0 39.27 36.43"
+        >
+          <path
+            d="M3.55,20.68,18.19,35.4a3.49,3.49,0,0,0,6-2.47V3.5a3.49,3.49,0,0,0-6-2.46L3.55,15.75A3.49,3.49,0,0,0,3.55,20.68Z"
+            transform="translate(-0.08 0)"
+            style="fill: #fff"
+          ></path>
+          <path
+            d="M2.88,10.54H8a.66.66,0,0,1,.66.66v14A.66.66,0,0,1,8,25.9H2.88A2.88,2.88,0,0,1,0,23v-9.6a2.88,2.88,0,0,1,2.88-2.88Z"
+            style="fill: #fff"
+          ></path>
+          <rect x="7.32" y="8.09" width="2.71" height="20.25" rx="1.32" style="fill: #e30613"></rect>
+          <line
+            x1="30.14"
+            y1="6.27"
+            x2="38.27"
+            y2="30.26"
+            style="fill: none;stroke: #bf3b18;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2px"
+          ></line>
+          <line
+            x1="38.27"
+            y1="6.27"
+            x2="30.14"
+            y2="30.26"
+            style="fill: none;stroke: #bf3b18;stroke-linecap: round;stroke-linejoin: round;stroke-width: 2px"
+          ></line>
+        </svg>
+      </section>
+    </section>
+
     <div class="sidebar">
       <h2>Naissance</h2>
     </div>
@@ -20,9 +94,10 @@
       <button class="button buttonNext">Next</button>
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
-        <p
-          class="comic__text__p"
-        >Fulgence Bienvenüe naît en Bretagne.<br>Le 27 janvier 1852</p>
+        <p class="comic__text__p">
+          Fulgence Bienvenüe naît en Bretagne.
+          <br>Le 27 janvier 1852
+        </p>
       </div>
       <img
         src="../../../assets/ressources/img/comic/naissance/maison.png"
@@ -66,19 +141,30 @@
       <button class="button button--closeVideo button--closeVideo--1">Go Back</button>
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/wFcp6B9bCiY" class="videoBox__video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/wFcp6B9bCiY"
+            class="videoBox__video"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
           <p class="videoHeadline">Un enfant curieux de tout</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
-          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--1">
+          <img
+            src="../../../assets/ressources/img/untertitel.png"
+            alt
+            class="icon--untertitel icon--untertitel--1"
+          >
           <p
             class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later"
           >Revenons aux débuts. Fulgence Bienvenüe, né en 1852 dans les côtes d’Armor. Son père est notaire. Il est le treizième enfant de la famille. C’est d’abord un enfant qui se passionne pour la littérature, avec un goût particulier pour les auteurs grecs et latins. Il aime les lettres, mais embrasse finalement une carrière scientifique. Il rejoint la promotion 1870 de l’école polytechnique et il devient ingénieur des ponts et chaussées.</p>
         </div>
       </div>
-    </div> 
+    </div>
     <!-- End -->
-
 
     <!-- Slide 2 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--2 slideIn--later">
@@ -86,11 +172,23 @@
 
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
-          <iframe width="560" height="315" class="videoBox__video" src="https://www.youtube.com/embed/qbGDCwi7b2c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe
+            width="560"
+            height="315"
+            class="videoBox__video"
+            src="https://www.youtube.com/embed/qbGDCwi7b2c"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
           <p class="videoHeadline">Les problématiques de transports en 1900</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
-          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--2">
+          <img
+            src="../../../assets/ressources/img/untertitel.png"
+            alt
+            class="icon--untertitel icon--untertitel--2"
+          >
           <p
             class="videoBox__audiodescription videoBox__audiodescription--2 slideIn--later"
           >“A la fin du XIXe siècle, le transport à Paris est dans une situation catastrophique. Il y a deux compagnies : la Compagnie Générale des Omnibus et la Compagnie des Hirondelles. Les Hirondelles ce sont des petits bateaux à vapeur sur la Seine qui transportent environ 40 millions de personnes par an et la Compagnie Générale des Omnibus tirée par des chevaux, il y avait 200 mille chevaux dans Paris, et qui fait environ 260 million de transports par an.”</p>
@@ -99,38 +197,59 @@
 
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
-          
-          <iframe width="560" height="315" class="videoBox__video" src="https://www.youtube.com/embed/_Xhy4uzx03c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe
+            width="560"
+            height="315"
+            class="videoBox__video"
+            src="https://www.youtube.com/embed/_Xhy4uzx03c"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
 
           <p class="videoHeadline">Le cahier des charges du métropolitain</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
-          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--2">
-          <p
-            class="videoBox__audiodescription videoBox__audiodescription--2 slideIn--later"
-          >Dès l’origine, le cahier des charges de la construction du métro de Paris précise que celui-ci sera souterrain dans sa plus grande partie, même s’il devra également franchir la Seine par des ponts métalliques. Quant aux rames, elles seront à traction électrique et ne devront pas dépasser un gabarit de 2 mètres 40, ce qui interdit toute circulation des trains normaux.
-          “La ville de Paris ne voulait pas créer un réseau de chemin de fer dans Paris, qui permettrait de relier les grandes stations de train entre elles, ayant peur que la population prenne ces trains et quitte la ville de Paris. Cette idée extravagante aujourd’hui était dominante à l’époque. Elle empêchait donc qu’on réalise un métropolitain dans Paris, mais en même temps elle réalisait que c’était nécessaire.”</p>
+          <img
+            src="../../../assets/ressources/img/untertitel.png"
+            alt
+            class="icon--untertitel icon--untertitel--2"
+          >
+          <p class="videoBox__audiodescription videoBox__audiodescription--2 slideIn--later">
+            Dès l’origine, le cahier des charges de la construction du métro de Paris précise que celui-ci sera souterrain dans sa plus grande partie, même s’il devra également franchir la Seine par des ponts métalliques. Quant aux rames, elles seront à traction électrique et ne devront pas dépasser un gabarit de 2 mètres 40, ce qui interdit toute circulation des trains normaux.
+            “La ville de Paris ne voulait pas créer un réseau de chemin de fer dans Paris, qui permettrait de relier les grandes stations de train entre elles, ayant peur que la population prenne ces trains et quitte la ville de Paris. Cette idée extravagante aujourd’hui était dominante à l’époque. Elle empêchait donc qu’on réalise un métropolitain dans Paris, mais en même temps elle réalisait que c’était nécessaire.”
+          </p>
         </div>
       </div>
 
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
-          <iframe width="560" height="315" class="videoBox__video" src="https://www.youtube.com/embed/S_KC6QU7XWs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe
+            width="560"
+            height="315"
+            class="videoBox__video"
+            src="https://www.youtube.com/embed/S_KC6QU7XWs"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
           <p class="videoHeadline">Les projets fantaisistes imaginés</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
-          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--2">
-          <p
-            class="videoBox__audiodescription videoBox__audiodescription--2 slideIn--later"
-          >Londres a déjà le sien. Un chemin de fer à vapeur souterrain. La compétition est lancée. 
-          “Il y a eu les projets les plus fantaisistes dès 1824 et puis il y a eu tous ces projets de chemins de fer à vapeurs, sur le sol, sous le sol, dans les immeubles, sous les immeubles. et tout ça était proposé à la ville de Paris,à l’Etat, au parlement et aucune décision ne se prenait car on ne maîtrisait pas vraiment l’idée qu’on avait de ce que serait un métro à Paris.”
-          Les projets de chemins de fer à vapeur sont écartés à cause des rejets de fumée. L’inventivité des propositions des visionnaires et autres doodingues qui se sont penchés sur les transports parisiens est sans limite. Voies aériennes accrochées à des ballons géants, ponts suspendus entre deux tours Eiffel, métro aérien enjambant la ville, tout semble possible ...</p>
+          <img
+            src="../../../assets/ressources/img/untertitel.png"
+            alt
+            class="icon--untertitel icon--untertitel--2"
+          >
+          <p class="videoBox__audiodescription videoBox__audiodescription--2 slideIn--later">
+            Londres a déjà le sien. Un chemin de fer à vapeur souterrain. La compétition est lancée.
+            “Il y a eu les projets les plus fantaisistes dès 1824 et puis il y a eu tous ces projets de chemins de fer à vapeurs, sur le sol, sous le sol, dans les immeubles, sous les immeubles. et tout ça était proposé à la ville de Paris,à l’Etat, au parlement et aucune décision ne se prenait car on ne maîtrisait pas vraiment l’idée qu’on avait de ce que serait un métro à Paris.”
+            Les projets de chemins de fer à vapeur sont écartés à cause des rejets de fumée. L’inventivité des propositions des visionnaires et autres doodingues qui se sont penchés sur les transports parisiens est sans limite. Voies aériennes accrochées à des ballons géants, ponts suspendus entre deux tours Eiffel, métro aérien enjambant la ville, tout semble possible ...
+          </p>
         </div>
       </div>
-    </div> 
-     <!-- End -->
-
- 
+    </div>
+    <!-- End -->
 
     <footer class="footer--comic">
       <img src="../../../assets/ressources/img/mec.png" class="mec" alt>
@@ -147,14 +266,25 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      boolean: false
+    };
   },
 
   /*
    * By Christina, queen of the animation and Javascript
    */
   mounted: function mounted() {
-    
+    /*
+     * Speaker
+     */
+    document.querySelector(".speaker--songs").muted = this.boolean;
+    this.boolean = JSON.parse(localStorage.getItem(`MUSIC`))
+      ? JSON.parse(localStorage.getItem(`MUSIC`))
+      : false;
+    document.querySelector(".speaker--songs").muted = this.boolean;
+    //
+
     let buttonNext = document.querySelector(".buttonNext");
     let commicBox = document.querySelector(".comicBox");
     let textBox = document.querySelector(".comic__text");
@@ -206,7 +336,9 @@ export default {
       //reset
       document.querySelector(".mec").classList.remove("fadeOutLeft");
       document.querySelector(".mec").classList.remove("fadeInLeft");
-      document.querySelector(".comicBox").classList.remove("slideIn--oneMoreTime");
+      document
+        .querySelector(".comicBox")
+        .classList.remove("slideIn--oneMoreTime");
       let previewVideo = document.querySelector(".videoPrewieButton");
 
       let buttonVideo = document.querySelectorAll(".link--video");
@@ -220,7 +352,6 @@ export default {
         selectButtonVideo.addEventListener("mouseleave", function() {
           previewVideo.style.opacity = "0";
         });
-
 
         let videoNumber = "";
         selectButtonVideo.addEventListener("click", function() {
@@ -238,17 +369,19 @@ export default {
               .classList.add("slideIn--now");
           }, 100);
 
-          let untertitelButtons = document.querySelectorAll(".icon--untertitel--" + videoNumber);
+          let untertitelButtons = document.querySelectorAll(
+            ".icon--untertitel--" + videoNumber
+          );
           console.log(untertitelButtons);
 
           for (let i = 0; i < untertitelButtons.length; i++) {
-            
             untertitelButtons[i].addEventListener("click", function() {
-              
-              let audioDescription = document.querySelectorAll(".videoBox__audiodescription--" + videoNumber);
+              let audioDescription = document.querySelectorAll(
+                ".videoBox__audiodescription--" + videoNumber
+              );
               for (let i = 0; i < audioDescription.length; i++) {
                 audioDescription[i].classList.toggle("slideIn--now");
-              } 
+              }
             });
           }
 
@@ -259,14 +392,26 @@ export default {
           buttonVideoBack.addEventListener("click", function() {
             console.log("close video");
             document.querySelector(".comicBox").classList.remove("fadeOut");
-            document.querySelector(".comicBox").classList.add("slideIn--oneMoreTime");
+            document
+              .querySelector(".comicBox")
+              .classList.add("slideIn--oneMoreTime");
 
-            document.querySelector(".videoBox__wrapper--" + videoNumber).classList.add("fadeOut");
+            document
+              .querySelector(".videoBox__wrapper--" + videoNumber)
+              .classList.add("fadeOut");
             setTimeout(function() {
-              document.querySelector(".videoBox__wrapper--" + videoNumber).style.display = "none";
-              document.querySelector(".videoBox__wrapper--" + videoNumber).className = "videoBox__wrapper videoBox__wrapper--"+ videoNumber +" slideIn--later";
-              document.querySelector(".comicBox").classList.remove("slideIn--oneMoreTime");
-
+              document.querySelector(
+                ".videoBox__wrapper--" + videoNumber
+              ).style.display = "none";
+              document.querySelector(
+                ".videoBox__wrapper--" + videoNumber
+              ).className =
+                "videoBox__wrapper videoBox__wrapper--" +
+                videoNumber +
+                " slideIn--later";
+              document
+                .querySelector(".comicBox")
+                .classList.remove("slideIn--oneMoreTime");
             }, 500);
             document.querySelector(".mec").classList.add("fadeInLeft");
           });
@@ -312,7 +457,6 @@ export default {
               "Ingénieur des ponts et chaussées, Fulgence s’intéresse aux <span class='link--video' videoLinkId='2' >problématiques de transports</span> de la capitale. <br><br>Tandis que la ville de Paris reconnaît le <span class='link--video' videoLinkId='2' >besoin</span> urgent d’un système de transports intra muros";
             videoPlus();
 
-            
             train.classList.add("fadeOut");
 
             valise.classList.add("slideIn--now");
@@ -343,10 +487,46 @@ export default {
   //
 
   methods: {
+    /*
+     * Select the status of speaker
+     */
+    selectSpeaker() {
+      return this.boolean;
+    },
+    //
+    /*
+     * Inverse iconBoolean
+     */
+    clickSpeaker() {
+      console.log("feef");
+      this.boolean = !this.boolean;
+      document.querySelector(".speaker--songs").muted = this.boolean;
+      localStorage.setItem(`MUSIC`, this.boolean);
+    },
+    //
+
+    /*
+     * Link
+     */
     linkArticle() {
       let IDarticle = 2;
       this.$router.push({ path: `../../content/article/${IDarticle}` });
     }
+    //
   }
 };
 </script>
+
+<style lang="postcss">
+.speaker {
+  min-width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 100;
+}
+.speaker--color {
+  fill: white;
+}
+</style>
