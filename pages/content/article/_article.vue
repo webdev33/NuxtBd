@@ -1,13 +1,19 @@
 <template>
   <section class="article">
     <!-- <h1>Article {{this.$route.params.article}}</h1> -->
-
     <!-- Alert -->
-    <p class="alert alert-primary alert-danger" v-show="formError != null">{{ formError }}</p>
+    <!-- <p class="alert alert-primary alert-danger" v-show="formError != null">{{ formError }}</p> -->
     <header>
       <h1>{{ articleSelected.station }}</h1>
       <div class="headlineIntro"></div>
     </header>
+
+    <audio
+      :src="require('@/assets/ressources/audios/fermeturePortes.mp3')"
+      autoplay
+      class="speaker--songs"
+    ></audio>
+
     <div class="sidebar">
       <h2>{{ articleSelected.status }}</h2>
     </div>
@@ -17,14 +23,17 @@
         <div class="intro__petit">
           <div class="petitInfo petitInfo--ouverture">
             <h2>Ouverture</h2>
-            <p>{{ openingStation }}</p>
+            <p style="width: 300px">{{ openingStation }}</p>
           </div>
           <div class="petitInfo petitInfo--ligne">
             <h2>Ligne</h2>
 
             <div class="petitInfo--ligneFex">
               <div v-for="select in articleSelected.linesStation" :key="select._id">
-                <div class="ligne--icon">{{ select.ligne }}</div>
+                <div
+                  class="ligne--icon"
+                  style="padding-top: 7px; margin-top: 5px"
+                >{{ select.ligne }}</div>
               </div>
             </div>
           </div>
@@ -44,9 +53,7 @@
           </section>
         </div>
       </div>
-      <!--- 
-      Add Text Box 
-      -->
+
       <div class="map--navigation article__map">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 970 790">
           <title>paris_map</title>
@@ -745,33 +752,31 @@
           </g>
         </svg>
       </div>
-      <div class="article__imageStaition">
-        <div class="imageStaition__image">
+
+      <!-- Image -->
+      <div class="images">
+        <div class="images__bloc">
           <section v-for="select in articleSelected.pictures" :key="select._id">
             <img
               v-bind:src="select.link"
-              class="imageStaition__image__image"
+              class="images__show"
               v-bind:alt="select.title"
               v-bind:year="select.date"
             >
 
             <!-- Text hover -->
-            <div class ="imageStaition__image__textBox" v-bind:year="select.date">
-              <p>{{ select.title }}</p>
+            <div class="images__legend" v-bind:year="select.date">
+              <p class="images__legendDate">{{ select.date }}</p>
+              <br>
+              <p class="images__legendTitle">{{ select.title }}</p>
             </div>
 
             <!--  -->
           </section>
         </div>
-        <div class="imageStaition__timeline">
-          <section v-for="select in articleSelected.pictures" :key="select._id">
-            <span class="imageStaition__timelineYear">{{ select.date }}</span>
-          </section>
-        </div>
       </div>
 
       <div class="article--nom" v-if="ifStation === false">
-
         <section v-for="select in articleSelected.explicationNom" :key="select._id">
           <h2 class="article--nom__headline">{{ select.name }}</h2>
           <p class="article--nom__paragraph">{{ select.text }}</p>
@@ -779,7 +784,9 @@
         </section>
       </div>
 
-      <div class="button button--article">Prochaine station</div>
+      <section v-for="select in articleSelected.nextStep" :key="select._id">
+        <div v-on:click="linkArticle(select.link)" class="button button--article">{{ select.title }}</div>
+      </section>
     </article>
 
     <footer class="footer--article">
@@ -791,6 +798,53 @@
     </footer>
   </section>
 </template>
+
+<style lang="scss" scoped>
+.images {
+  margin: 25px;
+  /* background-color: red; */
+  width: 70%;
+
+  .images__show {
+    padding-top: 25px;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .images__legend {
+    .images__legendDate {
+      color: #fff;
+      padding-bottom: 20px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      position: relative;
+      display: block;
+      display: inline-block;
+      font-size: 25px;
+      &:after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        background-color: #fff;
+        height: 4px;
+        bottom: 12px;
+        left: 0;
+        transition: all 1s;
+      }
+    }
+
+    .images__legendTitle {
+      color: #fff;
+      padding-bottom: 20px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      position: relative;
+      display: block;
+    }
+  }
+}
+</style>
+
 
 <script>
 export default {
@@ -826,6 +880,16 @@ export default {
   },
 
   methods: {
+    /*
+     * Link
+     */
+    linkArticle(select) {
+      console.log(select)
+      select != `map`?
+      this.$router.push({ path: `../../content/article/${select}` }) : this.$router.push({ path: `../../content/navigation` })
+    },
+    //
+
     /*
      * Load the select article
      */
@@ -962,80 +1026,63 @@ export default {
   //
 
   updated: function updated(params) {
-    let imageBox = document.querySelector(".imageStaition__image");
-    let images = document.querySelectorAll(".imageStaition__image__image");
-    let imagesDescription = document.querySelectorAll(".imageStaition__image__textBox");
-    let imageActive;
-
-    for (let i = 0; i < images.length; i++) {
-      if (i === 0) {
-        images[0].classList.add("imageVisible");
-        imageActive = document.querySelector(".imageVisible");
-      }
-      images[i].style.display = "none";
-    }
-    imageActive.style.display = "block";
-
-     for (let i = 0; i < imagesDescription.length; i++) {
-       if (i === 0) {
-         imagesDescription[i].classList.add("active");
-       }
-     }
-
-
-    //hauter
-    let imageActiveHeight = imageActive.offsetHeight;
-    imageBox.style.height = imageActiveHeight + "px";
-    
-    console.log("Height : " + imageActiveHeight + "px");
-
-
-    let years = document.querySelectorAll(".imageStaition__timelineYear");
-    let selectYear = "";
-
-    for (let i = 0; i < years.length; i++) {
-      if (i === 0) {
-        years[0].classList.add("active");
-      }
-
-      years[i].addEventListener("click", function() {
-        for (let i = 0; i < years.length; i++) {
-          years[i].classList.remove("active");
-        }
-        selectYear = years[i].innerHTML;
-        years[i].classList.add("active");
-
-        for (let i = 0; i < images.length; i++) {
-          images[i].style.display = "none";
-          images[i].classList.remove("imageVisible");
-          if (selectYear === images[i].getAttribute("year")) {
-            images[i].style.display = "block";
-            images[i].classList.add("imageVisible");
-
-            //height
-            imageActiveHeight = images[i].offsetHeight;
-            imageBox.style.height = imageActiveHeight + "px";
-  
-            console.log("Height : " + imageActiveHeight + "px");
-          }
-        }
-
-        for (let i = 0; i < imagesDescription.length; i++) {
-          //sconsole.log(imagesDescription)
-          imagesDescription[i].classList.remove("active");
-
-          if (selectYear === images[i].getAttribute("year")) {
-            
-            //console.log(document.querySelector(".imageStaition__image"))
-            imagesDescription[i].classList.add("active");
-
-          }
-        }
-      });
-    }
-
+    //   let imageBox = document.querySelector(".imageStaition__image");
+    //   let images = document.querySelectorAll(".imageStaition__image__image");
+    //   let imagesDescription = document.querySelectorAll(
+    //     ".imageStaition__image__textBox"
+    //   );
+    //   let imageActive;
+    //   for (let i = 0; i < images.length; i++) {
+    //     if (i === 0) {
+    //       images[0].classList.add("imageVisible");
+    //       imageActive = document.querySelector(".imageVisible");
+    //     }
+    //     images[i].style.display = "none";
+    //   }
+    //   imageActive.style.display = "block";
+    //   for (let i = 0; i < imagesDescription.length; i++) {
+    //     if (i === 0) {
+    //       imagesDescription[i].classList.add("active");
+    //     }
+    //   }
+    //   //hauter
+    //   let imageActiveHeight = imageActive.offsetHeight;
+    //   imageBox.style.height = imageActiveHeight + "px";
+    //   let years = document.querySelectorAll(".imageStaition__timelineYear");
+    //   let selectYear = "";
+    //   for (let i = 0; i < years.length; i++) {
+    //     if (i === 0) {
+    //       years[0].classList.add("active");
+    //     }
+    //     years[i].addEventListener("click", function() {
+    //       for (let i = 0; i < years.length; i++) {
+    //         years[i].classList.remove("active");
+    //       }
+    //       selectYear = years[i].innerHTML;
+    //       years[i].classList.add("active");
+    //       for (let i = 0; i < images.length; i++) {
+    //         images[i].style.display = "none";
+    //         images[i].classList.remove("imageVisible");
+    //         if (selectYear === images[i].getAttribute("year")) {
+    //           images[i].style.display = "block";
+    //           images[i].classList.add("imageVisible");
+    //           //height
+    //           imageActiveHeight = images[i].offsetHeight;
+    //           imageBox.style.height = imageActiveHeight + "px";
+    //           console.log("Height : " + imageActiveHeight + "px");
+    //         }
+    //       }
+    //       for (let i = 0; i < imagesDescription.length; i++) {
+    //         //sconsole.log(imagesDescription)
+    //         imagesDescription[i].classList.remove("active");
+    //         if (selectYear === images[i].getAttribute("year")) {
+    //           //console.log(document.querySelector(".imageStaition__image"))
+    //           imagesDescription[i].classList.add("active");
+    //         }
+    //       }
+    //     });
+    //   }
     let introScroll = document.querySelector(".intro__petit");
-
     window.addEventListener("scroll", () => {
       if (window.matchMedia("(min-width: 640px)").matches) {
         if (document.documentElement.scrollTop > window.innerHeight) {
