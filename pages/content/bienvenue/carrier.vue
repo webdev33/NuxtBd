@@ -314,6 +314,13 @@ export default {
    * By Christina, queen of the animation and Javascript
    */
   mounted: function mounted() {
+
+    /*
+     * Message bienvenue
+     */
+    this.visited = JSON.parse(localStorage.getItem(`VISITED`));
+    //
+    
     /*
      * Speaker
      */
