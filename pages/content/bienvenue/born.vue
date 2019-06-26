@@ -17,11 +17,12 @@
         class="speaker--songs"
       ></audio>
 
+      <!-- Mute -->
       <section v-if="selectSpeaker() === false" v-on:click="clickSpeaker()" class="speaker--on">
         <img src="../../../assets/ressources/audios/icon/mute.svg" class="mec" alt>
       </section>
 
-
+      <!-- Unmute -->
       <section v-if="selectSpeaker() === true" v-on:click="clickSpeaker()" class="speaker--off">
         <img src="../../../assets/ressources/audios/icon/unmute.svg" class="mec" alt>
       </section>
@@ -463,17 +464,3 @@ export default {
   }
 };
 </script>
-
-<style lang="postcss">
-.speaker {
-  min-width: 50px;
-  height: 50px;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 100;
-}
-.speaker--color {
-  fill: white;
-}
-</style>
