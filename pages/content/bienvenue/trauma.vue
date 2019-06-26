@@ -408,6 +408,13 @@ export default {
               let audioDescription = document.querySelectorAll( ".videoBox__audiodescription--" + videoNumber);
               for (let i = 0; i < audioDescription.length; i++) {
                 audioDescription[i].classList.toggle("slideIn--now");
+                audioDescription[i].classList.toggle("description--height");
+              }
+              let iframePlus = document.querySelectorAll(".articlePlus iframe");
+              for (let i = 0; i < iframePlus.length; i++) {
+                iframePlus[i].classList.toggle("iframeResize");
+                console.log("what 3");
+                console.log(iframePlus[i]);
               }
             });
           }

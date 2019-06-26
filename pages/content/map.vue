@@ -13,7 +13,7 @@
       </div>
       <div class="speechbubble">Pendant des annes le metro ce super changer et grandir.</div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 970 790" class="mapSVG">
-        <title>paris_map</title>
+        
         <g id="Line">
           <polyline
             id="_1_1"
