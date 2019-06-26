@@ -73,14 +73,22 @@
     bottom: auto;
     top:calc(100vh);
     .mec{
-      display: none;
+      opacity: 0;
+      //display: none;
       transition:all 0.3s;
       &--big{
-        height:105vh;
-        width: auto;
+        // height:105vh;
+        // width: auto;
         transition:all 0.3s;
       }
     }
   }
   
+}
+
+.dialog{
+  color:#fff;
+  font-size: 2em;
+  padding:20px;
+  background-color: $color--main;
 }

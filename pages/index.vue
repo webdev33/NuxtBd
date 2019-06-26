@@ -18,7 +18,11 @@
         <video src="../assets/ressources/img/metro.mp4" autoplay></video>
       </div>
 
-      <h1 class="headline--intro--second">Bienvenüe</h1>
+      <div class="contentBox">
+        <h1 class="headline--intro--second">Bienvenüe</h1>
+        <p class="dialog">Je suis heureux de vous présenter</p>
+      </div>
+
       <nuxt-link to="/content/map">
         <button class="button button--intro">Let's go</button>
       </nuxt-link>
@@ -76,11 +80,13 @@ export default {
      
       if (window.matchMedia("(min-width: 640px)").matches) {
     
-        if (document.documentElement.scrollTop >window.innerHeight * 0.5) {
-          //document.querySelector(".intro__video").style.position ="relative";
-          //document.querySelector(".headline--intro--second").style.position ="-30vh";
+        if (document.documentElement.scrollTop >window.innerHeight * 0.3) {
+          mec.style.opacity="1";
+          if (document.documentElement.scrollTop >window.innerHeight * 0.6) {
+           // document.querySelector(".headline--intro--second").classList.add("fadeOutLeft");
+          }
         } else {
-          //mec.classList.add("mec--big");
+          mec.style.opacity="0";
         }
       }
     });

@@ -266,6 +266,7 @@ export default {
         });
       }
     };
+    videoPlus();
 
     buttonNext.addEventListener("click", function() {
       buttonNextCounter = buttonNextCounter + 1;
