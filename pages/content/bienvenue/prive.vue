@@ -4,6 +4,27 @@
       <h1>Courcelles</h1>
       <div class="headlineIntro"></div>
     </header>
+
+    <!-- Speaker -->
+    <section class="speaker">
+      <!-- autoplay -->
+      <audio
+        :src="require('@/assets/ressources/audios/poinconneurDesLilas.mp3')"
+        autoplay
+        class="speaker--songs"
+      ></audio>
+
+      <!-- Mute -->
+      <section v-if="selectSpeaker() === false" v-on:click="clickSpeaker()" class="speaker--on">
+        <img src="../../../assets/ressources/audios/icon/mute.svg" alt>
+      </section>
+
+      <!-- Unmute -->
+      <section v-if="selectSpeaker() === true" v-on:click="clickSpeaker()" class="speaker--off">
+        <img src="../../../assets/ressources/audios/icon/unmute.svg" alt>
+      </section>
+    </section>
+
     <div class="sidebar">
       <h2>Vie Prive</h2>
     </div>
@@ -17,7 +38,10 @@
       <button class="button buttonNext">Next</button>
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
-        <p class="comic__text__p">Après avoir consacré une majeure partie de sa vie à la construction du métropolitain et au développement de <span class='link--video' videoLinkId='0'>ses technologies....</span></p>
+        <p class="comic__text__p">
+          Après avoir consacré une majeure partie de sa vie à la construction du métropolitain et au développement de
+          <span class="link--video" videoLinkId="0">ses technologies....</span>
+        </p>
       </div>
 
       <img
@@ -47,20 +71,32 @@
       <button class="button button--closeVideo button--closeVideo--0">Go Back</button>
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/RhzDUyZKCLs" class="videoBox__video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/RhzDUyZKCLs"
+            class="videoBox__video"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
           <p class="videoHeadline">Le développement des technologies : les lignes aériennes</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
-          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--0">
-          <p
-            class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later"
-          >Les lignes circulaires nord et sud ont une particularité : elles sont en partie aériennes, contrairement à la ligne 1 presque entièrement souterraine.
-          Quand la circulaire nord doit franchir les voies de chemins de fer en tranchées et le canal Saint Martin, au lieu de creuser plus profondément, les concepteurs ont préféré construire le tronçon en viaduc, donc aérien.
-          Pour la circulaire sud, c’est le relief du sud de Paris qui a motivé la construction en viaduc. A cause des dénivelés, il aurait fallu soit creuser à grande profondeur soit suivre les dénivelés aux prix de montés impossibles à emprunter pour les rames de l’époque. Il a donc été préférable de construire à l’air libre.
-          Cette technique de construction s’avère plus coûteuse et surtout plus longue que la construction en tunnel. L’avancée des techniques de constructions permettra de construire les lignes suivantes plus profondément et d’éviter ces passages aériens.</p>
+          <img
+            src="../../../assets/ressources/img/untertitel.png"
+            alt
+            class="icon--untertitel icon--untertitel--0"
+          >
+          <p class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later">
+            Les lignes circulaires nord et sud ont une particularité : elles sont en partie aériennes, contrairement à la ligne 1 presque entièrement souterraine.
+            Quand la circulaire nord doit franchir les voies de chemins de fer en tranchées et le canal Saint Martin, au lieu de creuser plus profondément, les concepteurs ont préféré construire le tronçon en viaduc, donc aérien.
+            Pour la circulaire sud, c’est le relief du sud de Paris qui a motivé la construction en viaduc. A cause des dénivelés, il aurait fallu soit creuser à grande profondeur soit suivre les dénivelés aux prix de montés impossibles à emprunter pour les rames de l’époque. Il a donc été préférable de construire à l’air libre.
+            Cette technique de construction s’avère plus coûteuse et surtout plus longue que la construction en tunnel. L’avancée des techniques de constructions permettra de construire les lignes suivantes plus profondément et d’éviter ces passages aériens.
+          </p>
         </div>
       </div>
-    </div> 
+    </div>
     <!-- End -->
 
     <footer class="footer--comic">
@@ -77,13 +113,24 @@
 <script>
 export default {
   data() {
-    return {};
+    return { boolean: true };
   },
 
   /*
    * By Christina, queen of the animation and Javascript
    */
   mounted: function mounted() {
+    /*
+     * Speaker
+     */
+    document.querySelector(".speaker--songs").muted = this.boolean;
+    this.boolean = JSON.parse(localStorage.getItem(`MUSIC`))
+      ? JSON.parse(localStorage.getItem(`MUSIC`))
+      : false;
+    document.querySelector(".speaker--songs").muted = this.boolean;
+    document.querySelector(".speaker--songs").volume = 0.3;
+    //
+
     ///chaque comic
     let buttonNext = document.querySelector(".buttonNext");
     let commicBox = document.querySelector(".comicBox");
@@ -137,7 +184,9 @@ export default {
       //reset
       document.querySelector(".mec").classList.remove("fadeOutLeft");
       document.querySelector(".mec").classList.remove("fadeInLeft");
-      document.querySelector(".comicBox").classList.remove("slideIn--oneMoreTime");
+      document
+        .querySelector(".comicBox")
+        .classList.remove("slideIn--oneMoreTime");
       let previewVideo = document.querySelector(".videoPrewieButton");
 
       let buttonVideo = document.querySelectorAll(".link--video");
@@ -151,7 +200,6 @@ export default {
         selectButtonVideo.addEventListener("mouseleave", function() {
           previewVideo.style.opacity = "0";
         });
-
 
         let videoNumber = "";
         selectButtonVideo.addEventListener("click", function() {
@@ -169,17 +217,19 @@ export default {
               .classList.add("slideIn--now");
           }, 100);
 
-          let untertitelButtons = document.querySelectorAll(".icon--untertitel--" + videoNumber);
+          let untertitelButtons = document.querySelectorAll(
+            ".icon--untertitel--" + videoNumber
+          );
           console.log(untertitelButtons);
 
           for (let i = 0; i < untertitelButtons.length; i++) {
-            
             untertitelButtons[i].addEventListener("click", function() {
-              
-              let audioDescription = document.querySelectorAll(".videoBox__audiodescription--" + videoNumber);
+              let audioDescription = document.querySelectorAll(
+                ".videoBox__audiodescription--" + videoNumber
+              );
               for (let i = 0; i < audioDescription.length; i++) {
                 audioDescription[i].classList.toggle("slideIn--now");
-              } 
+              }
             });
           }
 
@@ -190,14 +240,26 @@ export default {
           buttonVideoBack.addEventListener("click", function() {
             console.log("close video");
             document.querySelector(".comicBox").classList.remove("fadeOut");
-            document.querySelector(".comicBox").classList.add("slideIn--oneMoreTime");
+            document
+              .querySelector(".comicBox")
+              .classList.add("slideIn--oneMoreTime");
 
-            document.querySelector(".videoBox__wrapper--" + videoNumber).classList.add("fadeOut");
+            document
+              .querySelector(".videoBox__wrapper--" + videoNumber)
+              .classList.add("fadeOut");
             setTimeout(function() {
-              document.querySelector(".videoBox__wrapper--" + videoNumber).style.display = "none";
-              document.querySelector(".videoBox__wrapper--" + videoNumber).className = "videoBox__wrapper videoBox__wrapper--"+ videoNumber +" slideIn--later";
-              document.querySelector(".comicBox").classList.remove("slideIn--oneMoreTime");
-
+              document.querySelector(
+                ".videoBox__wrapper--" + videoNumber
+              ).style.display = "none";
+              document.querySelector(
+                ".videoBox__wrapper--" + videoNumber
+              ).className =
+                "videoBox__wrapper videoBox__wrapper--" +
+                videoNumber +
+                " slideIn--later";
+              document
+                .querySelector(".comicBox")
+                .classList.remove("slideIn--oneMoreTime");
             }, 500);
             document.querySelector(".mec").classList.add("fadeInLeft");
           });
@@ -241,7 +303,8 @@ export default {
 
             break;
           case 3:
-            textBoxContent.innerHTML = "Il a eu l’occasion de voyager au sein de sa propre création, il prenait régulièrement le métropolitain";
+            textBoxContent.innerHTML =
+              "Il a eu l’occasion de voyager au sein de sa propre création, il prenait régulièrement le métropolitain";
 
             appart.classList.add("fadeOut");
             metroSign.classList.remove("fadeOut");
@@ -260,10 +323,31 @@ export default {
   //
 
   methods: {
+    /*
+     * Select the status of speaker
+     */
+    selectSpeaker() {
+      return this.boolean;
+    },
+    //
+    /*
+     * Inverse iconBoolean
+     */
+    clickSpeaker() {
+      this.boolean = !this.boolean;
+      document.querySelector(".speaker--songs").muted = this.boolean;
+      localStorage.setItem(`MUSIC`, this.boolean);
+    },
+    //
+
+    /*
+     * Link
+     */
     linkArticle() {
       let IDarticle = 2;
       this.$router.push({ path: `../../content/article/${IDarticle}` });
     }
+    //
   }
 };
 </script>

@@ -7,6 +7,27 @@
       </h1>
       <div class="headlineIntro"></div>
     </header>
+
+    <!-- Speaker -->
+    <section class="speaker">
+      <!-- autoplay -->
+      <audio
+        :src="require('@/assets/ressources/audios/poinconneurDesLilas.mp3')"
+        autoplay
+        class="speaker--songs"
+      ></audio>
+
+      <!-- Mute -->
+      <section v-if="selectSpeaker() === false" v-on:click="clickSpeaker()" class="speaker--on">
+        <img src="../../../assets/ressources/audios/icon/mute.svg" alt>
+      </section>
+
+      <!-- Unmute -->
+      <section v-if="selectSpeaker() === true" v-on:click="clickSpeaker()" class="speaker--off">
+        <img src="../../../assets/ressources/audios/icon/unmute.svg" alt>
+      </section>
+    </section>
+
     <div class="sidebar">
       <h2>Trauma</h2>
     </div>
@@ -14,15 +35,23 @@
     <div class="discoverBox">
       <img src="../../../assets/ressources/img/stairs.svg" class="stair" alt>
       <a v-on:click="linkArticle()" class="button button--discover">Decouvrir la station</a>
-      <a v-on:click="linkArticle()" class="button button--discover button button--discover--2">Decouvrir la station</a>
+      <a
+        v-on:click="linkArticle()"
+        class="button button--discover button button--discover--2"
+      >Decouvrir la station</a>
     </div>
-
 
     <div class="comicBox comicBox--trauma">
       <button class="button buttonNext">Next</button>
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
-        <p class="comic__text__p">Le réseau <span class='link--video' videoLinkId='0'>superconnecté</span> de Fulgence connaît un <span class='link--video' videoLinkId='0'>succès</span> monstre.<br><br>Mais ...</p>
+        <p class="comic__text__p">
+          Le réseau
+          <span class="link--video" videoLinkId="0">superconnecté</span> de Fulgence connaît un
+          <span class="link--video" videoLinkId="0">succès</span> monstre.
+          <br>
+          <br>Mais ...
+        </p>
       </div>
       <img
         src="../../../assets/ressources/img/comic/trauma/feuer.png"
@@ -57,9 +86,9 @@
           <h1>Catastrophe dans le métropolitain 10.08.1903</h1>
           <p>
             Le 10 août 1903, suite à un court-circuit, un incendie se déclare sur une rame à la station Barbès.
-            <br><br>
-            Afin de ne pas bloquer le réseau, la rame est poussée vide vers Nation par la rame qui arrivait derrière (préalablement évacuée). Mais à la station Ménilmontant, le feu reprend sans qu'on puisse l'éteindre. Au même instant, la rame suivante, qui avait ramassé les quelque 300 voyageurs des deux rames évacuées arrive à la station précédant Ménilmontant : la station Couronnes. Mais averti de la reprise de l'incendie, le chauffeur ne redémarre pas et prie les gens de descendre afin d'évacuer la station par l'escalier.<br>
-            Cependant, la fumée de l'incendie (la fumée uniquement, le feu étant resté circonscrit à la rame de métro), qui a envahi la station Ménilmontant évacuée, se propage dans le tunnel pour jaillir soudainement dans la station Couronnes, côté tête du train où se trouvent les protestataires. Aveuglé, par réflexe, le groupe fuit la fumée vers l'autre extrémité du quai, malheureusement sans issue. Quelques heures plus tard, les pompiers compteront 84 corps, entassés les uns sur les autres
+            <br>
+            <br>Afin de ne pas bloquer le réseau, la rame est poussée vide vers Nation par la rame qui arrivait derrière (préalablement évacuée). Mais à la station Ménilmontant, le feu reprend sans qu'on puisse l'éteindre. Au même instant, la rame suivante, qui avait ramassé les quelque 300 voyageurs des deux rames évacuées arrive à la station précédant Ménilmontant : la station Couronnes. Mais averti de la reprise de l'incendie, le chauffeur ne redémarre pas et prie les gens de descendre afin d'évacuer la station par l'escalier.
+            <br>Cependant, la fumée de l'incendie (la fumée uniquement, le feu étant resté circonscrit à la rame de métro), qui a envahi la station Ménilmontant évacuée, se propage dans le tunnel pour jaillir soudainement dans la station Couronnes, côté tête du train où se trouvent les protestataires. Aveuglé, par réflexe, le groupe fuit la fumée vers l'autre extrémité du quai, malheureusement sans issue. Quelques heures plus tard, les pompiers compteront 84 corps, entassés les uns sur les autres
           </p>
         </div>
       </div>
@@ -97,49 +126,85 @@
 
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/UL1_PdsnhP0" class="videoBox__video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/UL1_PdsnhP0"
+            class="videoBox__video"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
           <p class="videoHeadline">La densité du métro</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
-          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--0">
+          <img
+            src="../../../assets/ressources/img/untertitel.png"
+            alt
+            class="icon--untertitel icon--untertitel--0"
+          >
           <p
             class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later"
           >Bienvenüe veut également un métro suffisamment dense et interconnecté pour qu’aucun point de Paris ne soit à plus de 400 mètres d’une station de métropolitain et qu’aucun trajet ne nécessite plus de deux changements.</p>
         </div>
       </div>
 
-       <div class="videoBox">
+      <div class="videoBox">
         <div class="videoBox__videoWrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/luTdWi-vsj4" class="videoBox__video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/luTdWi-vsj4"
+            class="videoBox__video"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
           <p class="videoHeadline">Les heures de pointe</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
-          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--0">
+          <img
+            src="../../../assets/ressources/img/untertitel.png"
+            alt
+            class="icon--untertitel icon--untertitel--0"
+          >
           <p
             class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later"
           >Le métro a ouvert ses grilles en 1900. L’actuelle ligne 1 fut la première construite. En 15 ans, 10 lignes s’offrent aux parisiens, des travaux dantesques pour l’époque. Le succès est immédiat, et déjà, les terribles heures de pointe.</p>
         </div>
       </div>
-    </div> 
+    </div>
     <!-- End -->
 
     <!-- Slide 1 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--1 slideIn--later">
       <button class="button button--closeVideo button--closeVideo--1">Go Back</button>
 
-       <div class="videoBox">
+      <div class="videoBox">
         <div class="videoBox__videoWrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/uehZhcO5F88" class="videoBox__video"  frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/uehZhcO5F88"
+            class="videoBox__video"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
           <p class="videoHeadline">La rame Westinghouse première classe</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
-          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--1">
+          <img
+            src="../../../assets/ressources/img/untertitel.png"
+            alt
+            class="icon--untertitel icon--untertitel--1"
+          >
           <p
             class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later"
           >On est à bord de la rame Westinghouse, la première rame, celle de l’inauguration de 1900. Avec ses sièges cuirs, ses bois exotiques précieux et quelques petites particularités, comme ce porte chapeaux.</p>
         </div>
       </div>
-    </div> 
+    </div>
     <!-- End -->
 
     <footer class="footer--comic">
@@ -157,13 +222,24 @@
 <script>
 export default {
   data() {
-    return {};
+    return { boolean: false };
   },
 
   /*
    * By Christina, queen of the animation and Javascript
    */
   mounted: function mounted() {
+    /*
+     * Speaker
+     */
+    document.querySelector(".speaker--songs").muted = this.boolean;
+    this.boolean = JSON.parse(localStorage.getItem(`MUSIC`))
+      ? JSON.parse(localStorage.getItem(`MUSIC`))
+      : false;
+    document.querySelector(".speaker--songs").muted = this.boolean;
+    document.querySelector(".speaker--songs").volume = 0.3;
+    //
+
     ///chaque comic
     let buttonNext = document.querySelector(".buttonNext");
     let commicBox = document.querySelector(".comicBox");
@@ -186,7 +262,9 @@ export default {
           document.querySelector(".articlePlus").classList.add("slideIn--now");
           console.log("test 2");
         }, 100);
-        document.querySelector(".buttonNext--end").addEventListener("click", function() {
+        document
+          .querySelector(".buttonNext--end")
+          .addEventListener("click", function() {
             window.scrollTo({ top: 0, behavior: "smooth" });
             console.log("test 2");
           });
@@ -220,7 +298,9 @@ export default {
       //reset
       document.querySelector(".mec").classList.remove("fadeOutLeft");
       document.querySelector(".mec").classList.remove("fadeInLeft");
-      document.querySelector(".comicBox").classList.remove("slideIn--oneMoreTime");
+      document
+        .querySelector(".comicBox")
+        .classList.remove("slideIn--oneMoreTime");
       let previewVideo = document.querySelector(".videoPrewieButton");
 
       let buttonVideo = document.querySelectorAll(".link--video");
@@ -234,7 +314,6 @@ export default {
         selectButtonVideo.addEventListener("mouseleave", function() {
           previewVideo.style.opacity = "0";
         });
-
 
         let videoNumber = "";
         selectButtonVideo.addEventListener("click", function() {
@@ -252,17 +331,19 @@ export default {
               .classList.add("slideIn--now");
           }, 100);
 
-          let untertitelButtons = document.querySelectorAll(".icon--untertitel--" + videoNumber);
+          let untertitelButtons = document.querySelectorAll(
+            ".icon--untertitel--" + videoNumber
+          );
           console.log(untertitelButtons);
 
           for (let i = 0; i < untertitelButtons.length; i++) {
-            
             untertitelButtons[i].addEventListener("click", function() {
-              
-              let audioDescription = document.querySelectorAll(".videoBox__audiodescription--" + videoNumber);
+              let audioDescription = document.querySelectorAll(
+                ".videoBox__audiodescription--" + videoNumber
+              );
               for (let i = 0; i < audioDescription.length; i++) {
                 audioDescription[i].classList.toggle("slideIn--now");
-              } 
+              }
             });
           }
 
@@ -273,14 +354,26 @@ export default {
           buttonVideoBack.addEventListener("click", function() {
             console.log("close video");
             document.querySelector(".comicBox").classList.remove("fadeOut");
-            document.querySelector(".comicBox").classList.add("slideIn--oneMoreTime");
+            document
+              .querySelector(".comicBox")
+              .classList.add("slideIn--oneMoreTime");
 
-            document.querySelector(".videoBox__wrapper--" + videoNumber).classList.add("fadeOut");
+            document
+              .querySelector(".videoBox__wrapper--" + videoNumber)
+              .classList.add("fadeOut");
             setTimeout(function() {
-              document.querySelector(".videoBox__wrapper--" + videoNumber).style.display = "none";
-              document.querySelector(".videoBox__wrapper--" + videoNumber).className = "videoBox__wrapper videoBox__wrapper--"+ videoNumber +" slideIn--later";
-              document.querySelector(".comicBox").classList.remove("slideIn--oneMoreTime");
-
+              document.querySelector(
+                ".videoBox__wrapper--" + videoNumber
+              ).style.display = "none";
+              document.querySelector(
+                ".videoBox__wrapper--" + videoNumber
+              ).className =
+                "videoBox__wrapper videoBox__wrapper--" +
+                videoNumber +
+                " slideIn--later";
+              document
+                .querySelector(".comicBox")
+                .classList.remove("slideIn--oneMoreTime");
             }, 500);
             document.querySelector(".mec").classList.add("fadeInLeft");
           });
@@ -306,7 +399,7 @@ export default {
           case 1:
             textBoxContent.innerHTML =
               "Or, il ne faudra pas patienter longtemps avant qu’un aléa ne provoque une catastrophe dans le métropolitain...<br><br>En cause, <span class='link--video' videoLinkId='1'>les matériaux</span> utilisés lors de la construction";
-              videoPlus();
+            videoPlus();
 
             fire.classList.add("slideIn--now");
 
@@ -342,10 +435,31 @@ export default {
   //
 
   methods: {
+    /*
+     * Select the status of speaker
+     */
+    selectSpeaker() {
+      return this.boolean;
+    },
+    //
+    /*
+     * Inverse iconBoolean
+     */
+    clickSpeaker() {
+      this.boolean = !this.boolean;
+      document.querySelector(".speaker--songs").muted = this.boolean;
+      localStorage.setItem(`MUSIC`, this.boolean);
+    },
+    //
+
+    /*
+     * Link
+     */
     linkArticle() {
       let IDarticle = 2;
       this.$router.push({ path: `../../content/article/${IDarticle}` });
     }
+    //
   }
 };
 </script>

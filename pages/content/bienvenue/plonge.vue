@@ -4,6 +4,27 @@
       <h1>Cite</h1>
       <div class="headlineIntro"></div>
     </header>
+
+    <!-- Speaker -->
+    <section class="speaker">
+      <!-- autoplay -->
+      <audio
+        :src="require('@/assets/ressources/audios/poinconneurDesLilas.mp3')"
+        autoplay
+        class="speaker--songs"
+      ></audio>
+
+      <!-- Mute -->
+      <section v-if="selectSpeaker() === false" v-on:click="clickSpeaker()" class="speaker--on">
+        <img src="../../../assets/ressources/audios/icon/mute.svg" alt>
+      </section>
+
+      <!-- Unmute -->
+      <section v-if="selectSpeaker() === true" v-on:click="clickSpeaker()" class="speaker--off">
+        <img src="../../../assets/ressources/audios/icon/unmute.svg" alt>
+      </section>
+    </section>
+
     <div class="sidebar">
       <h2>Idee du Genie</h2>
     </div>
@@ -17,8 +38,12 @@
       <button class="button buttonNext">Next</button>
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
-        <p
-          class="comic__text__p">Après avoir assisté à l’éventrement des rues de la capitale, la Seine tremble.<br><br>Divisant Paris en son centre, son <span class='link--video' videoLinkId='0'>franchissement</span> est un obstacle.</p>
+        <p class="comic__text__p">
+          Après avoir assisté à l’éventrement des rues de la capitale, la Seine tremble.
+          <br>
+          <br>Divisant Paris en son centre, son
+          <span class="link--video" videoLinkId="0">franchissement</span> est un obstacle.
+        </p>
       </div>
 
       <img
@@ -57,13 +82,15 @@
           <p class="videoHeadline">Paris d'antant</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
-          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--0">
-          <p
-            class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later"
-          >....</p>
+          <img
+            src="../../../assets/ressources/img/untertitel.png"
+            alt
+            class="icon--untertitel icon--untertitel--0"
+          >
+          <p class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later">....</p>
         </div>
       </div>
-    </div> 
+    </div>
     <!-- End -->
 
     <!-- Slide 0 Start -->
@@ -72,43 +99,63 @@
 
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
-          <iframe width="560" height="315" class="videoBox__video"  src="https://www.youtube.com/embed/n16hJxbdKf4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe
+            width="560"
+            height="315"
+            class="videoBox__video"
+            src="https://www.youtube.com/embed/n16hJxbdKf4"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
           <p class="videoHeadline">Les problématiques liées à la Seine</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
-          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--1">
-          <p
-            class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later"
-          >La ligne 4, longue d’environ 11 kilomètres, elle part de la porte de Clignancourt et va jusqu’à la Porte d’Orléans. Première ligne à traverser Paris dans un axe Nord-Sud, elle est aussi la première à devoir traverser la Seine.
-          “On ne devait pas passer sur l'île de la Cité. On devrait finalement rejoindre Châtelet/Saint Michel en passant par la pointe amont de l’île de la Cité. Mais pour des raisons très simples, finalement ce métro devait passer juste sous l’Académie Française et les académiciens n’étaient pas d’accord. Pour leur calme, ils décident de faire une pétition qui a été suivie par un certain nombre à l’époque, de savants. C’est là qu’on a décidé de passer par l’île de la Cité.”</p>
+          <img
+            src="../../../assets/ressources/img/untertitel.png"
+            alt
+            class="icon--untertitel icon--untertitel--1"
+          >
+          <p class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later">
+            La ligne 4, longue d’environ 11 kilomètres, elle part de la porte de Clignancourt et va jusqu’à la Porte d’Orléans. Première ligne à traverser Paris dans un axe Nord-Sud, elle est aussi la première à devoir traverser la Seine.
+            “On ne devait pas passer sur l'île de la Cité. On devrait finalement rejoindre Châtelet/Saint Michel en passant par la pointe amont de l’île de la Cité. Mais pour des raisons très simples, finalement ce métro devait passer juste sous l’Académie Française et les académiciens n’étaient pas d’accord. Pour leur calme, ils décident de faire une pétition qui a été suivie par un certain nombre à l’époque, de savants. C’est là qu’on a décidé de passer par l’île de la Cité.”
+          </p>
         </div>
       </div>
 
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
-          <iframe width="560" height="315"  class="videoBox__video"   src="https://www.youtube.com/embed/Pb6n8ZbyBx4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe
+            width="560"
+            height="315"
+            class="videoBox__video"
+            src="https://www.youtube.com/embed/Pb6n8ZbyBx4"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
           <p class="videoHeadline">Coûts des investissements et mécènes</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
-          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--1">
-          <p
-            class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later"
+          <img
+            src="../../../assets/ressources/img/untertitel.png"
+            alt
+            class="icon--untertitel icon--untertitel--1"
           >
-          Pour l’électrification du réseau, on fait appel aux technologies les plus en pointe. Deux usines à charbon sont construites afin de fournir l’énergie nécessaire à ce nouveau moyen de transport. Des investissements colossaux qui associent déjà publique et privé. C’est la CMP qui appartient au Baron Empain, un des géants de la finance du XIXe siècle qui se lance dans ce formidable pari.
-          “Le coût des investissements est le suivant : l’infrastructure faite par la ville de Paris vaut 600 million d’euros d’aujourd’hui. La superstructure faite par le Baron Empain représente un peu plus d’1 milliard, car il y a le coût des usines, des rames et la décoration de toutes les stations de métro et l’équipement du chemin de fer.”</p>
+          <p class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later">
+            Pour l’électrification du réseau, on fait appel aux technologies les plus en pointe. Deux usines à charbon sont construites afin de fournir l’énergie nécessaire à ce nouveau moyen de transport. Des investissements colossaux qui associent déjà publique et privé. C’est la CMP qui appartient au Baron Empain, un des géants de la finance du XIXe siècle qui se lance dans ce formidable pari.
+            “Le coût des investissements est le suivant : l’infrastructure faite par la ville de Paris vaut 600 million d’euros d’aujourd’hui. La superstructure faite par le Baron Empain représente un peu plus d’1 milliard, car il y a le coût des usines, des rames et la décoration de toutes les stations de métro et l’équipement du chemin de fer.”
+          </p>
         </div>
       </div>
-
-    </div> 
+    </div>
     <!-- End -->
 
     <article class="articlePlus slideIn--later">
       <div class="introArticle">
         <div class="introArticle__textBox">
           <h1>la creation du tunnel sur la Seine</h1>
-          <p>
-             Est ce que vous pouves ecrit ici just un petit text sur le catasrophe. c est pas grave si c est double avec le video. je besoin contenu just au momnet on voir pas encore le image dans le view port, si c est plus cest pas du tout grave.
-          </p>
+          <p>Est ce que vous pouves ecrit ici just un petit text sur le catasrophe. c est pas grave si c est double avec le video. je besoin contenu just au momnet on voir pas encore le image dans le view port, si c est plus cest pas du tout grave.</p>
         </div>
       </div>
       <div class="articlePuls__imageBox">
@@ -153,13 +200,24 @@
 <script>
 export default {
   data() {
-    return {};
+    return { boolean: false };
   },
 
   /*
    * By Christina, queen of the animation and Javascript
    */
   mounted: function mounted() {
+    /*
+     * Speaker
+     */
+    document.querySelector(".speaker--songs").muted = this.boolean;
+    this.boolean = JSON.parse(localStorage.getItem(`MUSIC`))
+      ? JSON.parse(localStorage.getItem(`MUSIC`))
+      : false;
+    document.querySelector(".speaker--songs").muted = this.boolean;
+    document.querySelector(".speaker--songs").volume = 0.3;
+    //
+
     ///chaque comic
     let buttonNext = document.querySelector(".buttonNext");
     let commicBox = document.querySelector(".comicBox");
@@ -182,7 +240,9 @@ export default {
           document.querySelector(".articlePlus").classList.add("slideIn--now");
           console.log("test 2");
         }, 100);
-        document.querySelector(".buttonNext--end").addEventListener("click", function() {
+        document
+          .querySelector(".buttonNext--end")
+          .addEventListener("click", function() {
             window.scrollTo({ top: 0, behavior: "smooth" });
             console.log("test 2");
           });
@@ -216,7 +276,9 @@ export default {
       //reset
       document.querySelector(".mec").classList.remove("fadeOutLeft");
       document.querySelector(".mec").classList.remove("fadeInLeft");
-      document.querySelector(".comicBox").classList.remove("slideIn--oneMoreTime");
+      document
+        .querySelector(".comicBox")
+        .classList.remove("slideIn--oneMoreTime");
       let previewVideo = document.querySelector(".videoPrewieButton");
 
       let buttonVideo = document.querySelectorAll(".link--video");
@@ -230,7 +292,6 @@ export default {
         selectButtonVideo.addEventListener("mouseleave", function() {
           previewVideo.style.opacity = "0";
         });
-
 
         let videoNumber = "";
         selectButtonVideo.addEventListener("click", function() {
@@ -248,17 +309,19 @@ export default {
               .classList.add("slideIn--now");
           }, 100);
 
-          let untertitelButtons = document.querySelectorAll(".icon--untertitel--" + videoNumber);
+          let untertitelButtons = document.querySelectorAll(
+            ".icon--untertitel--" + videoNumber
+          );
           console.log(untertitelButtons);
 
           for (let i = 0; i < untertitelButtons.length; i++) {
-            
             untertitelButtons[i].addEventListener("click", function() {
-              
-              let audioDescription = document.querySelectorAll(".videoBox__audiodescription--" + videoNumber);
+              let audioDescription = document.querySelectorAll(
+                ".videoBox__audiodescription--" + videoNumber
+              );
               for (let i = 0; i < audioDescription.length; i++) {
                 audioDescription[i].classList.toggle("slideIn--now");
-              } 
+              }
             });
           }
 
@@ -269,14 +332,26 @@ export default {
           buttonVideoBack.addEventListener("click", function() {
             console.log("close video");
             document.querySelector(".comicBox").classList.remove("fadeOut");
-            document.querySelector(".comicBox").classList.add("slideIn--oneMoreTime");
+            document
+              .querySelector(".comicBox")
+              .classList.add("slideIn--oneMoreTime");
 
-            document.querySelector(".videoBox__wrapper--" + videoNumber).classList.add("fadeOut");
+            document
+              .querySelector(".videoBox__wrapper--" + videoNumber)
+              .classList.add("fadeOut");
             setTimeout(function() {
-              document.querySelector(".videoBox__wrapper--" + videoNumber).style.display = "none";
-              document.querySelector(".videoBox__wrapper--" + videoNumber).className = "videoBox__wrapper videoBox__wrapper--"+ videoNumber +" slideIn--later";
-              document.querySelector(".comicBox").classList.remove("slideIn--oneMoreTime");
-
+              document.querySelector(
+                ".videoBox__wrapper--" + videoNumber
+              ).style.display = "none";
+              document.querySelector(
+                ".videoBox__wrapper--" + videoNumber
+              ).className =
+                "videoBox__wrapper videoBox__wrapper--" +
+                videoNumber +
+                " slideIn--later";
+              document
+                .querySelector(".comicBox")
+                .classList.remove("slideIn--oneMoreTime");
             }, 500);
             document.querySelector(".mec").classList.add("fadeInLeft");
           });
@@ -303,7 +378,7 @@ export default {
           case 1:
             textBoxContent.innerHTML =
               "Le passage du métro sous la Seine marque l’aboutissement de <span class='link--video' videoLinkId='1'>quatre années de travail</span> sous la direction de l’ingénieur Fulgence Bienvenüe.<br><br>La ville de Paris cicatrise grâce à l’aide financière apportée par le Baron Empain";
-              videoPlus();
+            videoPlus();
 
             point.classList.add("fadeOut");
 
@@ -345,10 +420,31 @@ export default {
   //
 
   methods: {
+    /*
+     * Select the status of speaker
+     */
+    selectSpeaker() {
+      return this.boolean;
+    },
+    //
+    /*
+     * Inverse iconBoolean
+     */
+    clickSpeaker() {
+      this.boolean = !this.boolean;
+      document.querySelector(".speaker--songs").muted = this.boolean;
+      localStorage.setItem(`MUSIC`, this.boolean);
+    },
+    //
+
+    /*
+     * Link
+     */
     linkArticle() {
       let IDarticle = 2;
       this.$router.push({ path: `../../content/article/${IDarticle}` });
     }
+    //
   }
 };
 </script>

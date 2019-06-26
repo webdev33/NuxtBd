@@ -8,6 +8,26 @@
       <h2>Carriere</h2>
     </div>
 
+    <!-- Speaker -->
+    <section class="speaker">
+      <!-- autoplay -->
+      <audio
+        :src="require('@/assets/ressources/audios/poinconneurDesLilas.mp3')"
+        autoplay
+        class="speaker--songs"
+      ></audio>
+
+      <!-- Mute -->
+      <section v-if="selectSpeaker() === false" v-on:click="clickSpeaker()" class="speaker--on">
+        <img src="../../../assets/ressources/audios/icon/mute.svg" class="mec" alt>
+      </section>
+
+      <!-- Unmute -->
+      <section v-if="selectSpeaker() === true" v-on:click="clickSpeaker()" class="speaker--off">
+        <img src="../../../assets/ressources/audios/icon/unmute.svg" class="mec" alt>
+      </section>
+    </section>
+
     <div class="discoverBox">
       <img src="../../../assets/ressources/img/stairs.svg" class="stair" alt>
       <a v-on:click="linkArticle()" class="button button--discover">Decouvrir la station</a>
@@ -17,9 +37,10 @@
       <button class="button buttonNext">Next</button>
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
-        <p
-          class="comic__text__p"
-        >Le 20 avril 1896, <span class='link--video' videoLinkId='0'>le projet</span> de desserte urbain de Fulgence Bienvenüe est adopté par le Conseil municipal.</p>
+        <p class="comic__text__p">
+          Le 20 avril 1896,
+          <span class="link--video" videoLinkId="0">le projet</span> de desserte urbain de Fulgence Bienvenüe est adopté par le Conseil municipal.
+        </p>
       </div>
       <img
         src="../../../assets/ressources/img/comic/pere/signMetro.png"
@@ -98,12 +119,23 @@
 
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
-
-          <iframe width="560" height="315" class="videoBox__video" src="https://www.youtube.com/embed/gMpP0exnqzU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe
+            width="560"
+            height="315"
+            class="videoBox__video"
+            src="https://www.youtube.com/embed/gMpP0exnqzU"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
           <p class="videoHeadline">Le projet de Fulgence Bienvenüe</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
-          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--0">
+          <img
+            src="../../../assets/ressources/img/untertitel.png"
+            alt
+            class="icon--untertitel icon--untertitel--0"
+          >
           <p
             class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later"
           >En seulement 2 ans la première ligne doit être construite. Deux ans pour construire ce qui est encore aujourd’hui la ligne 1 du métro de la porte de Vincennes à la porte Maillot. Le travail est titanesque. Il faut percer les tunnels, équiper les voies, creuser les accès, déplacer les égouts… Et pourtant, croyez le ou non, la ligne est ouverte dans les temps.</p>
@@ -112,19 +144,29 @@
 
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
-
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/kPUCeXf7Qgg" class="videoBox__video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/kPUCeXf7Qgg"
+            class="videoBox__video"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
           <p class="videoHeadline">Le trajet de la ligne 1</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
-          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--0">
+          <img
+            src="../../../assets/ressources/img/untertitel.png"
+            alt
+            class="icon--untertitel icon--untertitel--0"
+          >
           <p
             class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later"
           >La première ligne construite comportera 18 stations, pour seulement 11 kilomètres de long. C’est une ligne transversale, Est-Ouest qui part de la porte de Vincennes pour rejoindre la porte Maillot. Elle longe la Seine sur près de la moitié de sa longueur. Les travaux de la ligne 1 commencent en Février 1999.</p>
         </div>
       </div>
-
-    </div> 
+    </div>
     <!-- End -->
 
     <!-- Slide 1 Start -->
@@ -133,19 +175,29 @@
 
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/5ykvCxEvq1M" class="videoBox__video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <p class="videoHeadline"> L'éventrement de la ville</p>
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/5ykvCxEvq1M"
+            class="videoBox__video"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <p class="videoHeadline">L'éventrement de la ville</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
-          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--1">
+          <img
+            src="../../../assets/ressources/img/untertitel.png"
+            alt
+            class="icon--untertitel icon--untertitel--1"
+          >
           <p
             class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later"
           >Un chantier spectaculaire commence alors, pour creuser les nombreuses galeries et tunnels, les rues sont éventrées. Ces tranchées perturbent la circulation des premières automobiles et des piétons.</p>
         </div>
       </div>
     </div>
-
-    
 
     <footer class="footer--comic">
       <img src="../../../assets/ressources/img/mec.png" class="mec" alt>
@@ -162,13 +214,24 @@
 <script>
 export default {
   data() {
-    return {};
+    return { boolean: false };
   },
 
   /*
    * By Christina, queen of the animation and Javascript
    */
   mounted: function mounted() {
+    /*
+     * Speaker
+     */
+    document.querySelector(".speaker--songs").muted = this.boolean;
+    this.boolean = JSON.parse(localStorage.getItem(`MUSIC`))
+      ? JSON.parse(localStorage.getItem(`MUSIC`))
+      : false;
+    document.querySelector(".speaker--songs").muted = this.boolean;
+    document.querySelector(".speaker--songs").volume = 0.3;
+    //
+
     ///chaque comic
     let buttonNext = document.querySelector(".buttonNext");
     let commicBox = document.querySelector(".comicBox");
@@ -191,7 +254,9 @@ export default {
           document.querySelector(".articlePlus").classList.add("slideIn--now");
           console.log("test 2");
         }, 100);
-        document.querySelector(".buttonNext--end").addEventListener("click", function() {
+        document
+          .querySelector(".buttonNext--end")
+          .addEventListener("click", function() {
             window.scrollTo({ top: 0, behavior: "smooth" });
             console.log("test 2");
           });
@@ -225,7 +290,9 @@ export default {
       //reset
       document.querySelector(".mec").classList.remove("fadeOutLeft");
       document.querySelector(".mec").classList.remove("fadeInLeft");
-      document.querySelector(".comicBox").classList.remove("slideIn--oneMoreTime");
+      document
+        .querySelector(".comicBox")
+        .classList.remove("slideIn--oneMoreTime");
       let previewVideo = document.querySelector(".videoPrewieButton");
 
       let buttonVideo = document.querySelectorAll(".link--video");
@@ -239,7 +306,6 @@ export default {
         selectButtonVideo.addEventListener("mouseleave", function() {
           previewVideo.style.opacity = "0";
         });
-
 
         let videoNumber = "";
         selectButtonVideo.addEventListener("click", function() {
@@ -257,17 +323,19 @@ export default {
               .classList.add("slideIn--now");
           }, 100);
 
-          let untertitelButtons = document.querySelectorAll(".icon--untertitel--" + videoNumber);
+          let untertitelButtons = document.querySelectorAll(
+            ".icon--untertitel--" + videoNumber
+          );
           console.log(untertitelButtons);
 
           for (let i = 0; i < untertitelButtons.length; i++) {
-            
             untertitelButtons[i].addEventListener("click", function() {
-              
-              let audioDescription = document.querySelectorAll(".videoBox__audiodescription--" + videoNumber);
+              let audioDescription = document.querySelectorAll(
+                ".videoBox__audiodescription--" + videoNumber
+              );
               for (let i = 0; i < audioDescription.length; i++) {
                 audioDescription[i].classList.toggle("slideIn--now");
-              } 
+              }
             });
           }
 
@@ -278,14 +346,26 @@ export default {
           buttonVideoBack.addEventListener("click", function() {
             console.log("close video");
             document.querySelector(".comicBox").classList.remove("fadeOut");
-            document.querySelector(".comicBox").classList.add("slideIn--oneMoreTime");
+            document
+              .querySelector(".comicBox")
+              .classList.add("slideIn--oneMoreTime");
 
-            document.querySelector(".videoBox__wrapper--" + videoNumber).classList.add("fadeOut");
+            document
+              .querySelector(".videoBox__wrapper--" + videoNumber)
+              .classList.add("fadeOut");
             setTimeout(function() {
-              document.querySelector(".videoBox__wrapper--" + videoNumber).style.display = "none";
-              document.querySelector(".videoBox__wrapper--" + videoNumber).className = "videoBox__wrapper videoBox__wrapper--"+ videoNumber +" slideIn--later";
-              document.querySelector(".comicBox").classList.remove("slideIn--oneMoreTime");
-
+              document.querySelector(
+                ".videoBox__wrapper--" + videoNumber
+              ).style.display = "none";
+              document.querySelector(
+                ".videoBox__wrapper--" + videoNumber
+              ).className =
+                "videoBox__wrapper videoBox__wrapper--" +
+                videoNumber +
+                " slideIn--later";
+              document
+                .querySelector(".comicBox")
+                .classList.remove("slideIn--oneMoreTime");
             }, 500);
             document.querySelector(".mec").classList.add("fadeInLeft");
           });
@@ -313,7 +393,7 @@ export default {
           case 1:
             textBoxContent.innerHTML =
               "L’exposition universelle et les jeux olympiques de 1900 sont un <span class='link--video' videoLinkId='1'>enjeu majeur</span> au nom de la ville de Paris";
-              videoPlus();
+            videoPlus();
 
             metroSign.classList.add("slideIn--now");
 
@@ -366,10 +446,31 @@ export default {
   //
 
   methods: {
+    /*
+     * Select the status of speaker
+     */
+    selectSpeaker() {
+      return this.boolean;
+    },
+    //
+    /*
+     * Inverse iconBoolean
+     */
+    clickSpeaker() {
+      this.boolean = !this.boolean;
+      document.querySelector(".speaker--songs").muted = this.boolean;
+      localStorage.setItem(`MUSIC`, this.boolean);
+    },
+    //
+
+    /*
+     * Link
+     */
     linkArticle() {
       let IDarticle = 2;
       this.$router.push({ path: `../../content/article/${IDarticle}` });
     }
+    //
   }
 };
 </script>

@@ -446,7 +446,6 @@ export default {
      * Inverse iconBoolean
      */
     clickSpeaker() {
-      console.log("feef");
       this.boolean = !this.boolean;
       document.querySelector(".speaker--songs").muted = this.boolean;
       localStorage.setItem(`MUSIC`, this.boolean);
