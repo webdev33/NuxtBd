@@ -16,12 +16,12 @@
 
       <!-- Mute -->
       <section v-if="selectSpeaker() === false" v-on:click="clickSpeaker()" class="speaker--on">
-        <img src="../../../assets/ressources/audios/icon/mute.svg" alt>
+        <img src="../../../assets/ressources/audios/icon/speakker--off.png" alt>
       </section>
 
       <!-- Unmute -->
       <section v-if="selectSpeaker() === true" v-on:click="clickSpeaker()" class="speaker--off">
-        <img src="../../../assets/ressources/audios/icon/unmute.svg" alt>
+        <img src="../../../assets/ressources/audios/icon/speakker--on.png" alt>
       </section>
     </section>
 

@@ -345,8 +345,8 @@ header{
       right:5vw;
       bottom: 0;
       @include min-sm {
-        width:80vh;
-        right: 10vw;
+        width:85vh;
+        right: 5vw;
         bottom: 0;
       }
       @include max-xs { 
