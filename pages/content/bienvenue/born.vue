@@ -67,7 +67,7 @@
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
           <iframe width="560" height="315" src="https://www.youtube.com/embed/wFcp6B9bCiY" class="videoBox__video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <p class="videoHeadline">Fulgence Bienvenüe</p>
+          <p class="videoHeadline">Un enfant curieux de tout</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
           <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--1">
@@ -87,7 +87,7 @@
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
           <iframe width="560" height="315" class="videoBox__video" src="https://www.youtube.com/embed/qbGDCwi7b2c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <p class="videoHeadline">Les moyens de transports en 1900</p>
+          <p class="videoHeadline">Les problématiques de transports en 1900</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
           <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--2">
@@ -129,41 +129,6 @@
       </div>
     </div> 
      <!-- End -->
-
-    <!-- Slide 3 Start -->
-    <div class="videoBox__wrapper videoBox__wrapper--3 slideIn--later">
-      <button class="button button--closeVideo button--closeVideo--3">Go Back</button>
-
-      <div class="videoBox">
-        <div class="videoBox__videoWrapper">
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/mg8EMi50kyQ" class="videoBox__video" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <p class="videoHeadline">Fulgence Bienvenüe, le père du métropolitain</p>
-        </div>
-        <div class="videoBox__audiodescriptionBox">
-          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--3">
-          <p
-            class="videoBox__audiodescription videoBox__audiodescription--3 slideIn--later"
-          >En 1896, un ingénieur de la ville de Paris, Fulgence Bienvenüe est chargé du projet. On le présente comme le père du métro. Une station porte même son nom : Montparnasse Bienvenüe.
-          “Il avait en particulier oeuvré à la fois sur les réseaux d’égouts et les réseaux d’approvisionnements en eau de la ville et il y a une certaine analogie, entre un tunnel de métro et un tunnel d’égout. Ce qui a fait que le personnage semblait tout à fait adapté à ce grand projet.”
-          Fulgence Bienvenüe est le champion du souterrain, mais le métro de Paris, ce sont aussi quelques constructions spectaculaires, incroyables prouesses technologiques pour l’époque et véritable chef d’oeuvre artistique.</p>
-        </div>
-      </div>
-
-      <div class="videoBox">
-        <div class="videoBox__videoWrapper">
-          <!-- i frame --->
-          <p class="videoHeadline">Fulgence Bienvenüe</p>
-        </div>
-        <div class="videoBox__audiodescriptionBox">
-          <img src="../../../assets/ressources/img/untertitel.png" alt class="icon--untertitel icon--untertitel--3">
-          <p
-            class="videoBox__audiodescription videoBox__audiodescription--3 slideIn--later"
-          >...</p>
-        </div>
-      </div>
-
-    </div> 
-    <!-- End -->
 
  
 
@@ -328,7 +293,7 @@ export default {
         switch (buttonNextCounter) {
           case 1:
             textBoxContent.innerHTML =
-              "Fulgence est un enfant discret au sein de la fraterie. Qui devient un adolescent <span class='link--video' videoLinkId='1' >passionné</span> par tous les sujets d’origine normande";
+              "Fulgence est un enfant discret au sein de la fraterie.<br><br> Qui devient un adolescent <span class='link--video' videoLinkId='1' >passionné</span> par tous les sujets d’origine normande";
             videoPlus();
             maison.classList.add("fadeOut");
             bebe.classList.add("slideIn--now");
@@ -344,7 +309,7 @@ export default {
             break;
           case 2:
             textBoxContent.innerHTML =
-              "Ingénieur des ponts et chaussées, Fulgence s’intéresse aux <span class='link--video' videoLinkId='2' >problématiques de transports</span> de la capitale.Tandis que la ville de Paris reconnaît le <span class='link--video' videoLinkId='2' >besoin</span> urgent d’un système de transports intra muros";
+              "Ingénieur des ponts et chaussées, Fulgence s’intéresse aux <span class='link--video' videoLinkId='2' >problématiques de transports</span> de la capitale. <br><br>Tandis que la ville de Paris reconnaît le <span class='link--video' videoLinkId='2' >besoin</span> urgent d’un système de transports intra muros";
             videoPlus();
 
             
@@ -358,7 +323,7 @@ export default {
             break;
           case 3:
             textBoxContent.innerHTML =
-              "<span class='link--video' videoLinkId='3'>Montparnasse</span> représente la porte entre Paris et la Bretagne.";
+              "Montparnasse représente la porte entre Paris et la Bretagne.";
             videoPlus();
 
             bebe.classList.add("fadeOut");
