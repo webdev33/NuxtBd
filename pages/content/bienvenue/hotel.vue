@@ -417,7 +417,7 @@ export default {
      * Link
      */
     linkArticle() {
-      let IDarticle = 2;
+      let IDarticle = 6;
       this.$router.push({ path: `../../content/article/${IDarticle}` });
     }
     //
