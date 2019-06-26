@@ -332,7 +332,6 @@ export default {
       });
       //
     };
-
     let savoirPlusEnd = function() {
       document.querySelector(".articlePlus").style.display = "none";
       textBox.classList.remove("fadeOut");
@@ -404,15 +403,20 @@ export default {
           let untertitelButtons = document.querySelectorAll(
             ".icon--untertitel--" + videoNumber
           );
-          console.log(untertitelButtons);
+
 
           for (let i = 0; i < untertitelButtons.length; i++) {
             untertitelButtons[i].addEventListener("click", function() {
-              let audioDescription = document.querySelectorAll(
-                ".videoBox__audiodescription--" + videoNumber
-              );
+              let audioDescription = document.querySelectorAll(".videoBox__wrapper--" + videoNumber +" .videoBox__audiodescription--" + videoNumber);
               for (let i = 0; i < audioDescription.length; i++) {
                 audioDescription[i].classList.toggle("slideIn--now");
+                audioDescription[i].classList.toggle("description--height");
+              }
+              let iframe = document.querySelectorAll(".videoBox__wrapper--" + videoNumber +" iframe");
+              for (let i = 0; i < iframe.length; i++) {
+                iframe[i].classList.toggle("iframeResize");
+                console.log("what 3");
+                console.log(iframe[i]);
               }
             });
           }

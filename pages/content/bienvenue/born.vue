@@ -250,29 +250,37 @@ export default {
       //Savoir Plus
       let savoirPlus = document.querySelector(".buttonPlus");
       savoirPlus.addEventListener("click", function() {
-        document.querySelector("body").classList.add("full");
+        document.querySelector(".comic").classList.add("full");
         textBox.classList.add("fadeOut");
         document.querySelector(".mec").classList.add("fadeOut");
         document.querySelector("header").classList.add("fadeOut");
         document.querySelector(".articlePlus").style.display = "block";
+        console.log("test 1");
         setTimeout(function() {
           document.querySelector(".articlePlus").classList.add("slideIn--now");
+          console.log("test 2");
         }, 100);
         document
           .querySelector(".buttonNext--end")
           .addEventListener("click", function() {
             window.scrollTo({ top: 0, behavior: "smooth" });
+            console.log("test 2");
           });
-        if (document.querySelector("body").classList.contains("full")) {
+        if (document.querySelector(".comic").classList.contains("full")) {
+          console.log("test 2");
           window.addEventListener("scroll", () => {
+            console.log("test 2");
             if (window.matchMedia("(min-width: 640px)").matches) {
               if (
                 document.documentElement.scrollTop >
-                window.innerHeight * 0.4
+                window.innerHeight * 0.2
               ) {
                 document.querySelector(".comicBox").classList.add("fadeOut");
+                document.querySelector(".articlePlus").style.zIndex="200";
+
               } else {
                 document.querySelector(".comicBox").classList.remove("fadeOut");
+                document.querySelector(".articlePlus").style.zIndex="0";
               }
             }
           });
@@ -286,6 +294,31 @@ export default {
       document.querySelector(".mec").classList.remove("fadeOut");
       document.querySelector("header").classList.remove("fadeOut");
     };
+
+    let untertitelButtonsPlus = document.querySelectorAll(".articlePlus .icon--untertitel");
+    console.log(untertitelButtonsPlus);
+    for (let i = 0; i < untertitelButtonsPlus.length; i++) {
+      console.log("what 1");
+      untertitelButtonsPlus[i].addEventListener("click", function() {
+
+        let audioDescriptionPlus = document.querySelectorAll( ".articlePlus .videoBox__audiodescription");
+
+        let iframePlus = document.querySelectorAll(".articlePlus iframe");
+        for (let i = 0; i < iframePlus.length; i++) {
+          iframePlus[i].classList.toggle("iframeResize");
+          console.log("what 3");
+          console.log(iframePlus[i]);
+        }
+        for (let i = 0; i < audioDescriptionPlus.length; i++) {
+          audioDescriptionPlus[i].classList.toggle("slideIn--now");
+          audioDescriptionPlus[i].classList.toggle("description--height");
+          console.log("what 2");
+
+          
+        }
+      });
+    }
+
     let videoPlus = function() {
       //reset
       document.querySelector(".mec").classList.remove("fadeOutLeft");
@@ -326,15 +359,20 @@ export default {
           let untertitelButtons = document.querySelectorAll(
             ".icon--untertitel--" + videoNumber
           );
-          console.log(untertitelButtons);
+
 
           for (let i = 0; i < untertitelButtons.length; i++) {
             untertitelButtons[i].addEventListener("click", function() {
-              let audioDescription = document.querySelectorAll(
-                ".videoBox__audiodescription--" + videoNumber
-              );
+              let audioDescription = document.querySelectorAll(".videoBox__wrapper--" + videoNumber +" .videoBox__audiodescription--" + videoNumber);
               for (let i = 0; i < audioDescription.length; i++) {
                 audioDescription[i].classList.toggle("slideIn--now");
+                audioDescription[i].classList.toggle("description--height");
+              }
+              let iframe = document.querySelectorAll(".videoBox__wrapper--" + videoNumber +" iframe");
+              for (let i = 0; i < iframe.length; i++) {
+                iframe[i].classList.toggle("iframeResize");
+                console.log("what 3");
+                console.log(iframe[i]);
               }
             });
           }
