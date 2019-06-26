@@ -163,7 +163,9 @@
       <div class="introArticle">
         <div class="introArticle__textBox">
           <h1>la creation du tunnel sur la Seine</h1>
-          <p>Est ce que vous pouves ecrit ici just un petit text sur le catasrophe. c est pas grave si c est double avec le video. je besoin contenu just au momnet on voir pas encore le image dans le view port, si c est plus cest pas du tout grave.</p>
+          <p>Le passage sous-fluvial a posé plusieurs problèmes, ce long et difficile chantier a mis en œuvre les premières réalisations mondiales de deux nouvelles techniques : la construction d’un tunnel sous-fluvial par fonçage de caissons et celle d’un souterrain en zone inondable par congélation du sol.
+          <br><br>
+          L’inspecteur général Fulgence Bienvenüe explique qu’il a fallu surmonter plusieurs difficultés : passer sous le chemin de fer d’Orléans en bordure du quai Saint-Michel et travailler en terrain aquifère, ce qui a nécessité cette congélation du sol sur une longueur de 64 mètres par 57 forages de 17 mètres de profondeur recevant en circuit permanent une injection de saumure de chlorure de calcium refroidie à moins 27 degrés afin d’obtenir un terrain gelé et sec.</p>
         </div>
       </div>
       <div class="articlePuls__imageBox">
@@ -331,25 +333,36 @@ export default {
       //
     };
 
-    let untertitelButtonsPlus = document.querySelectorAll(".articlePlus .icon--untertitel");
-    console.log(untertitelButtonsPlus);
-    for (let i = 0; i < untertitelButtonsPlus.length; i++) {
-      untertitelButtonsPlus[i].addEventListener("click", function() {
-        let audioDescriptionPlus = document.querySelectorAll( ".articlePlus .videoBox__audiodescription");
-        for (let i = 0; i < audioDescriptionPlus.length; i++) {
-          audioDescriptionPlus[i].classList.toggle("slideIn--now");
-          audioDescriptionPlus[i].classList.toggle("description--height");
-          console.log("Slide in description");
-        }
-      });
-    }
-    
     let savoirPlusEnd = function() {
       document.querySelector(".articlePlus").style.display = "none";
       textBox.classList.remove("fadeOut");
       document.querySelector(".mec").classList.remove("fadeOut");
       document.querySelector("header").classList.remove("fadeOut");
     };
+
+    let untertitelButtonsPlus = document.querySelectorAll(".articlePlus .icon--untertitel");
+    console.log(untertitelButtonsPlus);
+    for (let i = 0; i < untertitelButtonsPlus.length; i++) {
+      console.log("what 1");
+      untertitelButtonsPlus[i].addEventListener("click", function() {
+
+        let audioDescriptionPlus = document.querySelectorAll( ".articlePlus .videoBox__audiodescription");
+
+        let iframePlus = document.querySelectorAll(".articlePlus iframe");
+        for (let i = 0; i < iframePlus.length; i++) {
+          iframePlus[i].classList.toggle("iframeResize");
+          console.log("what 3");
+          console.log(iframePlus[i]);
+        }
+        for (let i = 0; i < audioDescriptionPlus.length; i++) {
+          audioDescriptionPlus[i].classList.toggle("slideIn--now");
+          audioDescriptionPlus[i].classList.toggle("description--height");
+          console.log("what 2");
+
+          
+        }
+      });
+    }
 
     let videoPlus = function() {
       //reset

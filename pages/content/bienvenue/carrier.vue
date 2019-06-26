@@ -394,17 +394,21 @@ export default {
     for (let i = 0; i < untertitelButtonsPlus.length; i++) {
       console.log("what 1");
       untertitelButtonsPlus[i].addEventListener("click", function() {
+
         let audioDescriptionPlus = document.querySelectorAll( ".articlePlus .videoBox__audiodescription");
+
+        let iframePlus = document.querySelectorAll(".articlePlus iframe");
+        for (let i = 0; i < iframePlus.length; i++) {
+          iframePlus[i].classList.toggle("iframeResize");
+          console.log("what 3");
+          console.log(iframePlus[i]);
+        }
         for (let i = 0; i < audioDescriptionPlus.length; i++) {
           audioDescriptionPlus[i].classList.toggle("slideIn--now");
           audioDescriptionPlus[i].classList.toggle("description--height");
           console.log("what 2");
 
-          let iframePlus = document.querySelectorAll("iframe");
-          for (let i = 0; i < iframePlus.length; i++) {
-            iframePlus[i].classList.toggle("iframeResize");
-            console.log("what 3");
-          }
+          
         }
       });
     }
