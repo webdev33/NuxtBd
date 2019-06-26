@@ -18,12 +18,20 @@
       ></audio>
 
       <!-- Mute -->
-      <section v-if="selectSpeaker() === false" v-on:click="clickSpeaker()" class="speaker speaker--on">
+      <section
+        v-if="selectSpeaker() === false"
+        v-on:click="clickSpeaker()"
+        class="speaker speaker--on"
+      >
         <img src="../../../assets/ressources/audios/icon/speakker--off.png" alt>
       </section>
 
       <!-- Unmute -->
-      <section v-if="selectSpeaker() === true" v-on:click="clickSpeaker()" class="speaker speaker--off">
+      <section
+        v-if="selectSpeaker() === true"
+        v-on:click="clickSpeaker()"
+        class="speaker speaker--off"
+      >
         <img src="../../../assets/ressources/audios/icon/speakker--on.png" alt>
       </section>
     </section>
@@ -94,25 +102,51 @@
       </div>
       <div class="articlePuls__imageBox">
         <div class="videoBox">
-          <img src="../../../assets/ressources/img/img.png" alt class="video">
+          <div class="videoBox">
+            <div class="videoBox__videoWrapper">
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/4j___gBxWDU"
+                frameborder="0"
+                class="videoBox__video"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+              <p class="videoHeadline">La tragédie Couronnes</p>
+            </div>
+            <div class="videoBox__audiodescriptionBox">
+              <img
+                src="../../../assets/ressources/img/untertitel.png"
+                alt
+                class="icon--untertitel icon--untertitel--0"
+              >
+              <p class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later">
+                Des incendies, aux causes parfois inattendues, il y en a eu depuis l’inauguration du métro. Le plus tragique d'entre eux remonte aux premières années de son exploitation, nous sommes le 10 Août 1903.
+                “Un incendie se déclare à la station Couronnes et provoque le décès de 84 personnes. En réalité, ce n’est pas la voiture qui contient les voyageurs qui s’enflamme, c’est un incident technique et un court circuit électrique qui arrive dans un train précédent parti dans le tunnel. Et qui, par le dégagement de fumée, va provoquer la mort de 84 personnes dans la station Couronnes.”
+                L’émotion est immense, le jeune métro vient de faire ses premières victimes. Les exploitants vont en tirer de nombreuses leçons.
+                “On a fait évoluer le matériel, on est venus isoler dans une cage métallique toute la logique de motorisation et toute la logique d’électrification. On a créé aussi cette logique de bougie moteur, ce qui permet d’isoler toute la partie en bois qui est plutôt l’espace voyageur. Ainsi on limite les risques d'incendie. Cette évolution était provisoire, puisque on est passés ensuite très rapidement à une évolution d’un nouveau type de matériel : une caisse totalement métallique.”
+              </p>
+            </div>
+          </div>
         </div>
         <div class="imageBox">
           <div class="imageBox__box">
-            <img src="../../../assets/ressources/img/img.png" alt class="imgageBox__box__image">
+            <img src="http://www.cparama.com/forum/cartes2016/1468055757-Z-1-.jpg" alt class="imgageBox__box__image">
             <p class="imgageBox__box__text">
-              <span>Date:</span>Fulgence Bienvenüe, inspecteur général des Ponts et Chaussées est, avec Edmond Huet, le père du métro de Paris
+              <span>Date : 11/08/1903<br></span>Catastrophe du Métro du 10 août 1903
             </p>
           </div>
           <div class="imageBox__box">
-            <img src="../../../assets/ressources/img/img.png" alt class="imgageBox__box__image">
+            <img src="http://www.cparama.com/forum/cartes2016/1468822457-Couronnes02.jpg" alt class="imgageBox__box__image">
             <p class="imgageBox__box__text">
-              <span>Date:</span>Fulgence Bienvenüe, inspecteur général des Ponts et Chaussées est, avec Edmond Huet, le père du métro de Paris
+              <span>Date : 11/08/1903<br></span>Découverte des cadavres
             </p>
           </div>
           <div class="imageBox__box">
-            <img src="../../../assets/ressources/img/img.png" alt class="imgageBox__box__image">
+            <img src="https://pbs.twimg.com/media/DkPQzruXcAAOvkh.jpg" alt class="imgageBox__box__image">
             <p class="imgageBox__box__text">
-              <span>Date:</span>Fulgence Bienvenüe, inspecteur général des Ponts et Chaussées est, avec Edmond Huet, le père du métro de Paris
+              <span>Date : 10/08/1903<br></span>La station des Couronnes pendant l'évacuation des victimes
             </p>
           </div>
         </div>
@@ -406,7 +440,7 @@ export default {
             break;
           case 2:
             textBoxContent.innerHTML =
-              "Le drame est à l'origine d'amélioration des techniques et de sécurité, encore en vigueur de nos jours <br><br><button class='button buttonPlus'>Ensavoir Plus</button>";
+              "Le drame est à l'origine d'amélioration des techniques et de sécurité, encore en vigueur de nos jours <br><br><button class='button buttonPlus'>En savoir Plus</button>";
 
             metroSign.classList.add("slideIn--now");
             bebeTete.classList.add("fadeOut");

@@ -15,12 +15,20 @@
       ></audio>
 
       <!-- Mute -->
-      <section v-if="selectSpeaker() === false" v-on:click="clickSpeaker()" class="speaker speaker--on">
+      <section
+        v-if="selectSpeaker() === false"
+        v-on:click="clickSpeaker()"
+        class="speaker speaker--on"
+      >
         <img src="../../../assets/ressources/audios/icon/speakker--off.png" alt>
       </section>
 
       <!-- Unmute -->
-      <section v-if="selectSpeaker() === true" v-on:click="clickSpeaker()" class="speaker speaker--off">
+      <section
+        v-if="selectSpeaker() === true"
+        v-on:click="clickSpeaker()"
+        class="speaker speaker--off"
+      >
         <img src="../../../assets/ressources/audios/icon/speakker--on.png" alt>
       </section>
     </section>
@@ -160,25 +168,73 @@
       </div>
       <div class="articlePuls__imageBox">
         <div class="videoBox">
-          <img src="../../../assets/ressources/img/img.png" alt class="video">
+          <div class="videoBox__videoWrapper">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/OniGNVU_bsw"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              class="videoBox__video"
+            ></iframe>
+            <p class="videoHeadline">Les travaux de la Ligne 4</p>
+          </div>
+          <div class="videoBox__audiodescriptionBox">
+            <img
+              src="../../../assets/ressources/img/untertitel.png"
+              alt
+              class="icon--untertitel icon--untertitel--1"
+            >
+            <p class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later">
+              La solution de caissons enterrés dans le fleuve est retenue. Les travaux commencent en 1905 et promettent d’être spectaculaires. Il y aura 3 grands caissons pour le grand bras de la Seine, couvrant une distance de 122 mètres et deux pour le petit bras de la Seine, pour une distance de 41 mètres. Les 5 caissons qui vont être immergés dans le fleuve sont assemblés sur le quai des tuileries. Les ingénieurs vont y multiplier les innovations.
+              Chaque caisson est ainsi composé d’une base en fonte, abritant les deux futures voies. L’ensemble est ceinturé d’une double ceinture métallique. De plus, le caisson repose sur une base en forme de lame de couteau de 1m80 de hauteur. Entre ces deux paroies, se trouve un espace libre. C’est la zone de travail dans laquelle les ouvriers vont s’installer. Le caisson qui flotte alors sur la Seine est alors tractée jusqu’à son futur lieu d’échouage. Après avoir atteint son positionnement idéal, du béton est injecté dans la double paroie métallique, créant ainsi un sarcophage étanche. Comme promis par le constructeur, le chantier malgré sa taille réussi l’exploit de laisser passer les hirondelles et leurs voyageurs sur la Seine. Sous le poids du béton, le caisson coule doucement. Une fois la mise en place effectuée, l’eau dans la chambre de travail est pompée. Quant au caisson principal, il est lesté pour le maintenir en place au fond du fleuve. Grâce aux cheminées, de l’air comprimé est alors envoyé dans la chambre de travail, augmentant son étanchéité à l’eau et permettant aux ouvriers de descendre afin de travailler sous la structure métallique, pour l’enfoncer dans le sol jusqu’au niveau souhaité. Travaillant dans des conditions extrêmes, ces ouvriers spécialisés on les appelle les “tubistes”. Ils doivent comme des plongeurs sous-marin suivre des paliers de décompression, pour remonter des chambres de travail, situées 15 mètres sous la surface. Grâce au travail de ces hommes, prêts à prendre tous les risques, tous les caissons d’une même sections sont descendus au bon niveau dans le lit de la Seine. Ils sont ensuite reliés ensemble pour ne former qu’un seul tube. Les chambres de travail sont alors remplies de béton et la tranchée est comblée pour assurer le blocage de l’ensemble. Le tunnel est terminé, l’eau est alors pompée et les ouvriers peuvent enfin y accéder. Si cette partie, pourtant la plus périlleuse se déroulera sans problème majeur, il n’en ira pas de même avec le tronçon sous l’île de la cité.
+            </p>
+          </div>
         </div>
+
+        <div class="videoBox">
+          <div class="videoBox__videoWrapper">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/d9C84UXkCq0"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              class="videoBox__video"
+            ></iframe>
+            <p class="videoHeadline">Le succès du métropolitain</p>
+          </div>
+          <div class="videoBox__audiodescriptionBox">
+            <img
+              src="../../../assets/ressources/img/untertitel.png"
+              alt
+              class="icon--untertitel icon--untertitel--1"
+            >
+            <p
+              class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later"
+            >C’est tout de suite un véritable succès et dès la fin de l’année 1900, on avait presque atteint 17 million de voyageurs. Une performance inimaginable, car chaque rame n’est constituée que de 3 voitures en bois qui circulent à 21 km/h maximum.</p>
+          </div>
+        </div>
+
         <div class="imageBox">
           <div class="imageBox__box">
-            <img src="../../../assets/ressources/img/img.png" alt class="imgageBox__box__image">
+            <img src="https://fracademic.com/pictures/frwiki/77/Metro_de_Paris_-_Plan_traversee_sous-fluviale_ligne_A_Nord-Sud.jpg" alt class="imgageBox__box__image">
             <p class="imgageBox__box__text">
-              <span>Date:</span>Fulgence Bienvenüe, inspecteur général des Ponts et Chaussées est, avec Edmond Huet, le père du métro de Paris
+              <span>Date : XXᵉ siècle </span>Plan de la traversée sous-fluviale
+            </p>
+          </div>
+          <div class="imageBox__box">
+            <img src="https://monumentum.fr/photo/galerie/maxi/00166/166980-station-cite-metro-paris.jpg" alt class="imgageBox__box__image">
+            <p class="imgageBox__box__text">
+              <span>Date : XXᵉ siècle </span>Fulgence Bienvenüe, inspecteur général des Ponts et Chaussées est, avec Edmond Huet, le père du métro de Paris
             </p>
           </div>
           <div class="imageBox__box">
             <img src="../../../assets/ressources/img/img.png" alt class="imgageBox__box__image">
             <p class="imgageBox__box__text">
-              <span>Date:</span>Fulgence Bienvenüe, inspecteur général des Ponts et Chaussées est, avec Edmond Huet, le père du métro de Paris
-            </p>
-          </div>
-          <div class="imageBox__box">
-            <img src="../../../assets/ressources/img/img.png" alt class="imgageBox__box__image">
-            <p class="imgageBox__box__text">
-              <span>Date:</span>Fulgence Bienvenüe, inspecteur général des Ponts et Chaussées est, avec Edmond Huet, le père du métro de Paris
+              <span>Date:</span>Chantier de la traversée sous-fluviale
             </p>
           </div>
         </div>
