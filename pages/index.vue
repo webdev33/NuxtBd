@@ -20,12 +20,17 @@
 
       <div class="contentBox">
         <h1 class="headline--intro--second">Bienvenüe</h1>
-        <p class="dialog">Je suis heureux de vous présenter</p>
-      </div>
 
-      <nuxt-link to="/content/map">
+        <p class="dialog">Je suis heureux de me présenter à vous</p>
+        <p class="dialog">Je suis Fulgence Bienvenüe</p>
+        <p class="dialog">J'ai invite avent plus que 100 ans<br>la metro a Paris</p>
+        <p class="dialog">C'est la raison pourqui du monde<br> m'appelle pere du metro.</p>
+
+        <nuxt-link to="/content/map">
         <button class="button button--intro">Let's go</button>
       </nuxt-link>
+
+      </div>
 
     </div>
     <footer class="footer--comic footer--index">
