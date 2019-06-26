@@ -79,29 +79,122 @@
         <div class="introArticle__textBox">
           <h1>La construction 1898 - 1900</h1>
           <p>
-            Dans cet catastrophe 80 person etaient blesse Fulgence Marie Auguste Bienvenüe est né le 27 janvier 1852 à Uzel dans les Côtes d’Armor, c’est le treizième et dernier enfant de sa famille. Ses ancêtres sont bretons.
-            <br>
-            <br>Fulgence Bienvenüe, inspecteur général des Ponts et Chaussées est, avec Edmond Huet, le père du métro de Paris. Il travailla pour la création de voies de chemin de fer, pour régler des problèmes d’urbanisme à Paris (égouts, parc des Buttes-Chaumont, transports, alimentation en eau).
+            Le 4 octobre 1898, les premiers coups de pioche sont donnés: ce sont les débuts des travaux qui vont éventrer les rues de Paris pendant plusieurs mois.
+            <br><br>
+            Le Figaro se réjouit: «après avoir lanterné pendant quinze ans, on se décide à construire le chemin de fer métropolitain avant l'Exposition». En revanche, dans les rues de Paris, le mécontentement des Parisiens monte.
           </p>
         </div>
       </div>
       <div class="articlePuls__imageBox">
+
         <div class="videoBox">
-          <img src="../../../assets/ressources/img/img.png" alt class="video">
+          <div class="videoBox__videoWrapper">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/FbngrcJD8HU"
+              frameborder="0"
+              class="videoBox__video"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <p class="videoHeadline">Le début des travaux</p>
+          </div>
+          <div class="videoBox__audiodescriptionBox">
+            <img
+              src="../../../assets/ressources/img/untertitel.png"
+              alt
+              class="icon--untertitel icon--untertitel--0"
+            >
+            <p class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later">
+              Les parisiens ne sont pas des taupes, ils ne descendront jamais dans ce trou.
+              Nous sommes en 1900, les parisiens n’y croient pas pourtant le métropolitain va en fait révolutionner leur vie. Dès 1897, les ouvriers travaillent jour et nuit pour créer la première ligne qui reliera Vincennes à la porte Maillot. Et le 19 Juillet 1900, les premiers voyageurs s’engouffrent sous la capitale et découvrent tout un univers.
+            </p>
+          </div>
         </div>
+
+        <div class="videoBox">
+          <div class="videoBox__videoWrapper">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/K189wnyoqtE"
+              frameborder="0"
+              class="videoBox__video"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <p class="videoHeadline">La Ligne 1</p>
+          </div>
+          <div class="videoBox__audiodescriptionBox">
+            <img
+              src="../../../assets/ressources/img/untertitel.png"
+              alt
+              class="icon--untertitel icon--untertitel--0"
+            >
+            <p class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later">
+              Sans surprise, la ligne 1 du métro est la première à avoir été ouverte le 19 juillet 1900. L’inauguration s’est faite après un débat d’environ 1 demi siècle dans lequel l’état et la ville de Paris se sont opposés sur la conception du chemin de fer métropolitain. L’Etat voulait relier les grandes gares de chemins de fer entre elles, créant ce que l’on appellerait aujourd’hui le RER, tandis que la ville de Paris préférait un chemin de fer d’intérêt local avec des stations rapprochées. C’est l’exposition universelle de 1900 qui a accéléré les débats, et a permis à la ville de Paris d’obtenir l’autorisation de l’Etat de faire son métropolitain. La ligne fut construite en seulement 20 mois. Afin d’éviter le problème des expropriations, le tracé des lignes suit exactement la voirie parisienne. Il suffisait ainsi, d’ouvrir la chaussée puis de la refermer. Le trafic atteignait rapidement les 130 mille voyageurs par jours, et aujourd’hui on atteint même les 800 mille.
+            </p>
+          </div>
+        </div>
+
+        <div class="videoBox">
+          <div class="videoBox__videoWrapper">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/NFvb1Y_o9XQ"
+              frameborder="0"
+              class="videoBox__video"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <p class="videoHeadline">Bretons</p>
+          </div>
+          <div class="videoBox__audiodescriptionBox">
+            <img
+              src="../../../assets/ressources/img/untertitel.png"
+              alt
+              class="icon--untertitel icon--untertitel--0"
+            >
+            <p class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later">
+              Il fallait qu’ils amènent leurs pelles et leurs pioches et c’était donc par trains entiers qu’ils venaient comme ça à Paris. Et d’ailleurs on peut dire que le métro parisien à été construit en bonne partie par les bretons, ils ont été très nombreux dans ce chantier.
+            </p>
+          </div>
+        </div>
+
+        <div class="videoBox">
+          <div class="videoBox__videoWrapper">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/vMLWnMBU-Zk"
+              frameborder="0"
+              class="videoBox__video"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+            <p class="videoHeadline">Les techniques de construction</p>
+          </div>
+          <div class="videoBox__audiodescriptionBox">
+            <img
+              src="../../../assets/ressources/img/untertitel.png"
+              alt
+              class="icon--untertitel icon--untertitel--0"
+            >
+            <p class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later">
+              “On va mettre en oeuvre plusieurs techniques de construction du métro. Globalement aujourd’hui on estime 3 types de constructions. On a une construction qui est plutôt du domaine de la mine, qui est la galerie boisée. On va créer des galeries, les étayer avec du bois.”<br>
+              Cette technique est utilisée par tous les entrepreneurs pour la construction de tunnels ferroviaires notamment. Comme dans les mines, le creusement se fait à la main, à la pioche et à la pelle. Un travail harassant, réalisé dans des conditions extrêmes. Tous les déblais sont sortis des galeries à l’aide de wagonnets, puis remontent en surface. Certains sont utilisés pour reboucher des carrières parisiennes. Quant aux galeries, elles sont étayées à l’aide d’énormes poutres qui servent également à créer la forme du futur tunnel. Enfin, toujours à la main, on réalise la voûte à l’aide de blocs de pierre maçonnés. Un travail digne de la construction des pyramides.<br>
+              “On a une deuxième technique qui sera employée plus tard, qui sera la technique du bouclier, qui est peut être aujourd’hui l’ancêtre du tunnelier. Qui consiste à creuser en poussant ce bouclier métallique et en construisant la voûte au fur et à mesure de l’avancement.”<br>
+              Le bouclier sera peu utilisé sur la ligne 1, car il est très lent, difficile à mettre en place et s’arrête dès qu’il rencontre une roche trop dure. À l’époque, il faut même creuser à la main pour le faire avancer dans des terrains parfois gorgés d’eau. Ce sont les voussoirs, posés un à un qui créent l'anneau du tunnel. Ils sont alors en fonte et sont positionnés grâce à un système manuel. Ensuite, bétonnés, ils donnent sa forme définitive au tunnel. Le bouclier est vraiment l’ancêtre du tunnelier moderne. Mais cette technique mettra des décennies pour être réellement au point. Il faudra attendre un siècle pour qu’un tunnelier soit de nouveau utilisé à Paris. Aujourd’hui on imagine mal la rue de Rivoli très fréquentée dans cet état. Et pourtant, c'est l’enfer que les parisiens vont vivre durant 18 mois.
+              “On a une dernière technique qui consiste à ouvrir la chaussée et fermer la boîte de la station avec un tablier métallique. Ce sont des techniques qui sont très gênantes, il n’y a plus de circulation. Ce sont des travaux qui concernent pratiquement un tier de la ligne 1.”<br>
+              Cette technique sera utilisée près de la Seine. On creuse le moins profond possible pour éviter les infiltrations. Du coup, le sommet de certaines stations n’est parfois qu’à 60 centimètres des roues des voitures.<br>
+              “Une fois les projets d’infrastructures effectivement livrés, il fallait décorer, habiller les stations. C’est l’arrivée du carreau biseauté blanc. On fait appelle à Hector Guimard pour les fameuses entrées de stations de métro. Le tout est livré à la Compagnie de Chemin de fer Métropolitain de Paris, qui va en assurer l’exploitation.”
+            </p>
+          </div>
+        </div>
+
         <div class="imageBox">
-          <div class="imageBox__box">
-            <img src="../../../assets/ressources/img/img.png" alt class="imgageBox__box__image">
-            <p class="imgageBox__box__text">
-              <span>Date:</span>Fulgence Bienvenüe, inspecteur général des Ponts et Chaussées est, avec Edmond Huet, le père du métro de Paris
-            </p>
-          </div>
-          <div class="imageBox__box">
-            <img src="../../../assets/ressources/img/img.png" alt class="imgageBox__box__image">
-            <p class="imgageBox__box__text">
-              <span>Date:</span>Fulgence Bienvenüe, inspecteur général des Ponts et Chaussées est, avec Edmond Huet, le père du métro de Paris
-            </p>
-          </div>
           <div class="imageBox__box">
             <img src="../../../assets/ressources/img/img.png" alt class="imgageBox__box__image">
             <p class="imgageBox__box__text">
@@ -292,12 +385,19 @@ export default {
     let untertitelButtonsPlus = document.querySelectorAll(".articlePlus .icon--untertitel");
     console.log(untertitelButtonsPlus);
     for (let i = 0; i < untertitelButtonsPlus.length; i++) {
+      console.log("what 1");
       untertitelButtonsPlus[i].addEventListener("click", function() {
         let audioDescriptionPlus = document.querySelectorAll( ".articlePlus .videoBox__audiodescription");
         for (let i = 0; i < audioDescriptionPlus.length; i++) {
           audioDescriptionPlus[i].classList.toggle("slideIn--now");
           audioDescriptionPlus[i].classList.toggle("description--height");
-          console.log("Slide in description");
+          console.log("what 2");
+
+          let iframePlus = document.querySelectorAll("iframe");
+          for (let i = 0; i < iframePlus.length; i++) {
+            iframePlus[i].classList.toggle("iframeResize");
+            console.log("what 3");
+          }
         }
       });
     }
