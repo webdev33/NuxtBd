@@ -12,7 +12,7 @@
     <section class="speaker">
       <!-- autoplay -->
       <audio
-        :src="require('@/assets/ressources/audios/poinconneurDesLilas.mp3')"
+        :src="require('@/assets/ressources/audios/TelephoneMetro.mp3')"
         autoplay
         class="speaker--songs"
       ></audio>

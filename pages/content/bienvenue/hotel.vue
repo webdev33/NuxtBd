@@ -2,7 +2,7 @@
 <template>
   <section class="comic">
     <header>
-      <h1>Hotel de Ville</h1>
+      <h1>Hôtel de Ville</h1>
       <div class="headlineIntro"></div>
     </header>
 
@@ -10,7 +10,7 @@
     <section class="speaker">
       <!-- autoplay -->
       <audio
-        :src="require('@/assets/ressources/audios/poinconneurDesLilas.mp3')"
+        :src="require('@/assets/ressources/audios/terminusHotelDeVille.mp3')"
         autoplay
         class="speaker--songs"
       ></audio>

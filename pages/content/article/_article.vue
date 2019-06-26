@@ -771,9 +771,9 @@
       </div>
 
       <div class="article--nom" v-if="ifStation === false">
-        <h2 class="article--nom__headline">{{ articleSelected.station }}</h2>
 
         <section v-for="select in articleSelected.explicationNom" :key="select._id">
+          <h2 class="article--nom__headline">{{ select.name }}</h2>
           <p class="article--nom__paragraph">{{ select.text }}</p>
           <br>
         </section>
@@ -783,7 +783,7 @@
     </article>
 
     <footer class="footer--article">
-     <nuxt-link to="/content/navigation">
+      <nuxt-link to="/content/navigation">
         <p>
           <img src="../../../assets/ressources/img/icon.png" alt>
         </p>

@@ -1,7 +1,7 @@
 <template>
   <section class="comic">
     <header>
-      <h1>Pere Lachaise</h1>
+      <h1>Père Lachaise</h1>
       <div class="headlineIntro"></div>
     </header>
 
@@ -9,7 +9,7 @@
     <section class="speaker">
       <!-- autoplay -->
       <audio
-        :src="require('@/assets/ressources/audios/poinconneurDesLilas.mp3')"
+        :src="require('@/assets/ressources/audios/JaimePlusParisThomasDutronc.mp3')"
         autoplay
         class="speaker--songs"
       ></audio>

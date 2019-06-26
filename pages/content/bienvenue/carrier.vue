@@ -12,7 +12,7 @@
     <section class="speaker">
       <!-- autoplay -->
       <audio
-        :src="require('@/assets/ressources/audios/poinconneurDesLilas.mp3')"
+        :src="require('@/assets/ressources/audios/EdithPiafLeMetroDeParis.mp3')"
         autoplay
         class="speaker--songs"
       ></audio>

@@ -9,7 +9,7 @@
     <section class="speaker">
       <!-- autoplay -->
       <audio
-        :src="require('@/assets/ressources/audios/poinconneurDesLilas.mp3')"
+        :src="require('@/assets/ressources/audios/YvesMontandMetro.mp3')"
         autoplay
         class="speaker--songs"
       ></audio>

@@ -9,7 +9,7 @@
     <section class="speaker">
       <!-- autoplay -->
       <audio
-        :src="require('@/assets/ressources/audios/poinconneurDesLilas.mp3')"
+        :src="require('@/assets/ressources/audios/laSeine.mp3')"
         autoplay
         class="speaker--songs"
       ></audio>
@@ -215,7 +215,7 @@ export default {
       ? JSON.parse(localStorage.getItem(`MUSIC`))
       : false;
     document.querySelector(".speaker--songs").muted = this.boolean;
-    document.querySelector(".speaker--songs").volume = 0.3;
+    document.querySelector(".speaker--songs").volume = 0.5;
     //
 
     ///chaque comic
