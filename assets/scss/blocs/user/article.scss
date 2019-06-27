@@ -272,6 +272,7 @@
 .button--articleBox{
   @include min-sm {
     position: fixed;
+    justify-content: flex-end;
     right:60px;
     bottom: 30px;
     display: flex;

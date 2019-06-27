@@ -50,8 +50,8 @@
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
         <p class="comic__text__p">
-          Fulgence Bienvenüe naît en Bretagne,
-          <br>Le 27 janvier 1852.
+          Fulgence Bienvenüe est né en Bretagne,
+          <br>le 27 janvier 1852.
         </p>
       </div>
       <img
@@ -140,7 +140,7 @@
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
-          <p class="videoHeadline">Les problématiques de transports en 1900</p>
+          <p class="videoHeadline">Les problématiques de transport en 1900</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
           <img
@@ -455,7 +455,7 @@ export default {
         switch (buttonNextCounter) {
           case 1:
             textBoxContent.innerHTML =
-              "Fulgence est un enfant discret au sein de la fraterie.<br><br> Qui devient un adolescent <span class='link--video' videoLinkId='1' >passionné</span> par tous les sujets.";
+              "Fulgence est un enfant discret au sein de la fratrie.<br><br> Il devient un adolescent <span class='link--video' videoLinkId='1' >passionné</span> par tous les sujets.";
             videoPlus();
             maison.classList.add("fadeOut");
             bebe.classList.add("slideIn--now");
@@ -471,7 +471,7 @@ export default {
             break;
           case 2:
             textBoxContent.innerHTML =
-              "Ingénieur des ponts et chaussées, Fulgence s’intéresse aux <span class='link--video' videoLinkId='2' >problématiques de transports</span> de la capitale. <br><br>Tandis que la ville de Paris reconnaît le <span class='link--video' videoLinkId='2' >besoin</span> urgent d’un système de transports intra muros";
+              "Ingénieur des ponts et chaussées, Fulgence s’intéresse aux <span class='link--video' videoLinkId='2' >problématiques des transports</span> de la capitale. <br><br>Tandis que la ville de Paris reconnaît le <span class='link--video' videoLinkId='2' >besoin</span> urgent d’un système des transports intra muros.";
             videoPlus();
 
             train.classList.add("fadeOut");

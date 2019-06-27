@@ -47,7 +47,7 @@
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
         <p class="comic__text__p">
           Le 20 avril 1896,
-          <span class="link--video" videoLinkId="0">le projet</span> de desserte urbain de Fulgence Bienvenüe est adopté par le Conseil Municipal de Paris.
+          <span class="link--video" videoLinkId="0">le projet</span> de desserte urbaine de Fulgence Bienvenüe est adopté par le Conseil Municipal de Paris.
         </p>
       </div>
       <img
@@ -89,9 +89,9 @@
           <p>
            Le 4 octobre 1898, les premiers coups de pioche sont donnés: ce sont les débuts des travaux qui vont éventrer les rues de Paris pendant plusieurs mois.
             <br><br>
-            Le Figaro se réjouit: «après avoir lanterné pendant quinze ans, on se décide à construire le chemin de fer métropolitain avant l'Exposition». En revanche, dans les rues de Paris, le mécontentement des Parisiens monte.
+            Le Figaro se réjouit : «après avoir lanterné pendant quinze ans, on se décide à construire le chemin de fer métropolitain avant l'Exposition». En revanche, dans les rues de Paris, le mécontentement des Parisiens monte.
             <br><br>
-            La terre est retournée, les rues défoncées, la ville étripée. On creuse les boulevards et les avenues pour y enterrer d’énormes infrastructures d’acier. Mais Paris est un véritable gruyère : sous les pavés, ce n’est pas la plage que l’on trouve mais des carrières, des égouts, des canalisations, des conduites, des grottes et cavités en tous genres et Bienvenüe doit bien souvent faire préalablement consolider la zone de percement.
+            La terre est retournée, les rues détruites, la ville étripée. On creuse les boulevards et les avenues pour y enterrer d’énormes infrastructures d’acier. Mais Paris est un véritable gruyère : sous les pavés, ce n’est pas la plage que l’on trouve mais des carrières, des égouts, des canalisations, des conduites, des grottes et cavités en tous genres et Bienvenüe doit bien souvent faire préalablement consolider la zone de percement.
           </p>
         </div>
       </div>
@@ -164,7 +164,7 @@
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
               allowfullscreen
             ></iframe>
-            <p class="videoHeadline">Le rôle bretons</p>
+            <p class="videoHeadline">Le rôle des bretons dans la construction du métropolitain</p>
           </div>
           <div class="videoBox__audiodescriptionBox">
             <img
@@ -221,21 +221,21 @@
           <div class="imageBox__box">
             <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Paris_Metro_construction_03300288-3.jpg/440px-Paris_Metro_construction_03300288-3.jpg" alt class="imgageBox__box__image">
             <p class="imgageBox__box__text">
-              <span>1902-1910 : </span>Construction du métro de Paris.
+              <span>1902-1910 : </span>Construction du métro de Paris
             </p>
           </div>
 
           <div class="imageBox__box">
             <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Paris_Metro_construction_03300288-5.jpg" alt class="imgageBox__box__image">
             <p class="imgageBox__box__text">
-              <span>1902-1910 : </span>Construction du métro de Paris.
+              <span>1902-1910 : </span>Construction du métro de Paris
             </p>
           </div>
 
           <div class="imageBox__box">
             <img src="http://www.cparama.com/forum/cartes2013b/1372348916-562.jpg" alt class="imgageBox__box__image">
             <p class="imgageBox__box__text">
-              <span>1905-1907 : </span>Les travaux du Métropolitain Avenue d'Orléans.
+              <span>1905-1907 : </span>Les travaux du Métropolitain Avenue d'Orléans
             </p>
           </div>
 
@@ -249,7 +249,7 @@
           <div class="imageBox__box">
             <img src="https://www.challenges.fr/assets/img/2013/04/15/images_list-w1600h900-578d3c15a4ce2-1930.jpg" alt class="imgageBox__box__image">
             <p class="imgageBox__box__text">
-              <span>1930 : </span>La construction de la ligne 7 entre les stations Sully-Morland et Jussieu. Comme pour la ligne 4, il faut franchir la Seine
+              <span>1930 : </span>La construction de la ligne 7 entre les stations Sully-Morland et Jussieu, comme pour la ligne 4, il faut franchir la Seine
             </p>
           </div>
 
@@ -612,7 +612,7 @@ export default {
             break;
           case 3:
             textBoxContent.innerHTML =
-              "Replonge avec moi dans les images d'archives d'antant. <br><br> Je suis si fier de mon oeuvre. ";
+              "Replonge avec moi dans les images d'archives d'antan. <br><br> Je suis si fier de mon oeuvre. ";
             savoirPlusEnd();
 
             legs.classList.add("fadeOut");

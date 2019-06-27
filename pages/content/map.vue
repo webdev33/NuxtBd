@@ -873,7 +873,7 @@ export default {
 
       let visited = JSON.parse(localStorage.getItem(`VISITED`));
       if (visited === true) {
-        speechBubble.innerHTML = `Découvre les stations de toi même !`;
+        speechBubble.innerHTML = `Découvre les stations par toi-même !`;
       } else {
         speechBubble.innerHTML = `Découvre maintenant les stations et apprends pourquoi elles sont importantes pour moi.`;
       }

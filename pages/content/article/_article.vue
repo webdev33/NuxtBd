@@ -830,9 +830,11 @@
       >
       </section>-->
 
-      <section v-for="select in articleSelected.nextStep" :key="select._id">
-        <div v-on:click="linkArticle(select.link)" class="button button--article">{{ select.title }}</div>
-      </section>
+      <div class="button--articleBox">
+        <section v-for="select in articleSelected.nextStep" :key="select._id">
+          <div v-on:click="linkArticle(select.link)" class="button button--article">{{ select.title }}</div>
+        </section>
+       </div>
 
       <!-- <section
         v-for="select in articleSelected.nextStep"
