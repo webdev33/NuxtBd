@@ -819,13 +819,24 @@
       </section>
       <!-- </div> -->
 
-      <section
+      <!-- <section
         v-for="select in articleSelected.nextStep"
         :key="select._id"
         class="button--articleBox"
       >
+      </section> -->
+
+      <section v-for="select in articleSelected.nextStep" :key="select._id">
         <div v-on:click="linkArticle(select.link)" class="button button--article">{{ select.title }}</div>
       </section>
+
+      <!-- <section
+        v-for="select in articleSelected.nextStep"
+        :key="select._id"
+        class="button--articleBox"
+      >
+        A
+      </section> -->
     </article>
 
     <footer class="footer--article">
@@ -1015,6 +1026,8 @@ export default {
         this.articleSelected.nextStep = JSON.parse(
           article.data.data[0].nextStep
         );
+
+        console.log(this.articleSelected.nextStep)
 
         this.openingStation = this.articleSelected.linesStation[0].date;
 
