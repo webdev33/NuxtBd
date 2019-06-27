@@ -813,7 +813,7 @@
 
       <div class="article--nom" v-if="ifStation === false">
         <section v-for="select in articleSelected.explicationNom" :key="select._id">
-          <h2 class="article--nom__headline">{{ select.name }}</h2>
+          <h2 class="article--nom__headline">{{ articleSelected.station }}</h2>
           <p class="article--nom__paragraph">{{ select.text }}</p>
           <br>
         </section>

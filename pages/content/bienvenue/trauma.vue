@@ -42,11 +42,11 @@
 
     <div class="discoverBox">
       <img src="../../../assets/ressources/img/stairs.svg" class="stair" alt>
-      <a v-on:click="linkArticle()" class="button button--discover">Découvre la station</a>
+      <a v-on:click="linkArticle('couronnes')" class="button button--discover">Couronnes</a>
       <a
-        v-on:click="linkArticle()"
+        v-on:click="linkArticle('menilmontant')"
         class="button button--discover button button--discover--2"
-      >Découvre la station</a>
+      >Ménilmontant</a>
     </div>
 
     <div class="comicBox comicBox--trauma">
@@ -559,9 +559,16 @@ export default {
     /*
      * Link
      */
-    linkArticle() {
-      let IDarticle = 3;
-      this.$router.push({ path: `../../content/article/${IDarticle}` });
+    linkArticle(select) {
+      
+      if (select === "couronnes") {
+        let IDarticle = 3;
+        this.$router.push({ path: `../../content/article/${IDarticle}` });
+      } else if(select === "menilmontant") {
+        let IDarticle = 4;
+        this.$router.push({ path: `../../content/article/${IDarticle}` });
+      }
+      
     }
     //
   }

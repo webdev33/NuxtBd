@@ -938,7 +938,7 @@ export default {
 
     montparnasse.addEventListener("mouseover", function() {
       var newDiv = document.createElement("div");
-      var newContentText = "Montparnasse - Bienvenüe";
+      var newContentText = "Naissance";
       var newContent = document.createTextNode(newContentText);
       newDiv.className = "stationBox";
       newDiv.appendChild(newContent);
