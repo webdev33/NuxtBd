@@ -147,7 +147,7 @@
         </div>
       </div>
     </div>
-    <footer class="footer--comic">
+    <footer class="footer--comic" style="position: fixed">
       <!-- <img src="../../assets/ressources/img/mec.png" class="mec" alt> -->
       <nuxt-link to="/content/navigation">
         <button>
