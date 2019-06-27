@@ -398,7 +398,7 @@ export default {
       savoirPlus.addEventListener("click", function() {
         document.querySelector(".comic").classList.add("full");
         textBox.classList.add("fadeOut");
-        document.querySelector(".mec").classList.add("fadeOut");
+        document.querySelector(".mec").className = "mec fadeOut";
         document.querySelector("header").classList.add("fadeOut");
         document.querySelector(".articlePlus").style.display = "block";
         console.log("test 1");

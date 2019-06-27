@@ -55,7 +55,7 @@
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
         <p class="comic__text__p">
           Le réseau
-          <span class="link--video" videoLinkId="0">superconnecté</span> de Fulgence connaît un
+          <span class="link--video" videoLinkId="0">super connecté</span> de Fulgence connaît un
           <span class="link--video" videoLinkId="0">succès</span> monstre.
           <br>
           <br>Mais ...
@@ -96,7 +96,7 @@
             Le 10 août 1903, suite à un court-circuit, un incendie se déclare sur une rame à la station Barbès.
             <br>
             <br>Afin de ne pas bloquer le réseau, la rame est poussée vide vers Nation par la rame qui arrivait derrière (préalablement évacuée).
-            <br>Mais à la station Ménilmontant, le feu reprend sans qu'on puisse l'éteindre. Au même instant, la rame suivante, qui avait ramassé les quelque 300 voyageurs des deux rames évacuées arrive à la station précédant Ménilmontant : la station Couronnes. Mais averti de la reprise de l'incendie, le chauffeur ne redémarre pas et prie les gens de descendre afin d'évacuer la station par l'escalier.
+            <br>Mais à la station Ménilmontant, le feu reprend sans qu'on puisse l'éteindre. Au même instant, la rame suivante, qui avait ramassé les quelque 300 voyageurs des deux rames évacuées arrive à la station précédant Ménilmontant : la station Couronnes. Mais averti de la reprise de l'incendie, le chauffeur ne redémarre pas et demanda aux gens de descendre afin d'évacuer la station par l'escalier.
             <br>
             <br>Cependant, la fumée de l'incendie (la fumée uniquement, le feu étant resté circonscrit à la rame de métro), qui a envahi la station Ménilmontant évacuée, se propage dans le tunnel pour jaillir soudainement dans la station Couronnes, côté tête du train où se trouvent les protestataires. Aveuglé, par réflexe, le groupe fuit la fumée vers l'autre extrémité du quai, malheureusement sans issue.
             <br>
@@ -320,7 +320,7 @@ export default {
       savoirPlus.addEventListener("click", function() {
         document.querySelector(".comic").classList.add("full");
         textBox.classList.add("fadeOut");
-        document.querySelector(".mec").classList.add("fadeOut");
+        document.querySelector(".mec").className = "mec fadeOut";
         document.querySelector("header").classList.add("fadeOut");
         document.querySelector(".articlePlus").style.display = "block";
         console.log("test 1");
@@ -510,7 +510,7 @@ export default {
             break;
           case 2:
             textBoxContent.innerHTML =
-              "Le drame est à l'origine d'amélioration des techniques et de sécurité, encore en vigueur de nos jours <br><br><button class='button buttonPlus'>En savoir plus</button>";
+              "Le drame est à l'origine d'amélioration des techniques et de la sécurité, encore en vigueur de nos jours <br><br><button class='button buttonPlus'>En savoir plus</button>";
 
             metroSign.classList.add("slideIn--now");
             bebeTete.classList.add("fadeOut");

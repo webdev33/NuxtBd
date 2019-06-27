@@ -48,7 +48,7 @@
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
         <p class="comic__text__p">
           Lors d’une belle journée
-          <span class="link--video" videoLinkId="0">ensolleillée</span> d’Août 1936...
+          <span class="link--video" videoLinkId="0">ensoleillée</span> d’août 1936...
         </p>
       </div>
       <img

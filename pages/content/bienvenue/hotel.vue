@@ -440,7 +440,7 @@ export default {
             break;
           case 3:
             textBoxContent.innerHTML =
-              "Cette récompense lui ait remis à proximité de la station Hôtel de Ville, qui se trouve sur la ligne 1.";
+              "Cette récompense est remise à proximité de la station Hôtel de Ville, qui se trouve sur la ligne 1.";
 
             leg.classList.add("fadeOut");
             corp.classList.add("fadeOut");

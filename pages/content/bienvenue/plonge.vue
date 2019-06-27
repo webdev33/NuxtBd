@@ -49,7 +49,7 @@
         <p class="comic__text__p">
           Après avoir assisté à l’éventrement des rues de la capitale, <span class="link--video" videoLinkId="0">la Seine</span> tremble.
           <br>
-          <br>Divisant Paris en son centre, elle est un obstacle à la cohésion du réseau
+          <br>Divisant Paris en son centre, elle est un obstacle à la cohésion du réseau.
         </p>
       </div>
 
@@ -82,13 +82,13 @@
 
     <!-- Slide 0 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--0 slideIn--later">
-      <button class="button button--closeVideo button--closeVideo--0">Retouren en arrière</button>
+      <button class="button button--closeVideo button--closeVideo--0">Retour en arrière</button>
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
           
           <iframe width="560" height="315" class="videoBox__video" src="https://www.youtube.com/embed/9Jes2zhDRIg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-          <p class="videoHeadline">Paris d'antant</p>
+          <p class="videoHeadline">Paris d'antan</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
           <img
@@ -165,7 +165,7 @@
     <article class="articlePlus slideIn--later">
       <div class="introArticle">
         <div class="introArticle__textBox">
-          <h1>La creation du tunnel sur la Seine</h1>
+          <h1>La création du tunnel sous la Seine</h1>
           <p>Le passage sous-fluvial a posé plusieurs problèmes. Ce long et difficile chantier a mis en œuvre les premières réalisations mondiales de deux nouvelles techniques : la construction d’un tunnel sous-fluvial par fonçage de caissons et celle d’un souterrain en zone inondable par congélation du sol.
           <br><br>
           L’inspecteur général Fulgence Bienvenüe explique qu’il a fallu surmonter plusieurs difficultés. Passer sous le chemin de fer d’Orléans en bordure du quai Saint-Michel et travailler en terrain aquifère. Le sol a nécessité une congélation sur une longueur de 64 mètres par 57 forages de 17 mètres de profondeur. Le circuit injectait alors une composition chimique refroidie à moins 27 degrés afin d’obtenir un terrain gelé et sec.</p>
@@ -358,7 +358,7 @@ export default {
       savoirPlus.addEventListener("click", function() {
         document.querySelector(".comic").classList.add("full");
         textBox.classList.add("fadeOut");
-        document.querySelector(".mec").classList.add("fadeOut");
+        document.querySelector(".mec").className = "mec fadeOut";
         document.querySelector("header").classList.add("fadeOut");
         document.querySelector(".articlePlus").style.display = "block";
         console.log("test 1");
