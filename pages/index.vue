@@ -17,7 +17,7 @@
       <h1 class="headline--intro--first">Le Père du Métro</h1>
       <div class="fakescroll"></div>
       <div class="intro__video">
-        <video src="../assets/ressources/img/intro_test2.mp4" autoplay></video>
+        <video src="../assets/ressources/img/intro.mp4" autoplay></video>
       </div>
 
       <h1 class="headline--intro--second">Qui a éventré Paris ?</h1>
