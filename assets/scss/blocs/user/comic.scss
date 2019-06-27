@@ -240,13 +240,16 @@ header{
       right: 10vw;
       @include min-sm {
         bottom: 25px;
-        font-size: 1.4em;
+        
       }
       @include max-xs {
        right: 10px;
       }
       bottom: 0;
       z-index: 100;
+      &.buttonNext{
+        font-size: 1.4em;
+      }
       
     }
     .metroSign{

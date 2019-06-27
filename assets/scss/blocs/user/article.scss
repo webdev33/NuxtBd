@@ -269,22 +269,39 @@
   }
 }
 
-.button--article{
-  margin-bottom: 30px;
-  display: inline-block;
-  //position: absolute;
-  //right: 20px;
+.button--articleBox{
   @include min-sm {
     position: fixed;
     right:60px;
-    top:calc(100vh - 100px);
-    padding:15px;
-    font-size: 1.3em;
-    border-radius: 40px;
-    // &:nth-of-type(1){
-    //   top:calc(100vh - 200px);
-    // }
+    bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    .button--article{
+      display: inline-block;
+      //margin-top: 20px;
+      font-size: 1.3em;
+      border-radius: 40px;
+      margin: 4px;
+    }
   }
+}
+
+.button--article{
+  // margin-bottom: 30px;
+  // display: inline-block;
+  // //position: absolute;
+  // //right: 20px;
+  // @include min-sm {
+  //   position: fixed;
+  //   right:60px;
+  //   top:calc(100vh - 100px);
+  //   padding:15px;
+  //   font-size: 1.3em;
+  //   border-radius: 40px;
+  //   // &:nth-of-type(1){
+  //   //   top:calc(100vh - 200px);
+  //   // }
+  // }
   
   cursor: pointer;
   a{

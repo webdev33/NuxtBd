@@ -75,8 +75,6 @@
   
 }
 
-
-
 .dialog{
   @include max-xs { 
     display: none;
@@ -163,7 +161,7 @@
 }
 
 .slideInButton{
-  animation: slideInButton 0.3s forwards;
+  animation: slideInButton 0.5s forwards;
 }
 
 @keyframes slideInButton{
@@ -174,7 +172,7 @@
 
 .slideIOutTop{
 
-  animation: slideIOutTop 0.3s forwards;
+  animation: slideIOutTop 0.5s forwards;
 }
 
 @keyframes slideIOutTop{
