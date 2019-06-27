@@ -12,19 +12,15 @@
         <div class="timeBar__year">1937</div>
       </div>
 
-      <div
-        class="speechbubble"
-        v-if="visited === true"
-      >Découvrez de vous même maintenant les stations !</div>
+      <div class="speechbubble" v-if="visited === true">Découvre les stations de toi même !</div>
       <div class="speechbubble" v-else>
-        Découvrez maintenant les station et apprennez pourquoi elles sont importantes pour moi.
+        Découvre maintenant les stations et apprends pourquoi elles sont importantes pour moi.
         <br>
         <br>Je te propose de commencer avec
-        <nuxt-link class="stationLink" to="/content/bienvenue/born">Montparnasse - Bienvenüe</nuxt-link>
+        <nuxt-link class="stationLink" to="/content/bienvenue/born">Ma naissance</nuxt-link>
       </div>
 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 970 790" class="mapSVG">
-        
         <g id="Line">
           <polyline
             id="_1_1"
@@ -363,7 +359,7 @@
             <circle
               class="station"
               station="couronnes"
-              bubble="Son traumatisme"
+              bubble="Mon traumatisme"
               cx="758.78"
               cy="251.05"
               r="15"
@@ -374,7 +370,7 @@
             <circle
               class="station"
               station="menilmontant"
-              bubble="Son traumatisme"
+              bubble="Mon traumatisme"
               cx="789.39"
               cy="281.58"
               r="15"
@@ -382,7 +378,14 @@
           </nuxt-link>
 
           <nuxt-link to="/content/bienvenue/morte">
-            <circle class="station" station="pere" bubble="Sa mort" cx="816.71" cy="318.28" r="15"></circle>
+            <circle
+              class="station"
+              station="pere"
+              bubble="Mon décès"
+              cx="816.71"
+              cy="318.28"
+              r="15"
+            ></circle>
           </nuxt-link>
           <circle class="cls-2" cx="816.71" cy="349.96" r="0"></circle>
           <circle class="cls-2" cx="817.14" cy="389.45" r="0"></circle>
@@ -393,7 +396,14 @@
           <circle class="cls-2" cx="916.53" cy="494.12" r="0"></circle>
 
           <nuxt-link to="/content/bienvenue/carrier">
-            <circle class="station" station="ligne1" bubble="Sa carrière" cx="882.02" cy="475" r="15"></circle>
+            <circle
+              class="station"
+              station="ligne1"
+              bubble="Ma carrière"
+              cx="882.02"
+              cy="475"
+              r="15"
+            ></circle>
           </nuxt-link>
 
           <circle class="cls-2" cx="865.49" cy="510.91" r="0"></circle>
@@ -507,11 +517,18 @@
           <circle class="cls-2" cx="600.31" cy="349.96" r="0"></circle>
 
           <nuxt-link to="/content/bienvenue/plonge">
-            <circle class="station" station="cite" bubble="Son génie" cx="507.3" cy="414.96" r="15"></circle>
+            <circle class="station" station="cite" bubble="Mon génie" cx="507.3" cy="414.96" r="15"></circle>
           </nuxt-link>
 
           <nuxt-link to="/content/bienvenue/hotel">
-            <circle class="station" station="hotle" bubble="Son triomphe" cx="571.11" cy="378.76" r="15"></circle>
+            <circle
+              class="station"
+              station="hotle"
+              bubble="Mon triomphe"
+              cx="571.11"
+              cy="378.76"
+              r="15"
+            ></circle>
           </nuxt-link>
 
           <circle class="cls-2" cx="610.6" cy="418.8" r="0"></circle>
@@ -535,7 +552,7 @@
             <circle
               class="station"
               station="courcelles"
-              bubble="Sa vie privée"
+              bubble="Ma vie privée"
               cx="248.91"
               cy="196.56"
               r="15"
@@ -708,7 +725,7 @@
             <rect
               class="station"
               station="montparnasse"
-              bubble="Naissance"
+              bubble="Ma naissance"
               x="410.7"
               y="573.06"
               width="25"
@@ -740,7 +757,7 @@
         </g>
       </svg>
       <nuxt-link to="/content/gallery">
-        <button class="button button--map">Image Gallery</button>
+        <button class="button button--map">Galerie d'images</button>
       </nuxt-link>
     </div>
     <div class="legende--year">1936</div>
@@ -909,7 +926,7 @@ export default {
 
     montparnasse.addEventListener("mouseover", function() {
       var newDiv = document.createElement("div");
-      var newContentText = 'Montparnasse - Bienvenüe';
+      var newContentText = "Montparnasse - Bienvenüe";
       var newContent = document.createTextNode(newContentText);
       newDiv.className = "stationBox";
       newDiv.appendChild(newContent);

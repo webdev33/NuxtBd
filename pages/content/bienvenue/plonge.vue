@@ -1,7 +1,7 @@
 <template>
   <section class="comic">
     <header>
-      <h1>Cite</h1>
+      <h1>Cité</h1>
       <div class="headlineIntro"></div>
     </header>
 
@@ -34,23 +34,23 @@
     </section>
 
     <div class="sidebar">
-      <h2>Idee du Genie</h2>
+      <h2>Mon idée géniale</h2>
     </div>
 
     <div class="discoverBox">
       <img src="../../../assets/ressources/img/stairs.svg" class="stair" alt>
-      <a v-on:click="linkArticle()" class="button button--discover">Decouvrir la station</a>
+      <a v-on:click="linkArticle()" class="button button--discover">Découvre la station</a>
     </div>
 
     <div class="comicBox comicBox--genie">
-      <button class="button buttonNext">Next</button>
+      <button class="button buttonNext">Suivant</button>
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
         <p class="comic__text__p">
           Après avoir assisté à l’éventrement des rues de la capitale, la Seine tremble.
           <br>
-          <br>Divisant Paris en son centre, son
-          <span class="link--video" videoLinkId="0">franchissement</span> est un obstacle.
+          <br>Divisant Paris en son centre, elle est un obstacle à la
+          <span class="link--video" videoLinkId="0">cohésion</span> du réseau
         </p>
       </div>
 
@@ -83,7 +83,7 @@
 
     <!-- Slide 0 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--0 slideIn--later">
-      <button class="button button--closeVideo button--closeVideo--0">Go Back</button>
+      <button class="button button--closeVideo button--closeVideo--0">Retour</button>
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
           <!-- 1 frame -->
@@ -103,7 +103,7 @@
 
     <!-- Slide 0 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--1 slideIn--later">
-      <button class="button button--closeVideo button--closeVideo--1">Go Back</button>
+      <button class="button button--closeVideo button--closeVideo--1">Retour en arrière</button>
 
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
@@ -125,8 +125,9 @@
             class="icon--untertitel icon--untertitel--1"
           >
           <p class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later">
-            La ligne 4, longue d’environ 11 kilomètres, elle part de la porte de Clignancourt et va jusqu’à la Porte d’Orléans. Première ligne à traverser Paris dans un axe Nord-Sud, elle est aussi la première à devoir traverser la Seine.
-            “On ne devait pas passer sur l'île de la Cité. On devrait finalement rejoindre Châtelet/Saint Michel en passant par la pointe amont de l’île de la Cité. Mais pour des raisons très simples, finalement ce métro devait passer juste sous l’Académie Française et les académiciens n’étaient pas d’accord. Pour leur calme, ils décident de faire une pétition qui a été suivie par un certain nombre à l’époque, de savants. C’est là qu’on a décidé de passer par l’île de la Cité.”
+            La ligne 4 est longue d’environ 11 kilomètres, elle part de la porte de Clignancourt et va jusqu’à la Porte d’Orléans. Première ligne à traverser Paris dans un axe Nord-Sud, elle est aussi la première à devoir traverser la Seine.
+            <br>
+            <br>“On ne devait pas passer sur l'île de la Cité. On devrait finalement rejoindre Châtelet/Saint Michel en passant par la pointe amont de l’île de la Cité. Mais pour des raisons très simples, finalement ce métro devait passer juste sous l’Académie Française et les académiciens n’étaient pas d’accord. Pour leur calme, ils décident de faire une pétition qui a été suivie par un certain nombre à l’époque, de savants. C’est là qu’on a décidé de passer par l’île de la Cité.”
           </p>
         </div>
       </div>
@@ -152,7 +153,8 @@
           >
           <p class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later">
             Pour l’électrification du réseau, on fait appel aux technologies les plus en pointe. Deux usines à charbon sont construites afin de fournir l’énergie nécessaire à ce nouveau moyen de transport. Des investissements colossaux qui associent déjà publique et privé. C’est la CMP qui appartient au Baron Empain, un des géants de la finance du XIXe siècle qui se lance dans ce formidable pari.
-            “Le coût des investissements est le suivant : l’infrastructure faite par la ville de Paris vaut 600 million d’euros d’aujourd’hui. La superstructure faite par le Baron Empain représente un peu plus d’1 milliard, car il y a le coût des usines, des rames et la décoration de toutes les stations de métro et l’équipement du chemin de fer.”
+            <br>
+            <br>“Le coût des investissements est le suivant : l’infrastructure faite par la ville de Paris vaut 600 million d’euros d’aujourd’hui. La superstructure faite par le Baron Empain représente un peu plus d’1 milliard, car il y a le coût des usines,des rames et la décoration de toutes les stations de métro et l’équipement du chemin de fer.”
           </p>
         </div>
       </div>
@@ -163,9 +165,9 @@
       <div class="introArticle">
         <div class="introArticle__textBox">
           <h1>la creation du tunnel sur la Seine</h1>
-          <p>Le passage sous-fluvial a posé plusieurs problèmes, ce long et difficile chantier a mis en œuvre les premières réalisations mondiales de deux nouvelles techniques : la construction d’un tunnel sous-fluvial par fonçage de caissons et celle d’un souterrain en zone inondable par congélation du sol.
+          <p>Le passage sous-fluvial a posé plusieurs problèmes. Ce long et difficile chantier a mis en œuvre les premières réalisations mondiales de deux nouvelles techniques : la construction d’un tunnel sous-fluvial par fonçage de caissons et celle d’un souterrain en zone inondable par congélation du sol.
           <br><br>
-          L’inspecteur général Fulgence Bienvenüe explique qu’il a fallu surmonter plusieurs difficultés : passer sous le chemin de fer d’Orléans en bordure du quai Saint-Michel et travailler en terrain aquifère, ce qui a nécessité cette congélation du sol sur une longueur de 64 mètres par 57 forages de 17 mètres de profondeur recevant en circuit permanent une injection de saumure de chlorure de calcium refroidie à moins 27 degrés afin d’obtenir un terrain gelé et sec.</p>
+          L’inspecteur général Fulgence Bienvenüe explique qu’il a fallu surmonter plusieurs difficultés. Passer sous le chemin de fer d’Orléans en bordure du quai Saint-Michel et travailler en terrain aquifère. Le sol a nécessité une congélation sur une longueur de 64 mètres par 57 forages de 17 mètres de profondeur. Le circuit injectait alors une composition chimique refroidie à moins 27 degrés afin d’obtenir un terrain gelé et sec.</p>
         </div>
       </div>
       <div class="articlePuls__imageBox">
@@ -189,8 +191,19 @@
               class="icon--untertitel icon--untertitel--1"
             >
             <p class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later">
-              La solution de caissons enterrés dans le fleuve est retenue. Les travaux commencent en 1905 et promettent d’être spectaculaires. Il y aura 3 grands caissons pour le grand bras de la Seine, couvrant une distance de 122 mètres et deux pour le petit bras de la Seine, pour une distance de 41 mètres. Les 5 caissons qui vont être immergés dans le fleuve sont assemblés sur le quai des tuileries. Les ingénieurs vont y multiplier les innovations.
-              Chaque caisson est ainsi composé d’une base en fonte, abritant les deux futures voies. L’ensemble est ceinturé d’une double ceinture métallique. De plus, le caisson repose sur une base en forme de lame de couteau de 1m80 de hauteur. Entre ces deux paroies, se trouve un espace libre. C’est la zone de travail dans laquelle les ouvriers vont s’installer. Le caisson qui flotte alors sur la Seine est alors tractée jusqu’à son futur lieu d’échouage. Après avoir atteint son positionnement idéal, du béton est injecté dans la double paroie métallique, créant ainsi un sarcophage étanche. Comme promis par le constructeur, le chantier malgré sa taille réussi l’exploit de laisser passer les hirondelles et leurs voyageurs sur la Seine. Sous le poids du béton, le caisson coule doucement. Une fois la mise en place effectuée, l’eau dans la chambre de travail est pompée. Quant au caisson principal, il est lesté pour le maintenir en place au fond du fleuve. Grâce aux cheminées, de l’air comprimé est alors envoyé dans la chambre de travail, augmentant son étanchéité à l’eau et permettant aux ouvriers de descendre afin de travailler sous la structure métallique, pour l’enfoncer dans le sol jusqu’au niveau souhaité. Travaillant dans des conditions extrêmes, ces ouvriers spécialisés on les appelle les “tubistes”. Ils doivent comme des plongeurs sous-marin suivre des paliers de décompression, pour remonter des chambres de travail, situées 15 mètres sous la surface. Grâce au travail de ces hommes, prêts à prendre tous les risques, tous les caissons d’une même sections sont descendus au bon niveau dans le lit de la Seine. Ils sont ensuite reliés ensemble pour ne former qu’un seul tube. Les chambres de travail sont alors remplies de béton et la tranchée est comblée pour assurer le blocage de l’ensemble. Le tunnel est terminé, l’eau est alors pompée et les ouvriers peuvent enfin y accéder. Si cette partie, pourtant la plus périlleuse se déroulera sans problème majeur, il n’en ira pas de même avec le tronçon sous l’île de la cité.
+              La solution de caissons enterrés dans le fleuve est retenue. Les travaux commencent en 1905 et promettent d’être spectaculaires.
+              <br>
+              <br>Il y aura 3 grands caissons pour le grand bras de la Seine, couvrant une distance de 122 mètres et deux pour le petit bras de la Seine, pour une distance de 41 mètres. Les 5 caissons qui vont être immergés dans le fleuve sont assemblés sur le quai des tuileries. Les ingénieurs vont y multiplier les innovations.
+              <br>
+              <br>Chaque caisson est ainsi composé d’une base en fonte, abritant les deux futures voies. L’ensemble est ceinturé d’une double ceinture métallique. De plus, le caisson repose sur une base en forme de lame de couteau de 1m80 de hauteur. Entre ces deux paroies, se trouve un espace libre. C’est la zone de travail dans laquelle les ouvriers vont s’installer.
+              <br>
+              Le caisson qui flotte alors sur la Seine est alors tractée jusqu’à son futur lieu d’échouage. Après avoir atteint son positionnement idéal, du béton est injecté dans la double paroie métallique, créant ainsi un sarcophage étanche. Comme promis par le constructeur, le chantier malgré sa taille réussi l’exploit de laisser passer les hirondelles et leurs voyageurs sur la Seine.
+              <br>
+              Sous le poids du béton, le caisson coule doucement. Une fois la mise en place effectuée, l’eau dans la chambre de travail est pompée. Quant au caisson principal, il est lesté pour le maintenir en place au fond du fleuve. Grâce aux cheminées, de l’air comprimé est alors envoyé dans la chambre de travail, augmentant son étanchéité à l’eau et permettant aux ouvriers de descendre afin de travailler sous la structure métallique, pour l’enfoncer dans le sol jusqu’au niveau souhaité.
+              <br>
+              <br>Travaillant dans des conditions extrêmes, ces ouvriers spécialisés on les appelle les “tubistes”. Ils doivent comme des plongeurs sous-marin suivre des paliers de décompression, pour remonter des chambres de travail, situées 15 mètres sous la surface. Grâce au travail de ces hommes, prêts à prendre tous les risques, tous les caissons d’une même sections sont descendus au bon niveau dans le lit de la Seine. Ils sont ensuite reliés ensemble pour ne former qu’un seul tube. Les chambres de travail sont alors remplies de béton et la tranchée est comblée pour assurer le blocage de l’ensemble.
+              <br>
+              <br>Le tunnel est terminé, l’eau est alors pompée et les ouvriers peuvent enfin y accéder. Si cette partie, pourtant la plus périlleuse se déroulera sans problème majeur, il n’en ira pas de même avec le tronçon sous l’île de la cité.
             </p>
           </div>
         </div>
@@ -241,7 +254,7 @@
           </div>
         </div>
       </div>
-      <button class="button buttonNext buttonNext--end">To top</button>
+      <button class="button buttonNext buttonNext--end">Retour en haut</button>
     </article>
 
     <footer class="footer--comic">
@@ -484,7 +497,7 @@ export default {
             break;
           case 2:
             textBoxContent.innerHTML =
-              "Fulgence Bienvenüe devient alors l’auteur d’une des plus jolies opérations césariennes que Paris ait subies<br><br><button class='button buttonPlus'>Ensavoir Plus</button>";
+              "Fulgence Bienvenüe devient alors l’auteur d’une des plus jolies opérations césariennes que Paris ait subies<br><br><button class='button buttonPlus'>En savoir plus</button>";
 
             bras.classList.add("fadeOut");
             mapSeine.classList.add("fadeOut");

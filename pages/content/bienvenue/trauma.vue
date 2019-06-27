@@ -37,20 +37,20 @@
     </section>
 
     <div class="sidebar">
-      <h2>Trauma</h2>
+      <h2>Mon traumatisme</h2>
     </div>
 
     <div class="discoverBox">
       <img src="../../../assets/ressources/img/stairs.svg" class="stair" alt>
-      <a v-on:click="linkArticle()" class="button button--discover">Decouvrir la station</a>
+      <a v-on:click="linkArticle()" class="button button--discover">Découvre la station</a>
       <a
         v-on:click="linkArticle()"
         class="button button--discover button button--discover--2"
-      >Decouvrir la station</a>
+      >Découvre la station</a>
     </div>
 
     <div class="comicBox comicBox--trauma">
-      <button class="button buttonNext">Next</button>
+      <button class="button buttonNext">Suivant</button>
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
         <p class="comic__text__p">
@@ -91,18 +91,21 @@
     <article class="articlePlus slideIn--later">
       <div class="introArticle">
         <div class="introArticle__textBox">
-          <h1>Catastrophe dans le métropolitain 10.08.1903</h1>
+          <h1>La catastrophe du métropolitain le 10.08.1903</h1>
           <p>
             Le 10 août 1903, suite à un court-circuit, un incendie se déclare sur une rame à la station Barbès.
             <br>
-            <br>Afin de ne pas bloquer le réseau, la rame est poussée vide vers Nation par la rame qui arrivait derrière (préalablement évacuée). Mais à la station Ménilmontant, le feu reprend sans qu'on puisse l'éteindre. Au même instant, la rame suivante, qui avait ramassé les quelque 300 voyageurs des deux rames évacuées arrive à la station précédant Ménilmontant : la station Couronnes. Mais averti de la reprise de l'incendie, le chauffeur ne redémarre pas et prie les gens de descendre afin d'évacuer la station par l'escalier.
-            <br>Cependant, la fumée de l'incendie (la fumée uniquement, le feu étant resté circonscrit à la rame de métro), qui a envahi la station Ménilmontant évacuée, se propage dans le tunnel pour jaillir soudainement dans la station Couronnes, côté tête du train où se trouvent les protestataires. Aveuglé, par réflexe, le groupe fuit la fumée vers l'autre extrémité du quai, malheureusement sans issue. Quelques heures plus tard, les pompiers compteront 84 corps, entassés les uns sur les autres
+            <br>Afin de ne pas bloquer le réseau, la rame est poussée vide vers Nation par la rame qui arrivait derrière (préalablement évacuée).
+            <br>Mais à la station Ménilmontant, le feu reprend sans qu'on puisse l'éteindre. Au même instant, la rame suivante, qui avait ramassé les quelque 300 voyageurs des deux rames évacuées arrive à la station précédant Ménilmontant : la station Couronnes. Mais averti de la reprise de l'incendie, le chauffeur ne redémarre pas et prie les gens de descendre afin d'évacuer la station par l'escalier.
+            <br>
+            <br>Cependant, la fumée de l'incendie (la fumée uniquement, le feu étant resté circonscrit à la rame de métro), qui a envahi la station Ménilmontant évacuée, se propage dans le tunnel pour jaillir soudainement dans la station Couronnes, côté tête du train où se trouvent les protestataires. Aveuglé, par réflexe, le groupe fuit la fumée vers l'autre extrémité du quai, malheureusement sans issue.
+            <br>
+            <br>Quelques heures plus tard, les pompiers compteront 84 corps, entassés les uns sur les autres
           </p>
         </div>
       </div>
 
       <div class="articlePuls__imageBox">
-
         <div class="videoBox">
           <div class="videoBox__videoWrapper">
             <iframe
@@ -124,39 +127,60 @@
             >
             <p class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later">
               Des incendies, aux causes parfois inattendues, il y en a eu depuis l’inauguration du métro. Le plus tragique d'entre eux remonte aux premières années de son exploitation, nous sommes le 10 Août 1903.
-              “Un incendie se déclare à la station Couronnes et provoque le décès de 84 personnes. En réalité, ce n’est pas la voiture qui contient les voyageurs qui s’enflamme, c’est un incident technique et un court circuit électrique qui arrive dans un train précédent parti dans le tunnel. Et qui, par le dégagement de fumée, va provoquer la mort de 84 personnes dans la station Couronnes.”
-              L’émotion est immense, le jeune métro vient de faire ses premières victimes. Les exploitants vont en tirer de nombreuses leçons.
-              “On a fait évoluer le matériel, on est venus isoler dans une cage métallique toute la logique de motorisation et toute la logique d’électrification. On a créé aussi cette logique de bougie moteur, ce qui permet d’isoler toute la partie en bois qui est plutôt l’espace voyageur. Ainsi on limite les risques d'incendie. Cette évolution était provisoire, puisque on est passés ensuite très rapidement à une évolution d’un nouveau type de matériel : une caisse totalement métallique.”
+              “Un incendie se déclare à la station Couronnes et provoque le décès de 84 personnes. En réalité, ce n’est pas la voiture qui contient les voyageurs qui s’enflamme, c’est un incident technique et un court circuit électrique qui arrivent dans un train précédent parti dans le tunnel. Et qui, par le dégagement de fumée, va provoquer la mort de 84 personnes dans la station Couronnes.”
+              <br>L’émotion est immense, le jeune métro vient de faire ses premières victimes. Les exploitants vont en tirer de nombreuses leçons.
+              <br>“On a fait évoluer le matériel, on est venus isoler dans une cage métallique toute la logique de motorisation et toute la logique d’électrification. On a créé aussi cette logique de bougie moteur, ce qui permet d’isoler toute la partie en bois qui est plutôt l’espace voyageur. Ainsi on limite les risques d'incendie. Cette évolution était provisoire, puisque on est passés ensuite très rapidement à une évolution d’un nouveau type de matériel : une caisse totalement métallique.”
             </p>
           </div>
         </div>
         <div class="imageBox">
           <div class="imageBox__box">
-            <img src="http://www.cparama.com/forum/cartes2016/1468055757-Z-1-.jpg" alt class="imgageBox__box__image">
+            <img
+              src="http://www.cparama.com/forum/cartes2016/1468055757-Z-1-.jpg"
+              alt
+              class="imgageBox__box__image"
+            >
             <p class="imgageBox__box__text">
-              <span>Date : 11/08/1903<br></span>Catastrophe du Métro du 10 août 1903
+              <span>
+                Date : 11/08/1903
+                <br>
+              </span>Catastrophe du Métro du 10 août 1903
             </p>
           </div>
           <div class="imageBox__box">
-            <img src="http://www.cparama.com/forum/cartes2016/1468822457-Couronnes02.jpg" alt class="imgageBox__box__image">
+            <img
+              src="http://www.cparama.com/forum/cartes2016/1468822457-Couronnes02.jpg"
+              alt
+              class="imgageBox__box__image"
+            >
             <p class="imgageBox__box__text">
-              <span>Date : 11/08/1903<br></span>Découverte des cadavres
+              <span>
+                Date : 11/08/1903
+                <br>
+              </span>Découverte des cadavres
             </p>
           </div>
           <div class="imageBox__box">
-            <img src="https://pbs.twimg.com/media/DkPQzruXcAAOvkh.jpg" alt class="imgageBox__box__image">
+            <img
+              src="https://pbs.twimg.com/media/DkPQzruXcAAOvkh.jpg"
+              alt
+              class="imgageBox__box__image"
+            >
             <p class="imgageBox__box__text">
-              <span>Date : 10/08/1903<br></span>La station des Couronnes pendant l'évacuation des victimes
+              <span>
+                Date : 10/08/1903
+                <br>
+              </span>La station Couronnes pendant l'évacuation des victimes
             </p>
           </div>
         </div>
       </div>
-      <button class="button buttonNext buttonNext--end">To top</button>
+      <button class="button buttonNext buttonNext--end">Retour en haut</button>
     </article>
 
     <!-- Slide 0 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--0 slideIn--later">
-      <button class="button button--closeVideo button--closeVideo--0">Go Back</button>
+      <button class="button button--closeVideo button--closeVideo--0">Retour en arrière</button>
 
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
@@ -212,7 +236,7 @@
 
     <!-- Slide 1 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--1 slideIn--later">
-      <button class="button button--closeVideo button--closeVideo--1">Go Back</button>
+      <button class="button button--closeVideo button--closeVideo--1">Retour en arrière</button>
 
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
@@ -268,7 +292,7 @@ export default {
      */
     this.visited = JSON.parse(localStorage.getItem(`VISITED`));
     //
-    
+
     /*
      * Speaker
      */
@@ -318,11 +342,10 @@ export default {
                 window.innerHeight * 0.2
               ) {
                 document.querySelector(".comicBox").classList.add("fadeOut");
-                document.querySelector(".articlePlus").style.zIndex="200";
-
+                document.querySelector(".articlePlus").style.zIndex = "200";
               } else {
                 document.querySelector(".comicBox").classList.remove("fadeOut");
-                document.querySelector(".articlePlus").style.zIndex="0";
+                document.querySelector(".articlePlus").style.zIndex = "0";
               }
             }
           });
@@ -337,13 +360,16 @@ export default {
       document.querySelector("header").classList.remove("fadeOut");
     };
 
-    let untertitelButtonsPlus = document.querySelectorAll(".articlePlus .icon--untertitel");
+    let untertitelButtonsPlus = document.querySelectorAll(
+      ".articlePlus .icon--untertitel"
+    );
     console.log(untertitelButtonsPlus);
     for (let i = 0; i < untertitelButtonsPlus.length; i++) {
       console.log("what 1");
       untertitelButtonsPlus[i].addEventListener("click", function() {
-
-        let audioDescriptionPlus = document.querySelectorAll( ".articlePlus .videoBox__audiodescription");
+        let audioDescriptionPlus = document.querySelectorAll(
+          ".articlePlus .videoBox__audiodescription"
+        );
 
         let iframePlus = document.querySelectorAll(".articlePlus iframe");
         for (let i = 0; i < iframePlus.length; i++) {
@@ -355,8 +381,6 @@ export default {
           audioDescriptionPlus[i].classList.toggle("slideIn--now");
           audioDescriptionPlus[i].classList.toggle("description--height");
           console.log("what 2");
-
-          
         }
       });
     }
@@ -402,15 +426,21 @@ export default {
             ".icon--untertitel--" + videoNumber
           );
 
-
           for (let i = 0; i < untertitelButtons.length; i++) {
             untertitelButtons[i].addEventListener("click", function() {
-              let audioDescription = document.querySelectorAll(".videoBox__wrapper--" + videoNumber +" .videoBox__audiodescription--" + videoNumber);
+              let audioDescription = document.querySelectorAll(
+                ".videoBox__wrapper--" +
+                  videoNumber +
+                  " .videoBox__audiodescription--" +
+                  videoNumber
+              );
               for (let i = 0; i < audioDescription.length; i++) {
                 audioDescription[i].classList.toggle("slideIn--now");
                 audioDescription[i].classList.toggle("description--height");
               }
-              let iframe = document.querySelectorAll(".videoBox__wrapper--" + videoNumber +" iframe");
+              let iframe = document.querySelectorAll(
+                ".videoBox__wrapper--" + videoNumber + " iframe"
+              );
               for (let i = 0; i < iframe.length; i++) {
                 iframe[i].classList.toggle("iframeResize");
                 console.log("what 3");
@@ -470,7 +500,7 @@ export default {
         switch (buttonNextCounter) {
           case 1:
             textBoxContent.innerHTML =
-              "Or, il ne faudra pas patienter longtemps avant qu’un aléa ne provoque une catastrophe dans le métropolitain...<br><br>En cause, <span class='link--video' videoLinkId='1'>les matériaux</span> utilisés lors de la construction";
+              "... il ne faudra pas patienter longtemps avant qu’un aléa ne provoque une catastrophe dans le métropolitain.<br><br>En cause, <span class='link--video' videoLinkId='1'>les matériaux</span> utilisés lors de la construction";
             videoPlus();
 
             fire.classList.add("slideIn--now");
@@ -478,7 +508,7 @@ export default {
             break;
           case 2:
             textBoxContent.innerHTML =
-              "Le drame est à l'origine d'amélioration des techniques et de sécurité, encore en vigueur de nos jours <br><br><button class='button buttonPlus'>En savoir Plus</button>";
+              "Le drame est à l'origine d'amélioration des techniques et de sécurité, encore en vigueur de nos jours <br><br><button class='button buttonPlus'>En savoir plus</button>";
 
             metroSign.classList.add("slideIn--now");
             bebeTete.classList.add("fadeOut");
@@ -491,7 +521,7 @@ export default {
             break;
           case 3:
             textBoxContent.innerHTML =
-              "Ces stations ont subi des changements depuis l’accident.";
+              "Ces stations ont subies des changements depuis l’accident.";
 
             savoirPlusEnd();
             discoverBox.style.display = "block";

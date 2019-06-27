@@ -11,9 +11,8 @@
         <div class="timeBar__year">1930</div>
         <div class="timeBar__year">1937</div>
       </div>
-      <div class="speechbubble">Pendant des annes le metro ce super changer et grandir.</div>
+      <div class="speechbubble">Pendant des années le métropolitain a connu des améliorations.</div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 970 790" class="mapSVG">
-        
         <g id="Line">
           <polyline
             id="_1_1"
@@ -382,7 +381,14 @@
           <circle class="cls-2" cx="916.53" cy="494.12" r="0"></circle>
 
           <nuxt-link to="/content/bienvenue/carrier">
-            <circle class="station" station="ligne1" bubble="Sa carrière" cx="882.02" cy="475" r="15"></circle>
+            <circle
+              class="station"
+              station="ligne1"
+              bubble="Sa carrière"
+              cx="882.02"
+              cy="475"
+              r="15"
+            ></circle>
           </nuxt-link>
 
           <circle class="cls-2" cx="865.49" cy="510.91" r="0"></circle>
@@ -500,7 +506,14 @@
           </nuxt-link>
 
           <nuxt-link to="/content/bienvenue/hotel">
-            <circle class="station" station="hotle" bubble="Son triomphe" cx="571.11" cy="378.76" r="15"></circle>
+            <circle
+              class="station"
+              station="hotle"
+              bubble="Son triomphe"
+              cx="571.11"
+              cy="378.76"
+              r="15"
+            ></circle>
           </nuxt-link>
 
           <circle class="cls-2" cx="610.6" cy="418.8" r="0"></circle>
@@ -729,9 +742,9 @@
         </g>
       </svg>
     </div>
-    <button class="button button--skip button--map">Skip Animation</button>
+    <button class="button button--skip button--map">Passer l'animation</button>
     <nuxt-link to="/content/gallery">
-      <button class="button button--map button--imagegallery">Image Gallery</button>
+      <button class="button button--map button--imagegallery">Galerie d'images</button>
     </nuxt-link>
     <div class="legende--year">1900</div>
     <footer>
@@ -857,11 +870,11 @@ export default {
       countdownBar.style.opacity = "0";
       skipMapButton.style.opacity = "0";
 
-      let visited = JSON.parse(localStorage.getItem(`VISITED`))
-      if(visited === true) {
-        speechBubble.innerHTML = `Découvrez de vous même maintenant les stations !`;
+      let visited = JSON.parse(localStorage.getItem(`VISITED`));
+      if (visited === true) {
+        speechBubble.innerHTML = `Découvre les stations de toi même !`;
       } else {
-        speechBubble.innerHTML = `Découvrez maintenant les station et apprennez pourquoi elles sont importantes pour moi.</br></br>Je te propose de commencer avec <nuxt-link class="stationLink" to="/content/bienvenue/born">Montparnasse - Bienvenüe</nuxt-link>`;
+        speechBubble.innerHTML = `Découvre maintenant les stations et apprends pourquoi elles sont importantes pour moi.`;
       }
 
       clearInterval(downloadTimer);
@@ -941,7 +954,7 @@ export default {
 
     // 2s after Pageload
     setTimeout(function() {
-      speechBubble.innerHTML = `Découvrez maintenant les station et apprennez pourquoi elles sont importantes pour moi.</br></br>Je te propose de commencer avec <nuxt-link class="stationLink" to="/content/bienvenue/born">Montparnasse - Bienvenüe</nuxt-link>`;
+      speechBubble.innerHTML = `Découvre maintenant les stations et apprends pourquoi elles sont importantes pour moi.</br></br>Je te propose de commencer avec <nuxt-link class="stationLink" to="/content/bienvenue/born">Montparnasse - Bienvenüe</nuxt-link>`;
       timeBar.classList.add("moveIn");
     }, 20000);
 
@@ -950,7 +963,7 @@ export default {
 
     montparnasse.addEventListener("mouseover", function() {
       var newDiv = document.createElement("div");
-      var newContentText = 'Montparnasse - Bienvenüe';
+      var newContentText = "Montparnasse - Bienvenüe";
       var newContent = document.createTextNode(newContentText);
       newDiv.className = "stationBox";
       newDiv.appendChild(newContent);

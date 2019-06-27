@@ -15,12 +15,20 @@
       ></audio>
 
       <!-- Mute -->
-      <section v-if="selectSpeaker() === false" v-on:click="clickSpeaker()" class="speaker speaker--on">
+      <section
+        v-if="selectSpeaker() === false"
+        v-on:click="clickSpeaker()"
+        class="speaker speaker--on"
+      >
         <img src="../../../assets/ressources/audios/icon/speakker--off.png" alt>
       </section>
 
       <!-- Unmute -->
-      <section v-if="selectSpeaker() === true" v-on:click="clickSpeaker()" class="speaker speaker--off">
+      <section
+        v-if="selectSpeaker() === true"
+        v-on:click="clickSpeaker()"
+        class="speaker speaker--off"
+      >
         <img src="../../../assets/ressources/audios/icon/speakker--on.png" alt>
       </section>
     </section>
@@ -171,10 +179,10 @@ export default {
    * By Christina, queen of the animation and Javascript
    */
   mounted: function mounted() {
-    /* 
-    * Message for map and navigation
-    */
-    localStorage.setItem(`VISITED`, true)
+    /*
+     * Message for map and navigation
+     */
+    localStorage.setItem(`VISITED`, true);
     //
 
     /*
@@ -226,11 +234,10 @@ export default {
                 window.innerHeight * 0.2
               ) {
                 document.querySelector(".comicBox").classList.add("fadeOut");
-                document.querySelector(".articlePlus").style.zIndex="200";
-
+                document.querySelector(".articlePlus").style.zIndex = "200";
               } else {
                 document.querySelector(".comicBox").classList.remove("fadeOut");
-                document.querySelector(".articlePlus").style.zIndex="0";
+                document.querySelector(".articlePlus").style.zIndex = "0";
               }
             }
           });
@@ -245,13 +252,16 @@ export default {
       document.querySelector("header").classList.remove("fadeOut");
     };
 
-    let untertitelButtonsPlus = document.querySelectorAll(".articlePlus .icon--untertitel");
+    let untertitelButtonsPlus = document.querySelectorAll(
+      ".articlePlus .icon--untertitel"
+    );
     console.log(untertitelButtonsPlus);
     for (let i = 0; i < untertitelButtonsPlus.length; i++) {
       console.log("what 1");
       untertitelButtonsPlus[i].addEventListener("click", function() {
-
-        let audioDescriptionPlus = document.querySelectorAll( ".articlePlus .videoBox__audiodescription");
+        let audioDescriptionPlus = document.querySelectorAll(
+          ".articlePlus .videoBox__audiodescription"
+        );
 
         let iframePlus = document.querySelectorAll(".articlePlus iframe");
         for (let i = 0; i < iframePlus.length; i++) {
@@ -263,8 +273,6 @@ export default {
           audioDescriptionPlus[i].classList.toggle("slideIn--now");
           audioDescriptionPlus[i].classList.toggle("description--height");
           console.log("what 2");
-
-          
         }
       });
     }
@@ -310,15 +318,21 @@ export default {
             ".icon--untertitel--" + videoNumber
           );
 
-
           for (let i = 0; i < untertitelButtons.length; i++) {
             untertitelButtons[i].addEventListener("click", function() {
-              let audioDescription = document.querySelectorAll(".videoBox__wrapper--" + videoNumber +" .videoBox__audiodescription--" + videoNumber);
+              let audioDescription = document.querySelectorAll(
+                ".videoBox__wrapper--" +
+                  videoNumber +
+                  " .videoBox__audiodescription--" +
+                  videoNumber
+              );
               for (let i = 0; i < audioDescription.length; i++) {
                 audioDescription[i].classList.toggle("slideIn--now");
                 audioDescription[i].classList.toggle("description--height");
               }
-              let iframe = document.querySelectorAll(".videoBox__wrapper--" + videoNumber +" iframe");
+              let iframe = document.querySelectorAll(
+                ".videoBox__wrapper--" + videoNumber + " iframe"
+              );
               for (let i = 0; i < iframe.length; i++) {
                 iframe[i].classList.toggle("iframeResize");
                 console.log("what 3");

@@ -3,7 +3,7 @@
     <div class="wrapper--achive">
       <div class="filter">
         <header>
-          <h1>Gallery</h1>
+          <h1>Galerie</h1>
           <div class="headlineIntro"></div>
         </header>
         <!-- Alert -->
@@ -26,7 +26,7 @@
               <div class="inputGroup">
                 <div class="categoryBox">
                   <label class="container" for="Entrance">
-                    Entrée de station
+                    Bouches de stations
                     <input
                       type="radio"
                       id="Entrance"
@@ -40,7 +40,7 @@
 
                 <div class="inputGroup">
                   <label class="container" for="Station">
-                    Station
+                    Stations
                     <input
                       type="radio"
                       id="Station"
@@ -54,7 +54,7 @@
 
                 <div class="inputGroup">
                   <label class="container" for="Train">
-                    Train
+                    Rames de métro
                     <input
                       type="radio"
                       id="Train"
@@ -82,7 +82,7 @@
 
                 <div class="inputGroup">
                   <label class="container" for="Event">
-                    Evenement
+                    Évènements
                     <input
                       type="radio"
                       id="Event"

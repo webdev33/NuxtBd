@@ -3,7 +3,7 @@
     <header>
       <h1>
         Montparnasse
-        <br>Bienvenue
+        <br>Bienvenüe
       </h1>
       <div class="headlineIntro"></div>
     </header>
@@ -18,32 +18,40 @@
       ></audio>
 
       <!-- Mute -->
-      <section v-if="selectSpeaker() === false" v-on:click="clickSpeaker()" class="speaker speaker--on">
+      <section
+        v-if="selectSpeaker() === false"
+        v-on:click="clickSpeaker()"
+        class="speaker speaker--on"
+      >
         <img src="../../../assets/ressources/audios/icon/speakker--off.png" alt>
       </section>
 
       <!-- Unmute -->
-      <section v-if="selectSpeaker() === true" v-on:click="clickSpeaker()" class="speaker speaker--off">
+      <section
+        v-if="selectSpeaker() === true"
+        v-on:click="clickSpeaker()"
+        class="speaker speaker--off"
+      >
         <img src="../../../assets/ressources/audios/icon/speakker--on.png" alt>
       </section>
     </section>
 
     <div class="sidebar">
-      <h2>Naissance</h2>
+      <h2>Ma naissance</h2>
     </div>
 
     <div class="discoverBox">
       <img src="../../../assets/ressources/img/stairs.svg" class="stair" alt>x
-      <a v-on:click="linkArticle()" class="button button--discover">Decouvrir la station</a>
+      <a v-on:click="linkArticle()" class="button button--discover">Découvre la station</a>
     </div>
 
     <div class="comicBox comicBox--nee">
-      <button class="button buttonNext">Next</button>
+      <button class="button buttonNext">Suivant</button>
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
         <p class="comic__text__p">
-          Fulgence Bienvenüe naît en Bretagne.
-          <br>Le 27 janvier 1852
+          Fulgence Bienvenüe naît en Bretagne,
+          <br>Le 27 janvier 1852.
         </p>
       </div>
       <img
@@ -85,7 +93,7 @@
 
     <!-- Slide 1 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--1 slideIn--later">
-      <button class="button button--closeVideo button--closeVideo--1">Go Back</button>
+      <button class="button button--closeVideo button--closeVideo--1">Retour en arrière</button>
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
           <iframe
@@ -105,9 +113,13 @@
             alt
             class="icon--untertitel icon--untertitel--1"
           >
-          <p
-            class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later"
-          >Revenons aux débuts. Fulgence Bienvenüe, né en 1852 dans les côtes d’Armor. Son père est notaire. Il est le treizième enfant de la famille. C’est d’abord un enfant qui se passionne pour la littérature, avec un goût particulier pour les auteurs grecs et latins. Il aime les lettres, mais embrasse finalement une carrière scientifique. Il rejoint la promotion 1870 de l’école polytechnique et il devient ingénieur des ponts et chaussées.</p>
+          <p class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later">
+            Revenons aux débuts. Fulgence Bienvenüe, nait en 1852 dans les côtes d’Armor. Son père est notaire. Il est le treizième enfant de la famille.
+            <br>
+            <br>C’est d’abord un enfant qui se passionne pour la littérature, avec un goût particulier pour les auteurs grecs et latins. Il aime les lettres, mais embrasse finalement une carrière scientifique.
+            <br>
+            <br>Il rejoint la promotion 1870 de l’école polytechnique et il devient ingénieur des ponts et chaussées.
+          </p>
         </div>
       </div>
     </div>
@@ -115,7 +127,7 @@
 
     <!-- Slide 2 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--2 slideIn--later">
-      <button class="button button--closeVideo button--closeVideo--2">Go Back</button>
+      <button class="button button--closeVideo button--closeVideo--2">Retour en arrière</button>
 
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
@@ -136,9 +148,11 @@
             alt
             class="icon--untertitel icon--untertitel--2"
           >
-          <p
-            class="videoBox__audiodescription videoBox__audiodescription--2 slideIn--later"
-          >“A la fin du XIXe siècle, le transport à Paris est dans une situation catastrophique. Il y a deux compagnies : la Compagnie Générale des Omnibus et la Compagnie des Hirondelles. Les Hirondelles ce sont des petits bateaux à vapeur sur la Seine qui transportent environ 40 millions de personnes par an et la Compagnie Générale des Omnibus tirée par des chevaux, il y avait 200 mille chevaux dans Paris, et qui fait environ 260 million de transports par an.”</p>
+          <p class="videoBox__audiodescription videoBox__audiodescription--2 slideIn--later">
+            “A la fin du XIXe siècle, le transport à Paris est dans une situation catastrophique. Il y a deux compagnies : la Compagnie Générale des Omnibus et la Compagnie des Hirondelles.
+            <br>
+            <br>Les Hirondelles ce sont des petits bateaux à vapeur sur la Seine qui transportent environ 40 millions de personnes par an et la Compagnie Générale des Omnibus tirée par des chevaux, il y avait 200 mille chevaux dans Paris, et qui fait environ 260 million de transports par an.”
+          </p>
         </div>
       </div>
 
@@ -164,7 +178,8 @@
           >
           <p class="videoBox__audiodescription videoBox__audiodescription--2 slideIn--later">
             Dès l’origine, le cahier des charges de la construction du métro de Paris précise que celui-ci sera souterrain dans sa plus grande partie, même s’il devra également franchir la Seine par des ponts métalliques. Quant aux rames, elles seront à traction électrique et ne devront pas dépasser un gabarit de 2 mètres 40, ce qui interdit toute circulation des trains normaux.
-            “La ville de Paris ne voulait pas créer un réseau de chemin de fer dans Paris, qui permettrait de relier les grandes stations de train entre elles, ayant peur que la population prenne ces trains et quitte la ville de Paris. Cette idée extravagante aujourd’hui était dominante à l’époque. Elle empêchait donc qu’on réalise un métropolitain dans Paris, mais en même temps elle réalisait que c’était nécessaire.”
+            <br>
+            <br>“La ville de Paris ne voulait pas créer un réseau de chemin de fer dans Paris, qui permettrait de relier les grandes stations de train entre elles, ayant peur que la population prenne ces trains et quitte la ville de Paris. Cette idée extravagante aujourd’hui était dominante à l’époque. Elle empêchait donc qu’on réalise un métropolitain dans Paris, mais en même temps elle réalisait que c’était nécessaire.”
           </p>
         </div>
       </div>
@@ -190,8 +205,10 @@
           >
           <p class="videoBox__audiodescription videoBox__audiodescription--2 slideIn--later">
             Londres a déjà le sien. Un chemin de fer à vapeur souterrain. La compétition est lancée.
-            “Il y a eu les projets les plus fantaisistes dès 1824 et puis il y a eu tous ces projets de chemins de fer à vapeurs, sur le sol, sous le sol, dans les immeubles, sous les immeubles. et tout ça était proposé à la ville de Paris,à l’Etat, au parlement et aucune décision ne se prenait car on ne maîtrisait pas vraiment l’idée qu’on avait de ce que serait un métro à Paris.”
-            Les projets de chemins de fer à vapeur sont écartés à cause des rejets de fumée. L’inventivité des propositions des visionnaires et autres doodingues qui se sont penchés sur les transports parisiens est sans limite. Voies aériennes accrochées à des ballons géants, ponts suspendus entre deux tours Eiffel, métro aérien enjambant la ville, tout semble possible ...
+            <br>
+            <br>“Il y a eu les projets les plus fantaisistes dès 1824 et puis il y a eu tous ces projets de chemins de fer à vapeurs, sur le sol, sous le sol, dans les immeubles, sous les immeubles. et tout ça était proposé à la ville de Paris,à l’Etat, au parlement et aucune décision ne se prenait car on ne maîtrisait pas vraiment l’idée qu’on avait de ce que serait un métro à Paris.”
+            <br>
+            <br>Les projets de chemins de fer à vapeur sont écartés à cause des rejets de fumée. L’inventivité des propositions des visionnaires et autres doodingues qui se sont penchés sur les transports parisiens est sans limite. Voies aériennes accrochées à des ballons géants, ponts suspendus entre deux tours Eiffel, métro aérien enjambant la ville, tout semble possible ...
           </p>
         </div>
       </div>
@@ -227,7 +244,7 @@ export default {
      */
     this.visited = JSON.parse(localStorage.getItem(`VISITED`));
     //
-    
+
     /*
      * Speaker
      */
@@ -276,11 +293,10 @@ export default {
                 window.innerHeight * 0.2
               ) {
                 document.querySelector(".comicBox").classList.add("fadeOut");
-                document.querySelector(".articlePlus").style.zIndex="200";
-
+                document.querySelector(".articlePlus").style.zIndex = "200";
               } else {
                 document.querySelector(".comicBox").classList.remove("fadeOut");
-                document.querySelector(".articlePlus").style.zIndex="0";
+                document.querySelector(".articlePlus").style.zIndex = "0";
               }
             }
           });
@@ -295,13 +311,16 @@ export default {
       document.querySelector("header").classList.remove("fadeOut");
     };
 
-    let untertitelButtonsPlus = document.querySelectorAll(".articlePlus .icon--untertitel");
+    let untertitelButtonsPlus = document.querySelectorAll(
+      ".articlePlus .icon--untertitel"
+    );
     console.log(untertitelButtonsPlus);
     for (let i = 0; i < untertitelButtonsPlus.length; i++) {
       console.log("what 1");
       untertitelButtonsPlus[i].addEventListener("click", function() {
-
-        let audioDescriptionPlus = document.querySelectorAll( ".articlePlus .videoBox__audiodescription");
+        let audioDescriptionPlus = document.querySelectorAll(
+          ".articlePlus .videoBox__audiodescription"
+        );
 
         let iframePlus = document.querySelectorAll(".articlePlus iframe");
         for (let i = 0; i < iframePlus.length; i++) {
@@ -313,8 +332,6 @@ export default {
           audioDescriptionPlus[i].classList.toggle("slideIn--now");
           audioDescriptionPlus[i].classList.toggle("description--height");
           console.log("what 2");
-
-          
         }
       });
     }
@@ -360,15 +377,21 @@ export default {
             ".icon--untertitel--" + videoNumber
           );
 
-
           for (let i = 0; i < untertitelButtons.length; i++) {
             untertitelButtons[i].addEventListener("click", function() {
-              let audioDescription = document.querySelectorAll(".videoBox__wrapper--" + videoNumber +" .videoBox__audiodescription--" + videoNumber);
+              let audioDescription = document.querySelectorAll(
+                ".videoBox__wrapper--" +
+                  videoNumber +
+                  " .videoBox__audiodescription--" +
+                  videoNumber
+              );
               for (let i = 0; i < audioDescription.length; i++) {
                 audioDescription[i].classList.toggle("slideIn--now");
                 audioDescription[i].classList.toggle("description--height");
               }
-              let iframe = document.querySelectorAll(".videoBox__wrapper--" + videoNumber +" iframe");
+              let iframe = document.querySelectorAll(
+                ".videoBox__wrapper--" + videoNumber + " iframe"
+              );
               for (let i = 0; i < iframe.length; i++) {
                 iframe[i].classList.toggle("iframeResize");
                 console.log("what 3");
@@ -430,7 +453,7 @@ export default {
         switch (buttonNextCounter) {
           case 1:
             textBoxContent.innerHTML =
-              "Fulgence est un enfant discret au sein de la fraterie.<br><br> Qui devient un adolescent <span class='link--video' videoLinkId='1' >passionné</span> par tous les sujets d’origine normande";
+              "Fulgence est un enfant discret au sein de la fraterie.<br><br> Qui devient un adolescent <span class='link--video' videoLinkId='1' >passionné</span> par tous les sujets.";
             videoPlus();
             maison.classList.add("fadeOut");
             bebe.classList.add("slideIn--now");
@@ -459,7 +482,7 @@ export default {
             break;
           case 3:
             textBoxContent.innerHTML =
-              "Montparnasse représente la porte entre Paris et la Bretagne.";
+              "La station Montparnasse représente pour Fulgence, la porte entre Paris et la Bretagne.";
             videoPlus();
 
             bebe.classList.add("fadeOut");

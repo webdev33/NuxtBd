@@ -6,19 +6,19 @@
       <div class="countdown countdown--test"></div>
 
       <!-- <header>
-        <h1>Le pere du metro</h1>
+        <h1>Le père du métro</h1>
         <div class="headlineIntro"></div>
       </header> -->
 
       <!-- <header>
         <h1>
-          Le pere du
-          <br>metro
+          Le père du
+          <br>métro
         </h1>
         <div class="headlineIntro"></div>
       </header> -->
 
-      <h1 class="headline--intro--first">Le Pere du Metro</h1>
+      <h1 class="headline--intro--first">Le Père du Métro</h1>
       <div class="fakescroll"></div>
       <div class="intro__video">
         <video src="../assets/ressources/img/introTest.mp4" autoplay></video>
@@ -38,22 +38,22 @@
 
       </div> -->
 
-      <h1 class="headline--intro--second slideInButton">Le Pere du Metro</h1>
+      <h1 class="headline--intro--second slideInButton">Le Père du Métro</h1>
 
-      <p class="dialog dialog--1">Je suis heureux de me présenter à vous</p>
-      <p class="dialog dialog--2">Je suis Fulgence Bienvenüe</p>
-      <p class="dialog dialog--3">J'ai invite avent plus que 100 ans<br>la metro a Paris</p>
-      <p class="dialog dialog--4">C'est la raison pourqui du monde<br> m'appelle pere du metro.</p>
+      <p class="dialog dialog--1">Je suis heureux de me présenter à vous.</p>
+      <p class="dialog dialog--2">Je suis Fulgence Bienvenüe !</p>
+      <p class="dialog dialog--3">Je suis à l'origine de la construction<br>du métropolitain.</p>
+      <p class="dialog dialog--4">C'est la raison pour laquelle<br>on me surnomme "le père du métro".</p>
 
       <nuxt-link to="/content/map">
-      <button class="button button--intro">Commence la voyage</button>
+      <button class="button button--intro">Commence le voyage</button>
       </nuxt-link>
 
       
 
     </div>
 
-    <p class="button scroll--down">Scroll Down</p>
+    <p class="button scroll--down">Scroll en bas</p>
     <footer class="footer--comic footer--index">
       <img src="../assets/ressources/img/mec.png" class="mec slideIn--later" alt>
 
@@ -138,7 +138,6 @@ export default {
                         } else {
                         document.querySelector(".dialog--4").classList.remove("slideInButton");
                         }
-                                    
                       } else {
                       document.querySelector(".dialog--3").classList.remove("slideIOutTop");
                       }

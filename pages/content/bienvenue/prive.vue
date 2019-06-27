@@ -15,32 +15,43 @@
       ></audio>
 
       <!-- Mute -->
-      <section v-if="selectSpeaker() === false" v-on:click="clickSpeaker()" class="speaker speaker--on">
+      <section
+        v-if="selectSpeaker() === false"
+        v-on:click="clickSpeaker()"
+        class="speaker speaker--on"
+      >
         <img src="../../../assets/ressources/audios/icon/speakker--off.png" alt>
       </section>
 
       <!-- Unmute -->
-      <section v-if="selectSpeaker() === true" v-on:click="clickSpeaker()" class="speaker speaker--off">
+      <section
+        v-if="selectSpeaker() === true"
+        v-on:click="clickSpeaker()"
+        class="speaker speaker--off"
+      >
         <img src="../../../assets/ressources/audios/icon/speakker--on.png" alt>
       </section>
     </section>
 
     <div class="sidebar">
-      <h2>Sa vie privée</h2>
+      <h2>Ma vie privée</h2>
     </div>
 
     <div class="discoverBox">
       <img src="../../../assets/ressources/img/stairs.svg" class="stair" alt>
-      <a v-on:click="linkArticle()" class="button button--discover">Decouvrir la station</a>
+      <a v-on:click="linkArticle()" class="button button--discover">Découvre la station</a>
     </div>
 
     <div class="comicBox comicBox--prive">
-      <button class="button buttonNext">Next</button>
+      <button class="button buttonNext">Suivant</button>
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
         <p class="comic__text__p">
           Après avoir consacré une majeure partie de sa vie à la construction du métropolitain et au développement de
-          <span class="link--video" videoLinkId="0">ses technologies....</span>
+          <span
+            class="link--video"
+            videoLinkId="0"
+          >ses technologies....</span>
         </p>
       </div>
 
@@ -68,7 +79,7 @@
 
     <!-- Slide 0 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--0 slideIn--later">
-      <button class="button button--closeVideo button--closeVideo--0">Go Back</button>
+      <button class="button button--closeVideo button--closeVideo--0">Retour en arrière</button>
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
           <iframe
@@ -90,9 +101,12 @@
           >
           <p class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later">
             Les lignes circulaires nord et sud ont une particularité : elles sont en partie aériennes, contrairement à la ligne 1 presque entièrement souterraine.
-            Quand la circulaire nord doit franchir les voies de chemins de fer en tranchées et le canal Saint Martin, au lieu de creuser plus profondément, les concepteurs ont préféré construire le tronçon en viaduc, donc aérien.
-            Pour la circulaire sud, c’est le relief du sud de Paris qui a motivé la construction en viaduc. A cause des dénivelés, il aurait fallu soit creuser à grande profondeur soit suivre les dénivelés aux prix de montés impossibles à emprunter pour les rames de l’époque. Il a donc été préférable de construire à l’air libre.
-            Cette technique de construction s’avère plus coûteuse et surtout plus longue que la construction en tunnel. L’avancée des techniques de constructions permettra de construire les lignes suivantes plus profondément et d’éviter ces passages aériens.
+            <br>
+            <br>Quand la circulaire nord doit franchir les voies de chemins de fer en tranchées et le canal Saint Martin, au lieu de creuser plus profondément, les concepteurs ont préféré construire le tronçon en viaduc, donc aérien.
+            <br>
+            <br>Pour la circulaire sud, c’est le relief du sud de Paris qui a motivé la construction en viaduc. A cause des dénivelés, il aurait fallu soit creuser à grande profondeur soit suivre les dénivelés aux prix de montés impossibles à emprunter pour les rames de l’époque. Il a donc été préférable de construire à l’air libre.
+            <br>
+            <br>Cette technique de construction s’avère plus coûteuse et surtout plus longue que la construction en tunnel. L’avancée des techniques de constructions permettra de construire les lignes suivantes plus profondément et d’éviter ces passages aériens.
           </p>
         </div>
       </div>
@@ -125,7 +139,7 @@ export default {
      */
     this.visited = JSON.parse(localStorage.getItem(`VISITED`));
     //
-    
+
     /*
      * Speaker
      */
@@ -175,11 +189,10 @@ export default {
                 window.innerHeight * 0.2
               ) {
                 document.querySelector(".comicBox").classList.add("fadeOut");
-                document.querySelector(".articlePlus").style.zIndex="200";
-
+                document.querySelector(".articlePlus").style.zIndex = "200";
               } else {
                 document.querySelector(".comicBox").classList.remove("fadeOut");
-                document.querySelector(".articlePlus").style.zIndex="0";
+                document.querySelector(".articlePlus").style.zIndex = "0";
               }
             }
           });
@@ -194,13 +207,16 @@ export default {
       document.querySelector("header").classList.remove("fadeOut");
     };
 
-    let untertitelButtonsPlus = document.querySelectorAll(".articlePlus .icon--untertitel");
+    let untertitelButtonsPlus = document.querySelectorAll(
+      ".articlePlus .icon--untertitel"
+    );
     console.log(untertitelButtonsPlus);
     for (let i = 0; i < untertitelButtonsPlus.length; i++) {
       console.log("what 1");
       untertitelButtonsPlus[i].addEventListener("click", function() {
-
-        let audioDescriptionPlus = document.querySelectorAll( ".articlePlus .videoBox__audiodescription");
+        let audioDescriptionPlus = document.querySelectorAll(
+          ".articlePlus .videoBox__audiodescription"
+        );
 
         let iframePlus = document.querySelectorAll(".articlePlus iframe");
         for (let i = 0; i < iframePlus.length; i++) {
@@ -212,8 +228,6 @@ export default {
           audioDescriptionPlus[i].classList.toggle("slideIn--now");
           audioDescriptionPlus[i].classList.toggle("description--height");
           console.log("what 2");
-
-          
         }
       });
     }
@@ -259,15 +273,21 @@ export default {
             ".icon--untertitel--" + videoNumber
           );
 
-
           for (let i = 0; i < untertitelButtons.length; i++) {
             untertitelButtons[i].addEventListener("click", function() {
-              let audioDescription = document.querySelectorAll(".videoBox__wrapper--" + videoNumber +" .videoBox__audiodescription--" + videoNumber);
+              let audioDescription = document.querySelectorAll(
+                ".videoBox__wrapper--" +
+                  videoNumber +
+                  " .videoBox__audiodescription--" +
+                  videoNumber
+              );
               for (let i = 0; i < audioDescription.length; i++) {
                 audioDescription[i].classList.toggle("slideIn--now");
                 audioDescription[i].classList.toggle("description--height");
               }
-              let iframe = document.querySelectorAll(".videoBox__wrapper--" + videoNumber +" iframe");
+              let iframe = document.querySelectorAll(
+                ".videoBox__wrapper--" + videoNumber + " iframe"
+              );
               for (let i = 0; i < iframe.length; i++) {
                 iframe[i].classList.toggle("iframeResize");
                 console.log("what 3");
@@ -327,7 +347,7 @@ export default {
         switch (buttonNextCounter) {
           case 1:
             textBoxContent.innerHTML =
-              "Le 28 avril 1909, à 57 ans, Fulgence Bienvenüe se marie avec Jeanne Loret, veuve et mère de trois enfants.";
+              "Le 28 avril 1909, Fulgence Bienvenüe se marie avec Jeanne Loret, veuve et mère de trois enfants. Il avait alors 57 ans.";
 
             metroSign.classList.add("fadeOut");
             femme.classList.add("slideIn--now");
@@ -348,7 +368,7 @@ export default {
             break;
           case 3:
             textBoxContent.innerHTML =
-              "Il a eu l’occasion de voyager au sein de sa propre création, il prenait régulièrement le métropolitain";
+              "Fulgence a eu l’occasion de voyager à bord de sa propre création, il prenait régulièrement le métropolitain";
 
             appart.classList.add("fadeOut");
             metroSign.classList.remove("fadeOut");
