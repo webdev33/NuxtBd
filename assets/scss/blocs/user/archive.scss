@@ -3,6 +3,9 @@
     display: flex;
     justify-content: flex-end;
     margin-right: 50px;
+    @include max-xs{
+      margin-right: 15px;
+    }
   }
   .timeBar{
     transform: translateY(-200%);
@@ -16,15 +19,36 @@
     margin-left: -50px;
     position: fixed;
     top:0;
+    h1{
+      @include max-xs{
+        background-color: $color--main;
+        width: 100vw;
+        padding-top:50px;
+        padding-bottom: 5px;
+        margin-top: -20px;
+      }
+    }
+    @include max-xs{
+      margin-left: 0px;
+    }
   }
   .filter{
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 40;
+    
     .filterBox{
       position: absolute;
       top:100px;
       left:150px;
+      @include max-xs{
+        top: 68px;
+        left: 78px;
+      }
+      .inputGroup{
+        @include max-xs{display: none;}
+      }
       .searchbar{
         background-color: $color--main;
         border-radius: 30px;
@@ -66,10 +90,20 @@
   }
   .wrapp--images{
     width: calc(50vw);
+    @include max-xs{
+      width: 100%;
+      margin-left: 80px;
+    }
     .archive__imageBox{
       margin-top: 50px;
+      @include max-xs{
+        margin-top: 30px;
+      }
       &:first-of-type{
         margin-top: 100px;
+        @include max-xs{
+          margin-top: 137px;
+        }
       }
       &:last-of-type{
         margin-bottom: 100px;
@@ -78,6 +112,9 @@
         //max-width: 100%;
         width: calc(50vw);
         margin-bottom: 10px;
+        @include max-xs{
+          width: 100%;
+        }
       }
       p{
         color: #fff;
