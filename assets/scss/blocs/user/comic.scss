@@ -233,7 +233,10 @@ header{
     button{
       position: absolute;
       cursor: pointer;
-      right: 3vw;
+      right: 10vw;
+      @include max-xs {
+        
+      }
       @include max-xs {
        right: 10px;
       }
