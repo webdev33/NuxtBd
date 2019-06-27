@@ -95,7 +95,7 @@
     <div class="videoBox__wrapper videoBox__wrapper--1 slideIn--later">
       <button class="button button--closeVideo button--closeVideo--1">Retour en arrière</button>
       <div class="videoBox">
-        <div class="videoBox__videoWrapper">
+        <div class="videoBox__videoWrapper" v-on:click="clickSpeaker()">
           <iframe
             width="560"
             height="315"
@@ -130,7 +130,7 @@
       <button class="button button--closeVideo button--closeVideo--2">Retour en arrière</button>
 
       <div class="videoBox">
-        <div class="videoBox__videoWrapper">
+        <div class="videoBox__videoWrapper" v-on:click="clickSpeaker()">
           <iframe
             width="560"
             height="315"
@@ -157,7 +157,7 @@
       </div>
 
       <div class="videoBox">
-        <div class="videoBox__videoWrapper">
+        <div class="videoBox__videoWrapper" v-on:click="clickSpeaker()">
           <iframe
             width="560"
             height="315"
@@ -185,7 +185,7 @@
       </div>
 
       <div class="videoBox">
-        <div class="videoBox__videoWrapper">
+        <div class="videoBox__videoWrapper" v-on:click="clickSpeaker()">
           <iframe
             width="560"
             height="315"
@@ -229,6 +229,8 @@
 
 <script>
 export default {
+  transition: `article`,
+
   data() {
     return {
       boolean: false
@@ -513,6 +515,7 @@ export default {
      * Inverse iconBoolean
      */
     clickSpeaker() {
+      console.log('AAAA')
       this.boolean = !this.boolean;
       document.querySelector(".speaker--songs").muted = this.boolean;
       localStorage.setItem(`MUSIC`, this.boolean);

@@ -883,6 +883,8 @@
 
 <script>
 export default {
+  transition: `article`,
+
   data() {
     return {
       /* Speaker */
@@ -938,10 +940,10 @@ export default {
     /*
      * Link
      */
-    linkArticle() {
+    /* linkArticle() {
       let IDarticle = 2;
-      this.$router.push({ path: `../../content/article/${IDarticle}` });
-    },
+      this.$router.push({ path: `../../content/bienvenue/${IDarticle}` });
+    }, */
     //
 
     /*

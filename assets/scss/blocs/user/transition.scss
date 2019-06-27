@@ -1,0 +1,11 @@
+.article-enter-active,
+.article-leave-active {
+  transition-property: opacity;
+  transition-timing-function: ease-in-out;
+  transition-duration: 1000ms;
+}
+
+.article-enter,
+.article-leave-to {
+  opacity: 0;
+}

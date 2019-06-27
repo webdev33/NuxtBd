@@ -83,7 +83,7 @@
 
     <!-- Slide 0 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--0 slideIn--later">
-      <button class="button button--closeVideo button--closeVideo--0">Retour</button>
+      <button class="button button--closeVideo button--closeVideo--0">Retouren en arrière</button>
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
           <!-- 1 frame -->
@@ -164,7 +164,7 @@
     <article class="articlePlus slideIn--later">
       <div class="introArticle">
         <div class="introArticle__textBox">
-          <h1>la creation du tunnel sur la Seine</h1>
+          <h1>La creation du tunnel sur la Seine</h1>
           <p>Le passage sous-fluvial a posé plusieurs problèmes. Ce long et difficile chantier a mis en œuvre les premières réalisations mondiales de deux nouvelles techniques : la construction d’un tunnel sous-fluvial par fonçage de caissons et celle d’un souterrain en zone inondable par congélation du sol.
           <br><br>
           L’inspecteur général Fulgence Bienvenüe explique qu’il a fallu surmonter plusieurs difficultés. Passer sous le chemin de fer d’Orléans en bordure du quai Saint-Michel et travailler en terrain aquifère. Le sol a nécessité une congélation sur une longueur de 64 mètres par 57 forages de 17 mètres de profondeur. Le circuit injectait alors une composition chimique refroidie à moins 27 degrés afin d’obtenir un terrain gelé et sec.</p>
@@ -270,6 +270,8 @@
 
 <script>
 export default {
+  transition: `article`,
+  
   data() {
     return { boolean: false };
   },

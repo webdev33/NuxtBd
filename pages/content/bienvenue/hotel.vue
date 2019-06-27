@@ -35,16 +35,16 @@
     </section>
 
     <div class="sidebar">
-      <h2>Triumph</h2>
+      <h2>Mon triomphe</h2>
     </div>
 
     <div class="discoverBox">
       <img src="../../../assets/ressources/img/stairs.svg" class="stair" alt>
-      <a v-on:click="linkArticle()" class="button button--discover">Découvrir la station</a>
+      <a v-on:click="linkArticle()" class="button button--discover">Découvre la station</a>
     </div>
 
     <div class="comicBox comicBox--triumph">
-      <button class="button buttonNext">Next</button>
+      <button class="button buttonNext">Suivant</button>
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
         <p
@@ -179,6 +179,8 @@
 
 <script>
 export default {
+  transition: `article`,
+  
   data() {
     return { boolean: false };
   },

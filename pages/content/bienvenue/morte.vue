@@ -39,7 +39,7 @@
 
     <div class="discoverBox">
       <img src="../../../assets/ressources/img/stairs.svg" class="stair" alt>
-      <a v-on:click="linkArticle()" class="button button--discover">Découvrir la station</a>
+      <a v-on:click="linkArticle()" class="button button--discover">Découvre la station</a>
     </div>
 
     <div class="comicBox comicBox--pere">
@@ -70,7 +70,7 @@
 
     <!-- Slide 0 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--0 slideIn--later">
-      <button class="button button--closeVideo button--closeVideo--0">Go Back</button>
+      <button class="button button--closeVideo button--closeVideo--0">Retour en arrière</button>
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
           <iframe
@@ -100,7 +100,7 @@
 
     <!-- Slide 1 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--1 slideIn--later">
-      <button class="button button--closeVideo button--closeVideo--1">Go Back</button>
+      <button class="button button--closeVideo button--closeVideo--1">Retour en arrière</button>
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
           <iframe
@@ -130,7 +130,7 @@
 
     <!-- Slide 2 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--2 slideIn--later">
-      <button class="button button--closeVideo button--closeVideo--2">Go Back</button>
+      <button class="button button--closeVideo button--closeVideo--2">Retour en arrière</button>
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
           <iframe
@@ -142,7 +142,7 @@
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           ></iframe>
-          <p class="videoHeadline">Saluons Mr Bienvenüe, le père du métro.</p>
+          <p class="videoHeadline">Saluons Monsieur Bienvenüe, le père du métro.</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
           <img
@@ -152,7 +152,7 @@
           >
           <p
             class="videoBox__audiodescription videoBox__audiodescription--2 slideIn--later"
-          >Saluons Mr Bienvenüe, le père du métro.</p>
+          >Saluons Monsieur Bienvenüe, le père du métro.</p>
         </div>
       </div>
     </div>
@@ -171,6 +171,8 @@
 
 <script>
 export default {
+  transition: `article`,
+  
   data() {
     return { boolean: false };
   },

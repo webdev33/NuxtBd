@@ -161,6 +161,8 @@
 
 <script>
 export default {
+  transition: `article`,
+  
   data() {
     return {
       picked: null,
