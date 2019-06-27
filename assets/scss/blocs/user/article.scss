@@ -274,11 +274,12 @@
   //position: absolute;
   //right: 20px;
   @include min-sm {
-    //position: absolute;
+    position: fixed;
+    right:60px;
+    top:calc(100vh - 100px);
     padding:15px;
     font-size: 1.3em;
     border-radius: 40px;
-    float:right;
   }
   
   cursor: pointer;

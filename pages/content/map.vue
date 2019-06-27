@@ -955,7 +955,7 @@ export default {
 
     // 2s after Pageload
     setTimeout(function() {
-      speechBubble.innerHTML = `Découvre maintenant les stations et apprends pourquoi elles sont importantes pour moi.</br></br>Je te propose de commencer avec <nuxt-link class="stationLink linkGo" to="/content/bienvenue/born"> Montparnasse - Bienvenüe</nuxt-link>`;
+      speechBubble.innerHTML = `Découvre maintenant les stations et apprends pourquoi elles sont importantes pour moi.</br></br>Je te propose de commencer avec <nuxt-link class="stationLink linkGo" to="/content/bienvenue/born">Ma naissance</nuxt-link>`;
       timeBar.classList.add("moveIn");
       console.log(document.querySelector(".linkGo"));
       button = document.querySelector(".linkGo");
@@ -969,7 +969,7 @@ export default {
 
     montparnasse.addEventListener("mouseover", function() {
       var newDiv = document.createElement("div");
-      var newContentText = "Naissance";
+      var newContentText = "Ma naissance";
       var newContent = document.createTextNode(newContentText);
       newDiv.className = "stationBox";
       newDiv.appendChild(newContent);

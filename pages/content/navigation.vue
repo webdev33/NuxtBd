@@ -18,7 +18,7 @@
         Découvre maintenant les stations et apprends pourquoi elles sont importantes pour moi.
         <br>
         <br>Je te propose de commencer avec
-        <nuxt-link class="stationLink" to="/content/bienvenue/born">montparnasse - bienvenüe</nuxt-link>
+        <nuxt-link class="stationLink" to="/content/bienvenue/born">Ma naissance</nuxt-link>
         </div>
         <div v-else>
           Voici la fin de votre périple, j'espère que tu penseras à moi la prochaine que tu prendras le métro !
@@ -939,7 +939,7 @@ export default {
 
     montparnasse.addEventListener("mouseover", function() {
       var newDiv = document.createElement("div");
-      var newContentText = "Naissance";
+      var newContentText = "Ma naissance";
       var newContent = document.createTextNode(newContentText);
       newDiv.className = "stationBox";
       newDiv.appendChild(newContent);
