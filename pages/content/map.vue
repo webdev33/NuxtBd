@@ -773,6 +773,7 @@ export default {
    * By Christina, queen of the animation and Javascript
    */
   mounted: function mounted() {
+    let button;
     let station = document.querySelectorAll("circle");
     let wrapper = document.querySelector(".wrapper");
     let ligne = document.querySelectorAll(".ligne");
@@ -954,8 +955,13 @@ export default {
 
     // 2s after Pageload
     setTimeout(function() {
-      speechBubble.innerHTML = `Découvre maintenant les stations et apprends pourquoi elles sont importantes pour moi.</br></br>Je te propose de commencer avec <nuxt-link class="stationLink" to="/content/bienvenue/born">Ma naissance</nuxt-link>`;
+      speechBubble.innerHTML = `Découvre maintenant les stations et apprends pourquoi elles sont importantes pour moi.</br></br>Je te propose de commencer avec <nuxt-link class="stationLink linkGo" to="/content/bienvenue/born"> Montparnasse - Bienvenüe</nuxt-link>`;
       timeBar.classList.add("moveIn");
+      console.log(document.querySelector(".linkGo"));
+      button = document.querySelector(".linkGo");
+      button.addEventListener("click", () => {
+        this.$router.push({ path: "/content/bienvenue/born" });
+      });
     }, 20000);
 
     // Pop up

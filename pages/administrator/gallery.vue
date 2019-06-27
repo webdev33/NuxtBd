@@ -199,7 +199,7 @@ export default {
     };
   },
 
-  /* middleware: "auth", */
+  middleware: "auth",
 
   methods: {
     /*

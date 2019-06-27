@@ -18,7 +18,7 @@
         Découvre maintenant les stations et apprends pourquoi elles sont importantes pour moi.
         <br>
         <br>Je te propose de commencer avec
-        <nuxt-link class="stationLink" to="/content/bienvenue/born">Ma naissance</nuxt-link>
+        <nuxt-link class="stationLink" to="/content/bienvenue/born">montparnasse - bienvenüe</nuxt-link>
         </div>
         <div v-else>
           Voici la fin de votre périple, j'espère que tu penseras à moi la prochaine que tu prendras le métro !
