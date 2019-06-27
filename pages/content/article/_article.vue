@@ -812,7 +812,11 @@
       </div>
 
       <!-- <div class="article--nom" v-if="ifStation === false"> -->
-      <section v-for="select in articleSelected.explicationNom" :key="select._id">
+      <section
+        class="article--nom"
+        v-for="select in articleSelected.explicationNom"
+        :key="select._id"
+      >
         <h2 class="article--nom__headline">{{ select.name }}</h2>
         <p class="article--nom__paragraph">{{ select.text }}</p>
         <br>
@@ -824,7 +828,7 @@
         :key="select._id"
         class="button--articleBox"
       >
-      </section> -->
+      </section>-->
 
       <section v-for="select in articleSelected.nextStep" :key="select._id">
         <div v-on:click="linkArticle(select.link)" class="button button--article">{{ select.title }}</div>
@@ -836,7 +840,7 @@
         class="button--articleBox"
       >
         A
-      </section> -->
+      </section>-->
     </article>
 
     <footer class="footer--article">
@@ -1027,7 +1031,7 @@ export default {
           article.data.data[0].nextStep
         );
 
-        console.log(this.articleSelected.nextStep)
+        console.log(this.articleSelected.nextStep);
 
         this.openingStation = this.articleSelected.linesStation[0].date;
 
