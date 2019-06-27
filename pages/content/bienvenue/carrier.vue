@@ -87,9 +87,11 @@
         <div class="introArticle__textBox">
           <h1>La construction 1898 - 1900</h1>
           <p>
-            Le 4 octobre 1898, les premiers coups de pioche sont donnés. Ce sont les débuts des travaux qui vont éventrer les rues de Paris pendant plusieurs mois.
-            <br>
-            <br>Le Figaro se réjouit: «après avoir lanterné pendant quinze ans, on se décide à construire le chemin de fer métropolitain avant l'Exposition». En revanche, dans les rues de Paris, le mécontentement des Parisiens monte.
+           Le 4 octobre 1898, les premiers coups de pioche sont donnés: ce sont les débuts des travaux qui vont éventrer les rues de Paris pendant plusieurs mois.
+            <br><br>
+            Le Figaro se réjouit: «après avoir lanterné pendant quinze ans, on se décide à construire le chemin de fer métropolitain avant l'Exposition». En revanche, dans les rues de Paris, le mécontentement des Parisiens monte.
+            <br><br>
+            La terre est retournée, les rues défoncées, la ville étripée. On creuse les boulevards et les avenues pour y enterrer d’énormes infrastructures d’acier. Mais Paris est un véritable gruyère : sous les pavés, ce n’est pas la plage que l’on trouve mais des carrières, des égouts, des canalisations, des conduites, des grottes et cavités en tous genres et Bienvenüe doit bien souvent faire préalablement consolider la zone de percement.
           </p>
         </div>
       </div>
@@ -196,11 +198,13 @@
               class="icon--untertitel icon--untertitel--0"
             >
             <p class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later">
-              Le 4 octobre 1898, les premiers coups de pioche sont donnés: ce sont les débuts des travaux qui vont éventrer les rues de Paris pendant plusieurs mois.<br><br>
-
-              Le Figaro se réjouit: «après avoir lanterné pendant quinze ans, on se décide à construire le chemin de fer métropolitain avant l'Exposition». En revanche, dans les rues de Paris, le mécontentement des Parisiens monte.
-              <br><br>
-              La terre est retournée, les rues défoncées, la ville étripée. On creuse les boulevards et les avenues pour y enterrer d’énormes infrastructures d’acier. Mais Paris est un véritable gruyère : sous les pavés, ce n’est pas la plage que l’on trouve mais des carrières, des égouts, des canalisations, des conduites, des grottes et cavités en tous genres et Bienvenüe doit bien souvent faire préalablement consolider la zone de percement.
+              On va mettre en oeuvre plusieurs techniques de construction du métro. Globalement aujourd’hui on estime 3 types de constructions. On a une construction qui est plutôt du domaine de la mine, qui est la galerie boisée. On va créer des galeries, les étayer avec du bois.”<br>
+              Cette technique est utilisée par tous les entrepreneurs pour la construction de tunnels ferroviaires notamment. Comme dans les mines, le creusement se fait à la main, à la pioche et à la pelle. Un travail harassant, réalisé dans des conditions extrêmes. Tous les déblais sont sortis des galeries à l’aide de wagonnets, puis remontent en surface. Certains sont utilisés pour reboucher des carrières parisiennes. Quant aux galeries, elles sont étayées à l’aide d’énormes poutres qui servent également à créer la forme du futur tunnel. Enfin, toujours à la main, on réalise la voûte à l’aide de blocs de pierre maçonnés. Un travail digne de la construction des pyramides.<br>
+              “On a une deuxième technique qui sera employée plus tard, qui sera la technique du bouclier, qui est peut être aujourd’hui l’ancêtre du tunnelier. Qui consiste à creuser en poussant ce bouclier métallique et en construisant la voûte au fur et à mesure de l’avancement.”<br>
+              Le bouclier sera peu utilisé sur la ligne 1, car il est très lent, difficile à mettre en place et s’arrête dès qu’il rencontre une roche trop dure. À l’époque, il faut même creuser à la main pour le faire avancer dans des terrains parfois gorgés d’eau. Ce sont les voussoirs, posés un à un qui créent l'anneau du tunnel. Ils sont alors en fonte et sont positionnés grâce à un système manuel. Ensuite, bétonnés, ils donnent sa forme définitive au tunnel. Le bouclier est vraiment l’ancêtre du tunnelier moderne. Mais cette technique mettra des décennies pour être réellement au point. Il faudra attendre un siècle pour qu’un tunnelier soit de nouveau utilisé à Paris. Aujourd’hui on imagine mal la rue de Rivoli très fréquentée dans cet état. Et pourtant, c'est l’enfer que les parisiens vont vivre durant 18 mois.
+              “On a une dernière technique qui consiste à ouvrir la chaussée et fermer la boîte de la station avec un tablier métallique. Ce sont des techniques qui sont très gênantes, il n’y a plus de circulation. Ce sont des travaux qui concernent pratiquement un tier de la ligne 1.”<br>
+              Cette technique sera utilisée près de la Seine. On creuse le moins profond possible pour éviter les infiltrations. Du coup, le sommet de certaines stations n’est parfois qu’à 60 centimètres des roues des voitures.<br>
+              “Une fois les projets d’infrastructures effectivement livrés, il fallait décorer, habiller les stations. C’est l’arrivée du carreau biseauté blanc. On fait appelle à Hector Guimard pour les fameuses entrées de stations de métro. Le tout est livré à la Compagnie de Chemin de fer Métropolitain de Paris, qui va en assurer l’exploitation.
             </p>
           </div>
         </div>
