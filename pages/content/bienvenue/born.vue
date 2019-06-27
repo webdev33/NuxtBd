@@ -41,7 +41,7 @@
     </div>
 
     <div class="discoverBox">
-      <img src="../../../assets/ressources/img/stairs.svg" class="stair" alt>
+      <img src="../../../assets/ressources/img/stairs.svg" class="stair" alt>x
       <a v-on:click="linkArticle()" class="button button--discover">Découvre la station</a>
     </div>
 
@@ -95,7 +95,7 @@
     <div class="videoBox__wrapper videoBox__wrapper--1 slideIn--later">
       <button class="button button--closeVideo button--closeVideo--1">Retour en arrière</button>
       <div class="videoBox">
-        <div class="videoBox__videoWrapper">
+        <div class="videoBox__videoWrapper" v-on:click="clickSpeaker()">
           <iframe
             width="560"
             height="315"
@@ -130,7 +130,7 @@
       <button class="button button--closeVideo button--closeVideo--2">Retour en arrière</button>
 
       <div class="videoBox">
-        <div class="videoBox__videoWrapper">
+        <div class="videoBox__videoWrapper" v-on:click="clickSpeaker()">
           <iframe
             width="560"
             height="315"
@@ -157,7 +157,7 @@
       </div>
 
       <div class="videoBox">
-        <div class="videoBox__videoWrapper">
+        <div class="videoBox__videoWrapper" v-on:click="clickSpeaker()">
           <iframe
             width="560"
             height="315"
@@ -183,8 +183,9 @@
           </p>
         </div>
       </div>
+
       <div class="videoBox">
-        <div class="videoBox__videoWrapper">
+        <div class="videoBox__videoWrapper" v-on:click="clickSpeaker()">
           <iframe
             width="560"
             height="315"
@@ -240,8 +241,6 @@ export default {
    * By Christina, queen of the animation and Javascript
    */
   mounted: function mounted() {
-    console.log(document.querySelectorAll('.videoBox__videoWrapper'))
-
     /*
      * Message bienvenue
      */

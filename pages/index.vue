@@ -1,5 +1,26 @@
 <template>
   <section class="index">
+    <!-- Speaker -->
+    <section class="speaker">
+      <!-- Mute -->
+      <section
+        v-if="selectSpeaker() === false"
+        v-on:click="clickSpeaker()"
+        class="speaker speaker--on"
+      >
+        <img src="../assets/ressources/audios/icon/speakker--off.png" alt>
+      </section>
+
+      <!-- Unmute -->
+      <section
+        v-if="selectSpeaker() === true"
+        v-on:click="clickSpeaker()"
+        class="speaker speaker--off"
+      >
+        <img src="../assets/ressources/audios/icon/speakker--on.png" alt>
+      </section>
+    </section>
+
     <!-- Alert -->
     <div class="disclaimer" v-show="disclaimer === true">
       <button class="disclaimer__button" v-on:click="disclaimer = false">x</button>
@@ -59,6 +80,8 @@ export default {
 
   data() {
     return {
+      boolean: false,
+
       disclaimer: true,
 
       articles: null,
@@ -82,6 +105,26 @@ export default {
     },
     //
 
+    /*
+     * Select the status of speaker
+     */
+    selectSpeaker() {
+      return this.boolean;
+    },
+    //
+    /*
+     * Inverse iconBoolean
+     */
+    clickSpeaker() {
+      this.boolean = !this.boolean;
+      document.querySelector("video").muted = this.boolean;
+      localStorage.setItem(`MUSIC`, this.boolean);
+    },
+    //
+
+    /*
+     * Router test
+     */
     router() {
       let article = 2;
       this.$router.push({ path: `content/article/${article}` });
@@ -89,6 +132,17 @@ export default {
   },
 
   mounted: function mounted() {
+    /*
+     * Speaker
+     */
+    document.querySelector("video").muted = this.boolean;
+    this.boolean = JSON.parse(localStorage.getItem(`MUSIC`))
+      ? JSON.parse(localStorage.getItem(`MUSIC`))
+      : false;
+    document.querySelector("video").muted = this.boolean;
+    document.querySelector("video").volume = 0.3;
+    //
+
     if (window.matchMedia("(min-width: 600px)").matches) {
       let mec = document.querySelector(".mec");
       console.log(mec);
@@ -194,57 +248,6 @@ export default {
               default:
                 break;
             }
-            // } else {
-            //   counterAnimation -= 1
-            //   switch (counterAnimation) {
-            //   case 1:
-            //     mec.classList.remove("fadeInLeft");
-            //     document.querySelector(".scroll--down").style.opacity="0";
-            //     break;
-
-            //   case 2:
-            //     document.querySelector(".headline--intro--second").style.opacity="1";
-            //     break;
-
-            //   case 3:
-            //     document.querySelector(".dialog--1").classList.remove("slideInButton");
-            //     break;
-
-            //   case 4:
-            //     document.querySelector(".dialog--1").classList.remove("slideIOutTop");
-            //     break;
-
-            //   case 5:
-            //     document.querySelector(".dialog--2").classList.remove("slideInButton");
-            //     break;
-
-            //   case 6:
-            //     document.querySelector(".dialog--2").classList.remove("slideIOutTop");
-            //     break;
-
-            //   case 7:
-            //     document.querySelector(".dialog--3").classList.remove("slideInButton");
-            //     break;
-
-            //   case 8:
-            //     document.querySelector(".dialog--3").classList.remove("slideIOutTop");
-            //     break;
-
-            //   case 9:
-            //     document.querySelector(".dialog--4").classList.remove("slideInButton");
-            //     break;
-
-            //   case 10:
-            //     document.querySelector(".dialog--4").classList.remove("slideIOutTop");
-            //     break;
-
-            //   case 11:
-            //     document.querySelector(".button--intro").classList.remove("slideInButton");
-            //     break;
-
-            //   default:
-            //     break;
-            // }
           }
 
           console.log(counterAnimation);
@@ -269,25 +272,24 @@ export default {
 .disclaimer {
   //max-width: 1260px;
   position: fixed;
-  top:30px;
-  left:10px;
+  top: 30px;
+  left: 10px;
   width: 100vw;
   z-index: 1000;
-  
-  display: flex;
-  p{
-    background-color: #fff;
-    color: #2623B7;
-    font-weight: bold;
-    font-size:0.8em;
-    padding:2px;
 
+  display: flex;
+  p {
+    background-color: #fff;
+    color: #2623b7;
+    font-weight: bold;
+    font-size: 0.8em;
+    padding: 2px;
   }
-  button{
+  button {
     color: #fff;
     border: none;
-    background-color: #2623B7;
-    height:15px;
+    background-color: #2623b7;
+    height: 15px;
     padding: 0 5px;
     cursor: pointer;
   }
