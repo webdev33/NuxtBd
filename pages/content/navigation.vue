@@ -14,10 +14,15 @@
 
       <div class="speechbubble" v-if="visited === true">Découvre les stations de toi même !</div>
       <div class="speechbubble" v-else>
+        <div v-if="visitedLast === false">
         Découvre maintenant les stations et apprends pourquoi elles sont importantes pour moi.
         <br>
         <br>Je te propose de commencer avec
         <nuxt-link class="stationLink" to="/content/bienvenue/born">Ma naissance</nuxt-link>
+        </div>
+        <div v-else>
+          Voici la fin de votre périple, j'espère que tu penseras à moi la prochaine que tu prendras le métro !
+        </div>
       </div>
 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 970 790" class="mapSVG">
@@ -779,7 +784,8 @@ export default {
   
   data() {
     return {
-      visited: false
+      visited: false,
+      visitedLast: true
     };
   },
 
@@ -790,9 +796,13 @@ export default {
     /*
      * Message bienvenue
      */
+    JSON.parse(localStorage.getItem(`MORTE`)) &&
+    JSON.parse(localStorage.getItem(`VISITED`))
+      ? (this.visitedLast = JSON.parse(localStorage.getItem(`VISITED`)))
+      : 0;
     this.visited = JSON.parse(localStorage.getItem(`VISITED`));
     //
-
+    
     /***
      * Map
      */
