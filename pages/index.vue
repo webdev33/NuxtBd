@@ -45,6 +45,8 @@
 
 <script>
 export default {
+  transition: `article`,
+
   data() {
     return {
       articles: null,
@@ -157,57 +159,57 @@ export default {
               default:
                 break;
             }
-          } else {
-            counterAnimation -= 1
-            switch (counterAnimation) {
-            case 1:
-              mec.classList.remove("fadeInLeft");
-              document.querySelector(".scroll--down").style.opacity="0";
-              break;
+          // } else {
+          //   counterAnimation -= 1
+          //   switch (counterAnimation) {
+          //   case 1:
+          //     mec.classList.remove("fadeInLeft");
+          //     document.querySelector(".scroll--down").style.opacity="0";
+          //     break;
             
-            case 2:
-              document.querySelector(".headline--intro--second").style.opacity="1";
-              break;
+          //   case 2:
+          //     document.querySelector(".headline--intro--second").style.opacity="1";
+          //     break;
             
-            case 3:
-              document.querySelector(".dialog--1").classList.remove("slideInButton");
-              break;
+          //   case 3:
+          //     document.querySelector(".dialog--1").classList.remove("slideInButton");
+          //     break;
             
-            case 4:
-              document.querySelector(".dialog--1").classList.remove("slideIOutTop");
-              break;
+          //   case 4:
+          //     document.querySelector(".dialog--1").classList.remove("slideIOutTop");
+          //     break;
             
-            case 5:
-              document.querySelector(".dialog--2").classList.remove("slideInButton");
-              break;
+          //   case 5:
+          //     document.querySelector(".dialog--2").classList.remove("slideInButton");
+          //     break;
 
-            case 6:
-              document.querySelector(".dialog--2").classList.remove("slideIOutTop");
-              break;
+          //   case 6:
+          //     document.querySelector(".dialog--2").classList.remove("slideIOutTop");
+          //     break;
             
-            case 7:
-              document.querySelector(".dialog--3").classList.remove("slideInButton");
-              break;
+          //   case 7:
+          //     document.querySelector(".dialog--3").classList.remove("slideInButton");
+          //     break;
             
-            case 8:
-              document.querySelector(".dialog--3").classList.remove("slideIOutTop");
-              break;
+          //   case 8:
+          //     document.querySelector(".dialog--3").classList.remove("slideIOutTop");
+          //     break;
             
-            case 9:
-              document.querySelector(".dialog--4").classList.remove("slideInButton");
-              break;
+          //   case 9:
+          //     document.querySelector(".dialog--4").classList.remove("slideInButton");
+          //     break;
             
-            case 10:
-              document.querySelector(".dialog--4").classList.remove("slideIOutTop");
-              break;
+          //   case 10:
+          //     document.querySelector(".dialog--4").classList.remove("slideIOutTop");
+          //     break;
             
-            case 11:
-              document.querySelector(".button--intro").classList.remove("slideInButton");
-              break;
+          //   case 11:
+          //     document.querySelector(".button--intro").classList.remove("slideInButton");
+          //     break;
           
-            default:
-              break;
-          }
+          //   default:
+          //     break;
+          // }
         }
         
           
