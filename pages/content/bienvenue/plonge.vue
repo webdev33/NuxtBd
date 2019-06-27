@@ -234,24 +234,70 @@
         </div>
 
         <div class="imageBox">
+
           <div class="imageBox__box">
-            <img src="https://fracademic.com/pictures/frwiki/77/Metro_de_Paris_-_Plan_traversee_sous-fluviale_ligne_A_Nord-Sud.jpg" alt class="imgageBox__box__image">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Paris_-_Les_travaux_du_Metropolitain_-_Foncage_du_caisson_central.jpg/800px-Paris_-_Les_travaux_du_Metropolitain_-_Foncage_du_caisson_central.jpg" alt class="imgageBox__box__image">
             <p class="imgageBox__box__text">
-              <span>Date : XXᵉ siècle </span>Plan de la traversée sous-fluviale
+              <span>1906 : </span>Les travaux du Metropolitain - Fonçage du caisson central dans le grand bras de la Seine (ligne 4)
             </p>
           </div>
+
           <div class="imageBox__box">
-            <img src="https://monumentum.fr/photo/galerie/maxi/00166/166980-station-cite-metro-paris.jpg" alt class="imgageBox__box__image">
+            <img src="http://a53.idata.over-blog.com/2/43/99/34/m-tro/MALCUI-1.jpg" alt class="imgageBox__box__image">
             <p class="imgageBox__box__text">
-              <span>Date : XXᵉ siècle </span>Fulgence Bienvenüe, inspecteur général des Ponts et Chaussées est, avec Edmond Huet, le père du métro de Paris
+              <span>Années 1900 : </span>Réalisation de la traversée sous-fluviale de la ligne 4 du métro de Paris, par la méthode des caissons sous pression d'air
             </p>
           </div>
+
           <div class="imageBox__box">
-            <img src="../../../assets/ressources/img/img.png" alt class="imgageBox__box__image">
+            <img src="https://gallica.bnf.fr/ark:/12148/bpt6k1168457q/f283.highres" alt class="imgageBox__box__image">
             <p class="imgageBox__box__text">
-              <span>Date:</span>Chantier de la traversée sous-fluviale
+              <span>11 juillet 1929 : </span>Traversée sous-fluviale de la Seine en aval du Jardin des Plantes. Visite de la Commission de Contrôle des Travaux de la Ville de Paris.
             </p>
           </div>
+
+          <div class="imageBox__box">
+            <img src="http://www.pariszigzag.fr/wp-content/uploads/2016/09/80021-1.jpg" alt class="imgageBox__box__image">
+            <p class="imgageBox__box__text">
+              <span>8 juillet 1905 : </span>Chemin de fer métropolitain municipal de Paris, traversée de la Seine au Châtelet. Montage sur le bas-port du quai des Tuileries du caisson de rive droite (grand bras), vers l’amont, Gare d’Orsay.
+            </p>
+          </div>
+
+          <div class="imageBox__box">
+            <img src="http://www.pariszigzag.fr/wp-content/uploads/2016/09/80021-11.jpg" alt class="imgageBox__box__image">
+            <p class="imgageBox__box__text">
+              <span>18 septembre 1905 : </span>Chemin de fer métropolitain municipal de Paris, traversée de la Seine au Châtelet. Intérieur du caisson de rive droite (grand bras) en fonçage.
+            </p>
+          </div>
+
+          <div class="imageBox__box">
+            <img src="http://www.pariszigzag.fr/wp-content/uploads/2016/09/80021-12.jpg" alt class="imgageBox__box__image">
+            <p class="imgageBox__box__text">
+              <span>18 octobre 1905 : </span>Chemin de fer métropolitain municipal de Paris, traversée de la Seine au Châtelet. Fonçage du caisson de rive droite (grand bras), vers l’aval, Pont au change.
+            </p>
+          </div>
+
+          <div class="imageBox__box">
+            <img src="http://www.pariszigzag.fr/wp-content/uploads/2016/09/80021-27.jpg" alt class="imgageBox__box__image">
+            <p class="imgageBox__box__text">
+              <span>10 avril 1906 : </span>Chemin de fer métropolitain municipal de Paris, traversée de la Seine au Châtelet. Emplacement d’un puits d’extrémité de la station. Commencement du montage du caisson elliptique.
+            </p>
+          </div>
+
+          <div class="imageBox__box">
+            <img src="http://www.pariszigzag.fr/wp-content/uploads/2016/09/80019-3.jpg" alt class="imgageBox__box__image">
+            <p class="imgageBox__box__text">
+              <span>15 octobre 1906 : </span>Chemin de fer métropolitain municipal de Paris, traversée de la Seine au Châtelet (Place Saint-André des Arts). Chantier de la station Place Saint-Michel. Visite de la Corporation de la Cité de Londres.
+            </p>
+          </div>
+
+          <div class="imageBox__box">
+            <img src="https://fracademic.com/pictures/frwiki/77/Metro_de_Paris_-_Traversee_sous-fluviale_ligne_A_Nord-Sud.jpg" alt class="imgageBox__box__image">
+            <p class="imgageBox__box__text">
+              <span>XXᵉ siècle : </span>Chantier de la traversée sous-fluviale
+            </p>
+          </div>
+
         </div>
       </div>
       <button class="button buttonNext buttonNext--end">Retour en haut</button>
