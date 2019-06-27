@@ -11,7 +11,7 @@
         <div class="timeBar__year">1930</div>
         <div class="timeBar__year">1937</div>
       </div>
-      <div class="speechbubble">Pendant des années le métropolitain a connu des améliorations.</div>
+      <div class="speechbubble">Pendant des années, le métropolitain a connu des améliorations.</div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 970 790" class="mapSVG">
         <g id="Line">
           <polyline

@@ -12,7 +12,7 @@
         <div class="timeBar__year">1937</div>
       </div>
 
-      <div class="speechbubble" v-if="visited === true">Découvre les stations de toi même !</div>
+      <div class="speechbubble" v-if="visited === true">Découvre les stations par toi-même !</div>
       <div class="speechbubble" v-else>
         <div v-if="visitedLast === true">
         Découvre maintenant les stations et apprends pourquoi elles sont importantes pour moi.
