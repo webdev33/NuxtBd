@@ -292,7 +292,7 @@ export default {
     /*
      * Message bienvenue
      */
-    this.visited = JSON.parse(localStorage.getItem(`VISITED`));
+    localStorage.setItem(`VISITED`, true);
     //
 
     /*

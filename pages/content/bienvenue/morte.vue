@@ -185,6 +185,7 @@ export default {
      * Message for map and navigation
      */
     localStorage.setItem(`VISITED`, true);
+    localStorage.setItem(`MORTE`, true);
     //
 
     /*

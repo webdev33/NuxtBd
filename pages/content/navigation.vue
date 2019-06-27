@@ -14,7 +14,7 @@
 
       <div class="speechbubble" v-if="visited === true">Découvre les stations de toi même !</div>
       <div class="speechbubble" v-else>
-        <div v-if="visitedLast === false">
+        <div v-if="visitedLast === true">
         Découvre maintenant les stations et apprends pourquoi elles sont importantes pour moi.
         <br>
         <br>Je te propose de commencer avec
