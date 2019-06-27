@@ -811,15 +811,19 @@
         </div>
       </div>
 
-      <div class="article--nom" v-if="ifStation === false">
-        <section v-for="select in articleSelected.explicationNom" :key="select._id">
-          <h2 class="article--nom__headline">{{ select.name }}</h2>
-          <p class="article--nom__paragraph">{{ select.text }}</p>
-          <br>
-        </section>
-      </div>
+      <!-- <div class="article--nom" v-if="ifStation === false"> -->
+      <section v-for="select in articleSelected.explicationNom" :key="select._id">
+        <h2 class="article--nom__headline">{{ select.name }}</h2>
+        <p class="article--nom__paragraph">{{ select.text }}</p>
+        <br>
+      </section>
+      <!-- </div> -->
 
-      <section v-for="select in articleSelected.nextStep" :key="select._id" class="button--articleBox">
+      <section
+        v-for="select in articleSelected.nextStep"
+        :key="select._id"
+        class="button--articleBox"
+      >
         <div v-on:click="linkArticle(select.link)" class="button button--article">{{ select.title }}</div>
       </section>
     </article>
@@ -851,7 +855,7 @@
     width: 100%;
   }
 
-  p{
+  p {
     color: #fff;
     font-size: 1em;
     line-height: 1.2em;
@@ -862,7 +866,7 @@
 
   .images__legend {
     .images__legendDate {
-      margin-top:10px;
+      margin-top: 10px;
       color: #fff;
       padding-bottom: 20px;
       font-weight: bold;
@@ -992,14 +996,17 @@ export default {
         this.articleSelected.explicationNom = JSON.parse(
           article.data.data[0].explicationNom
         );
+
+        this.articleSelected.explicationNom.length > 0
+          ? (this.ifStation = true)
+          : (this.ifStation = false);
+
         this.articleSelected.events = JSON.parse(article.data.data[0].events);
         this.articleSelected.videos = JSON.parse(article.data.data[0].videos);
         this.articleSelected.audios = JSON.parse(article.data.data[0].audios);
         this.articleSelected.firstPicture = JSON.parse(
           article.data.data[0].firstPicture
         );
-
-        console.log(this.articleSelected.firstPicture);
 
         this.articleSelected.pictures = JSON.parse(
           article.data.data[0].pictures
@@ -1028,7 +1035,6 @@ export default {
         let selectMap;
         if (select.select === `Ligne`) {
           selectMap = document.querySelectorAll(`.${select.name}`);
-          this.ifStation = true;
         } else if (select.select === `Station`) {
           let stationSelect = document.querySelector(
             `[station = "${select.name}"]`
