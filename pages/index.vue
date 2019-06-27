@@ -1,6 +1,15 @@
 <template>
   <section class="index">
     <!-- Alert -->
+    <div class="disclaimer" v-show="disclaimer === true">
+      <p class="disclaimer__text">
+        Ce site à été réalisé à des fins pédagogiques dans le cadre du cursus
+        Bachelor de l’école HETIC. Les contenus présentés ne sont en aucun
+        cas exploités à des fins commerciales et ne seront pas publiés
+      </p>
+      <button class="disclaimer__button" v-on:click="disclaimer = false">Fermer</button>
+    </div>
+
     <p class="alert alert-primary alert-danger" v-show="formError != null">{{ formError }}</p>
     <div class="wrapper--intro">
       <div class="countdown countdown--test"></div>
@@ -15,18 +24,20 @@
 
       <p class="dialog dialog--1">Je suis heureux de me présenter à vous.</p>
       <p class="dialog dialog--2">Je suis Fulgence Bienvenüe !</p>
-      <p class="dialog dialog--3">Je suis à l'origine de la construction<br>du métropolitain.</p>
-      <p class="dialog dialog--4">C'est la raison pour laquelle<br>on me surnomme "le père du métro".</p>
+      <p class="dialog dialog--3">
+        Je suis à l'origine de la construction
+        <br>du métropolitain.
+      </p>
+      <p class="dialog dialog--4">
+        C'est la raison pour laquelle
+        <br>on me surnomme "le père du métro".
+      </p>
 
       <nuxt-link to="/content/map">
-      <button class="button button--intro">Commence le voyage</button>
+        <button class="button button--intro">Commence le voyage</button>
       </nuxt-link>
-
-      
-
     </div>
 
-    
     <p class="button scroll--down buttonSkipIntro">Skip le intro</p>
     <p class="button scroll--down scroll--down--xs">Decouvrir</p>
 
@@ -39,7 +50,6 @@
         </button>
       </nuxt-link>
     </footer>
-    
   </section>
 </template>
 
@@ -49,6 +59,8 @@ export default {
 
   data() {
     return {
+      disclaimer: true,
+
       articles: null,
       formError: null,
 
@@ -71,160 +83,178 @@ export default {
     //
 
     router() {
-      let article = 2
-      this.$router.push({ path: `content/article/${article}`})
+      let article = 2;
+      this.$router.push({ path: `content/article/${article}` });
     }
   },
 
   mounted: function mounted() {
-
     if (window.matchMedia("(min-width: 600px)").matches) {
-
       let mec = document.querySelector(".mec");
       console.log(mec);
 
       let timer = setTimeout(function() {
-        document.querySelector(".headline--intro--second").classList.add("slideIn--nowIntroTest");
-        document.querySelector(".buttonSkipIntro").innerHTML ="Scroll Down";
+        document
+          .querySelector(".headline--intro--second")
+          .classList.add("slideIn--nowIntroTest");
+        document.querySelector(".buttonSkipIntro").innerHTML = "Scroll Down";
         document.querySelector(".index").classList.add("introNoSkip");
         document.querySelector(".wrapper--intro").style.overflow = "visible";
       }, 21000);
 
-      document.querySelector(".buttonSkipIntro").addEventListener("click",function(){
-        console.log("skip intro");
-        clearTimeout(timer);
-        document.querySelector(".wrapper--intro").style.overflow = "visible";
-        document.querySelector(".index").classList.add("introSkip");
-        document.querySelector(".buttonSkipIntro").innerHTML ="Scroll Down";
-        document.querySelector(".headline--intro--second").classList.add("slideIn--nowIntroTest");
-      })
+      document
+        .querySelector(".buttonSkipIntro")
+        .addEventListener("click", function() {
+          console.log("skip intro");
+          clearTimeout(timer);
+          document.querySelector(".wrapper--intro").style.overflow = "visible";
+          document.querySelector(".index").classList.add("introSkip");
+          document.querySelector(".buttonSkipIntro").innerHTML = "Scroll Down";
+          document
+            .querySelector(".headline--intro--second")
+            .classList.add("slideIn--nowIntroTest");
+        });
 
-      let counter = 0
-      let counterAnimation = 0
+      let counter = 0;
+      let counterAnimation = 0;
       let lastScrollTop = 0;
       window.addEventListener("scroll", () => {
         var st = window.pageYOffset || document.documentElement.scrollTop;
-        console.log("fff")
-        counter += 1
+        console.log("fff");
+        counter += 1;
         if (counter % 30 === 0) {
-          
-        if (st > lastScrollTop){
-            counterAnimation += 1
+          if (st > lastScrollTop) {
+            counterAnimation += 1;
             switch (counterAnimation) {
               case 1:
                 mec.classList.add("fadeInLeft");
-                document.querySelector(".scroll--down").style.opacity="0";
+                document.querySelector(".scroll--down").style.opacity = "0";
                 break;
-              
+
               case 2:
-                document.querySelector(".headline--intro--second").style.opacity="0";
+                document.querySelector(
+                  ".headline--intro--second"
+                ).style.opacity = "0";
                 break;
-              
+
               case 3:
-                document.querySelector(".dialog--1").classList.add("slideInButton");
+                document
+                  .querySelector(".dialog--1")
+                  .classList.add("slideInButton");
                 break;
-              
+
               case 4:
-                document.querySelector(".dialog--1").classList.add("slideIOutTop");
+                document
+                  .querySelector(".dialog--1")
+                  .classList.add("slideIOutTop");
                 break;
-              
+
               case 5:
-                document.querySelector(".dialog--2").classList.add("slideInButton");
+                document
+                  .querySelector(".dialog--2")
+                  .classList.add("slideInButton");
                 break;
 
               case 6:
-                document.querySelector(".dialog--2").classList.add("slideIOutTop");
+                document
+                  .querySelector(".dialog--2")
+                  .classList.add("slideIOutTop");
                 break;
-              
+
               case 7:
-                document.querySelector(".dialog--3").classList.add("slideInButton");
+                document
+                  .querySelector(".dialog--3")
+                  .classList.add("slideInButton");
                 break;
-              
+
               case 8:
-                document.querySelector(".dialog--3").classList.add("slideIOutTop");
+                document
+                  .querySelector(".dialog--3")
+                  .classList.add("slideIOutTop");
                 break;
-              
+
               case 9:
-                document.querySelector(".dialog--4").classList.add("slideInButton");
+                document
+                  .querySelector(".dialog--4")
+                  .classList.add("slideInButton");
                 break;
-              
+
               case 10:
-                document.querySelector(".dialog--4").classList.add("slideIOutTop");
+                document
+                  .querySelector(".dialog--4")
+                  .classList.add("slideIOutTop");
                 break;
-              
+
               case 11:
-                document.querySelector(".button--intro").classList.add("slideInButton");
+                document
+                  .querySelector(".button--intro")
+                  .classList.add("slideInButton");
                 break;
-            
+
               default:
                 break;
             }
-          // } else {
-          //   counterAnimation -= 1
-          //   switch (counterAnimation) {
-          //   case 1:
-          //     mec.classList.remove("fadeInLeft");
-          //     document.querySelector(".scroll--down").style.opacity="0";
-          //     break;
-            
-          //   case 2:
-          //     document.querySelector(".headline--intro--second").style.opacity="1";
-          //     break;
-            
-          //   case 3:
-          //     document.querySelector(".dialog--1").classList.remove("slideInButton");
-          //     break;
-            
-          //   case 4:
-          //     document.querySelector(".dialog--1").classList.remove("slideIOutTop");
-          //     break;
-            
-          //   case 5:
-          //     document.querySelector(".dialog--2").classList.remove("slideInButton");
-          //     break;
+            // } else {
+            //   counterAnimation -= 1
+            //   switch (counterAnimation) {
+            //   case 1:
+            //     mec.classList.remove("fadeInLeft");
+            //     document.querySelector(".scroll--down").style.opacity="0";
+            //     break;
 
-          //   case 6:
-          //     document.querySelector(".dialog--2").classList.remove("slideIOutTop");
-          //     break;
-            
-          //   case 7:
-          //     document.querySelector(".dialog--3").classList.remove("slideInButton");
-          //     break;
-            
-          //   case 8:
-          //     document.querySelector(".dialog--3").classList.remove("slideIOutTop");
-          //     break;
-            
-          //   case 9:
-          //     document.querySelector(".dialog--4").classList.remove("slideInButton");
-          //     break;
-            
-          //   case 10:
-          //     document.querySelector(".dialog--4").classList.remove("slideIOutTop");
-          //     break;
-            
-          //   case 11:
-          //     document.querySelector(".button--intro").classList.remove("slideInButton");
-          //     break;
-          
-          //   default:
-          //     break;
-          // }
+            //   case 2:
+            //     document.querySelector(".headline--intro--second").style.opacity="1";
+            //     break;
+
+            //   case 3:
+            //     document.querySelector(".dialog--1").classList.remove("slideInButton");
+            //     break;
+
+            //   case 4:
+            //     document.querySelector(".dialog--1").classList.remove("slideIOutTop");
+            //     break;
+
+            //   case 5:
+            //     document.querySelector(".dialog--2").classList.remove("slideInButton");
+            //     break;
+
+            //   case 6:
+            //     document.querySelector(".dialog--2").classList.remove("slideIOutTop");
+            //     break;
+
+            //   case 7:
+            //     document.querySelector(".dialog--3").classList.remove("slideInButton");
+            //     break;
+
+            //   case 8:
+            //     document.querySelector(".dialog--3").classList.remove("slideIOutTop");
+            //     break;
+
+            //   case 9:
+            //     document.querySelector(".dialog--4").classList.remove("slideInButton");
+            //     break;
+
+            //   case 10:
+            //     document.querySelector(".dialog--4").classList.remove("slideIOutTop");
+            //     break;
+
+            //   case 11:
+            //     document.querySelector(".button--intro").classList.remove("slideInButton");
+            //     break;
+
+            //   default:
+            //     break;
+            // }
+          }
+
+          console.log(counterAnimation);
+        } else {
+          //document.querySelector(".intro__video").innerHTML="";
         }
-        
-          
-          console.log(counterAnimation)
-          
-    } else{
-      //document.querySelector(".intro__video").innerHTML="";
-    }
-        
+
         lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
-        
       });
     }
-
-
 
     /*
      * Load articles
@@ -234,3 +264,13 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.disclaimer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: #2623b7;
+}
+</style>
