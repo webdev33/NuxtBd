@@ -10,13 +10,7 @@ export default {
       { hid: "description", content: "Auth Routes example" }
     ]
   },
-  link: [
-    {
-      rel: 'icon',
-      type: 'image/x-icon',
-      href: 'favicon.ico',
-    },
-  ],
+  
   /*
    ** Add server middleware
    ** Nuxt.js uses `connect` module as server
