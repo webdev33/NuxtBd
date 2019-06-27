@@ -62,6 +62,7 @@
     bottom: auto;
     top:calc(100vh);
     .mec{
+      left:0;
       //display: none;
       transition:all 0.3s;
       &--big{

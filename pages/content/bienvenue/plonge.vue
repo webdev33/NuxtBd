@@ -47,10 +47,9 @@
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
         <p class="comic__text__p">
-          Après avoir assisté à l’éventrement des rues de la capitale, la Seine tremble.
+          Après avoir assisté à l’éventrement des rues de la capitale, <span class="link--video" videoLinkId="0">la Seine</span> tremble.
           <br>
-          <br>Divisant Paris en son centre, elle est un obstacle à la
-          <span class="link--video" videoLinkId="0">cohésion</span> du réseau
+          <br>Divisant Paris en son centre, elle est un obstacle à la cohésion du réseau
         </p>
       </div>
 
@@ -86,7 +85,9 @@
       <button class="button button--closeVideo button--closeVideo--0">Retouren en arrière</button>
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
-          <!-- 1 frame -->
+          
+          <iframe width="560" height="315" class="videoBox__video" src="https://www.youtube.com/embed/9Jes2zhDRIg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
           <p class="videoHeadline">Paris d'antant</p>
         </div>
         <div class="videoBox__audiodescriptionBox">
@@ -101,7 +102,7 @@
     </div>
     <!-- End -->
 
-    <!-- Slide 0 Start -->
+    <!-- Slide 1 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--1 slideIn--later">
       <button class="button button--closeVideo button--closeVideo--1">Retour en arrière</button>
 
@@ -598,7 +599,7 @@ export default {
      * Link
      */
     linkArticle() {
-      let IDarticle = 4;
+      let IDarticle = 5;
       this.$router.push({ path: `../../content/article/${IDarticle}` });
     }
     //
