@@ -832,9 +832,12 @@
 
       <div class="button--articleBox">
         <section v-for="select in articleSelected.nextStep" :key="select._id">
-          <div v-on:click="linkArticle(select.link)" class="button button--article">{{ select.title }}</div>
+          <div
+            v-on:click="linkArticle(select.link)"
+            class="button button--article"
+          >{{ select.title }}</div>
         </section>
-       </div>
+      </div>
 
       <!-- <section
         v-for="select in articleSelected.nextStep"
@@ -975,20 +978,14 @@ export default {
     /*
      * Link
      */
-    /* linkArticle() {
-      let IDarticle = 2;
-      this.$router.push({ path: `../../content/bienvenue/${IDarticle}` });
-    }, */
-    //
-
-    /*
-     * Link
-     */
     linkArticle(select) {
-      console.log(select);
-      select != `map`
-        ? this.$router.push({ path: `../../content/bienvenue/${select}` })
-        : this.$router.push({ path: `../../content/navigation` });
+      if (select != `map`) {
+        isNaN(parseInt(select, 16))
+          ? this.$router.push({ path: `../../content/bienvenue/${select}` })
+          : this.$router.push({ path: `../../content/article/${select}` })
+      } else {
+        this.$router.push({ path: `../../content/navigation` });
+      }
     },
     //
 
@@ -1032,8 +1029,6 @@ export default {
         this.articleSelected.nextStep = JSON.parse(
           article.data.data[0].nextStep
         );
-
-        console.log(this.articleSelected.nextStep);
 
         this.openingStation = this.articleSelected.linesStation[0].date;
 
