@@ -8,11 +8,33 @@
       <div class="headlineIntro"></div>
     </header>
 
-    <audio
-      :src="require('@/assets/ressources/audios/fermeturePortes.mp3')"
-      autoplay
-      class="speaker--songs"
-    ></audio>
+    <!-- Speaker -->
+    <section class="speaker">
+      <!-- autoplay -->
+      <audio
+        :src="require('@/assets/ressources/audios/fermeturePortes.mp3')"
+        autoplay
+        class="speaker--songs"
+      ></audio>
+
+      <!-- Mute -->
+      <section
+        v-if="selectSpeaker() === false"
+        v-on:click="clickSpeaker()"
+        class="speaker speaker--on"
+      >
+        <img src="../../../assets/ressources/audios/icon/speakker--off.png" alt>
+      </section>
+
+      <!-- Unmute -->
+      <section
+        v-if="selectSpeaker() === true"
+        v-on:click="clickSpeaker()"
+        class="speaker speaker--off"
+      >
+        <img src="../../../assets/ressources/audios/icon/speakker--on.png" alt>
+      </section>
+    </section>
 
     <div class="sidebar">
       <h2>{{ articleSelected.status }}</h2>
@@ -56,7 +78,6 @@
 
       <div class="map--navigation article__map">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 970 790">
-          
           <g id="Line">
             <polyline
               id="_1_1"
@@ -417,7 +438,14 @@
             <circle class="cls-2" cx="958.57" cy="536.18" r="0"></circle>
             <circle class="cls-2" cx="935.08" cy="512.54" r="0"></circle>
             <circle class="cls-2" cx="916.53" cy="494.12" r="0"></circle>
-            <circle class="station" station="ligne1" bubble="Sa carrière" cx="882.02" cy="475" r="1"></circle>
+            <circle
+              class="station"
+              station="ligne1"
+              bubble="Sa carrière"
+              cx="882.02"
+              cy="475"
+              r="1"
+            ></circle>
             <circle class="cls-2" cx="865.49" cy="510.91" r="0"></circle>
             <circle class="cls-2" cx="844.18" cy="533.27" r="0"></circle>
             <circle class="cls-2" cx="823.39" cy="553.27" r="0"></circle>
@@ -530,7 +558,14 @@
 
             <circle class="station" station="cite" bubble="Son génie" cx="507.3" cy="414.96" r="1"></circle>
 
-            <circle class="station" station="hotle " bubble="Son triomphe" cx="571.11" cy="378.76" r="1"></circle>
+            <circle
+              class="station"
+              station="hotle "
+              bubble="Son triomphe"
+              cx="571.11"
+              cy="378.76"
+              r="1"
+            ></circle>
 
             <circle class="cls-2" cx="610.6" cy="418.8" r="0"></circle>
             <circle class="cls-2" cx="604.18" cy="211.72" r="0"></circle>
@@ -850,6 +885,9 @@
 export default {
   data() {
     return {
+      /* Speaker */
+      boolean: false,
+
       articles: null,
       currentId: 2,
 
@@ -881,12 +919,39 @@ export default {
 
   methods: {
     /*
+     * Select the status of speaker
+     */
+    selectSpeaker() {
+      return this.boolean;
+    },
+    //
+    /*
+     * Inverse iconBoolean
+     */
+    clickSpeaker() {
+      this.boolean = !this.boolean;
+      document.querySelector(".speaker--songs").muted = this.boolean;
+      localStorage.setItem(`MUSIC`, this.boolean);
+    },
+    //
+
+    /*
+     * Link
+     */
+    linkArticle() {
+      let IDarticle = 2;
+      this.$router.push({ path: `../../content/article/${IDarticle}` });
+    },
+    //
+
+    /*
      * Link
      */
     linkArticle(select) {
-      console.log(select)
-      select != `map`?
-      this.$router.push({ path: `../../content/article/${select}` }) : this.$router.push({ path: `../../content/navigation` })
+      console.log(select);
+      select != `map`
+        ? this.$router.push({ path: `../../content/bienvenue/${select}` })
+        : this.$router.push({ path: `../../content/navigation` });
     },
     //
 
@@ -1026,62 +1091,16 @@ export default {
   //
 
   updated: function updated(params) {
-    //   let imageBox = document.querySelector(".imageStaition__image");
-    //   let images = document.querySelectorAll(".imageStaition__image__image");
-    //   let imagesDescription = document.querySelectorAll(
-    //     ".imageStaition__image__textBox"
-    //   );
-    //   let imageActive;
-    //   for (let i = 0; i < images.length; i++) {
-    //     if (i === 0) {
-    //       images[0].classList.add("imageVisible");
-    //       imageActive = document.querySelector(".imageVisible");
-    //     }
-    //     images[i].style.display = "none";
-    //   }
-    //   imageActive.style.display = "block";
-    //   for (let i = 0; i < imagesDescription.length; i++) {
-    //     if (i === 0) {
-    //       imagesDescription[i].classList.add("active");
-    //     }
-    //   }
-    //   //hauter
-    //   let imageActiveHeight = imageActive.offsetHeight;
-    //   imageBox.style.height = imageActiveHeight + "px";
-    //   let years = document.querySelectorAll(".imageStaition__timelineYear");
-    //   let selectYear = "";
-    //   for (let i = 0; i < years.length; i++) {
-    //     if (i === 0) {
-    //       years[0].classList.add("active");
-    //     }
-    //     years[i].addEventListener("click", function() {
-    //       for (let i = 0; i < years.length; i++) {
-    //         years[i].classList.remove("active");
-    //       }
-    //       selectYear = years[i].innerHTML;
-    //       years[i].classList.add("active");
-    //       for (let i = 0; i < images.length; i++) {
-    //         images[i].style.display = "none";
-    //         images[i].classList.remove("imageVisible");
-    //         if (selectYear === images[i].getAttribute("year")) {
-    //           images[i].style.display = "block";
-    //           images[i].classList.add("imageVisible");
-    //           //height
-    //           imageActiveHeight = images[i].offsetHeight;
-    //           imageBox.style.height = imageActiveHeight + "px";
-    //           console.log("Height : " + imageActiveHeight + "px");
-    //         }
-    //       }
-    //       for (let i = 0; i < imagesDescription.length; i++) {
-    //         //sconsole.log(imagesDescription)
-    //         imagesDescription[i].classList.remove("active");
-    //         if (selectYear === images[i].getAttribute("year")) {
-    //           //console.log(document.querySelector(".imageStaition__image"))
-    //           imagesDescription[i].classList.add("active");
-    //         }
-    //       }
-    //     });
-    //   }
+    /*
+     * Speaker
+     */
+    document.querySelector(".speaker--songs").muted = this.boolean;
+    this.boolean = JSON.parse(localStorage.getItem(`MUSIC`))
+      ? JSON.parse(localStorage.getItem(`MUSIC`))
+      : false;
+    document.querySelector(".speaker--songs").muted = this.boolean;
+    document.querySelector(".speaker--songs").volume = 0.3;
+
     let introScroll = document.querySelector(".intro__petit");
     window.addEventListener("scroll", () => {
       if (window.matchMedia("(min-width: 640px)").matches) {

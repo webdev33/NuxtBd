@@ -40,7 +40,7 @@
 
     <div class="discoverBox">
       <img src="../../../assets/ressources/img/stairs.svg" class="stair" alt>
-      <a v-on:click="linkArticle()" class="button button--discover">Decouvrir la station</a>
+      <a v-on:click="linkArticle()" class="button button--discover">Découvrir la station</a>
     </div>
 
     <div class="comicBox comicBox--triumph">
@@ -96,7 +96,7 @@
 
     <!-- Slide 1 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--1 slideIn--later">
-      <button class="button button--closeVideo button--closeVideo--1">Go Back</button>
+      <button class="button button--closeVideo button--closeVideo--1">Retour en arrière</button>
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
           <iframe
@@ -118,7 +118,13 @@
           >
           <p class="videoBox__audiodescription videoBox__audiodescription--1 slideIn--later">
             “Plusieurs fois le métro passe la Seine, on a des viaducs remarquables, comme le viaduc de Passy. Mais une des prouesses technologique c’est le viaduc d’Austerlitz avec une portée exceptionnelle de 140 mètres en une seule fois.”
-            La construction du viaduc d’Austerlitz a été décidé en 1903, pour relier les deux rives de la ligne 5, entre les stations Gare d’Austerlitz et l’actuel Quai de la Rapée. Afin de ne pas gêner le trafic fluvial, le service de la navigation demanda qu’il ne comporte aucun appui au milieu du fleuve. Situé à 11m30 au dessus du niveau de la Seine, le viaduc d’Austerlitz est réalisé en acier. Il est constitué de deux grands arcs paraboliques, avec 3 articulations : une au sommet et deux proches des rives. Le tablier large de 8m50 est suspendu aux arcs par 16 montants en son centre et porté par 4 montants aux extrémités. Pour contrarier la force du vent, les montants de suspension ont été reliés par des structures en croix. Pour rigidifier l’ensemble, les arcs ont été eux mêmes reliés entre eux. Le projet retenu prévoyait donc un viaduc d’une seule portée de 140 m, battant au passage les 107m50 du pont Alexandre III, jusque là, la plus longue de Paris. Sur les rives, les arcs du viaduc s'appuient sur des massifs de maçonnerie de 22m de long et 18m de large. Chacun de ces blocs est surmonté de deux pylônes, de 15m de haut, qui encadrent le tablier du pont. Un ouvrage hors normes pour l’époque. En juillet 1906, les travaux sont enfin terminés. La ligne 5 qui relie la gare de l’Est à la gare d’Austerlitz est mise en service.
+            <br>
+            <br>La construction du viaduc d’Austerlitz a été décidé en 1903, pour relier les deux rives de la ligne 5, entre les stations Gare d’Austerlitz et l’actuel Quai de la Rapée. Afin de ne pas gêner le trafic fluvial, le service de la navigation demanda qu’il ne comporte aucun appui au milieu du fleuve.
+            <br>
+            <br>Situé à 11m30 au dessus du niveau de la Seine, le viaduc d’Austerlitz est réalisé en acier. Il est constitué de deux grands arcs paraboliques, avec 3 articulations : une au sommet et deux proches des rives. Le tablier large de 8m50 est suspendu aux arcs par 16 montants en son centre et porté par 4 montants aux extrémités. Pour contrarier la force du vent, les montants de suspension ont été reliés par des structures en croix.
+            <br>Pour rigidifier l’ensemble, les arcs ont été eux mêmes reliés entre eux. Le projet retenu prévoyait donc un viaduc d’une seule portée de 140 m, battant au passage les 107m50 du pont Alexandre III, jusque là, la plus longue de Paris. Sur les rives, les arcs du viaduc s'appuient sur des massifs de maçonnerie de 22m de long et 18m de large. Chacun de ces blocs est surmonté de deux pylônes, de 15m de haut, qui encadrent le tablier du pont. Un ouvrage hors normes pour l’époque.
+            <br>
+            <br>En juillet 1906, les travaux sont enfin terminés. La ligne 5 qui relie la gare de l’Est à la gare d’Austerlitz est mise en service.
           </p>
         </div>
       </div>
@@ -127,7 +133,7 @@
 
     <!-- Slide 2 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--2 slideIn--later">
-      <button class="button button--closeVideo button--closeVideo--2">Go Back</button>
+      <button class="button button--closeVideo button--closeVideo--2">Retour en arrière</button>
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
           <iframe
@@ -147,9 +153,13 @@
             alt
             class="icon--untertitel icon--untertitel--2"
           >
-          <p
-            class="videoBox__audiodescription videoBox__audiodescription--2 slideIn--later"
-          >Bienvenüe part à la retraite au début des années 30, à plus de 80 ans. "Monsieur l’inspecteur général Bienvenüe !" Le métro s’est encore étendu, et déjà à l’époque, 800 millions de voyageurs l’empruntent chaque années.</p>
+          <p class="videoBox__audiodescription videoBox__audiodescription--2 slideIn--later">
+            Bienvenüe part à la retraite au début des années 30, à plus de 80 ans.
+            <br>
+            <br>"Monsieur l’inspecteur général Bienvenüe !"
+            <br>
+            <br>Le métro s’est encore étendu, et déjà à l’époque, 800 millions de voyageurs l’empruntent chaque années.
+          </p>
         </div>
       </div>
     </div>
@@ -392,7 +402,7 @@ export default {
         switch (buttonNextCounter) {
           case 1:
             textBoxContent.innerHTML =
-              "Il reçoit la Grande Médaille d’or de la ville de Paris en 1924, sont soulignés son implication inflexible et son <span class='link--video' videoLinkId='1'>apport culturel</span>";
+              "Il reçoit la Grande Médaille d’or de la ville de Paris en 1924, <br><br> sont soulignés son implication inflexible et son <span class='link--video' videoLinkId='1'>apport culturel</span>";
             videoPlus();
 
             maison.classList.add("fadeOut");
@@ -415,7 +425,7 @@ export default {
             break;
           case 2:
             textBoxContent.innerHTML =
-              "Il devient Grand-Croix de la Légion d’Honneur en 1929.Cette distinction lui est décernée en récompense des services rendus auprès de la ville de Paris, pour le <span class='link--video' videoLinkId='2'>succès</span> de la construction du métropolitain.";
+              "Il devient Grand-Croix de la Légion d’Honneur en 1929. <br><br>Cette distinction lui est décernée en récompense des services rendus auprès de la ville de Paris, pour le <span class='link--video' videoLinkId='2'>succès</span> de la construction du métropolitain.";
             videoPlus();
 
             pult.classList.add("slideIn--now");
@@ -428,7 +438,7 @@ export default {
             break;
           case 3:
             textBoxContent.innerHTML =
-              "Cette récompense lui ait remis près de la station Hôtel de Ville, qui se trouve sur la ligne 1.";
+              "Cette récompense lui ait remis à proximité de la station Hôtel de Ville, qui se trouve sur la ligne 1.";
 
             leg.classList.add("fadeOut");
             corp.classList.add("fadeOut");

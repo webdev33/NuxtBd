@@ -5,7 +5,7 @@
       <div class="headlineIntro"></div>
     </header>
     <div class="sidebar">
-      <h2>Carriere</h2>
+      <h2>Ma carrière</h2>
     </div>
 
     <!-- Speaker -->
@@ -18,28 +18,36 @@
       ></audio>
 
       <!-- Mute -->
-      <section v-if="selectSpeaker() === false" v-on:click="clickSpeaker()" class="speaker speaker--on">
+      <section
+        v-if="selectSpeaker() === false"
+        v-on:click="clickSpeaker()"
+        class="speaker speaker--on"
+      >
         <img src="../../../assets/ressources/audios/icon/speakker--off.png" alt>
       </section>
 
       <!-- Unmute -->
-      <section v-if="selectSpeaker() === true" v-on:click="clickSpeaker()" class="speaker speaker--off">
+      <section
+        v-if="selectSpeaker() === true"
+        v-on:click="clickSpeaker()"
+        class="speaker speaker--off"
+      >
         <img src="../../../assets/ressources/audios/icon/speakker--on.png" alt>
       </section>
     </section>
 
     <div class="discoverBox">
       <img src="../../../assets/ressources/img/stairs.svg" class="stair" alt>
-      <a v-on:click="linkArticle()" class="button button--discover">Decouvrir la station</a>
+      <a v-on:click="linkArticle()" class="button button--discover">Découvre la station</a>
     </div>
 
     <div class="comicBox comicBox--carrier">
-      <button class="button buttonNext">Next</button>
+      <button class="button buttonNext">Suivant</button>
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
         <p class="comic__text__p">
           Le 20 avril 1896,
-          <span class="link--video" videoLinkId="0">le projet</span> de desserte urbain de Fulgence Bienvenüe est adopté par le Conseil municipal.
+          <span class="link--video" videoLinkId="0">le projet</span> de desserte urbain de Fulgence Bienvenüe est adopté par le Conseil Municipal de Paris.
         </p>
       </div>
       <img
@@ -79,14 +87,13 @@
         <div class="introArticle__textBox">
           <h1>La construction 1898 - 1900</h1>
           <p>
-            Le 4 octobre 1898, les premiers coups de pioche sont donnés: ce sont les débuts des travaux qui vont éventrer les rues de Paris pendant plusieurs mois.
-            <br><br>
-            Le Figaro se réjouit: «après avoir lanterné pendant quinze ans, on se décide à construire le chemin de fer métropolitain avant l'Exposition». En revanche, dans les rues de Paris, le mécontentement des Parisiens monte.
+            Le 4 octobre 1898, les premiers coups de pioche sont donnés. Ce sont les débuts des travaux qui vont éventrer les rues de Paris pendant plusieurs mois.
+            <br>
+            <br>Le Figaro se réjouit: «après avoir lanterné pendant quinze ans, on se décide à construire le chemin de fer métropolitain avant l'Exposition». En revanche, dans les rues de Paris, le mécontentement des Parisiens monte.
           </p>
         </div>
       </div>
       <div class="articlePuls__imageBox">
-
         <div class="videoBox">
           <div class="videoBox__videoWrapper">
             <iframe
@@ -132,9 +139,9 @@
               alt
               class="icon--untertitel icon--untertitel--0"
             >
-            <p class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later">
-              Sans surprise, la ligne 1 du métro est la première à avoir été ouverte le 19 juillet 1900. L’inauguration s’est faite après un débat d’environ 1 demi siècle dans lequel l’état et la ville de Paris se sont opposés sur la conception du chemin de fer métropolitain. L’Etat voulait relier les grandes gares de chemins de fer entre elles, créant ce que l’on appellerait aujourd’hui le RER, tandis que la ville de Paris préférait un chemin de fer d’intérêt local avec des stations rapprochées. C’est l’exposition universelle de 1900 qui a accéléré les débats, et a permis à la ville de Paris d’obtenir l’autorisation de l’Etat de faire son métropolitain. La ligne fut construite en seulement 20 mois. Afin d’éviter le problème des expropriations, le tracé des lignes suit exactement la voirie parisienne. Il suffisait ainsi, d’ouvrir la chaussée puis de la refermer. Le trafic atteignait rapidement les 130 mille voyageurs par jours, et aujourd’hui on atteint même les 800 mille.
-            </p>
+            <p
+              class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later"
+            >Sans surprise, la ligne 1 du métro est la première à avoir été ouverte le 19 juillet 1900. L’inauguration s’est faite après un débat d’environ 1 demi siècle dans lequel l’état et la ville de Paris se sont opposés sur la conception du chemin de fer métropolitain. L’Etat voulait relier les grandes gares de chemins de fer entre elles, créant ce que l’on appellerait aujourd’hui le RER, tandis que la ville de Paris préférait un chemin de fer d’intérêt local avec des stations rapprochées. C’est l’exposition universelle de 1900 qui a accéléré les débats, et a permis à la ville de Paris d’obtenir l’autorisation de l’Etat de faire son métropolitain. La ligne fut construite en seulement 20 mois. Afin d’éviter le problème des expropriations, le tracé des lignes suit exactement la voirie parisienne. Il suffisait ainsi, d’ouvrir la chaussée puis de la refermer. Le trafic atteignait rapidement les 130 mille voyageurs par jours, et aujourd’hui on atteint même les 800 mille.</p>
           </div>
         </div>
 
@@ -157,9 +164,9 @@
               alt
               class="icon--untertitel icon--untertitel--0"
             >
-            <p class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later">
-              Il fallait qu’ils amènent leurs pelles et leurs pioches et c’était donc par trains entiers qu’ils venaient comme ça à Paris. Et d’ailleurs on peut dire que le métro parisien à été construit en bonne partie par les bretons, ils ont été très nombreux dans ce chantier.
-            </p>
+            <p
+              class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later"
+            >Il fallait qu’ils amènent leurs pelles et leurs pioches et c’était donc par trains entiers qu’ils venaient comme ça à Paris. Et d’ailleurs on peut dire que le métro parisien à été construit en bonne partie par les bretons, ils ont été très nombreux dans ce chantier.</p>
           </div>
         </div>
 
@@ -183,13 +190,13 @@
               class="icon--untertitel icon--untertitel--0"
             >
             <p class="videoBox__audiodescription videoBox__audiodescription--0 slideIn--later">
-              “On va mettre en oeuvre plusieurs techniques de construction du métro. Globalement aujourd’hui on estime 3 types de constructions. On a une construction qui est plutôt du domaine de la mine, qui est la galerie boisée. On va créer des galeries, les étayer avec du bois.”<br>
-              Cette technique est utilisée par tous les entrepreneurs pour la construction de tunnels ferroviaires notamment. Comme dans les mines, le creusement se fait à la main, à la pioche et à la pelle. Un travail harassant, réalisé dans des conditions extrêmes. Tous les déblais sont sortis des galeries à l’aide de wagonnets, puis remontent en surface. Certains sont utilisés pour reboucher des carrières parisiennes. Quant aux galeries, elles sont étayées à l’aide d’énormes poutres qui servent également à créer la forme du futur tunnel. Enfin, toujours à la main, on réalise la voûte à l’aide de blocs de pierre maçonnés. Un travail digne de la construction des pyramides.<br>
-              “On a une deuxième technique qui sera employée plus tard, qui sera la technique du bouclier, qui est peut être aujourd’hui l’ancêtre du tunnelier. Qui consiste à creuser en poussant ce bouclier métallique et en construisant la voûte au fur et à mesure de l’avancement.”<br>
-              Le bouclier sera peu utilisé sur la ligne 1, car il est très lent, difficile à mettre en place et s’arrête dès qu’il rencontre une roche trop dure. À l’époque, il faut même creuser à la main pour le faire avancer dans des terrains parfois gorgés d’eau. Ce sont les voussoirs, posés un à un qui créent l'anneau du tunnel. Ils sont alors en fonte et sont positionnés grâce à un système manuel. Ensuite, bétonnés, ils donnent sa forme définitive au tunnel. Le bouclier est vraiment l’ancêtre du tunnelier moderne. Mais cette technique mettra des décennies pour être réellement au point. Il faudra attendre un siècle pour qu’un tunnelier soit de nouveau utilisé à Paris. Aujourd’hui on imagine mal la rue de Rivoli très fréquentée dans cet état. Et pourtant, c'est l’enfer que les parisiens vont vivre durant 18 mois.
-              “On a une dernière technique qui consiste à ouvrir la chaussée et fermer la boîte de la station avec un tablier métallique. Ce sont des techniques qui sont très gênantes, il n’y a plus de circulation. Ce sont des travaux qui concernent pratiquement un tier de la ligne 1.”<br>
-              Cette technique sera utilisée près de la Seine. On creuse le moins profond possible pour éviter les infiltrations. Du coup, le sommet de certaines stations n’est parfois qu’à 60 centimètres des roues des voitures.<br>
-              “Une fois les projets d’infrastructures effectivement livrés, il fallait décorer, habiller les stations. C’est l’arrivée du carreau biseauté blanc. On fait appelle à Hector Guimard pour les fameuses entrées de stations de métro. Le tout est livré à la Compagnie de Chemin de fer Métropolitain de Paris, qui va en assurer l’exploitation.”
+              “On va mettre en oeuvre plusieurs techniques de construction du métro. Globalement aujourd’hui on estime 3 types de constructions. On a une construction qui est plutôt du domaine de la mine, qui est la galerie boisée. On va créer des galeries, les étayer avec du bois.”
+              <br>Cette technique est utilisée par tous les entrepreneurs pour la construction de tunnels ferroviaires notamment. Comme dans les mines, le creusement se fait à la main, à la pioche et à la pelle. Un travail harassant, réalisé dans des conditions extrêmes. Tous les déblais sont sortis des galeries à l’aide de wagonnets, puis remontent en surface. Certains sont utilisés pour reboucher des carrières parisiennes. Quant aux galeries, elles sont étayées à l’aide d’énormes poutres qui servent également à créer la forme du futur tunnel. Enfin, toujours à la main, on réalise la voûte à l’aide de blocs de pierre maçonnés. Un travail digne de la construction des pyramides.
+              <br>“On a une deuxième technique qui sera employée plus tard, qui sera la technique du bouclier, qui est peut être aujourd’hui l’ancêtre du tunnelier. Qui consiste à creuser en poussant ce bouclier métallique et en construisant la voûte au fur et à mesure de l’avancement.”
+              <br>Le bouclier sera peu utilisé sur la ligne 1, car il est très lent, difficile à mettre en place et s’arrête dès qu’il rencontre une roche trop dure. À l’époque, il faut même creuser à la main pour le faire avancer dans des terrains parfois gorgés d’eau. Ce sont les voussoirs, posés un à un qui créent l'anneau du tunnel. Ils sont alors en fonte et sont positionnés grâce à un système manuel. Ensuite, bétonnés, ils donnent sa forme définitive au tunnel. Le bouclier est vraiment l’ancêtre du tunnelier moderne. Mais cette technique mettra des décennies pour être réellement au point. Il faudra attendre un siècle pour qu’un tunnelier soit de nouveau utilisé à Paris. Aujourd’hui on imagine mal la rue de Rivoli très fréquentée dans cet état. Et pourtant, c'est l’enfer que les parisiens vont vivre durant 18 mois.
+              “On a une dernière technique qui consiste à ouvrir la chaussée et fermer la boîte de la station avec un tablier métallique. Ce sont des techniques qui sont très gênantes, il n’y a plus de circulation. Ce sont des travaux qui concernent pratiquement un tier de la ligne 1.”
+              <br>Cette technique sera utilisée près de la Seine. On creuse le moins profond possible pour éviter les infiltrations. Du coup, le sommet de certaines stations n’est parfois qu’à 60 centimètres des roues des voitures.
+              <br>“Une fois les projets d’infrastructures effectivement livrés, il fallait décorer, habiller les stations. C’est l’arrivée du carreau biseauté blanc. On fait appelle à Hector Guimard pour les fameuses entrées de stations de métro. Le tout est livré à la Compagnie de Chemin de fer Métropolitain de Paris, qui va en assurer l’exploitation.”
             </p>
           </div>
         </div>
@@ -203,12 +210,12 @@
           </div>
         </div>
       </div>
-      <button class="button buttonNext buttonNext--end">To top</button>
+      <button class="button buttonNext buttonNext--end">Retour en haut</button>
     </article>
 
     <!-- Slide 0 Start -->
     <div class="videoBox__wrapper videoBox__wrapper--0 slideIn--later">
-      <button class="button button--closeVideo button--closeVideo--0">Go Back</button>
+      <button class="button button--closeVideo button--closeVideo--0">Retour en arrière</button>
 
       <div class="videoBox">
         <div class="videoBox__videoWrapper">
@@ -314,13 +321,12 @@ export default {
    * By Christina, queen of the animation and Javascript
    */
   mounted: function mounted() {
-
     /*
      * Message bienvenue
      */
     this.visited = JSON.parse(localStorage.getItem(`VISITED`));
     //
-    
+
     /*
      * Speaker
      */
@@ -370,11 +376,10 @@ export default {
                 window.innerHeight * 0.2
               ) {
                 document.querySelector(".comicBox").classList.add("fadeOut");
-                document.querySelector(".articlePlus").style.zIndex="200";
-
+                document.querySelector(".articlePlus").style.zIndex = "200";
               } else {
                 document.querySelector(".comicBox").classList.remove("fadeOut");
-                document.querySelector(".articlePlus").style.zIndex="0";
+                document.querySelector(".articlePlus").style.zIndex = "0";
               }
             }
           });
@@ -389,13 +394,16 @@ export default {
       document.querySelector("header").classList.remove("fadeOut");
     };
 
-    let untertitelButtonsPlus = document.querySelectorAll(".articlePlus .icon--untertitel");
+    let untertitelButtonsPlus = document.querySelectorAll(
+      ".articlePlus .icon--untertitel"
+    );
     console.log(untertitelButtonsPlus);
     for (let i = 0; i < untertitelButtonsPlus.length; i++) {
       console.log("what 1");
       untertitelButtonsPlus[i].addEventListener("click", function() {
-
-        let audioDescriptionPlus = document.querySelectorAll( ".articlePlus .videoBox__audiodescription");
+        let audioDescriptionPlus = document.querySelectorAll(
+          ".articlePlus .videoBox__audiodescription"
+        );
 
         let iframePlus = document.querySelectorAll(".articlePlus iframe");
         for (let i = 0; i < iframePlus.length; i++) {
@@ -407,8 +415,6 @@ export default {
           audioDescriptionPlus[i].classList.toggle("slideIn--now");
           audioDescriptionPlus[i].classList.toggle("description--height");
           console.log("what 2");
-
-          
         }
       });
     }
@@ -454,15 +460,21 @@ export default {
             ".icon--untertitel--" + videoNumber
           );
 
-
           for (let i = 0; i < untertitelButtons.length; i++) {
             untertitelButtons[i].addEventListener("click", function() {
-              let audioDescription = document.querySelectorAll(".videoBox__wrapper--" + videoNumber +" .videoBox__audiodescription--" + videoNumber);
+              let audioDescription = document.querySelectorAll(
+                ".videoBox__wrapper--" +
+                  videoNumber +
+                  " .videoBox__audiodescription--" +
+                  videoNumber
+              );
               for (let i = 0; i < audioDescription.length; i++) {
                 audioDescription[i].classList.toggle("slideIn--now");
                 audioDescription[i].classList.toggle("description--height");
               }
-              let iframe = document.querySelectorAll(".videoBox__wrapper--" + videoNumber +" iframe");
+              let iframe = document.querySelectorAll(
+                ".videoBox__wrapper--" + videoNumber + " iframe"
+              );
               for (let i = 0; i < iframe.length; i++) {
                 iframe[i].classList.toggle("iframeResize");
                 console.log("what 3");
@@ -524,7 +536,7 @@ export default {
         switch (buttonNextCounter) {
           case 1:
             textBoxContent.innerHTML =
-              "L’exposition universelle et les jeux olympiques de 1900 sont un <span class='link--video' videoLinkId='1'>enjeu majeur</span> au nom de la ville de Paris";
+              "L’exposition universelle et les Jeux Olympiques de 1900 sont un <span class='link--video' videoLinkId='1'>enjeu majeur</span> au nom de la ville de Paris";
             videoPlus();
 
             metroSign.classList.add("slideIn--now");
@@ -532,7 +544,7 @@ export default {
             break;
           case 2:
             textBoxContent.innerHTML =
-              "Ces travaux, qui entraîneront de gigantesques bouleversements dans la ville, attiseront également la colère des parisiens !<br>Il est l'auteur d'une des plus jolies opérations... césariennes que Paris ait subies.<br><br><button class='button buttonPlus'>Ensavoir Plus</button>";
+              "Ces travaux, qui entraîneront de gigantesques bouleversements dans la ville, attiseront également la colère des parisiens !<br><br>Fulgence Bienvenüe est l'auteur d'une des plus jolies opérations... césariennes que Paris ait subies.<br><br><button class='button buttonPlus'>En savoir plus</button>";
 
             metroSign.classList.add("fadeOut");
             setTimeout(function() {
@@ -554,7 +566,7 @@ export default {
             break;
           case 3:
             textBoxContent.innerHTML =
-              "Découvrez les deux extrémités de la ligne historique !.";
+              "Replonge avec moi dans les images d'archives d'antant. <br><br> Je suis si fier de mon oeuvre. ";
             savoirPlusEnd();
 
             legs.classList.add("fadeOut");

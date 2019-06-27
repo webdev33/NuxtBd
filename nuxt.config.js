@@ -3,7 +3,7 @@ import session from 'express-session'
 
 export default {
   head: {
-    title: 'Auth Routes',
+    title: 'Le père du métro',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

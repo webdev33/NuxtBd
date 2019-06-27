@@ -34,16 +34,16 @@
     </section>
 
     <div class="sidebar">
-      <h2>Morte</h2>
+      <h2>Mon décès</h2>
     </div>
 
     <div class="discoverBox">
       <img src="../../../assets/ressources/img/stairs.svg" class="stair" alt>
-      <a v-on:click="linkArticle()" class="button button--discover">Decouvrir la station</a>
+      <a v-on:click="linkArticle()" class="button button--discover">Découvrir la station</a>
     </div>
 
     <div class="comicBox comicBox--pere">
-      <button class="button buttonNext">Next</button>
+      <button class="button buttonNext">Suivant</button>
       <div class="comic__text animation--text">
         <img src="../../../assets/ressources/img/playbutton.png" alt class="videoPrewieButton">
         <p class="comic__text__p">
