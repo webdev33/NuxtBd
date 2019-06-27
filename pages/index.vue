@@ -59,7 +59,7 @@
       </nuxt-link>
     </div>
 
-    <p class="button scroll--down buttonSkipIntro">Skip le intro</p>
+    <p class="button scroll--down buttonSkipIntro">Passe l'introduction</p>
     <p class="button scroll--down scroll--down--xs">Decouvrir</p>
 
     <footer class="footer--comic footer--index">
@@ -163,7 +163,7 @@ export default {
           clearTimeout(timer);
           document.querySelector(".wrapper--intro").style.overflow = "visible";
           document.querySelector(".index").classList.add("introSkip");
-          document.querySelector(".buttonSkipIntro").innerHTML = "Scroll Down";
+          document.querySelector(".buttonSkipIntro").innerHTML = "Scroll";
           document
             .querySelector(".headline--intro--second")
             .classList.add("slideIn--nowIntroTest");
