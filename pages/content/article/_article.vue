@@ -836,9 +836,14 @@
 
 <style lang="scss" scoped>
 .images {
-  margin: 25px;
+  margin-top: 25px;
   /* background-color: red; */
   width: 70%;
+  @media (max-width: 599px) {
+    margin: 0;
+    width: 100%;
+    margin-bottom: 10px;
+  }
 
   .images__show {
     padding-top: 25px;
@@ -846,8 +851,18 @@
     width: 100%;
   }
 
+  p{
+    color: #fff;
+    font-size: 1em;
+    line-height: 1.2em;
+    @media (min-width: 600px) {
+      font-size: 1.2em;
+    }
+  }
+
   .images__legend {
     .images__legendDate {
+      margin-top:10px;
       color: #fff;
       padding-bottom: 20px;
       font-weight: bold;
@@ -855,7 +870,6 @@
       position: relative;
       display: block;
       display: inline-block;
-      font-size: 25px;
       &:after {
         position: absolute;
         content: "";

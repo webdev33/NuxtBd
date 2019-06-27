@@ -2,12 +2,12 @@
   <section class="index">
     <!-- Alert -->
     <div class="disclaimer" v-show="disclaimer === true">
+      <button class="disclaimer__button" v-on:click="disclaimer = false">x</button>
       <p class="disclaimer__text">
         Ce site à été réalisé à des fins pédagogiques dans le cadre du cursus
         Bachelor de l’école HETIC. Les contenus présentés ne sont en aucun
         cas exploités à des fins commerciales et ne seront pas publiés
       </p>
-      <button class="disclaimer__button" v-on:click="disclaimer = false">Fermer</button>
     </div>
 
     <p class="alert alert-primary alert-danger" v-show="formError != null">{{ formError }}</p>
@@ -267,10 +267,29 @@ export default {
 
 <style lang="scss" scoped>
 .disclaimer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  //max-width: 1260px;
+  position: fixed;
+  top:30px;
+  left:10px;
+  width: 100vw;
   z-index: 1000;
-  background-color: #2623b7;
+  
+  display: flex;
+  p{
+    background-color: #fff;
+    color: #2623B7;
+    font-weight: bold;
+    font-size:0.8em;
+    padding:2px;
+
+  }
+  button{
+    color: #fff;
+    border: none;
+    background-color: #2623B7;
+    height:15px;
+    padding: 0 5px;
+    cursor: pointer;
+  }
 }
 </style>
