@@ -61,14 +61,19 @@
     position: fixed;
     bottom: auto;
     top:calc(100vh);
+    
     .mec{
       left:0;
+      opacity: 0;
       //display: none;
       transition:all 0.3s;
       &--big{
         // height:105vh;
         // width: auto;
         transition:all 0.3s;
+      }
+      &.addOpacity{
+        opacity: 1;
       }
     }
   }

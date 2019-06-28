@@ -176,6 +176,7 @@ export default {
         switch (counterClick ) {
           case 1:
             mec.classList.add("fadeInLeft");
+            mec.classList.add("addOpacity");
             //document.querySelector(".scroll--down").style.opacity = "0";
             break;
 
