@@ -979,7 +979,10 @@ export default {
      * Link
      */
     linkArticle(select) {
-      if (select != `map`) {
+        if(select === `carrier`){
+          this.$router.push({ path: `../../content/bienvenue/${select}` })
+
+        } else if (select != `map`) {
         isNaN(parseInt(select, 16))
           ? this.$router.push({ path: `../../content/bienvenue/${select}` })
           : this.$router.push({ path: `../../content/article/${select}` })
