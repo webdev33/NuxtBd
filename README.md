@@ -15,11 +15,11 @@ Rien de plus simple, clonez le fichier sur votre ordinateur.
 
 Installez npm avec `npm install`
 
-> Allez dans le fichier  `api/index.js` pour configurer l'accés à votre base de donnée. Celle-ci se trouve à la racine du repository
+> Allez dans le fichier  `api/index.js` pour configurer l'accès à votre base de donnée. Celle-ci se trouve à la racine du repository
 
 Il ne vous reste plus qu'à saisir `npm run dev` et à profiter de notre site !
 
-> **Note:** Si vous voulez avoir accés au cms saississez  [http://localhost:3000/admin](http://localhost:3000/admin) 
+> **Note:** Si vous voulez avoir accès au cms saisissez  [http://localhost:3000/admin](http://localhost:3000/admin) 
 > Username : admin
 > Password : admin
 
@@ -28,4 +28,4 @@ Il ne vous reste plus qu'à saisir `npm run dev` et à profiter de notre site !
 - Christina STEPHAN
 - Emma CASSAGNETTES
 - Kalani MARQUAND
-- Marwan OUARET
+- Marwane OUARET
